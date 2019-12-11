@@ -1,0 +1,3 @@
+build:
+  script:
+    - . /var/opt/gitlab-ci/curs/vue-elements/deploy.sh
