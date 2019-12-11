@@ -41,7 +41,7 @@
   </v-content>
 </template>
 
-<script>
+<script scoped>
 export default {
   data: () => ({
     name: '',
