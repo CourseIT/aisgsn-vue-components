@@ -84,7 +84,7 @@ export default {
   text-align: center;
 }
 .v-form {
-  width: 305px;
+  width: 350px;
   text-align: center;
 }
 .login__btn {
