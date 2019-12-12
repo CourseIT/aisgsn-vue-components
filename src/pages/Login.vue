@@ -10,11 +10,12 @@
               информационная система <br>
               «Госстройнадзор»
             </p>
-            <p class="icon"></p>
+            <Icon class="mb100" icon="" />
           </div>
           <v-form>
             <v-text-field
               v-model="name"
+              class="login__input"
               type="email"
               placeholder="Логин"
               color="#ff6100"
@@ -22,6 +23,7 @@
             ></v-text-field>
             <v-text-field
               v-model="password"
+              class="login__input"
               color="#ff6100"
               type="password"
               placeholder="Пароль"
@@ -41,8 +43,12 @@
   </v-content>
 </template>
 
-<script scoped>
+<script>
+const Icon = () => import('../components/Icon')
 export default {
+  components: {
+    Icon
+  },
   data: () => ({
     name: '',
     password: ''
@@ -53,6 +59,9 @@ export default {
 <style>
 .tc {
   text-align: center;
+}
+.mb100 {
+  margin: 100px 0px !important;
 }
 .login{
   background-color: #efeff4;
@@ -68,12 +77,8 @@ export default {
   text-align: center;
   color: #21262c;
   margin-top: 16px;
-  margin-bottom: 107px !important;
 }
-.icon {
-  margin-bottom: 100px !important;
-}
-.v-text-field__slot input {
+.login__input input {
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
