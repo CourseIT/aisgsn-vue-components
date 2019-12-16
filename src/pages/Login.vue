@@ -10,7 +10,7 @@
               информационная система <br>
               «Госстройнадзор»
             </p>
-            <Icon class="mb100" icon="" />
+            <Icon class="icon" icon="" />
           </div>
           <v-form>
             <v-text-field
@@ -60,8 +60,20 @@ export default {
 .tc {
   text-align: center;
 }
-.mb100 {
+.icon{
   margin: 100px 0px !important;
+  font-size: 38px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.58;
+  letter-spacing: normal;
+  text-align: center;
+  font-family: "Font Awesome 5 Pro";
+}
+.icon span {
+  width: 38px;
+  height: 38px;
 }
 .login{
   background-color: #efeff4;
