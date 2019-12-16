@@ -293,7 +293,7 @@ nav {
   cursor: pointer;
 }
 .v-input--switch {
-  margin-top: 5px;
+  margin-top: 5px !important;
   margin-left: 20px;
 }
 </style>
