@@ -280,7 +280,7 @@ nav {
 }
 .icon-btn {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0) !important;
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Pro Light";
   opacity: 0.7;
   font-size: 21px;
   font-weight: normal;
