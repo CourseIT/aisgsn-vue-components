@@ -1,20 +1,47 @@
 <template>
-  <header>
-    <nav>
+  <header class="header">
+    <nav class="header__nav">
       <v-toolbar flat>
         <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <img src="@/assets/logo.png" alt="">
+          <img src="@/assets/logo.png" alt="" class="nav__logo">
         </v-toolbar-title>
-        <p>Navbar</p>
+        <v-toolbar-items class="nav__time">
+          {{time}}
+        </v-toolbar-items>
+        <v-toolbar-items class="db">
+          <p class="nav__day-week">{{day_week}}</p>
+          <div class="nav__date">
+            <span>{{date}},</span>
+            <span>{{year}},</span>
+            <span>{{city}}</span>
+            <i class="fas fa-thunderstorm-sun"></i>
+          </div>
+        </v-toolbar-items>
+        <v-toolbar-items>
+          <i class="fas fa-thunderstorm-sun"></i>
+          <Icon icon="" class="nav__icon"/>
+          <p class="nav__degree">{{degree}}</p>
+          <span>℃</span>
+        </v-toolbar-items>
       </v-toolbar>
     </nav>
   </header>
 </template>
 
 <script>
+const Icon = () => import('./Icon')
 export default {
+  components: {
+    Icon
+  },
   data: () => ({
+    time: '12:25',
+    day_week: 'Понедельник',
+    year: '2020',
+    date: '24 августа',
+    city: 'Москва',
+    degree: '28'
   }),
   methods: {
     openMenu() {
@@ -28,13 +55,16 @@ export default {
 .df {
   display: flex;
 }
+.db{
+  display: block;
+}
 .menu__close-icon {
   margin-top: -9px;
 }
 .menu__close-icon span {
   width: 22px;
   height: 35px;
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: "Font Awesome 5 Pro Light" !important;
   font-size: 35px;
   font-weight: 300;
   font-stretch: normal;
@@ -44,13 +74,73 @@ export default {
   text-align: center;
   margin-right: 30px;
 }
-.menu__logo-img {
-  width: 190px;
-  height: 40px;
+.nav__logo {
+  margin-right: 55px;
 }
 nav {
   position: absolute;
   z-index: 9;
   width: 100%;
+}
+.v-toolbar__content {
+  height: auto !important;
+  background: #efeff4;
+  padding: 35px 30px;
+}
+.nav__time {
+  font-family: Roboto;
+  font-size: 48px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: left;
+  margin-right: 20px;
+}
+.nav__day-week {
+  margin-bottom: 0 !important;
+  color: #21262c;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}
+.nav__date span {
+  color: #21262c;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}
+.nav__icon{
+  font-family: "Font Awesome 5 Pro Light" !important;
+  font-size: 26px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.81;
+  letter-spacing: normal;
+  text-align: left;
+}
+.nav__degree {
+  color: #21262c;
+  font-family: Roboto;
+  font-size: 48px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 0 !important;
 }
 </style>

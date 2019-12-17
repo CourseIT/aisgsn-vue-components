@@ -29,7 +29,7 @@
               placeholder="Пароль"
               required
             ></v-text-field>
-            <v-btn class="login__btn" color="#ff6100">Войти</v-btn>
+            <v-btn class="login__btn" color="#ff6100" @click="$router.push({name: 'Home'})">Войти</v-btn>
             <div class="login__hint">
               <p>
                 Не можете вспомнить свой пароль?<br>
@@ -56,7 +56,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .tc {
   text-align: center;
 }

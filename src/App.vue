@@ -1,30 +1,39 @@
 <template>
   <v-app>
-    <Header />
-    <main class="df">
-      <Menu drawer='false' />
-      <router-view></router-view>
-    </main>
+    <component :is="layout">
+      <router-view/>
+    </component>
   </v-app>
 </template>
 
 <script>
 const Menu = () => import('@/components/Menu')
 const Header = () => import('@/components/Header')
+const Breadcrumbs = () => import('@/components/Breadcrumbs')
 export default {
   components: {
     Menu,
-    Header
+    Header,
+    Breadcrumbs
   },
   name: 'App',
   data: () => ({
     //
   }),
+  computed: {
+    layout() {
+      return this.$route.meta.layout || 'default-layout'
+    }
+  }
 };
 </script>
 <style >
 .df {
   display: flex;
+}
+.content {
+  margin-top: 115px;
+  margin-left: 27px;
 }
 #app {
   background-color: #efeff4;

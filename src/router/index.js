@@ -12,7 +12,10 @@ const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('../pages/Login.vue')
+    component: () => import('../pages/Login.vue'),
+    meta: {
+      layout: 'auth-layout'
+    }
   }
 ]
 

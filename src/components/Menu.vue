@@ -1,5 +1,5 @@
 <template>
-  <div class="menu" :class="{openMenu: $store.state.menu_visability, 'lightGamma': light_gamma}" v-if="drawer" app>
+  <div class="menu" :class="{openMenu: $store.state.menu_visability, 'lightGamma': light_gamma}">
     <div class="menu__container">
       <div class="df">
         <div class="menu__close-btn" @click="closeMenu">
