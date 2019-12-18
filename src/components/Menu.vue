@@ -168,6 +168,7 @@ nav {
 }
 .menu {
   margin-left: -308px;
+  position: fixed;
   transition: all 0.2s ease-out;
   background-color: #21262c;
   padding: 0px;

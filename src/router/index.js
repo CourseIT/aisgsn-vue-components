@@ -16,6 +16,11 @@ const routes = [
     meta: {
       layout: 'auth-layout'
     }
+  },
+  {
+    path: '/1',
+    name: 'Checkup_card_create_document_pdg',
+    component: () => import('../pages/Checkup_card_create_document_pdg.vue')
   }
 ]
 

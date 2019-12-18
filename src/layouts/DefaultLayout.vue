@@ -3,7 +3,7 @@
     <Header />
       <main class="df">
         <Menu drawer='false' />
-        <div class="content">
+        <div class="content v-application--wrap" :class="{ml320 : $store.state.menu_visability}">
           <Breadcrumbs />
         <router-view></router-view>
       </div>
@@ -29,11 +29,16 @@ export default {
 </script>
 
 <style>
+.ml320 {
+  margin-left: 320px !important;
+  transition: all 0.2s ease-out;
+}
 .df {
   display: flex;
 }
 .content {
+  transition: all 0.2s ease-out;
   margin-top: 115px;
-  margin-left: 27px;
+  margin-left: 15px;
 }
 </style>

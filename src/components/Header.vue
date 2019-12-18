@@ -15,11 +15,9 @@
             <span>{{date}},</span>
             <span>{{year}},</span>
             <span>{{city}}</span>
-            <i class="fas fa-thunderstorm-sun"></i>
           </div>
         </v-toolbar-items>
         <v-toolbar-items>
-          <i class="fas fa-thunderstorm-sun"></i>
           <Icon icon="" class="nav__icon"/>
           <p class="nav__degree">{{degree}}</p>
           <span>℃</span>

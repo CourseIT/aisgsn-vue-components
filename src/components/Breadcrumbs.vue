@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <v-container>
     <div class="breadcrumbs">
       <v-breadcrumbs :items="items" :large="large">
         <template v-if="customDiv" v-slot:divider>
@@ -7,7 +7,7 @@
         </template>
       </v-breadcrumbs>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -39,6 +39,7 @@ export default {
 
 <style>
 .breadcrumbs {
+  display: inline-block;
   margin-top: 10px;
   background-color: #21262c;
   border-radius: 4px;
