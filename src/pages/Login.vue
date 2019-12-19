@@ -77,6 +77,7 @@ export default {
 }
 .login{
   background-color: #efeff4;
+  height: 100vh;
 }
 .login__title {
   font-family: Roboto;

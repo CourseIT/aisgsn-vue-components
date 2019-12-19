@@ -54,10 +54,10 @@ export default {
 
 <style>
 .df {
-  display: flex;
+  display: flex !important;
 }
 .db{
-  display: block;
+  display: block !important;
 }
 .menu__close-icon {
   margin-top: -9px;
@@ -76,17 +76,17 @@ export default {
   margin-right: 30px;
 }
 .nav__logo {
-  margin-right: 55px;
+  margin-right: 55px !important;
 }
 nav {
-  position: absolute;
-  z-index: 9;
-  width: 100%;
+  position: absolute !important;
+  z-index: 9 !important;
+  width: 100% !important;
 }
 .v-toolbar__content {
   height: auto !important;
-  background: #efeff4;
-  padding: 35px 30px;
+  background: #efeff4 !important;
+  padding: 35px 30px !important;
 }
 .nav__time {
   font-family: Roboto;
@@ -97,7 +97,7 @@ nav {
   line-height: 1.13;
   letter-spacing: normal;
   text-align: left;
-  margin-right: 20px;
+  margin-right: 20px !important;
 }
 .nav__day-week {
   margin-bottom: 0 !important;
