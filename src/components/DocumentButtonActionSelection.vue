@@ -7,16 +7,22 @@
         block
         class="dropdown"
       >
+      <div class="w80">
         Выбор действия
+      </div>
         <Icon class="icon" style="margin-top: 0px;" icon="" />
       </v-btn>
     </template>
     <v-btn class="dropdown dropdown__btn">
-      Подписать документ
+      <div class="w80">
+        Подписать документ
+      </div>
       <Icon class="icon" style="margin-top: 0px;" icon="" />
     </v-btn>
     <v-btn class="dropdown dropdown__btn">
-      Вернуть на доработку
+      <div class="w80">
+        Вернуть на доработку
+      </div>
       <Icon class="icon" style="margin-top: 0px;" icon="" />
     </v-btn>
   </v-menu>
@@ -32,12 +38,17 @@ export default {
 </script>
 
 <style scoped>
+.w80 {
+  width: 80%;
+}
 .icon {
   font-family: "Font Awesome 5 Pro";
   margin-top: 9px;
   font-size: 21px;
   width: 5%;
   text-align: center;
+  float: right;
+  width: 20%;
 }
 .dropdown {
   box-shadow: none;

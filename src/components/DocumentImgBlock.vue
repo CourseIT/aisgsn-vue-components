@@ -19,12 +19,16 @@
             </v-btn>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
-          <div v-for="(uesr, index) in users" class="dropdown__users" :key="index">
-            <div>
-              <p class="dropdown__user-title">{{uesr.title}}</p>
-              <p class="dropdown__user-name">{{uesr.name}}</p>
+          <div class="dropdonw__block">
+            <div v-for="(uesr, index) in users"  :key="index">
+              <div class="dropdown__users">
+                <div>
+                  <p class="dropdown__user-title">{{uesr.title}}</p>
+                  <p class="dropdown__user-name">{{uesr.name}}</p>
+                </div>
+                <Icon class="icon" data-title="Проверить подпись" style="margin-top: 0px;" icon="" />
+              </div>
             </div>
-            <Icon class="icon" title="Проверить подпись" style="margin-top: 0px;" icon="" />
           </div>
         </v-menu>
       </div>
@@ -86,8 +90,9 @@ export default {
   padding-right: 17px !important;
   min-width: 10px !important;
   opacity: 1;
+  cursor: pointer;
 }
-.icon-btn .v-btn:hover {
+.icon-btn:hover {
   background: none !important;
   background-color: none !important;
 }
@@ -131,6 +136,9 @@ export default {
   text-align: left;
   margin-bottom: 5px;
 }
+.dropdonw__block {
+  padding: 40px 0px;
+}
 .dropdown__users {
   display: flex;
   padding: 2px;
@@ -148,5 +156,38 @@ export default {
 }
 .v-menu__content {
   box-shadow: none !important;
+  margin-top: -40px;
+}
+
+
+[data-title] {
+  position: relative;
+}
+
+[data-title]:hover::before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 50px;
+  left: -90px;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: #000;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+[data-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 35px;
+  left: 2px;
+  display: inline-block;
+  color: #fff;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid #000;
+  transform: rotate(180deg);
 }
 </style>

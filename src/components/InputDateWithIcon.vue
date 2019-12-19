@@ -23,8 +23,8 @@
         </template>
         <v-date-picker v-model="date" no-title scrollable>
           <v-spacer></v-spacer>
-          <v-btn text color="primary" @click="menu = false">Закрыть</v-btn>
-          <v-btn text color="primary" @click="$refs.menu.save(date)">Выбрать</v-btn>
+          <v-btn text color="#000" @click="menu = false">Закрыть</v-btn>
+          <v-btn text color="#000" @click="$refs.menu.save(date)">Выбрать</v-btn>
         </v-date-picker>
       </v-menu>
       <Icon :icon="icon" class="icon"/>

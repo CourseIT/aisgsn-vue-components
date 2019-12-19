@@ -20,15 +20,22 @@
         <v-toolbar-items>
           <i class="fal fa-thunderstorm-sun nav__icon"></i>
           <p class="nav__degree">{{degree}}</p>
-          <span>℃</span>
+          <span class="nav__celsius">℃</span>
         </v-toolbar-items>
+        <v-spacer></v-spacer>
+
+        <Notificatios />
       </v-toolbar>
     </nav>
   </header>
 </template>
 
 <script>
+  const Notificatios = () => import('./Notifications')
 export default {
+  components: {
+    Notificatios
+  },
   data: () => ({
     time: '12:25',
     day_week: 'Понедельник',
@@ -129,11 +136,23 @@ nav {
   font-family: Roboto;
   font-size: 48px;
   font-weight: 300;
+  margin-left: 6px;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.13;
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 0 !important;
+}
+.nav__celsius {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: #21262c;
 }
 </style>
