@@ -1,5 +1,4 @@
 <template>
-  <v-container>
     <div class="breadcrumbs">
       <v-breadcrumbs :items="items" :large="large">
         <template v-if="customDiv" v-slot:divider>
@@ -7,7 +6,6 @@
         </template>
       </v-breadcrumbs>
     </div>
-  </v-container>
 </template>
 
 <script>

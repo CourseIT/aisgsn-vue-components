@@ -18,7 +18,7 @@
           </div>
         </v-toolbar-items>
         <v-toolbar-items>
-          <Icon icon="" class="nav__icon"/>
+          <i class="fal fa-thunderstorm-sun nav__icon"></i>
           <p class="nav__degree">{{degree}}</p>
           <span>℃</span>
         </v-toolbar-items>
@@ -28,11 +28,7 @@
 </template>
 
 <script>
-const Icon = () => import('./Icon')
 export default {
-  components: {
-    Icon
-  },
   data: () => ({
     time: '12:25',
     day_week: 'Понедельник',
@@ -62,7 +58,7 @@ export default {
 .menu__close-icon span {
   width: 22px;
   height: 35px;
-  font-family: "Font Awesome 5 Pro Light" !important;
+  font-family: "Font Awesome 5 Pro" !important;
   font-size: 35px;
   font-weight: 300;
   font-stretch: normal;
@@ -120,7 +116,6 @@ nav {
   text-align: left;
 }
 .nav__icon{
-  font-family: "Font Awesome 5 Pro Light" !important;
   font-size: 26px;
   font-weight: 300;
   font-stretch: normal;

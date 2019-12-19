@@ -1,5 +1,4 @@
 <template>
-  <v-container>
     <v-row>
       <v-col cols="8">
         <div class="df jcsb">
@@ -9,144 +8,22 @@
               капитального строительства для включения в план ОТКИ УГСН
             </h1>
           </div>
-          <Icon icon="" class="icon-s"/>
+          <Icon icon="" class="icon-s mt0"/>
         </div>
         <v-form
           ref="form"
         >
-
-          <div class="input-block">
-            <p class="label">Кому</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Поднадзорный объект</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Состояние объекта</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-          
-          <div class="input-block">
-            <p class="label">Наличие на объекте системы мониторинга метеоусловий</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Основание для включения в план</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Срок проведения работ</p>
-            <div class="df">
-              <v-text-field
-                placeholder="21.09.20 - 26.09.20"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Объекты контроля:</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Проектная документация по объекту контроля</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Наличие исполнительной документации по объекту контроля </p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля: </p>
-            <div class="df">
-              <v-textarea
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-                auto-grow
-              ></v-textarea>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
-
-          <div class="input-block">
-            <p class="label">По результатам выполнения планируемых на объектах контроля измерений представить:</p>
-            <div class="df">
-              <v-text-field
-                placeholder="Заполнено ………"
-                flat="true"
-                solo
-              ></v-text-field>
-              <Icon icon="" class="icon"/>
-            </div>
-          </div>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Кому"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Поднадзорный объект"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Состояние объекта"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Наличие на объекте системы мониторинга метеоусловий"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Основание для включения в план"/>
+          <InputDateWithIcon icon="" label="Срок проведения работ"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Объекты контроля:"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Проектная документация по объекту контроля"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="Наличие исполнительной документации по объекту контроля"/>
+          <TextareaWithIcon placeholder="Заполнено ………" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:"/>
+          <InputWithIcon placeholder="Заполнено ………" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:"/>
 
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
@@ -156,106 +33,49 @@
             <Icon icon="" class="icon-plus"/>
           </div>
           <hr>
-            <div class="input-block">
-              <div class="df">
-                <v-text-field
-                  placeholder="Заполнено ………"
-                  flat="true"
-                  solo
-                  auto-grow
-                ></v-text-field>
-                <Icon icon="" class="icon"/>
-              </div>
-            </div>
-            <div class="input-block">
-              <div class="df">
-                <v-text-field
-                  placeholder="Заполнено ………"
-                  flat="true"
-                  solo
-                  auto-grow
-                ></v-text-field>
-                <Icon icon="" class="icon"/>
-              </div>
-            </div>
-            <div class="input-block">
-              <div class="df">
-                <v-text-field
-                  placeholder="Заполнено ………"
-                  flat="true"
-                  solo
-                  auto-grow
-                ></v-text-field>
-                <Icon icon="" class="icon"/>
-              </div>
-            </div>
-            <div class="input-block">
-              <div class="df">
-                <v-text-field
-                  placeholder="Заполнено ………"
-                  flat="true"
-                  solo
-                  auto-grow
-                ></v-text-field>
-                <Icon icon="" class="icon"/>
-              </div>
-            </div>
-            <div class="input-block">
-              <div class="df">
-                <v-text-field
-                  placeholder="Заполнено ………"
-                  flat="true"
-                  solo
-                ></v-text-field>
-                <Icon icon="" class="icon"/>
-              </div>
-            </div>
-            <div class="df jcfe w95">
-              <Icon icon="" class="icon-plus"/>
-            </div>
-          <hr>
+          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <InputWithIcon placeholder="Заполнено ………" icon="" />
 
-        </v-form>
-      </v-col>
-      <v-col cols="2">
-        <v-menu offset-y>
-          <template v-slot:activator="{ on }">
-            <v-btn
-              color="primary"
-              dark
-              v-on="on"
-            >
-              Dropdown
-            </v-btn>
-          </template>
-          <v-list>
-            <v-list-item
-              v-for="(item, index) in items"
-              :key="index"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-      </v-col>
-    </v-row>
-  </v-container>
+          <div class="df jcfe w95">
+            <Icon icon="" class="icon-plus"/>
+          </div>
+        <hr>
+      </v-form>
+      <div class="df jcsb">
+          <div class="w95">
+          </div>
+          <Icon icon="" class="icon-s mt0"/>
+        </div>
+    </v-col>
+    <v-col cols="2">
+      <DocumentButtonActionSelection />
+      <DocumentImgBlock />
+    </v-col>
+  </v-row>
 </template>
 
 <script>
 const Icon = () => import('../components/Icon')
+const DocumentButtonActionSelection = () => import('../components/DocumentButtonActionSelection')
+const DocumentImgBlock = () => import('../components/DocumentImgBlock')
+const InputWithIcon = () => import('../components/InputWithIcon')
+const InputDateWithIcon = () => import('../components/InputDateWithIcon')
+const TextareaWithIcon = () => import('../components/TextareaWithIcon')
 export default {
   components: {
-    Icon
+    Icon,
+    DocumentButtonActionSelection,
+    DocumentImgBlock,
+    InputWithIcon,
+    InputDateWithIcon,
+    TextareaWithIcon
   },
   data: () => ({
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-      ],
-    }),
+    
+  }),
 }
 </script>
 
@@ -269,15 +89,15 @@ export default {
 .jcfe{
   justify-content: flex-end;
 }
+.mt0 {
+  margin-top: 0px;
+}
 .w95 {
   width: 95%;
 }
 hr {
   border: dashed 0.5px #000;
   margin-bottom: 12px;
-}
-.input-block {
-  margin-bottom: -15px;
 }
 .icon-s {
   font-family: "Font Awesome 5 Pro Light";
@@ -286,15 +106,9 @@ hr {
   width: 5%;
   text-align: center;
 }
-.icon {
-  font-family: "Font Awesome 5 Pro";
-  margin-top: 9px;
-  font-size: 21px;
-  width: 5%;
-  text-align: center;
-}
 .icon-plus {
-  font-family: "Font Awesome 5 Pro";
+  font-family: "Font Awesome 5 Pro Light";
+  cursor: pointer;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-size: 21px;
   font-weight: normal;
@@ -303,18 +117,6 @@ hr {
   line-height: 1.81;
   letter-spacing: normal;
   text-align: left;
-}
-.input-block input {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 0.93;
-  letter-spacing: normal;
-  text-align: left;
-  width: 95%;
-  margin-bottom: -15px !important;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
