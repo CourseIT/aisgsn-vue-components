@@ -10,7 +10,7 @@
       </div>
       <div class="menu__links">
         <div class="link">
-          <h1 class="menu__title cp">Главная</h1>
+          <h1 class="menu__title cp" :style="`font-size: ${text_size}px`">Главная</h1>
         </div>
         <div class="link">
           <div class="df jcsb pr30 cp" @click="openSubmenu('Надзор')">

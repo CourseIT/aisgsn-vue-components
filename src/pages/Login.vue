@@ -13,22 +13,20 @@
             <Icon class="icon" icon="" />
           </div>
           <v-form>
-            <v-text-field
+            <input
               v-model="name"
               class="login__input"
               type="email"
               placeholder="Логин"
-              color="#ff6100"
               required
-            ></v-text-field>
-            <v-text-field
+            />
+            <input
               v-model="password"
               class="login__input"
-              color="#ff6100"
               type="password"
               placeholder="Пароль"
               required
-            ></v-text-field>
+            />
             <v-btn class="login__btn" color="#ff6100" @click="$router.push({name: 'Home'})">Войти</v-btn>
             <div class="login__hint">
               <p>
@@ -91,7 +89,12 @@ export default {
   color: #21262c;
   margin-top: 16px;
 }
-.login__input input {
+.login__input {
+  display: inline-block;
+  outline: none;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 30px;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -99,7 +102,18 @@ export default {
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: center;
+  text-align: center !important;
+  transition: all 0.2s ease-out;
+  border-bottom: 1px solid #4e4e4e;
+}
+.login__input:hover {
+  border-bottom: 1px solid #ff62004b;
+}
+.login__input:focus {
+  border-bottom: 1px solid #ff6100;
+}
+.v-text-field input {
+  text-align: center !important;
 }
 .v-form {
   width: 350px;
