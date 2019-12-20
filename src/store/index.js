@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    menu_visability: false,
+    menu_visibility: false,
     layout: 'default-layout'
   },
   mutations: {
-    SET_MENU_VISABILITY(state, visability) {
-      state.menu_visability = visability
+    SET_MENU_VISIBILITY(state, visibility) {
+      state.menu_visibility = visibility
     },
     setLayout(state, payload) {
       state.layout = payload

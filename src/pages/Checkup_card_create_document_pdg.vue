@@ -37,7 +37,7 @@
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputWithIcon placeholder="Заполнено ………" icon="" />
-          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <InputDateWithIcon icon=""/>
 
           <div class="df jcfe w95">
             <Icon icon="" class="icon-plus"/>

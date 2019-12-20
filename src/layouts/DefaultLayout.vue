@@ -3,7 +3,7 @@
     <Header />
       <main class="df">
         <Menu drawer='false' />
-        <div class="content" :class="{ml320 : $store.state.menu_visability}">
+        <div class="content" :class="{ml320 : $store.state.menu_visibility}">
           <Breadcrumbs />
         <router-view></router-view>
       </div>

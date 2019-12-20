@@ -4,7 +4,7 @@
       <v-layout align-center justify-center>
         <div class="login-form" fluid>
           <div class="tc">
-            <img src="../assets/logo.png" alt="">
+            <img src="../assets/logo.svg" alt="">
             <p class="login__title">
               Автоматизированная <br>
               информационная система <br>

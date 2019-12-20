@@ -10,13 +10,13 @@
       <div>
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
-            <v-btn
+            <div
               class="icon-btn"
               color="#e5e5ea"
               v-on="on"
             >
               <Icon v-on="on" class="icon mt0" icon="" />
-            </v-btn>
+            </div>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
           <div class="dropdonw__block">
@@ -85,16 +85,9 @@ export default {
   background: none;
   background-color: #efeff4 !important;
   box-shadow: none;
-  padding: 0px !important;
-  width: 20px;
-  padding-right: 17px !important;
-  min-width: 10px !important;
+  text-align: center;
   opacity: 1;
   cursor: pointer;
-}
-.icon-btn:hover {
-  background: none !important;
-  background-color: none !important;
 }
 .icon {
   font-family: "Font Awesome 5 Pro";
@@ -142,7 +135,7 @@ export default {
 .dropdown__users {
   display: flex;
   padding: 2px;
-  width: 200px;
+  max-width: 200px;
   justify-content: space-between;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -158,12 +151,9 @@ export default {
   box-shadow: none !important;
   margin-top: -40px;
 }
-
-
 [data-title] {
   position: relative;
 }
-
 [data-title]:hover::before {
   content: attr(data-title);
   position: absolute;

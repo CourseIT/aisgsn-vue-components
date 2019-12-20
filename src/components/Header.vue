@@ -4,7 +4,7 @@
       <v-toolbar flat>
         <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <img src="@/assets/logo.png" alt="" class="nav__logo">
+          <img src="@/assets/logo.svg" alt="" class="nav__logo">
         </v-toolbar-title>
         <v-toolbar-items class="nav__time">
           {{time}}
@@ -24,17 +24,17 @@
         </v-toolbar-items>
         <v-spacer></v-spacer>
 
-        <Notificatios />
+        <Notifications />
       </v-toolbar>
     </nav>
   </header>
 </template>
 
 <script>
-  const Notificatios = () => import('./Notifications')
+  const Notifications = () => import('./Notifications')
 export default {
   components: {
-    Notificatios
+    Notifications
   },
   data: () => ({
     time: '12:25',
@@ -46,7 +46,7 @@ export default {
   }),
   methods: {
     openMenu() {
-      this.$store.commit('SET_MENU_VISABILITY', true)
+      this.$store.commit('SET_MENU_VISIBILITY', true)
     }
   }
 }
@@ -63,7 +63,7 @@ export default {
   margin-top: -9px;
 }
 .menu__close-icon span {
-  width: 22px;
+  max-width: 22px;
   height: 35px;
   font-family: "Font Awesome 5 Pro" !important;
   font-size: 35px;
@@ -97,7 +97,7 @@ nav {
   line-height: 1.13;
   letter-spacing: normal;
   text-align: left;
-  margin-right: 20px !important;
+  margin-right: 20px;
 }
 .nav__day-week {
   margin-bottom: 0 !important;
@@ -121,6 +121,7 @@ nav {
   line-height: 1.4;
   letter-spacing: normal;
   text-align: left;
+  margin-right: 5px;
 }
 .nav__icon{
   font-size: 26px;

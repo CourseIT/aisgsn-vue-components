@@ -1,12 +1,12 @@
 <template>
-  <div class="menu" :class="{openMenu: $store.state.menu_visability, 'lightGamma': light_gamma}">
+  <div class="menu" :class="{openMenu: $store.state.menu_visibility, 'lightGamma': light_gamma}">
     <div class="menu__container">
       <div class="df">
         <div class="menu__close-btn" @click="closeMenu">
           <Icon class="menu__close-icon" :class="{colorBlack: light_gamma}" icon=""/>
         </div>
-        <img v-if="!light_gamma" class="menu__logo-img" src="@/assets/menu-logo.png" alt="">
-        <img v-else class="menu__logo-img" src="@/assets/logo.png" alt="">
+        <img v-if="!light_gamma" class="menu__logo-img" src="@/assets/menu-logo.svg" alt="">
+        <img v-else class="menu__logo-img" src="@/assets/logo.svg" alt="">
       </div>
       <div class="menu__links">
         <div class="link">
@@ -110,7 +110,7 @@ export default {
   methods: {
     closeMenu() {
       this.open_submenu = []
-      this.$store.commit('SET_MENU_VISABILITY', false)
+      this.$store.commit('SET_MENU_VISIBILITY', false)
     },
     openSubmenu(title) {
       if(this.open_submenu.includes(title)) {
@@ -147,9 +147,12 @@ export default {
   cursor: pointer;
 }
 .hidden {
-  transition: all 0.2s ease-out;
-  height: 0px;
+  height: 0px !important;
   overflow: hidden;
+}
+.hidden ul {
+  opacity: 0 !important;
+  transition: all 2s ease-out;
 }
 .colorOrange {
   color: #fb6229 !important;
@@ -172,16 +175,16 @@ nav {
   transition: all 0.2s ease-out;
   background-color: #21262c;
   padding: 0px;
-  width: 312px;
+  min-width: 312px;
   height: 100vh;
   z-index: 99;
   color: #fff;
 }
 .menu__container {
-  padding-left: 30px  !important;
-  padding-right: 30px !important;
-  padding-top: 40px !important;
-  padding-bottom: 77px !important;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 40px;
+  padding-bottom: 77px;
   overflow-y: auto;
   height: 80vh;
 }
@@ -189,7 +192,7 @@ nav {
   cursor: pointer;
   margin-right: 35px;
   height: 40px;
-  width: 22px;
+  max-width: 22px;
 }
 .colorBlack {
   color: #000 !important;
@@ -199,7 +202,7 @@ nav {
   color: #fff;
 }
 .menu__close-icon span {
-  width: 22px;
+  max-width: 22px;
   height: 35px;
   font-family: "Font Awesome 5 Pro Light";
   font-size: 35px;
@@ -211,8 +214,8 @@ nav {
   text-align: center;
 }
 .menu__logo-img {
-  width: 190px;
-  height: 40px;
+  min-width: 190px;
+  min-height: 40px;
   margin-bottom: 100px;
 }
 .link {
@@ -239,13 +242,15 @@ nav {
   text-align: left;
 }
 .link__submenu {
-  transition: all 0.2s ease-out;
+  opacity: 1;
+  height: auto;
+  overflow: auto;
 }
 .link__submenu ul{
   padding-left: 15px;
   margin-top: 10px;
   list-style-type: none;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease-out;
 }
 .link__submenu ul li {
   font-family: Roboto;
