@@ -65,7 +65,7 @@ export default {
 .menu__close-icon span {
   max-width: 22px;
   height: 35px;
-  font-family: "Font Awesome 5 Pro" !important;
+  font-family: var(--font-awesome-5-pro) !important;
   font-size: 35px;
   font-weight: 300;
   font-stretch: normal;

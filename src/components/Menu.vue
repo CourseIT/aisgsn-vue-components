@@ -206,7 +206,7 @@ nav {
 .menu__close-icon span {
   max-width: 22px;
   height: 35px;
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: var(--font-awesome-5-pro-light);
   font-size: 35px;
   font-weight: 300;
   font-stretch: normal;
@@ -234,7 +234,7 @@ nav {
   text-align: left;
 }
 .icon__dots {
-  font-family: "Font Awesome 5 Pro";
+  font-family: var(--font-awesome-5-pro);
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
@@ -288,7 +288,7 @@ nav {
 }
 .icon-btn {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0) !important;
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: var(--font-awesome-5-pro);
   opacity: 0.7;
   font-size: 21px;
   font-weight: normal;

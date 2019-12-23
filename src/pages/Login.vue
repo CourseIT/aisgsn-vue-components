@@ -67,7 +67,7 @@ export default {
   line-height: 1.58;
   letter-spacing: normal;
   text-align: center;
-  font-family: "Font Awesome 5 Pro";
+  font-family: var(--font-awesome-5-pro);
 }
 .icon span {
   width: 38px;

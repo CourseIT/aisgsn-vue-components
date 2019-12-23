@@ -2,6 +2,13 @@
   <div class="input-block">
     <p class="label">{{label}}</p>
     <div class="df">
+      <v-text-field
+            v-model="date"
+            :flat=true
+            solo
+            auto-grow
+            v-on="on"
+      ></v-text-field>
       <v-menu
         ref="menu"
         v-model="menu"
@@ -12,22 +19,14 @@
         min-width="290px"
       >
         <template v-slot:activator="{ on }">
-          <v-text-field
-            v-model="date"
-            :flat=true
-            solo
-            auto-grow
-            readonly
-            v-on="on"
-          ></v-text-field>
+          <div class="icon" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
         </template>
-        <v-date-picker v-model="date" no-title scrollable>
+        <v-date-picker v-model="date" no-title scrollable color="orange" range>
           <v-spacer></v-spacer>
           <v-btn text color="#000" @click="menu = false">Закрыть</v-btn>
           <v-btn text color="#000" @click="$refs.menu.save(date)">Выбрать</v-btn>
         </v-date-picker>
       </v-menu>
-      <Icon :icon="icon" class="icon"/>
     </div>
   </div>
 </template>
@@ -40,7 +39,7 @@ export default {
     Icon
   },
   data: () => ({
-    date: new Date().toISOString().substr(0, 10),
+    date: ['2019-09-10', '2019-09-20'],
     menu: false
   })
 }
@@ -68,7 +67,7 @@ export default {
 .icon {
   cursor: pointer;
   height: 40px;
-  font-family: "Font Awesome 5 Pro";
+  font-family: var(--font-awesome-5-pro);
   margin-top: 9px;
   font-size: 21px;
   width: 5%;

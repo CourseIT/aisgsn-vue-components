@@ -92,7 +92,7 @@ export default {
 }
 .icon {
   cursor: pointer;
-  font-family: "Font Awesome 5 Pro";
+  font-family: var(--font-awesome-5-pro);
   margin-top: 9px;
   font-size: 21px;
   width: 5%;

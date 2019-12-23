@@ -28,6 +28,13 @@ export default {
 };
 </script>
 <style >
+:root {
+  --font-awesome-5-pro: "Font Awesome 5 Pro";
+  --font-awesome-5-pro-light: "Font Awesome 5 Pro Light";
+  --font-awesome-5-pro-regular: "Font Awesome 5 Pro Regular";
+  --orange: "#fb6229";
+  --dark: "#21262c";
+}
 .df {
   display: flex;
 }

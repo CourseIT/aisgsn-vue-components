@@ -100,16 +100,14 @@ hr {
   margin-bottom: 12px;
 }
 .icon-s {
-  cursor: pointer;
-  height: 30px;
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: var(--font-awesome-5-pro-light);
   margin-top: 9px;
   font-size: 21px;
   width: 5%;
   text-align: center;
 }
 .icon-plus {
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-size: 21px;

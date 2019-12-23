@@ -28,7 +28,7 @@ export default {
 
 <style scoped>
 .icon {
-  font-family: "Font Awesome 5 Pro Light";
+  font-family: var(--font-awesome-5-pro-light);
   font-size: 21px;
   font-weight: normal;
   font-stretch: normal;
