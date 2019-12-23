@@ -72,6 +72,7 @@ export default {
   margin-left: 5px;
 }
 .icon-text {
+  cursor: pointer;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 500;
@@ -90,6 +91,7 @@ export default {
   cursor: pointer;
 }
 .icon {
+  cursor: pointer;
   font-family: "Font Awesome 5 Pro";
   margin-top: 9px;
   font-size: 21px;

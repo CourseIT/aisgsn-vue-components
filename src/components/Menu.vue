@@ -10,7 +10,7 @@
       </div>
       <div class="menu__links">
         <div class="link">
-          <h1 class="menu__title cp" :style="`font-size: ${text_size}px`">Главная</h1>
+          <h1 class="menu__title cp" :style="`font-size: ${text_size}px`" @click="$router.push({name: 'Home'})">Главная</h1>
         </div>
         <div class="link">
           <div class="df jcsb pr30 cp" @click="openSubmenu('Надзор')">
@@ -161,7 +161,7 @@ nav {
   padding-right: 5px;
 }
 .lightGamma {
-  transition: all 0.2s ease-out;
+  transition: all 0.4s ease;
   background-color: #e5e5ea !important;
   color: #000 !important;
 }
@@ -172,7 +172,7 @@ nav {
 .menu {
   margin-left: -308px;
   position: fixed;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease;
   background-color: #21262c;
   padding: 0px;
   min-width: 312px;

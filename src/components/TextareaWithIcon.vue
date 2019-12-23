@@ -43,10 +43,13 @@ export default {
   margin-bottom: -15px;
 }
 .icon {
+  cursor: pointer;
+  height: 40px;
   font-family: "Font Awesome 5 Pro";
   margin-top: 9px;
   font-size: 21px;
   width: 5%;
   text-align: center;
 }
+
 </style>

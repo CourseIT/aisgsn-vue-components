@@ -6,19 +6,19 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Home',
     component: () => import('../pages/Home.vue')
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: () => import('../pages/Login.vue'),
     meta: {
       layout: 'auth-layout'
     }
   },
   {
-    path: '/1',
+    path: '/Checkup_card_create_document_pdg',
     name: 'Checkup_card_create_document_pdg',
     component: () => import('../pages/Checkup_card_create_document_pdg.vue')
   }

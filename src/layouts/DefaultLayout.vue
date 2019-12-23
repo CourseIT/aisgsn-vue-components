@@ -31,13 +31,13 @@ export default {
 <style>
 .ml320 {
   margin-left: 320px !important;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease;
 }
 .df {
   display: flex;
 }
 .content {
-  transition: all 0.2s ease-out;
+  transition: all 0.3s ease;
   margin-top: 115px;
   margin-left: 15px;
   width: 100%;
