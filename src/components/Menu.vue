@@ -172,7 +172,7 @@ nav {
 .menu {
   margin-left: -308px;
   position: fixed;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease-in-out;
   background-color: #21262c;
   padding: 0px;
   min-width: 312px;
@@ -189,12 +189,14 @@ nav {
   height: 80vh;
 }
 .menu__close-btn {
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
   margin-right: 35px;
   height: 40px;
   max-width: 22px;
 }
 .colorBlack {
+  transition: all 0.2s ease-in-out;
   color: #000 !important;
 }
 .menu__close-icon {

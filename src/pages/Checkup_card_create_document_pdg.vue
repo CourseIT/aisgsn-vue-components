@@ -100,6 +100,8 @@ hr {
   margin-bottom: 12px;
 }
 .icon-s {
+  cursor: pointer;
+  height: 30px;
   font-family: "Font Awesome 5 Pro Light";
   margin-top: 9px;
   font-size: 21px;

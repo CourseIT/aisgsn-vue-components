@@ -15,7 +15,7 @@
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" class="icon mt0" icon="" />
+              <Icon v-on="on" icon-title="Лист визирования" class="icon mt0" icon="" />
             </div>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
@@ -34,7 +34,7 @@
       </div>
       <Icon class="icon mt0 ml5" icon="" />
       <Icon class="icon mt0 ml5" icon="" />
-      <Icon class="icon mt0 ml5" color="#ff6100" icon="" />
+      <Icon class="icon mt0 ml5" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
     </div>
   </div>
 </template>
@@ -180,6 +180,36 @@ export default {
   color: #fff;
   border: 8px solid transparent;	
   border-bottom: 8px solid #000;
+  transform: rotate(180deg);
+}
+
+[icon-title] {
+  position: relative;
+}
+[icon-title]:hover::before {
+  content: attr(icon-title);
+  position: absolute;
+  bottom: 50px;
+  left: -90px;
+  display: inline-block;
+  padding: 3px 6px;
+  border-radius: 2px;
+  background: #fff;
+  border-radius: 3px;
+  color: #21262c;
+  font-size: 12px;
+  font-family: sans-serif;
+  white-space: nowrap;
+}
+[icon-title]:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 35px;
+  left: 2px;
+  display: inline-block;
+  color: #fff;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid #fff;
   transform: rotate(180deg);
 }
 </style>
