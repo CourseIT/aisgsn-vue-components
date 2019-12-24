@@ -105,6 +105,7 @@ hr {
   font-size: 21px;
   width: 5%;
   text-align: center;
+  cursor: pointer;
 }
 .icon-plus {
   font-family: var(--font-awesome-5-pro-light);

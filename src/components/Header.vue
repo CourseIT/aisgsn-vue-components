@@ -4,7 +4,7 @@
       <v-toolbar flat>
         <v-app-bar-nav-icon @click="openMenu"></v-app-bar-nav-icon>
         <v-toolbar-title>
-          <img src="@/assets/logo.svg" alt="" class="nav__logo">
+          <img src="@/assets/logo.svg" alt="" @click="$router.push({name: 'Home'})" class="nav__logo">
         </v-toolbar-title>
         <v-toolbar-items class="nav__time">
           {{time}}
@@ -76,7 +76,8 @@ export default {
   margin-right: 30px;
 }
 .nav__logo {
-  margin-right: 55px !important;
+  margin-right: 55px;
+  cursor: pointer;
 }
 nav {
   position: absolute !important;

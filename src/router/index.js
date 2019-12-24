@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: () => import('../pages/Home.vue')
   },
   {
@@ -18,7 +18,7 @@ const routes = [
     }
   },
   {
-    path: '/Checkup_card_create_document_pdg',
+    path: '/checkup_card_create_document_pdg',
     name: 'Checkup_card_create_document_pdg',
     component: () => import('../pages/Checkup_card_create_document_pdg.vue')
   }

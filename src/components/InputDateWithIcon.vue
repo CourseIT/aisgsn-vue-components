@@ -1,32 +1,35 @@
 <template>
-  <div class="input-block">
-    <p class="label">{{label}}</p>
-    <div class="df">
-      <v-text-field
-            v-model="date"
-            :flat=true
-            solo
-            auto-grow
-            v-on="on"
-      ></v-text-field>
-      <v-menu
-        ref="menu"
-        v-model="menu"
-        :close-on-content-click="false"
-        :return-value.sync="date"
-        transition="scale-transition"
-        offset-y
-        min-width="290px"
-      >
-        <template v-slot:activator="{ on }">
-          <div class="icon" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
-        </template>
-        <v-date-picker v-model="date" no-title scrollable color="orange" range>
-          <v-spacer></v-spacer>
-          <v-btn text color="#000" @click="menu = false">Закрыть</v-btn>
-          <v-btn text color="#000" @click="$refs.menu.save(date)">Выбрать</v-btn>
-        </v-date-picker>
-      </v-menu>
+  <div class="input-date">
+    <div class="input-block">
+      <p class="label">{{label}}</p>
+      <div class="df" 
+        @click="menu = true">
+        <v-text-field
+          v-model="dateRangeText"
+          :flat=true
+          solo
+          v-on="on"
+          disabled
+        ></v-text-field>
+        <v-menu
+          ref="menu"
+          v-model="menu"
+          :close-on-content-click="false"
+          :return-value.sync="date"
+          transition="scale-transition"
+          offset-y
+          min-width="290px"
+        >
+          <template v-slot:activator="{ on }">
+            <div class="icon" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
+          </template>
+          <v-date-picker v-model="date" no-title scrollable color="orange" range>
+            <v-spacer></v-spacer>
+            <v-btn text color="#000" @click="menu = false">Закрыть</v-btn>
+            <v-btn text color="#000" @click="$refs.menu.save(date)">Выбрать</v-btn>
+          </v-date-picker>
+        </v-menu>
+      </div>
     </div>
   </div>
 </template>
@@ -41,15 +44,23 @@ export default {
   data: () => ({
     date: ['2019-09-10', '2019-09-20'],
     menu: false
-  })
+  }),
+  computed: {
+    dateRangeText () {
+      return this.date.join(' - ')
+    },
+  },
 }
 </script>
 
-<style scoped>
+<style>
+.input-date .theme--light.v-input--is-disabled .v-label, .theme--light.v-input--is-disabled input, .theme--light.v-input--is-disabled textarea {
+  color: #000;
+}
 .df {
   display: flex;
 }
-.label {
+.input-date .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 12px;
@@ -61,10 +72,11 @@ export default {
   text-align: left;
   margin-bottom: 5px;
 }
-.input-block {
+.input-date .input-block {
   margin-bottom: -15px;
+  cursor: pointer;
 }
-.icon {
+.input-date .icon {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro);

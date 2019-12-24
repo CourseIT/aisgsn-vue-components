@@ -11,6 +11,7 @@ export default new Vuex.Store({
   mutations: {
     SET_MENU_VISIBILITY(state, visibility) {
       state.menu_visibility = visibility
+      document.cookie = `menu_visibility=${visibility}`;
     },
     setLayout(state, payload) {
       state.layout = payload
