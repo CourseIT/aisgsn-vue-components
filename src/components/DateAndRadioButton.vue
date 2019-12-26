@@ -152,6 +152,7 @@ export default {
   color: #20262c;
   cursor: pointer;
   margin-left: -18px;
+  margin-right: 1px;
 }
 .date-and-radio .hover-icon:hover {
   display: block;
@@ -177,7 +178,7 @@ export default {
 .date-and-radio .hover-icon__bg {
   background-color: #fff;
   border-radius: 5px;
-  padding: 3px;
+  padding: 2px 4px;
   transition: all 0.2s ease-out;
 }
 .date-and-radio .hover-icon__bg:hover {

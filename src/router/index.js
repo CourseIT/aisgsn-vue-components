@@ -26,6 +26,11 @@ const routes = [
     path: '/analytics_a1',
     name: 'Analytics_A1',
     component: () => import('../pages/Analytics_A1.vue')
+  },
+  {
+    path: '/analytics_a2',
+    name: 'Analytics_A2',
+    component: () => import('../pages/Analytics_A2.vue')
   }
 ]
 

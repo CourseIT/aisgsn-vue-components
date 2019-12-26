@@ -104,7 +104,7 @@ nav {
   margin-right: 20px;
 }
 .nav__day-week {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
   color: var(--dark);
   font-family: Roboto;
   font-size: 15px;

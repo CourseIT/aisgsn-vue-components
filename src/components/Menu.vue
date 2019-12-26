@@ -224,7 +224,7 @@ nav {
   color: #000 !important;
 }
 .menu__close-icon {
-  margin-top: -8px;
+  margin-top: -5px;
   color: #fff;
 }
 .menu__close-icon span {
