@@ -8,7 +8,7 @@
 
 <script>
 const DateAndRadioButton = () => import('../components/DateAndRadioButton')
-const AnalyticsBlock = () => import('../components/AnalyticsBlock3')
+const AnalyticsBlock = () => import('../components/AnalyticsBlock')
 export default {
   name: 'Analytics_A1',
   components: { DateAndRadioButton, AnalyticsBlock }

@@ -1,7 +1,15 @@
 <template>
   <div class="analytics-block">
     <div class="df">
-      <div class="mt22mr10">
+      <div class="df mr50">
+        <div class="block1-title">
+          <p>{{analytics.year[0]}}</p>
+        </div>
+        <div class="block2-title">
+          <p>{{analytics.year[1]}}</p>
+        </div>
+      </div>
+      <div  v-if="analytics.title" class="mt22mr10">
         <div class="main-dot"></div>
         <div class="border-y"></div>
         <div class="df m-d-b">
@@ -9,102 +17,44 @@
           <div class="border-x"></div>
         </div>
       </div>
-      <div class="title-text">
+      <div v-if="analytics.title" class="title-text">
         <h1 class="analytics-title">{{analytics.title}}</h1>
         <h1 class="analytics-title">{{analytics.desc}}</h1>
       </div>
     </div>
-    <ul class="ml30 df">
-      <div class="border-y1"></div>
-      <div>
-        <li v-for="(list, index) in analytics.lists" :key="index">
-
-          <div class="df color-block1">
-            <div class="block1" :style="`background-color: red`">
-              <span :style="`color: red`">XXX</span>
+    <div class="df" v-for="(item, index) in analytics.list" :key="index">
+      <div class="df mr70">
+        <div class="block1" :style="`background-color: ${item.color}60`">
+          <span :style="`color: ${item.color}`">{{item.x}}</span>
+        </div>
+        <div class="block2" :style="`background-color: ${item.color}`">
+          <span>{{item.x}}</span>
+          <div class="plus">{{item.plus}}</div>
+        </div>
+      </div>
+      <div :class="{mr25: item.section.length == 3, mr63: item.section.length == 5, mr100: item.section.length == 7}">
+        <div class="df aic">
+          <div v-if="item.section !== '1.1'" class="border-yy"></div>
+          <div v-if="item.section !== '1.1' && item.section.length == 5" class="border-yy r38"></div>
+          <div v-if="item.section !== '1.1' && item.section.length == 7" class="border-yy r37"></div>
+          <div v-if="item.section !== '1.1' && item.section.length == 7" class="border-yy r76"></div>
+            <div>
+              <div v-if="item.section === '1.1' && item.section.length == 3" class="dot-r1"></div>
+              <div v-if="item.section !== '1.1' && item.section.length == 3" class="dot-r2"></div>
+              <div v-if="item.section !== '1.1' && item.section.length == 5" class="dot-r3"></div>
+              <div v-if="item.section !== '1.1' && item.section.length == 7" class="dot-r4"></div>
+              <div class="border-x"></div>
             </div>
-            <div class="block2" :style="`background-color: red`">
-              <span>XXX</span>
-              <div class="plus">+x</div>
-            </div>
-          </div>
-
-          <div class="df">
-            <div class="dot"></div>
-            <div class="border-x"></div>
-            <div class="opacity-circle-x1">
-              <div class="circle-x1">
-                {{list.x}}
+            <div :class="{opacityCircleX1: item.section.length == 3, opacityCircleX2: item.section.length == 5, opacityCircleX3: item.section.length == 7}" :style="`background-color: ${item.color}60`">
+              <div :class="{circleX1: item.section.length == 3, circleX2: item.section.length == 5, circleX3: item.section.length == 7}" :style="`background-color: ${item.color}`">
+                {{item.circle_text}}
               </div>
             </div>
-            <span class="li-title">{{list.number}}</span>
-            <span class="li-title">{{list.title}}</span>
-          </div>
-          <ul class="ml32 df">
-            <div class="border-y2"></div>
-            <div>
-              <li v-for="(sublist, index) in list.list" :key="index">
-
-                <div class="df color-block2">
-                  <div class="block1" :style="`background-color: red`">
-                    <span :style="`color: red`">XXX</span>
-                  </div>
-                  <div class="block2" :style="`background-color: red`">
-                    <span>XXX</span>
-                    <div class="plus">+x</div>
-                  </div>
-                </div>
-
-
-                <div class="df">
-                  <div class="dot"></div>
-                  <div class="border-x"></div>
-                  <div class="opacity-circle-x2">
-                    <div class="circle-x2">
-                      {{sublist.x}}
-                    </div>
-                  </div>
-                  <span class="li-text">{{sublist.number}}</span>
-                  <span class="li-text">{{sublist.title}}</span>
-                </div>
-                <ul class="ml27 df">
-                  <div class="border-y3"></div>
-                  <div>
-                    <li v-for="(subsublist, index) in sublist.list" :key="index">
-
-                      <div class="df color-block3">
-                        <div class="block1" :style="`background-color: red`">
-                          <span :style="`color: red`">XXX</span>
-                        </div>
-                        <div class="block2" :style="`background-color: red`">
-                          <span>XXX</span>
-                          <div class="plus">+x</div>
-                        </div>
-                      </div>
-
-
-                      <div class="df">
-                        <div class="df">
-                          <div class="dot"></div>
-                          <div class="border-x"></div>
-                          <div class="opacity-circle-x3">
-                            <div class="circle-x3">
-                              {{subsublist.x}}
-                            </div>
-                          </div>
-                        </div>
-                        <span class="li-text">{{subsublist.number}}</span>
-                        <span class="li-text">{{subsublist.title}}</span>
-                      </div>
-                    </li>
-                  </div>
-                </ul>
-              </li>
-            </div>
-          </ul>
-        </li>
+            <span :class="{liTitle: item.section.length == 3, liText: item.section.length >= 4}">{{item.section}}</span>
+            <span :class="{liTitle: item.section.length == 3, liText: item.section.length >= 4}">{{item.text}}</span>
+        </div>
       </div>
-    </ul>
+    </div>
   </div>
 </template>
 
@@ -114,89 +64,122 @@ export default {
     analytics: {
       title: 'РАЗДЕЛ 1.',
       desc: 'Сведения о количестве проведенных проверок юридических лиц и индивидуальных предпринимателей',
-      lists: [
+      year: ['2019', '2020'],
+      list: [
         {
-          x: 'XXX',
-          number: '1.1',
-          title: 'Общее количество внеплановых проверок - всего, в том числе по следующим основаниям:',
-          list: [
-            {
-              x: 'XX',
-              number: '1.1.1',
-              title: 'по контролю за исполнением предписаний, выданных по результатам проведенной ранее проверки',
-              list: []
-            },
-            {
-              x: 'XX',
-              number: '1.1.2',
-              title: 'по заявлениям (обращениям) физических и юридических лиц, по информации органов государственной власти, местного самоуправления, средств массовой информации об указанных фактах - всего, в том числе:',
-              list: [
-                {
-                  x: 'XX',
-                  number: '1.1.2.1',
-                  title: 'о возникновении угрозы причинения вреда жизни, здоровью граждан, вреда животным, растениям, окружающей среде, объектам культурного наследия (памятникам истории и культуры) народов Российской Федерации, безопасности государства, а также угрозы чрезвычайных ситуаций Природного и техногенного характера'
-                },
-                {
-                  x: 'XX',
-                  number: '1.1.2.2',
-                  title: 'о причинении вреда жизни и здоровью граждан, вреда животным,  растениям, окружающей среде, объектам культурного наследия (памятникам истории и культуры) народов Российской Федерации, имуществу физических и юридических лиц, безопасности государства, а также возникновение чрезвычайных ситуаций природного и техногенного характера'
-                },
-                {
-                  x: 'XX',
-                  number: '1.1.2.3',
-                  title: 'о нарушении прав потребителей (в случае обращения граждан, права которых нарушены)'
-                },
-                {
-                  x: 'XX',
-                  number: '1.1.2.4',
-                  title: 'о нарушении трудовых прав граждан'
-                }
-              ]
-            },
-            {
-              x: 'XX',
-              number: '1.1.3',
-              title: 'на основании приказов (распоряжений) руководителя органа государственного Контроля (надзора),  изданного в соответствии с поручениями Президента Российской Федерации, Правительства Российской Федерации'
-            },
-            {
-              x: 'XX',
-              number: '1.1.4',
-              title: 'на основании приказов (распоряжений) руководителя органа государственного контроля (надзора),  изданного в соответствии с требованием органов прокуратуры'
-            },
-            {
-              x: 'XX',
-              number: '1.1.5',
-              title: 'по иным основаниям, установленным законодательством Российской Федерации'
-            }
-          ]
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XXX',
+          color: '#4cd964',
+          section: '1.1',
+          text: 'Общее количество внеплановых проверок - всего, в том числе по следующим основаниям:'
         },
         {
-          x: 'XXX',
-          number: '1.2',
-          title: 'Количество проверок, проведенных совместно с другими органами Государственного контроля (надзора), муниципального контроля',
-          list: [
-            {
-              x: 'XX',
-              number: '1.2.1',
-              title: 'из них внеплановых'
-            }
-          ]
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.1.1',
+          text: 'по контролю за исполнением предписаний, выданных по результатам проведенной ранее проверки'
         },
         {
-          x: 'XXX',
-          number: '1.3',
-          title: 'Общее количество документарных проверок',
-          list: []
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.1.2',
+          text: 'по заявлениям (обращениям) физических и юридических лиц, по информации органов государственной власти, местного самоуправления, средств массовой информации об указанных фактах - всего, в том числе:'
         },
         {
-          x: 'XXX',
-          number: '1.4',
-          title: 'Общее количество выездных проверок',
-          list: []
-        }
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#0079ff',
+          section: '1.1.2.1',
+          text: 'о возникновении угрозы причинения вреда жизни, здоровью граждан, вреда животным, растениям, окружающей среде, объектам культурного наследия (памятникам истории и культуры) народов Российской Федерации, безопасности государства, а также угрозы чрезвычайных ситуаций Природного и техногенного характера'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#0079ff',
+          section: '1.1.2.2',
+          text: 'о причинении вреда жизни и здоровью граждан, вреда животным,  растениям, окружающей среде, объектам культурного наследия (памятникам истории и культуры) народов Российской Федерации, имуществу физических и юридических лиц, безопасности государства, а также возникновение чрезвычайных ситуаций природного и техногенного характера'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          color: '#0079ff',
+          circle_text : 'XX',
+          section: '1.1.2.3',
+          text: 'о нарушении прав потребителей (в случае обращения граждан, права которых нарушены)'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#0079ff',
+          section: '1.1.2.4',
+          text: 'о нарушении трудовых прав граждан'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.1.3',
+          text: 'на основании приказов (распоряжений) руководителя органа государственного Контроля (надзора),  изданного в соответствии с поручениями Президента Российской Федерации, Правительства Российской Федерации'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.1.4',
+          text: 'на основании приказов (распоряжений) руководителя органа государственного контроля (надзора),  изданного в соответствии с требованием органов прокуратуры'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.1.5',
+          text: 'по иным основаниям, установленным законодательством Российской Федерации'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XXX',
+          color: '#4cd964',
+          section: '1.2',
+          text: 'Количество проверок, проведенных совместно с другими органами Государственного контроля (надзора), муниципального контроля'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XX',
+          color: '#ffcc00',
+          section: '1.2.1',
+          text: 'из них внеплановых'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XXX',
+          color: '#4cd964',
+          section: '1.3',
+          text: 'Общее количество документарных проверок'
+        },
+        {
+          x: 'xxx',
+          plus: '+x',
+          circle_text : 'XXX',
+          color: '#4cd964',
+          section: '1.4',
+          text: 'Общее количество выездных проверок'
+        },
       ]
-    },
-    
+    }
   }),
 }
 </script>
@@ -206,28 +189,8 @@ export default {
   margin-top: 22px;
   margin-right: 10px;
 }
-.ml32 {
-  margin-left: 32px;
-}
-.ml30 {
-  margin-left: 30px;
-}
-.ml27 {
-  margin-left: 27px;
-}
 .df {
   display: flex;
-}
-.dt {
-  display: table;
-}
-.vm {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-}
-.mr0 {
-  margin-right: 0;
 }
 .analytics-title {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -249,32 +212,6 @@ li {
   list-style-type: none;
   margin: 20px 0px;
 }
-.li-title {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin: 12px 5px;
-}
-.li-text {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin: 12px 5px;
-}
 .main-dot {
   width: 17px;
   height: 17px;
@@ -284,61 +221,100 @@ li {
 }
 .m-d-b {
   position: relative;
-  top: 41px;
+  top: 63px;
   left: 8px;
+}
+.m-d-b .dot {
+  bottom: 5px;
+  right: 2px;
 }
 .dot {
   width: 5px;
   height: 5px;
   background-color: var(--dark);
-  margin-top: 16px;
   border-radius: 50%;
-  margin-left: -2px;
+  position: relative;
+  right: 3px;
+}
+.dot-r1 {
+  width: 5px;
+  height: 5px;
+  background-color: var(--dark);
+  border-radius: 50%;
+  position: relative;
+  right: 1px;
+}
+.dot-r2 {
+  width: 5px;
+  height: 5px;
+  background-color: var(--dark);
+  border-radius: 50%;
+  position: relative;
+  right: 2px;
+}
+.dot-r3 {
+  width: 5px;
+  height: 5px;
+  background-color: var(--dark);
+  border-radius: 50%;
+  position: relative;
+  right: 3px;
+}
+.dot-r4 {
+  width: 5px;
+  height: 5px;
+  background-color: var(--dark);
+  border-radius: 50%;
+  position: relative;
+  right: 4px;
 }
 .border-y {
   width: 1px;
-  height: 65px;
+  height: 61px;
   border-left: 1px dashed;
   position: relative;
   left: 8px;
   margin-bottom: -60px;
 }
-.border-y1 {
+.border-yy {
   width: 1px;
-  height: auto;
+  height: 60px;
   border-left: 1px dashed;
-  margin-bottom: 85px;
   position: relative;
-  bottom: 11px;
-  margin-top: 50px;
-}
-.border-y2 {
-  width: 1px;
-  height: auto;
-  border-left: 1px dashed;
-  margin-bottom: 55px;
-}
-.border-y3 {
-  width: 1px;
-  height: auto;
-  margin-top: -24px;
-  border-left: 1px dashed;
-  margin-bottom: 40px;
+  bottom: 30px;
+  right: -1px;
 }
 .border-x {
   height: 1px;
   width: 20px;
-  border-bottom: 1px dashed;
-  margin-top: 18px;
-  margin-right: -5px;
+  border-top: 1px dashed;
+  position: relative;
+  bottom: 3px;
 }
-.opacity-circle-x1 {
+
+
+
+.r38{
+  right: 38px;
+}
+.r37{
+  right: 37px;
+}
+.r76{
+  right: 76px;
+}
+
+.aic {
+  align-items: center;
+}
+.opacityCircleX1 {
   display: inline-block;
   padding: 4px;
-  background-color: #4cd96360;
   border-radius: 50%;
+  width: 38px;
+  height: 38px;
 }
-.circle-x1 {
+.circleX1 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 9px;
@@ -353,19 +329,17 @@ li {
   width: 30px;
   height: 30px;
   padding: 8px 6px;
-  background-color: var(--weird-green);
   z-index: 99;
   position: relative;
 }
-.opacity-circle-x2 {
+.opacityCircleX2 {
   display: inline-block;
   padding: 4px;
-  background-color: #ffcc0060;
   border-radius: 50%;
   width: 33px;
   height: 33px;
 }
-.circle-x2 {
+.circleX2 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 9px;
@@ -380,20 +354,17 @@ li {
   height: 25px;
   border-radius: 50%;
   padding: 6px;
-  background-color: var(--marigold);
   z-index: 99;
   position: relative;
 }
-.opacity-circle-x3 {
+.opacityCircleX3 {
   display: inline-block;
   padding: 3px;
-  background-color: #0079ff60;
   border-radius: 50%;
   width: 26px;
   height: 26px;
-  margin-top: 6px;
 }
-.circle-x3 {
+.circleX3 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 9px;
@@ -408,37 +379,53 @@ li {
   color: #fff;
   border-radius: 50%;
   padding: 3px 4px;
-  background-color: #0079ff;
   z-index: 99;
   position: relative;
 }
 
-
-.analytics-block {
-  padding-left: 330px;
+.liTitle {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  margin: 12px 5px;
 }
-.color-block1 {
-  margin-bottom: 20px;
-  position: relative;
-  left: -350px;
-  top: 55px;
+.liText {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  margin: 0px 5px;
 }
-.color-block2 {
-  margin-bottom: 20px;
-  position: relative;
-  left: -380px;
-  top: 55px;
+.mr25 {
+  padding-left: 25px;
 }
-.color-block3 {
-  margin-bottom: 20px;
-  position: relative;
-  left: -410px;
-  top: 55px;
+.mr63 {
+  padding-left: 63px;
 }
-.analytics-year-block {
-  max-width: 250px;
+.mr100 {
+  padding-left: 100px;
+}
+.mr50 {
   margin-right: 50px;
-  margin-top: 20px;
+}
+.mr70 {
+  margin-right: 70px;
+  margin-top: 10px;
 }
 .block1-title {
   font-family: Roboto;
@@ -454,8 +441,10 @@ li {
   padding: 5px;
   margin-bottom: 30px;
 }
-.block1-title span {
+.block1-title p {
   margin-left: 7px;
+  padding-top: 20px;
+  margin-bottom: 0;
 }
 .block2-title {
   font-family: Roboto;
@@ -471,8 +460,10 @@ li {
   padding: 5px;
   margin-bottom: 30px;
 }
-.block2-title span {
+.block2-title p {
   margin-right: 10px;
+  padding-top: 20px;
+  margin-bottom: 0;
 }
 .block1 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -485,6 +476,7 @@ li {
   letter-spacing: normal;
   text-align: center;
   width: 113px;
+  height: 30px;
   padding: 5px;
   background-color: var(--weird-green);
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 80% 100%, 0% 100%);
@@ -500,6 +492,8 @@ li {
   letter-spacing: normal;
   text-align: center;
   width: 144px;
+  height: 30px;
+  margin-bottom: 20px;
   padding: 5px;
   color: #fff;
   background-color: var(--weird-green);
@@ -522,7 +516,7 @@ li {
   color: #fff;
   position: relative;
   display: inline-block;
-  left: 42px;
+  left: 45px;
   bottom: 10px;
 }
 </style>
