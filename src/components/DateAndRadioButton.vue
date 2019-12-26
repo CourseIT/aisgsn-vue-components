@@ -80,14 +80,14 @@ export default {
   border-radius: 0px;
 }
 .date-and-radio .mdi-radiobox-marked::before {
-    content: "⚫";
-    font-size: 27px;
-    padding-left: 8px;
-    width: 31px;
-    height: 31px;
-    color: var(--bright-orange);
-    background: #000;
-    border-radius: 5px;
+    content: "⚫" !important;
+    font-size: 27px !important;
+    padding-left: 8px !important;
+    width: 31px !important;
+    height: 31px !important;
+    color: var(--bright-orange) !important;
+    background: #000 !important;
+    border-radius: 5px !important;
 }
 .date-and-radio .date__btn {
   outline: none;
