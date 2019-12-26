@@ -87,7 +87,10 @@ nav {
 .v-toolbar__content {
   height: auto !important;
   background: var(--pale-grey);
-  padding: 35px 30px;
+  padding: 35px 30px !important;
+}
+.v-toolbar__content .v-app-bar__nav-icon {
+  margin-top: -10px;
 }
 .nav__time {
   font-family: Roboto;
