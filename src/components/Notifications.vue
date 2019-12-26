@@ -38,6 +38,6 @@ export default {
   text-align: left;
 }
 .notifications__btn {
-  background-color: #ff3b30 !important;
+  background-color: #ff3b30;
 }
 </style>

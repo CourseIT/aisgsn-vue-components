@@ -84,7 +84,7 @@ export default {
 }
 .icon-btn {
   background: none;
-  background-color: #efeff4 !important;
+  background-color: var(--pale-grey);
   box-shadow: none;
   text-align: center;
   opacity: 1;
@@ -146,11 +146,11 @@ export default {
 }
 .dropdown__users .icon {
   cursor: pointer;
-  margin-right: 20px !important;
+  margin-right: 20px;
   margin-top: 5px !important;
 }
 .v-menu__content {
-  box-shadow: none !important;
+  box-shadow: none;
   margin-top: -40px;
 }
 [data-title] {
@@ -196,7 +196,7 @@ export default {
   border-radius: 2px;
   background: #fff;
   border-radius: 3px;
-  color: #21262c;
+  color: var(--dark);
   font-size: 12px;
   font-family: sans-serif;
   white-space: nowrap;

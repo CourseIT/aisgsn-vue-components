@@ -65,7 +65,7 @@ export default {
 .menu__close-icon span {
   max-width: 22px;
   height: 35px;
-  font-family: var(--font-awesome-5-pro) !important;
+  font-family: var(--font-awesome-5-pro);
   font-size: 35px;
   font-weight: 300;
   font-stretch: normal;
@@ -80,14 +80,14 @@ export default {
   cursor: pointer;
 }
 nav {
-  position: absolute !important;
-  z-index: 9 !important;
-  width: 100% !important;
+  position: absolute;
+  z-index: 9;
+  width: 100%;
 }
 .v-toolbar__content {
   height: auto !important;
-  background: #efeff4 !important;
-  padding: 35px 30px !important;
+  background: var(--pale-grey);
+  padding: 35px 30px;
 }
 .nav__time {
   font-family: Roboto;
@@ -101,8 +101,8 @@ nav {
   margin-right: 20px;
 }
 .nav__day-week {
-  margin-bottom: 0 !important;
-  color: #21262c;
+  margin-bottom: 0;
+  color: var(--dark);
   font-family: Roboto;
   font-size: 15px;
   font-weight: bold;
@@ -113,7 +113,7 @@ nav {
   text-align: left;
 }
 .nav__date span {
-  color: #21262c;
+  color: var(--dark);
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -134,7 +134,7 @@ nav {
   text-align: left;
 }
 .nav__degree {
-  color: #21262c;
+  color: var(--dark);
   font-family: Roboto;
   font-size: 48px;
   font-weight: 300;
@@ -155,6 +155,6 @@ nav {
   line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
-  color: #21262c;
+  color: var(--dark);
 }
 </style>

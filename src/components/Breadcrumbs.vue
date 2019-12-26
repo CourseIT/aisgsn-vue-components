@@ -39,7 +39,7 @@ export default {
 .breadcrumbs {
   display: inline-block;
   margin-top: 10px;
-  background-color: #21262c;
+  background-color: var(--dark);
   border-radius: 4px;
   margin-bottom: 30px;
 }
@@ -47,10 +47,10 @@ export default {
   padding: 10px 30px;
 }
 .breadcrumbs ul li{
-  color: #efeff4 !important;
+  color: var(--pale-grey) !important;
 }
 .v-breadcrumbs__item {
-  color: #efeff4 !important;
+  color: var(--pale-grey) !important;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -65,7 +65,7 @@ export default {
   color: #ff6100 !important;
 }
 .v-breadcrumbs__item--disabled {
-  color: #efeff4 !important;
+  color: var(--pale-grey);
   font-family: Roboto;
   font-size: 15px;
   font-weight: 500;

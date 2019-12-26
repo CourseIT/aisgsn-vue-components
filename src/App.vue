@@ -32,8 +32,11 @@ export default {
   --font-awesome-5-pro: "Font Awesome 5 Pro";
   --font-awesome-5-pro-light: "Font Awesome 5 Pro Light";
   --font-awesome-5-pro-regular: "Font Awesome 5 Pro Regular";
-  --orange: "#fb6229";
-  --dark: "#21262c";
+  --bright-orange: #fb6229;
+  --dark: #21262c;
+  --pale-grey: #efeff4;
+  --weird-green: #4cd964;
+  --marigold: #ffcc00;
 }
 .df {
   display: flex;
@@ -43,7 +46,7 @@ export default {
   margin-left: 27px;
 }
 #app {
-  background-color: #efeff4;
+  background-color: var(--pale-grey);
 }
 @font-face {font-family: "Font Awesome 5 Pro Regular"; src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot"); src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff") format("woff"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.svg#Font Awesome 5 Pro Regular") format("svg"); }
 @font-face {font-family: "Font Awesome 5 Pro Light"; src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot"); src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff") format("woff"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.svg#Font Awesome 5 Pro") format("svg"); }

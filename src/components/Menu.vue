@@ -177,7 +177,7 @@ export default {
   transition: all 2s ease-out;
 }
 .colorOrange {
-  color: #fb6229 !important;
+  color: var(--bright-orange);
 }
 nav {
   padding-right: 5px;
@@ -202,7 +202,7 @@ nav {
 .animate {
   transition: background-color 1s ease-out;
   height: 100vh;
-  background-color: #21262c;
+  background-color: var(--dark);
 }
 .menu__container {
   padding-left: 30px;
@@ -294,7 +294,7 @@ nav {
   cursor: pointer;
 }
 .link__submenu ul li:hover {
-  color: #fb6229;
+  color: var(--bright-orange);
 }
 .menu__settings {
   position: relative;
@@ -310,10 +310,10 @@ nav {
   line-height: 1.55;
   letter-spacing: normal;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 .icon-btn {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0) !important;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro);
   opacity: 0.7;
   font-size: 21px;
@@ -327,7 +327,7 @@ nav {
   cursor: pointer;
 }
 .v-input--switch {
-  margin-top: 5px !important;
+  margin-top: 5px;
   margin-left: 20px;
 }
 </style>

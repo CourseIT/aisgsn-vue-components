@@ -51,10 +51,10 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover p {
-  color: #fb6229;
+  color: var(--bright-orange);
 }
 .icon {
   cursor: pointer;
-  font-family: var(--font-awesome-5-pro-light) !important;
+  font-family: var(--font-awesome-5-pro-light);
 }
 </style>

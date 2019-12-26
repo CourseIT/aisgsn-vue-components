@@ -59,7 +59,7 @@ export default {
   text-align: center;
 }
 .icon{
-  margin: 100px 0px !important;
+  margin: 10vh 0px;
   font-size: 38px;
   font-weight: normal;
   font-stretch: normal;
@@ -74,7 +74,7 @@ export default {
   height: 38px;
 }
 .login{
-  background-color: #efeff4;
+  background-color: var(--pale-grey);
   height: 100vh;
 }
 .login__title {
@@ -86,7 +86,7 @@ export default {
   line-height: 1.27;
   letter-spacing: normal;
   text-align: center;
-  color: #21262c;
+  color: var(--dark);
   margin-top: 16px;
 }
 .login__input {
@@ -102,7 +102,7 @@ export default {
   font-style: normal;
   line-height: 1.2;
   letter-spacing: normal;
-  text-align: center !important;
+  text-align: center;
   transition: all 0.2s ease-out;
   border-bottom: 1px solid #4e4e4e;
 }
@@ -113,14 +113,14 @@ export default {
   border-bottom: 1px solid #ff6100;
 }
 .v-text-field input {
-  text-align: center !important;
+  text-align: center;
 }
 .v-form {
   width: 350px;
   text-align: center;
 }
 .login__btn {
-  margin-top: 100px;
+  margin-top: 10vh;
   background-color: #ff6100;
   font-family: Roboto;
   font-size: 11px;
@@ -135,7 +135,7 @@ export default {
 }
 .login__hint {
   margin-top: 35px;
-  color: #21262c;
+  color: var(--dark);
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;

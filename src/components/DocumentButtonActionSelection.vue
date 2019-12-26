@@ -55,22 +55,22 @@ export default {
   max-width: 260px;
   display: flex;
   font-family: Roboto;
-  font-size: 11px !important;
+  font-size: 11px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.55;
   letter-spacing: normal;
   text-align: center;
-  text-transform: none !important;
+  text-transform: none;
   margin: 3px 0px;
-  justify-content: space-around !important;
+  justify-content: space-around;
 }
 .dropdown:focus .icon {
   color: #ff6100;
 }
 .dropdown__btn {
-  text-transform: none !important;  
+  text-transform: none;  
   width: 100%;
   font-family: Roboto;
   font-size: 11px;
@@ -79,12 +79,12 @@ export default {
   font-style: normal;
   line-height: 1.55;
   letter-spacing: normal;
-  background-color: #fff !important;
+  background-color: #fff;
   text-align: center;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.103);
 }
 .v-menu__content {
-  box-shadow: none !important;
+  box-shadow: none;
 }
 </style>
