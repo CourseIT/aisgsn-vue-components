@@ -79,7 +79,7 @@ export default {
 .input-date .icon {
   cursor: pointer;
   height: 40px;
-  font-family: var(--font-awesome-5-pro);
+  font-family: var(--font-awesome-5-pro-light);
   margin-top: 9px;
   font-size: 21px;
   width: 5%;

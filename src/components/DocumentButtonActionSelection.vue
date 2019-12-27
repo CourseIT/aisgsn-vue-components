@@ -58,7 +58,6 @@ export default {
 }
 .dropdown {
   box-shadow: none;
-  max-width: 260px;
   display: flex;
   font-family: Roboto;
   font-size: 11px;

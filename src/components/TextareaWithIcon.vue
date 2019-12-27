@@ -68,9 +68,8 @@ export default {
 .icon {
   cursor: pointer;
   height: 40px;
-  font-family: var(--font-awesome-5-pro);
-  margin-top: 9px;
-  font-size: 21px;
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 35px;
   width: 5%;
   text-align: center;
 }

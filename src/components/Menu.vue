@@ -333,7 +333,7 @@ nav {
 }
 .icon-btn {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: var(--font-awesome-5-pro);
+  font-family: var(--font-awesome-5-pro-light);
   opacity: 0.7;
   font-size: 21px;
   font-weight: normal;

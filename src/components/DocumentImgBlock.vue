@@ -34,7 +34,7 @@
       </div>
       <Icon class="icon mt0 ml5" icon="" />
       <Icon class="icon mt0 ml5" icon="" />
-      <Icon class="icon mt0 ml5" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
+      <Icon class="icon mt0 ml2" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
     </div>
   </div>
 </template>
@@ -71,6 +71,12 @@ export default {
 .ml5{
   margin-left: 5px;
 }
+.ml2 {
+  margin-left: 2px;
+}
+.ml0 {
+  margin-left: 0;
+}
 .icon-text {
   cursor: pointer;
   font-family: Roboto;
@@ -92,7 +98,7 @@ export default {
 }
 .icon {
   cursor: pointer;
-  font-family: var(--font-awesome-5-pro);
+  font-family: var(--font-awesome-5-pro-light);
   margin-top: 9px;
   font-size: 21px;
   width: 5%;
