@@ -27,7 +27,7 @@
               placeholder="Пароль"
               required
             />
-            <v-btn class="login__btn" color="#ff6100" @click="$router.push({name: 'Home'})">Войти</v-btn>
+            <v-btn class="login__btn" @click="$router.push({name: 'Home'})">Войти</v-btn>
             <div class="login__hint">
               <p>
                 Не можете вспомнить свой пароль?<br>
@@ -121,7 +121,10 @@ export default {
 }
 .login__btn {
   margin-top: 10vh;
-  background-color: #ff6100;
+  background: none !important;
+  border: 1px #000 dashed !important;
+  box-shadow: none;
+  color: #000 !important;
   font-family: Roboto;
   font-size: 11px;
   font-weight: bold;
@@ -130,8 +133,14 @@ export default {
   line-height: 1.18;
   letter-spacing: normal;
   text-align: center;
-  color: #fff !important;
   padding: 11px 50px !important;
+  transition: all 0.2s ease-out;
+}
+.login__btn:hover {
+  background-color: rgb(255, 97, 0) !important;
+  border: 1px var(--bright-orange) solid !important;
+  color: #fff !important;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 .login__hint {
   margin-top: 35px;

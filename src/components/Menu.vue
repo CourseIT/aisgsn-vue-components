@@ -1,14 +1,15 @@
 <template>
   <div class="menu" :class="{openMenu: $store.state.menu_visibility}">
     <div class="animate" :class="{'lightGamma': light_gamma}">
+      <div class="menu-top-bg"></div>
       <div class="menu__container">
-        <div class="df">
+        <!-- <div class="df">
           <div class="menu__close-btn" @click="closeMenu">
             <Icon class="menu__close-icon" :class="{colorBlack: light_gamma}" icon=""/>
           </div>
           <img v-if="!light_gamma" class="menu__logo-img" @click="$router.push({name: 'Home'})" src="@/assets/menu-logo.svg" alt="">
           <img v-else class="menu__logo-img" @click="$router.push({name: 'Home'})" src="@/assets/logo.svg" alt="">
-        </div>
+        </div> -->
         <div class="menu__links">
           <div class="link">
             <h1 class="menu__title cp" :style="`font-size: ${text_size}px`" @click="$router.push({name: 'Home'})">Главная</h1>
@@ -109,11 +110,20 @@ export default {
     light_gamma: false,
     text_size: 15
   }),
+  watch: {
+    light_gamma(light_gamma) {
+      if(light_gamma) {
+        this.$store.commit('SET_LIGHT_GAMMA', true)
+      } else {
+        this.$store.commit('SET_LIGHT_GAMMA', false)
+      }
+    }
+  },
   created() {
-    this.checkCookie()
+    this.checkVisibilityInCookie()
   },
   methods: {
-    checkCookie() {
+    checkVisibilityInCookie() {
       var name_cook = "menu_visibility=";
       var spl = document.cookie.split(";");
       for (var i = 0; i < spl.length; i++) {
@@ -129,10 +139,6 @@ export default {
           }
         }
       }
-    },
-    closeMenu() {
-      this.open_submenu = []
-      this.$store.commit('SET_MENU_VISIBILITY', false)
     },
     openSubmenu(title) {
       if(this.open_submenu.includes(title)) {
@@ -174,6 +180,7 @@ export default {
 }
 .hidden ul {
   opacity: 0 !important;
+  padding-left: 40px !important;
   transition: all 2s ease-out;
 }
 .colorOrange {
@@ -197,20 +204,25 @@ nav {
   padding: 0px;
   min-width: 312px;
   height: 100vh;
-  z-index: 99;
+  z-index: 9;
 }
 .animate {
   transition: background-color 1s ease-out;
   height: 100vh;
   background-color: var(--dark);
 }
+.menu-top-bg {
+  width: 100%;
+  height: 130px;
+}
 .menu__container {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 40px;
-  padding-bottom: 77px;
+  padding: 20px 30px;
   overflow-y: auto;
-  height: 80vh;
+  height: 65vh;
+}
+.menu__container::-webkit-scrollbar {
+  width: 0px;
+  background: rgba(255, 255, 255, 0.0);
 }
 .menu__close-btn {
   transition: all 0.2s ease-in-out;
@@ -257,6 +269,7 @@ nav {
   line-height: 1.47;
   letter-spacing: 0.5px;
   text-align: left;
+  text-transform: uppercase;
 }
 .icon__dots {
   font-family: var(--font-awesome-5-pro);
@@ -267,18 +280,24 @@ nav {
   line-height: 1.47;
   letter-spacing: normal;
   text-align: left;
+  transition: all 0.2s ease-out;
+}
+.icon__dots:hover {
+  color: var(--bright-orange)
 }
 .link__submenu {
   opacity: 1;
   height: 100%;
   overflow: auto;
-  transition: all 0.2s ease;
+  transition: all 0.4s linear;
 }
 .link__submenu ul{
   padding-left: 15px;
   margin-top: 10px;
   list-style-type: none;
-  transition: all 0.3s ease-out;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease;
 }
 .link__submenu ul li {
   font-family: Roboto;

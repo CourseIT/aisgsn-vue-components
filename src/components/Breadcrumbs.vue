@@ -1,10 +1,12 @@
 <template>
-    <div class="breadcrumbs">
+    <div class="shadow" :class="{'l335' : $store.state.menu_visibility}">
+      <div class="breadcrumbs">
       <v-breadcrumbs :items="items" :large="large">
         <template v-if="customDiv" v-slot:divider>
           <Icon icon="" class="breadcrumbs_icon"/>
         </template>
       </v-breadcrumbs>
+    </div>
     </div>
 </template>
 
@@ -36,12 +38,24 @@ export default {
 </script>
 
 <style>
+.l335 {
+  left: 335px !important;
+}
+.shadow {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  left: 30px;
+  background-color: var(--pale-grey);
+  box-shadow: -15px 15px 30px var(--pale-grey);
+  z-index: 9;
+  transition: all 0.3s ease;
+}
 .breadcrumbs {
   display: inline-block;
-  margin-top: 10px;
   background-color: var(--dark);
   border-radius: 4px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .breadcrumbs ul {
   padding: 10px 30px;
@@ -49,10 +63,10 @@ export default {
 .breadcrumbs ul li{
   color: var(--pale-grey) !important;
 }
-.v-breadcrumbs__item {
+.breadcrumbs .v-breadcrumbs__item {
   color: var(--pale-grey) !important;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 15px !important;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

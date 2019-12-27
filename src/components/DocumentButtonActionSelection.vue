@@ -1,31 +1,33 @@
 <template>
-  <v-menu offset-y>
-    <template v-slot:activator="{ on }">
-      <v-btn
-        color="#e5e5ea"
-        v-on="on"
-        block
-        class="dropdown"
-      >
-      <div class="w80">
-        Выбор действия
-      </div>
-        <Icon class="icon" style="margin-top: 0px;" icon="" />
+  <div>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on }">
+        <v-btn
+          v-on="on"
+          block
+          v-ripple="false"
+          class="dropdown"
+        >
+        <div class="w80">
+          Выбор действия
+        </div>
+          <Icon class="icon" style="margin-top: 0px;" icon="" />
+        </v-btn>
+      </template>
+      <v-btn class="dropdown dropdown__btn">
+        <div class="w80">
+          Подписать документ
+        </div>
+        <Icon class="icon ff-light" style="margin-top: 0px;" icon="" />
       </v-btn>
-    </template>
-    <v-btn class="dropdown dropdown__btn">
-      <div class="w80">
-        Подписать документ
-      </div>
-      <Icon class="icon" style="margin-top: 0px;" icon="" />
-    </v-btn>
-    <v-btn class="dropdown dropdown__btn">
-      <div class="w80">
-        Вернуть на доработку
-      </div>
-      <Icon class="icon" style="margin-top: 0px;" icon="" />
-    </v-btn>
-  </v-menu>
+      <v-btn class="dropdown dropdown__btn">
+        <div class="w80">
+          Вернуть на доработку
+        </div>
+        <Icon class="icon ff-light" style="margin-top: 0px;" icon="" />
+      </v-btn>
+    </v-menu>
+  </div>
 </template>
 
 <script>
@@ -41,6 +43,9 @@ export default {
 .w80 {
   width: 80%;
 }
+.ff-light {
+  font-family: var(--font-awesome-5-pro-light) !important;
+}
 .icon {
   font-family: var(--font-awesome-5-pro);
   margin-top: 9px;
@@ -49,6 +54,7 @@ export default {
   text-align: center;
   float: right;
   width: 20%;
+  transition: all 0.2s ease-out;
 }
 .dropdown {
   box-shadow: none;
@@ -65,6 +71,16 @@ export default {
   text-transform: none;
   margin: 3px 0px;
   justify-content: space-around;
+  background: var(--pale-lilac) !important;
+}
+.v-btn:before {
+  background: none;
+}
+.dropdown:hover ::before{
+  background: var(--pale-lilac) !important;
+}
+.dropdown:active ::before{
+  background: var(--pale-lilac) !important;
 }
 .dropdown:focus .icon {
   color: #ff6100;
@@ -79,10 +95,11 @@ export default {
   font-style: normal;
   line-height: 1.55;
   letter-spacing: normal;
-  background-color: #fff;
+  background-color: #fff !important;
   text-align: center;
   border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.103);
+  margin: 7px 0px !important;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
 .v-menu__content {
   box-shadow: none;

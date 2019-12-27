@@ -1,10 +1,9 @@
 <template>
   <div>
     <Header />
+    <Menu drawer='false' />
       <main class="df">
-        <Menu drawer='false' />
         <div class="content" :class="{ml320 : $store.state.menu_visibility}">
-          <Breadcrumbs />
         <router-view></router-view>
       </div>
     </main>
@@ -14,13 +13,11 @@
 <script>
 const Menu = () => import('@/components/Menu')
 const Header = () => import('@/components/Header')
-const Breadcrumbs = () => import('@/components/Breadcrumbs')
 export default {
   name: 'DefaultLayout',
   components: {
     Menu,
-    Header,
-    Breadcrumbs
+    Header
   },
   data: () => ({
     //
@@ -31,14 +28,14 @@ export default {
 <style>
 .ml320 {
   margin-left: 320px !important;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 .df {
   display: flex;
 }
 .content {
   transition: all 0.3s ease;
-  margin-top: 122px;
+  margin-top: 165px;
   margin-left: 15px;
   width: 100%;
   padding: 0px 15px;

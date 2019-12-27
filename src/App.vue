@@ -35,6 +35,7 @@ export default {
   --bright-orange: #fb6229;
   --dark: #21262c;
   --pale-grey: #efeff4;
+  --pale-lilac: #e5e5ea;
   --weird-green: #4cd964;
   --marigold: #ffcc00;
 }
