@@ -216,6 +216,7 @@ nav {
   height: 130px;
 }
 .menu__container {
+  width: 300px;
   padding: 20px 30px;
   overflow-y: auto;
   height: 65vh;
@@ -261,6 +262,7 @@ nav {
   margin-bottom: 25px;
 }
 .menu__title {
+  width: 200px;
   font-family: Roboto;
   font-size: 15px;
   font-weight: bold;

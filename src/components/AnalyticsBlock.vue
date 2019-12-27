@@ -25,10 +25,10 @@
     <div class="df" v-for="(item, index) in analytics.list" :key="index">
       <div class="df mr70">
         <div class="block1" :style="`background-color: ${item.color}60`">
-          <span :style="`color: ${item.color}`">{{item.x}}</span>
+          <span :style="`color: ${item.color}; text-transform: uppercase;`">{{item.x}}</span>
         </div>
         <div class="block2" :style="`background-color: ${item.color}`">
-          <span>{{item.x}}</span>
+          <span style="text-transform: uppercase;">{{item.x}}</span>
           <div class="plus">{{item.plus}}</div>
         </div>
       </div>
@@ -400,7 +400,7 @@ li {
   color: #fff;
   position: relative;
   display: inline-block;
-  left: 45px;
+  left: 40px;
   bottom: 10px;
 }
 </style>

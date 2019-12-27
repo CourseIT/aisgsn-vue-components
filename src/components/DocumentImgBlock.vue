@@ -5,7 +5,7 @@
     </div>
     <div class="doc__btns">
       <Icon class="icon-text mt0" icon="У24" />
-      <Icon class="icon mt0 ml5" color="#8e8e93" icon="" />
+      <Icon class="icon mt0 ml2" color="#8e8e93" icon="" />
       <Icon class="icon mt0 ml5" icon="" />
       <div>
         <v-menu offset-y>
