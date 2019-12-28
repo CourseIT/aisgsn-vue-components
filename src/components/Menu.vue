@@ -174,6 +174,10 @@ export default {
 .cp {
   cursor: pointer;
 }
+.menu .v-input__control {
+  position: relative !important;
+  bottom: 10px !important;
+}
 .menu .v-input--switch__track {
   background-color: var(--pale-grey) !important;
   height: 21px !important;
