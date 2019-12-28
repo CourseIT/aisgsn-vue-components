@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width: 262px !important;">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn
@@ -57,6 +57,8 @@ export default {
   transition: all 0.2s ease-out;
 }
 .dropdown {
+  width: 262px !important;
+  height: 36px !important;
   box-shadow: none;
   display: flex;
   font-family: Roboto;

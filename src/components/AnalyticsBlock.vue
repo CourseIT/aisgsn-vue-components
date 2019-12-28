@@ -212,8 +212,8 @@ li {
   width: 30px;
   height: 30px;
   padding: 8px 6px;
-  z-index: 99;
-  position: relative;
+  z-index: 1;
+  position: absolute;
 }
 .opacityCircleX2 {
   display: inline-block;
@@ -237,8 +237,8 @@ li {
   height: 25px;
   border-radius: 50%;
   padding: 6px;
-  z-index: 99;
-  position: relative;
+  z-index: 1;
+  position: absolute;
 }
 .opacityCircleX3 {
   display: inline-block;
@@ -262,8 +262,8 @@ li {
   color: #fff;
   border-radius: 50%;
   padding: 3px 4px;
-  z-index: 99;
-  position: relative;
+  z-index: 1;
+  position: absolute;
 }
 
 .liTitle {

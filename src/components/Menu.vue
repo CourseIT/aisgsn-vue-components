@@ -157,7 +157,7 @@ export default {
 }
 </script>
 
-<style slang="scss">
+<style>
 .dn {
   transition: all 0.2s ease-out;
   display: none;
@@ -173,6 +173,24 @@ export default {
 }
 .cp {
   cursor: pointer;
+}
+.menu .v-input--switch__track {
+  background-color: var(--pale-grey) !important;
+  height: 21px;
+  width: 43px;
+  top: 2px;
+  margin: 0px 2px;
+}
+.menu .v-input--switch__thumb {
+  width: 19px  !important;
+  top: 3px  !important;
+  height: 19px;
+}
+.menu .v-input--selection-controls__ripple {
+  display: none;
+}
+.menu .accent--text {
+  color: var(--blue-grey) !important;
 }
 .hidden {
   height: 0px !important;

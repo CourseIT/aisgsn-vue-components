@@ -4,13 +4,7 @@
       <p class="label">{{label}}</p>
       <div class="df" 
         @click="menu = true">
-        <v-text-field
-          v-model="dateRangeText"
-          :flat=true
-          solo
-          v-on="on"
-          disabled
-        ></v-text-field>
+        <input v-model="dateRangeText" class="input" type="text">
         <v-menu
           ref="menu"
           v-model="menu"
@@ -80,9 +74,20 @@ export default {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
-  margin-top: 9px;
+  margin-top: 4px;
   font-size: 21px;
   width: 5%;
   text-align: center;
+}
+.input {
+  font-family: Roboto;
+  height: 36px;
+  outline: none;
+  width: 100%;
+  background-color: #fff !important;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  margin-bottom: 30px;
 }
 </style>

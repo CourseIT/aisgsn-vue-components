@@ -38,6 +38,7 @@ export default {
   --pale-lilac: #e5e5ea;
   --weird-green: #4cd964;
   --marigold: #ffcc00;
+  --blue-grey: #8e8e93;
 }
 .df {
   display: flex;

@@ -1,6 +1,7 @@
 <template>
-    <v-row>
-      <v-col cols="8">
+  <v-row>
+    <v-col cols="8">
+      <div >
         <div class="df jcsb">
           <div class="w95">
             <h1 class="title">
@@ -45,12 +46,13 @@
         <hr>
       </v-form>
       <div class="df jcsb">
-          <div class="w95">
-          </div>
-          <Icon icon="" class="icon-s mt0"/>
+        <div class="w95">
         </div>
+        <Icon icon="" class="icon-s mt0"/>
+      </div>
+      </div>
     </v-col>
-    <v-col cols="2">
+    <v-col>
       <DocumentButtonActionSelection />
       <DocumentImgBlock />
     </v-col>
@@ -94,6 +96,10 @@ export default {
 }
 .w95 {
   width: 95%;
+}
+.transition {
+  max-width: 66;
+  transition: all 0.3s ease;
 }
 hr {
   border: dashed 0.5px #000;

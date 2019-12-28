@@ -19,7 +19,7 @@
             </div>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
-          <div class="dropdonw__block">
+          <div class="dropdown__block arrow-icon">
             <div v-for="(uesr, index) in users"  :key="index">
               <div class="dropdown__users">
                 <div>
@@ -107,6 +107,8 @@ export default {
 .doc__block {
   margin-top: 100px;
   margin-left: 25px;
+  width: 232px;
+  height: 328px;
 }
 .doc__img {
   border-radius: 4px;
@@ -135,7 +137,7 @@ export default {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 .dropdonw__block {
   padding: 40px 0px;
@@ -143,12 +145,23 @@ export default {
 .dropdown__users {
   display: flex;
   padding: 2px;
-  max-width: 200px;
+  width: 200px;
   justify-content: space-between;
   margin-bottom: 5px;
   border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.22) !important;
   background: #fff;
+}
+.arrow-icon {
+  padding: 20px 0px;
+}
+.arrow-icon::before {
+  content: ''; 
+  position: relative;
+  left: 0px; 
+  bottom: 5px;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #fff;
 }
 .dropdown__users .icon {
   cursor: pointer;

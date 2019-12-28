@@ -2,8 +2,8 @@
   <div>
     <Header />
     <Menu drawer='false' />
-      <main class="df">
-        <div class="content" :class="{ml320 : $store.state.menu_visibility}">
+    <main class="df">
+      <div class="content" :class="{ml320 : $store.state.menu_visibility}">
         <router-view></router-view>
       </div>
     </main>
@@ -27,7 +27,7 @@ export default {
 
 <style>
 .ml320 {
-  margin-left: 320px !important;
+  padding-left: 320px !important;
   transition: all 0.3s ease;
 }
 .df {

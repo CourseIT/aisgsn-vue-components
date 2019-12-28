@@ -2,13 +2,7 @@
   <div class="input-block">
     <p v-if="label" class="label">{{label}}</p>
     <div class="df">
-      <v-text-field
-        :placeholder="placeholder"
-        :flat=true
-        solo
-        v-model="value"
-        auto-grow
-      ></v-text-field>
+      <input v-model="value" class="input" type="text">
       <Icon :icon="icon" class="icon"/>
     </div>
   </div>
@@ -45,10 +39,21 @@ export default {
 }
 .icon {
   cursor: pointer;
-  height: 40px;
+  height: 36px;
   font-family: var(--font-awesome-5-pro-light);
-  font-size: 35px;
+  font-size: 25px;
   width: 5%;
   text-align: center;
+}
+.input {
+  font-family: Roboto;
+  height: 36px;
+  outline: none;
+  width: 100%;
+  background-color: #fff !important;
+  padding: 3px;
+  border-radius: 4px;
+  border: 1px solid #fff;
+  margin-bottom: 30px;
 }
 </style>
