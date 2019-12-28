@@ -176,15 +176,15 @@ export default {
 }
 .menu .v-input--switch__track {
   background-color: var(--pale-grey) !important;
-  height: 21px;
-  width: 43px;
-  top: 2px;
-  margin: 0px 2px;
+  height: 21px !important;
+  width: 43px !important;
+  top: 2px !important;
+  margin: 0px 2px !important;
 }
 .menu .v-input--switch__thumb {
   width: 19px  !important;
   top: 3px  !important;
-  height: 19px;
+  height: 19px !important;
 }
 .menu .v-input--selection-controls__ripple {
   display: none;
