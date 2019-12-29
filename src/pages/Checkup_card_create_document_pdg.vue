@@ -1,6 +1,6 @@
 <template>
-  <v-row>
-    <v-col cols="8">
+  <div class="df">
+    <div class="w66"  :class="{pl305: $store.state.menu_visibility}">
       <div >
         <div class="df jcsb">
           <div class="w95">
@@ -51,12 +51,12 @@
         <Icon icon="" class="icon-s mt0"/>
       </div>
       </div>
-    </v-col>
+    </div>
     <v-col>
       <DocumentButtonActionSelection />
       <DocumentImgBlock />
     </v-col>
-  </v-row>
+  </div>
 </template>
 
 <script>
@@ -94,12 +94,15 @@ export default {
 .mt0 {
   margin-top: 0px;
 }
+.w66 {
+  width: 66%;
+  transition: all 0.3s ease;
+}
 .w95 {
   width: 95%;
 }
-.transition {
-  max-width: 66;
-  transition: all 0.3s ease;
+.pl305 {
+  padding-left: 305px;
 }
 hr {
   border: dashed 0.5px #000;
