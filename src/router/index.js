@@ -43,6 +43,15 @@ const routes = [
     name: 'Analytics_A2',
     component: () => import('../pages/Analytics_A2.vue')
   }
+  ,
+  {
+    path: '/notifications',
+    name: 'Notifications',
+    component: () => import('../pages/Notifications.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  }
 ]
 
 const router = new VueRouter({

@@ -1,0 +1,138 @@
+<template>
+  <div class="notification">
+    <div class="df">
+      <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
+        <Icon class="icon" :icon="icon" color="#fff" />
+      </v-btn>
+      <p class="notification__text"><strong class="mr5">{{title}} </strong> {{text}}</p>
+    </div>
+    <Icon class="icon-close" icon="" :color="color" />
+  </div>
+</template>
+
+<script>
+const Icon = () => import('./Icon')
+export default {
+  props: ['type'],
+  components: {
+    Icon
+  },
+  computed: {
+    color() {
+      switch (this.type) {
+        case 'error':
+          return '#ff3b30'
+        case 'warning':
+          return '#ffcc00'
+        case 'success':
+          return '#4cd964'
+        case 'info':
+          return '#007aff'
+        default:
+          return '#000'
+      }
+    },
+    icon() {
+      switch (this.type) {
+        case 'error':
+          return ''
+        case 'warning':
+          return ''
+        case 'success':
+          return ''
+        case 'info':
+          return ''
+        default:
+          return ''
+      }
+    },
+    title() {
+      switch (this.type) {
+        case 'error':
+          return 'Предупреждение!'
+        case 'warning':
+          return 'Внимание!'
+        case 'success':
+          return 'Успех!'
+        case 'info':
+          return 'Информация!'
+        default:
+          return 'title'
+      }
+
+    },
+    text() {
+      switch (this.type) {
+        case 'error':
+          return 'Красный индикатор предупреждает о негативной ситуации'
+        case 'warning':
+          return 'Желтый индикатор привлекает внимание к ситуации'
+        case 'success':
+          return 'Зеленый индикатор оповещает о чем-то позитивном'
+        case 'info':
+          return 'Синий индикатор информирует о каком-то нейтральном событии'
+        default:
+          return 'text'
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+.mr5 {
+  margin-right: 5px;
+}
+.notification {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 35px 0px 0px 35px;
+  margin-bottom: 10px;
+}
+.icon {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+}
+.icon-close {
+  font-family: var(--font-awesome-5-pro-light);
+  float: right;
+  font-size: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  margin: 0px 14px;
+  cursor: pointer;
+}
+.notification__btn {
+  width: 50px;
+  height: 50px;
+  background: red;
+}
+.notification__text {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+  margin-left: 17px;
+}
+</style>
