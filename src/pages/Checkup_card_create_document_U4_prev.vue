@@ -36,11 +36,13 @@
             <h1 class="title">
               Программа проведения проверок
             </h1>
-            <Icon icon="" class="icon-plus"/>
+            <div @click="addItem">
+              <Icon icon="" class="icon-plus"/>
+            </div>
           </div>
           <hr>
-          <v-row>
-            <v-col cols="6">
+          <v-row class="pr40">
+            <v-col v-for="(item, index) in inspection_items" :key="index"  cols="6">
               <div class="df inspection-program-block">
                 <div class="w95">
                   <p class="mb7">20.08.20 – 28.08.20</p>
@@ -50,7 +52,9 @@
                 </div>
                 <div>
                   <Icon icon="" class="icon-p"/>
-                  <Icon icon="" class="icon-p top10"/>
+                  <div class="top10" @click="removeItem(item)">
+                    <Icon icon="" class="icon-p"/>
+                  </div>
                 </div>
               </div>
             </v-col>
@@ -91,8 +95,18 @@ export default {
     TextareaWithIcon
   },
   data: () => ({
-    
+    item: 1,
+    inspection_items: [1]
   }),
+  methods: {
+    addItem() {
+      this.item += 1
+      this.inspection_items.push(this.item)
+    },
+    removeItem(item) {
+      this.inspection_items = this.inspection_items.filter( x => x != item )
+    }
+  }
 }
 </script>
 
@@ -109,6 +123,9 @@ export default {
 .top10{
   position: relative;
   top: 10px;
+}
+.pr40 {
+  padding-right: 40px;
 }
 .mb4 {
   margin-bottom: 4px;
