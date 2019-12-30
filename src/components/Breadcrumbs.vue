@@ -55,7 +55,7 @@ export default {
   display: inline-block;
   background-color: var(--dark);
   border-radius: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 .breadcrumbs ul {
   padding: 10px 30px;

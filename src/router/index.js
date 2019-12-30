@@ -26,9 +26,17 @@ const routes = [
     }
   },
   {
-    path: '/checkup card_create document_application',
-    name: 'Checkup card_create document_application',
-    component: () => import('../pages/Checkup card_create document_application.vue'),
+    path: '/checkup_card_create_document_application',
+    name: 'Checkup_card_create_document_application',
+    component: () => import('../pages/Checkup_card_create_document_application.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
+    path: '/checkup_card_create_document_U4_prev',
+    name: 'Checkup_card_create_document_U4_prev',
+    component: () => import('../pages/Checkup_card_create_document_U4_prev.vue'),
     meta: {
       layout: 'doc-layout'
     }
