@@ -81,13 +81,32 @@ export default {
 }
 .input {
   font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.93;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
   height: 36px;
   outline: none;
   width: 100%;
   background-color: #fff !important;
-  padding: 3px;
+  padding: 3px 15px;
   border-radius: 4px;
   border: 1px solid #fff;
   margin-bottom: 30px;
+}
+.input::placeholder {
+  font-family: Roboto;
+  font-size: 9px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--blue-grey);
 }
 </style>

@@ -26,6 +26,14 @@ const routes = [
     }
   },
   {
+    path: '/checkup card_create document_application',
+    name: 'Checkup card_create document_application',
+    component: () => import('../pages/Checkup card_create document_application.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
     path: '/analytics_a1',
     name: 'Analytics_A1',
     component: () => import('../pages/Analytics_A1.vue')

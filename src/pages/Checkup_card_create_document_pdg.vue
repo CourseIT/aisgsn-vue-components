@@ -54,7 +54,7 @@
     </div>
     <v-col>
       <DocumentButtonActionSelection />
-      <DocumentImgBlock />
+      <DocumentImgBlock img="true"/>
     </v-col>
   </div>
 </template>

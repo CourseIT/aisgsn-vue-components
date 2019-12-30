@@ -1,20 +1,25 @@
 <template>
-  <div class="input-block">
+  <div class="textarea-with-icon">
+    <div class="input-block">
     <p class="label">{{label}}</p>
     <div class="df">
-      <v-textarea
-        v-model="text"
-        :placeholder="placeholder"
-        :flat=true
-        solo
-        auto-grow
-      ></v-textarea>
-      <div class="icon" @click="template_show = true"><Icon :icon="icon" class="icon-block"/></div>
-      <div class="templates-block" v-if="template_show">
-        <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
+      <textarea :placeholder="placeholder" name="" id="" cols="10" rows="4"></textarea>
+      
+      <div class="icon" @click="template_show = true">
+        <Icon :icon="icon" class="icon-block"/>
+      </div>
+      <div v-if="template_show">
+        <div class="templates-block">
+          <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
+        </div>
+        <div class="icons_text-block">
+          <Icon icon="" class="icon-text"/>
+          <Icon icon="" class="icon-text"/>
+        </div>
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>
+  </div>
   </div>
 </template>
 
@@ -62,14 +67,33 @@ export default {
   margin-bottom: 5px;
 }
 .input-block {
-  margin-bottom: -15px;
+  margin-bottom: 15px;
 }
-
+.icons_text-block {
+  display: flex;
+  position: absolute;
+  margin-top: 510px;
+  margin-left: 255px;
+  z-index: 99;
+}
+.icon-text {
+  cursor: pointer;
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.81;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  margin-left: 22px;
+}
 .icon {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
-  font-size: 35px;
+  font-size: 26px;
   width: 5%;
   text-align: center;
 }
@@ -90,5 +114,28 @@ export default {
   overflow: auto;
   max-height: 500px;
   padding-right: 30px;
+}
+.input {
+  color: red;
+}
+textarea {
+  width: 100%;
+  outline: none;
+  padding: 9px 15px;
+  border-radius: 4px;
+  background-color: var(--white);
+  font-family: Roboto;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  resize : none;
+  height: 95px;
+}
+textarea::placeholder {
+  font-size: 9px;
+  color: var(--blue-grey);
 }
 </style>

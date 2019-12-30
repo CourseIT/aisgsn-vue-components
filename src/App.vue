@@ -34,6 +34,7 @@ export default {
   --font-awesome-5-pro-regular: "Font Awesome 5 Pro Regular";
   --bright-orange: #fb6229;
   --dark: #21262c;
+  --white: #fff;
   --pale-grey: #efeff4;
   --pale-lilac: #e5e5ea;
   --weird-green: #4cd964;

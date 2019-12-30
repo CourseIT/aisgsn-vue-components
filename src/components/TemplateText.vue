@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .w90{
   width: 90%;
 }

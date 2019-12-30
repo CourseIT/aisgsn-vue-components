@@ -1,13 +1,16 @@
 <template>
   <div class="doc__block df">
     <div class="mr15">
-      <img class="doc__img" src="../assets/doc.png" alt="">
+      <img v-if="img" class="doc__img" src="../assets/doc.png" alt="">
+      <div v-else class="doc__img">
+        <p class="img-preview">DOCS PREVIEW</p>
+      </div>
     </div>
     <div class="doc__btns">
       <Icon class="icon-text mt0" icon="У24" />
-      <Icon class="icon mt0 ml2" color="#8e8e93" icon="" />
-      <Icon class="icon mt0 ml5" icon="" />
-      <div>
+      <Icon class="icon mt0 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
+      <Icon v-if="img" class="icon mt0 ml5" icon="" />
+      <div v-if="img">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
             <div
@@ -32,9 +35,9 @@
           </div>
         </v-menu>
       </div>
-      <Icon class="icon mt0 ml5" icon="" />
-      <Icon class="icon mt0 ml5" icon="" />
-      <Icon class="icon mt0 ml2" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
+      <Icon v-if="img" class="icon mt0 ml5" icon="" />
+      <Icon v-if="img" class="icon mt0 ml5" icon="" />
+      <Icon v-if="img" class="icon mt0 ml2" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
     </div>
   </div>
 </template>
@@ -42,6 +45,7 @@
 <script>
 const Icon = () => import('./Icon')
 export default {
+  props: ['img'],
   components: {
     Icon
   },
@@ -112,10 +116,29 @@ export default {
 }
 .doc__img {
   border-radius: 4px;
+  display: flex;
+  align-items: center;
   object-fit: contain;
   border: dashed 1px #707070;
   width: 100%;
   height: auto;
+  width: 232px;
+  height: 328px;
+}
+.img-preview {
+  width: 204px;
+  width: 100%;
+  height: 111px;
+  opacity: 0.28;
+  font-family: Roboto;
+  font-size: 48px;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
 }
 .dropdown__user-title {
   font-family: Roboto;
