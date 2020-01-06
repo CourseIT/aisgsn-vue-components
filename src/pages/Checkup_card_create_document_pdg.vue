@@ -48,7 +48,8 @@
       <div class="df jcsb">
         <div class="w95">
         </div>
-        <Icon icon="" class="icon-s mt0"/>
+        <Icon icon="" class="icon-s mt0 mb100"/>
+        <DocumentButtonActionSelection style="position: absolute; left: 67%; margin-top: 10px"/>
       </div>
       </div>
     </div>
@@ -94,6 +95,9 @@ export default {
 .mt0 {
   margin-top: 0px;
 }
+.mb100 {
+  margin-bottom: 100px;
+}
 .w66 {
   width: 66%;
   transition: all 0.3s ease;
@@ -110,7 +114,7 @@ hr {
 }
 .icon-s {
   font-family: var(--font-awesome-5-pro-light);
-  margin-top: 9px;
+  margin-top: 17px;
   font-size: 21px;
   width: 5%;
   text-align: center;

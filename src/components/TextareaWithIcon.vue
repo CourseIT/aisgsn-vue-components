@@ -3,10 +3,9 @@
     <div class="input-block">
     <p class="label">{{label}}</p>
     <div class="df">
-      <textarea :placeholder="placeholder" name="" id="" cols="10" rows="4"></textarea>
-      
+      <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
       <div class="icon" @click="template_show = true">
-        <Icon :icon="icon" class="icon-block"/>
+        <Icon :icon="icon" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
         <div class="templates-block">
@@ -45,6 +44,7 @@ export default {
   methods: {
     selectText(text) {
       this.text = text
+      this.template_show = false
     }
   }
 }
@@ -65,6 +65,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
+  width: 95%;
 }
 .input-block {
   margin-bottom: 15px;

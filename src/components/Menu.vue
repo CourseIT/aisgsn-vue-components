@@ -182,12 +182,12 @@ export default {
   background-color: var(--pale-grey) !important;
   height: 21px !important;
   width: 43px !important;
-  top: 2px !important;
+  top: 11px !important;
   margin: 0px 2px !important;
 }
 .menu .v-input--switch__thumb {
   width: 19px  !important;
-  top: 3px  !important;
+  top: 12px  !important;
   height: 19px !important;
 }
 .menu .v-input--selection-controls__ripple {

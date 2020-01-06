@@ -1,46 +1,61 @@
 <template>
-  <div class="input-block">
-    <p v-if="label" class="label">{{label}}</p>
+  <div class="textarea-with-icon">
+    <div class="input-block">
+    <p class="label">{{label}}</p>
     <div class="df">
-      <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
-      <div @click="openMenu" class="icon">
-        <Icon :color="show_menu ? '#fb6229' : '#21262c' " :icon="icon"/>
-      </div>
-      <div v-if="show_menu" class="select-block">
+      <input :placeholder="placeholder" v-model="text" >
+      <div class="select-block">
         <ul>
-          <li @click="input_value = item" v-for="(item, index) in list" :key="index">{{item}}</li>
+          <li @click="text = `${text} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
         </ul>
       </div>
-    </div>
-    <div class="close-block" v-if="show_menu" @click="openMenu"></div>
+      <div class="icon" @click="template_show = true">
+        <Icon :icon="icon" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+      </div>
+      <div v-if="template_show">
+        <div class="templates-block">
+          <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
+        </div>
+        <div class="icons_text-block">
+          <Icon icon="" class="icon-text"/>
+          <Icon icon="" class="icon-text"/>
+        </div>
+      </div>
+		</div>
+    <div class="close-block" v-if="template_show" @click="template_show = false"></div>
+  </div>
   </div>
 </template>
 
 <script>
 const Icon = () => import('./Icon')
+const TemplateText = () => import('./TemplateText')
 export default {
-  props: ['placeholder', 'value', 'icon', 'label'],
+	props: ['placeholder', 'value', 'icon', 'label'],
   components: {
-    Icon
+    Icon,
+    TemplateText
   },
-  data: () => ({
-    input_value: '',
-    show_menu: false,
+  data: () =>({
+    text: '',
+    template_show: false,
     list: [
       'Объект КС 1',
       'Объект КС 2',
       '...',
       '...'
-    ]
+    ],
+    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
   }),
   watch: {
-    value(value) {
-      this.input_value = value
+    text(){
+      this.template_show = false
     }
   },
   methods: {
-    openMenu() {
-      this.show_menu = !this.show_menu
+    selectText(text) {
+      this.text = text
+      this.template_show = false
     }
   }
 }
@@ -61,58 +76,38 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
+  width: 95%;
 }
 .input-block {
-  margin-bottom: -15px;
+  margin-bottom: 15px;
 }
-.icon {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
+.icons_text-block {
+  display: flex;
+  position: absolute;
+  margin-top: 510px;
+  margin-left: 255px;
+  z-index: 99;
+}
+.icon-text {
+  cursor: pointer;
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: normal;
   font-stretch: normal;
-  padding-top: 7px;
   font-style: normal;
-  line-height: 0.93;
+  line-height: 1.81;
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  margin-left: 22px;
+}
+.icon {
   cursor: pointer;
-  height: 36px;
+  height: 40px;
   font-family: var(--font-awesome-5-pro-light);
-  font-size: 25px;
+  font-size: 26px;
   width: 5%;
   text-align: center;
-  transition: all 0.2s ease-out;
-}
-.icon:hover + .select-block {
-  display: block;
-}
-.input {
-  font-family: Roboto;
-  height: 36px;
-  outline: none;
-  width: 100%;
-  background-color: #fff !important;
-  padding: 3px 15px;
-  border-radius: 4px;
-  border: 1px solid #fff;
-  margin-bottom: 30px;
-}
-.input::placeholder {
-  font-family: Roboto;
-  font-size: 9px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.56;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--blue-grey);
-}
-.select-block {
-  position: absolute;
-  z-index: 99;
-  margin-top: 40px;
 }
 .close-block {
   position: fixed;
@@ -121,6 +116,48 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
+}
+.templates-block {
+  position: absolute;
+  z-index: 99;
+  left: 66%;
+  max-width: 450px;
+  min-width: 400px;
+  overflow: auto;
+  max-height: 500px;
+  padding-right: 30px;
+}
+.input {
+  color: red;
+}
+input {
+  width: 100%;
+  outline: none;
+  padding: 9px 15px;
+  border-radius: 4px;
+  background-color: var(--white);
+  font-family: Roboto;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  resize : none;
+}
+input::placeholder {
+  font-size: 9px;
+  color: var(--blue-grey);
+}
+
+input:focus + .select-block {
+  display: block;
+}
+.select-block {
+  position: absolute;
+  z-index: 99;
+  margin-top: 40px;
+  display: none;
 }
 .select-block:hover {
   display: block;

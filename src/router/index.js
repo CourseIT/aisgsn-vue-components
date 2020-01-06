@@ -40,6 +40,13 @@ const routes = [
     meta: {
       layout: 'doc-layout'
     }
+  },{
+    path: '/checkup_card_create_document_U6',
+    name: 'Checkup_card_create_document_U6',
+    component: () => import('../pages/Checkup_card_create_document_U6.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
   },
   {
     path: '/analytics_a1',

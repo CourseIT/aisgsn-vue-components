@@ -65,6 +65,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
+  width: 95%;
 }
 .input-date .input-block {
   margin-bottom: -15px;
@@ -97,6 +98,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #fff;
   margin-bottom: 30px;
+  width: 95%;
 }
 .input::placeholder {
   font-family: Roboto;
