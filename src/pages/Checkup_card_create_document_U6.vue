@@ -105,7 +105,7 @@ hr {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 17px;
   font-size: 21px;
-  width: 5%;
+  width: 55px;
   text-align: center;
   cursor: pointer;
 }

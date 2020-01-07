@@ -3,6 +3,7 @@
     <p v-if="label" class="label">{{label}}</p>
     <div class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
+      <div class="w58"></div>
       <div class="select-block">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -29,6 +30,9 @@ export default {
 .df {
   display: flex;
 }
+.w58{
+  width: 58px;
+}
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
@@ -40,29 +44,10 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
-  width: 95%;
+  width: 96%;
 }
 .input-block {
   margin-bottom: -15px;
-}
-.icon {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  font-stretch: normal;
-  padding-top: 7px;
-  font-style: normal;
-  line-height: 0.93;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  cursor: pointer;
-  height: 36px;
-  font-family: var(--font-awesome-5-pro-light);
-  font-size: 25px;
-  width: 5%;
-  text-align: center;
-  transition: all 0.2s ease-out;
 }
 .icon:hover + .select-block {
   display: block;
@@ -80,7 +65,8 @@ export default {
   border-radius: 4px;
   border: 1px solid #fff;
   margin-bottom: 30px;
-  width: 95%;
+  height: 36px;
+  width: 96%;
 }
 .input::placeholder {
   font-family: Roboto;
@@ -96,7 +82,7 @@ export default {
 .select-block {
   position: absolute;
   z-index: 99;
-  margin-top: 40px;
+  margin-top: 42px;
   display: none;
 }
 .select-block:hover {

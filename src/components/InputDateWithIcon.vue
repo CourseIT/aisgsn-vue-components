@@ -13,14 +13,12 @@
           transition="scale-transition"
           offset-y
           min-width="290px"
+          selected-items-text="ru"
         >
           <template v-slot:activator="{ on }">
             <div class="icon" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
           </template>
           <v-date-picker v-model="date" no-title scrollable color="orange" range>
-            <v-spacer></v-spacer>
-            <v-btn text color="#000" @click="menu = false">Закрыть</v-btn>
-            <v-btn text color="#000" @click="$refs.menu.save(date)">Выбрать</v-btn>
           </v-date-picker>
         </v-menu>
       </div>
@@ -48,6 +46,48 @@ export default {
 </script>
 
 <style>
+.v-date-picker-header {
+  padding: 8px 0px;
+}
+.v-date-picker-table {
+  padding: 0px;
+  height: 215px;
+}
+.v-date-picker-table table{
+  border-spacing: 0px
+}
+.v-date-picker-table table thead {
+  background-color: var(--pale-lilac);
+}
+.v-date-picker-table--date .v-btn {
+  margin: 2px !important;
+}
+.v-date-picker-header__value {
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+.theme--light.v-date-picker-header .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) button:not(:hover):not(:focus) {
+  font-weight: normal;
+}
+.v-date-picker-header .v-btn--icon::before {
+  width: 0px;
+}
+.v-btn--icon.v-size--default .v-icon, .v-btn--fab.v-size--default .v-icon{
+  width: 22px !important;
+  border-radius: 0px;
+  padding: 0px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  margin: 0px 10px;
+}
+.v-date-picker-header .v-ripple__container{
+  display: none;
+}
 .input-date .theme--light.v-input--is-disabled .v-label, .theme--light.v-input--is-disabled input, .theme--light.v-input--is-disabled textarea {
   color: #000;
 }
@@ -77,7 +117,8 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 4px;
   font-size: 21px;
-  width: 5%;
+  width: 60px;
+  padding-left: 2px;
   text-align: center;
 }
 .input {
@@ -98,7 +139,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #fff;
   margin-bottom: 30px;
-  width: 95%;
+  width: 96%;
 }
 .input::placeholder {
   font-family: Roboto;

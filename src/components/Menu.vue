@@ -81,10 +81,10 @@
           <p class="settings__text">Размер шрифта</p>
           <div class="df">
             <div @click="textSizePlus">
-              <Icon class="icon-btn" icon="" />
+              <Icon class="icon-btn" :class="{'icon-btn__disable': text_size === 17}" icon="" />
             </div>
             <div @click="textSizeMinus">
-              <Icon class="icon-btn" icon="" />
+              <Icon class="icon-btn" :class="{'icon-btn__disable': text_size === 13}" icon="" />
             </div>
           </div>
         </div>
@@ -148,10 +148,14 @@ export default {
       }
     },
     textSizePlus() {
-      this.text_size++
+      if(this.text_size >= 13 && this.text_size < 17){
+        this.text_size++
+      }
     },
     textSizeMinus() {
-      this.text_size--
+      if(this.text_size > 13 && this.text_size <= 17){
+        this.text_size--
+      }
     }
   }
 }
@@ -180,14 +184,16 @@ export default {
 }
 .menu .v-input--switch__track {
   background-color: var(--pale-grey) !important;
+  opacity: 1 !important;
   height: 21px !important;
   width: 43px !important;
   top: 11px !important;
   margin: 0px 2px !important;
 }
 .menu .v-input--switch__thumb {
-  width: 19px  !important;
-  top: 12px  !important;
+  width: 19px !important;
+  background-color: var(--blue-grey) !important;
+  top: 12px !important;
   height: 19px !important;
 }
 .menu .v-input--selection-controls__ripple {
@@ -368,6 +374,10 @@ nav {
   text-align: left;
   margin: 0px 5px;
   cursor: pointer;
+}
+.icon-btn__disable {
+  opacity: 0.3;
+  cursor: no-drop;
 }
 .v-input--switch {
   margin-top: 5px;

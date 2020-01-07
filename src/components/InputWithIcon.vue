@@ -103,11 +103,13 @@ export default {
 }
 .icon {
   cursor: pointer;
-  height: 40px;
+  height: 36px;
   font-family: var(--font-awesome-5-pro-light);
-  font-size: 26px;
-  width: 5%;
+  font-size: 33px;
+  width: 60px;
   text-align: center;
+  position: relative;
+  bottom: 6px;
 }
 .close-block {
   position: fixed;
@@ -125,7 +127,17 @@ export default {
   min-width: 400px;
   overflow: auto;
   max-height: 500px;
-  padding-right: 30px;
+  padding-right: 25px;
+  padding-left: 22px;
+}
+.templates-block::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.templates-block::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac); 
 }
 .input {
   color: red;
@@ -140,6 +152,7 @@ input {
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
+  height: 36px;
   line-height: 1.56;
   letter-spacing: normal;
   text-align: left;
@@ -156,7 +169,7 @@ input:focus + .select-block {
 .select-block {
   position: absolute;
   z-index: 99;
-  margin-top: 40px;
+  margin-top: 42px;
   display: none;
 }
 .select-block:hover {

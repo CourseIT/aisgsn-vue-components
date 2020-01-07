@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .w90{
   width: 90%;
 }
@@ -48,6 +48,7 @@ export default {
   cursor: pointer;
 }
 .template-block:hover{
+  background: #f5f5f5;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover p {

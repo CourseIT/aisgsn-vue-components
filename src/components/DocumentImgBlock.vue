@@ -8,7 +8,7 @@
     </div>
     <div class="doc__btns">
       <Icon class="icon-text mt0" icon="У24" />
-      <Icon class="icon mt0 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
+      <Icon class="icon mt25 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
       <Icon v-if="img" class="icon mt0 ml5" icon="" />
       <div v-if="img">
         <v-menu offset-y>
@@ -18,7 +18,10 @@
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" icon-title="Лист визирования" class="icon mt0" icon="" />
+              <Icon v-on="on" class="icon list mt0" icon="" />
+              <div class="list__desc">
+                <span>Лист визирования</span>
+              </div>
             </div>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
@@ -37,7 +40,10 @@
       </div>
       <Icon v-if="img" class="icon mt0 ml5" icon="" />
       <Icon v-if="img" class="icon mt0 ml5" icon="" />
-      <Icon v-if="img" class="icon mt0 ml2" icon-title="Подписано всеми участниками" color="#ff6100" icon="" />
+      <Icon v-if="img" class="icon star mt0 ml2" color="#ff6100" icon="" />
+      <div class="star__desc">
+        <span>Подписано всеми участниками</span>
+      </div>
     </div>
   </div>
 </template>
@@ -81,6 +87,9 @@ export default {
 .ml0 {
   margin-left: 0;
 }
+.mt25 {
+  margin-top: 25px !important;
+}
 .icon-text {
   cursor: pointer;
   font-family: Roboto;
@@ -91,6 +100,7 @@ export default {
   line-height: 1.2;
   letter-spacing: normal;
   text-align: center;
+  position: absolute;
 }
 .icon-btn {
   background: none;
@@ -149,7 +159,7 @@ export default {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 .dropdown__user-name   {
   font-family: Roboto;
@@ -162,13 +172,11 @@ export default {
   text-align: left;
   margin-bottom: 0px;
 }
-.dropdonw__block {
-  padding: 40px 0px;
-}
 .dropdown__users {
   display: flex;
-  padding: 2px;
+  padding: 4px 8px;
   width: 200px;
+  height: 36px;
   justify-content: space-between;
   margin-bottom: 5px;
   border-radius: 4px;
@@ -177,6 +185,7 @@ export default {
 }
 .arrow-icon {
   padding: 20px 0px;
+  padding-right: 50px;
 }
 .arrow-icon::before {
   content: ''; 
@@ -190,6 +199,8 @@ export default {
   cursor: pointer;
   margin-right: 20px;
   margin-top: 5px !important;
+  position: relative;
+  bottom: 6px;
 }
 .v-menu__content {
   box-shadow: none;
@@ -201,13 +212,13 @@ export default {
 [data-title]:hover::before {
   content: attr(data-title);
   position: absolute;
-  bottom: 50px;
-  left: -90px;
+  bottom: 30px;
+  left: -60px;
   display: inline-block;
-  padding: 3px 6px;
+  padding: 5px 16px;
   border-radius: 2px;
   background: #000;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #fff;
   font-size: 12px;
   font-family: sans-serif;
@@ -216,7 +227,7 @@ export default {
 [data-title]:hover::after {
   content: '';
   position: absolute;
-  bottom: 35px;
+  bottom: 15px;
   left: 2px;
   display: inline-block;
   color: #fff;
@@ -224,30 +235,70 @@ export default {
   border-bottom: 8px solid #000;
   transform: rotate(180deg);
 }
-
-[icon-title] {
+.star:hover + .star__desc {
+  display: block;
+}
+.star__desc {
+  display: none;
   position: relative;
-}
-[icon-title]:hover::before {
-  content: attr(icon-title);
-  position: absolute;
-  bottom: 50px;
-  left: -90px;
-  display: inline-block;
-  padding: 3px 6px;
-  border-radius: 2px;
-  background: #fff;
-  border-radius: 3px;
+  width: 132px;
+  height: 24px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
   color: var(--dark);
-  font-size: 12px;
-  font-family: sans-serif;
-  white-space: nowrap;
+  bottom: 70px;
+  right: 50px;
 }
-[icon-title]:hover::after {
+.star__desc::after {
   content: '';
   position: absolute;
-  bottom: 35px;
-  left: 2px;
+  top: 22px;
+  left: 55px;
+  display: inline-block;
+  color: #fff;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid #fff;
+  transform: rotate(180deg);
+}
+
+.list:hover + .list__desc {
+  display: block;
+}
+.list__desc {
+  display: none;
+  position: absolute;
+  width: 132px;
+  height: 24px;
+  padding: 6px 0px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+  margin-top: -70px;
+  margin-left: -55px;
+}
+.list__desc::after {
+  content: '';
+  position: absolute;
+  top: 22px;
+  left: 55px;
   display: inline-block;
   color: #fff;
   border: 8px solid transparent;	

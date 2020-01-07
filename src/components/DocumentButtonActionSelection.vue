@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 262px !important;">
+  <div class="w262">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn
@@ -11,20 +11,20 @@
         <div class="w80">
           Выбор действия
         </div>
-          <Icon class="icon" style="margin-top: 0px;" icon="" />
+          <Icon class="icon" icon="" />
         </v-btn>
       </template>
       <v-btn class="dropdown dropdown__btn">
         <div class="w80">
           Подписать документ
         </div>
-        <Icon class="icon ff-light" style="margin-top: 0px;" icon="" />
+        <Icon class="icon ff-light" icon="" />
       </v-btn>
       <v-btn class="dropdown dropdown__btn">
         <div class="w80">
           Вернуть на доработку
         </div>
-        <Icon class="icon ff-light" style="margin-top: 0px;" icon="" />
+        <Icon class="icon ff-light" icon="" />
       </v-btn>
     </v-menu>
   </div>
@@ -43,12 +43,15 @@ export default {
 .w80 {
   width: 80%;
 }
+.w262 {
+  width: 262px;
+}
 .ff-light {
   font-family: var(--font-awesome-5-pro-light) !important;
 }
 .icon {
   font-family: var(--font-awesome-5-pro);
-  margin-top: 9px;
+  margin-top: 0px;
   font-size: 21px;
   width: 5%;
   text-align: center;
@@ -77,11 +80,21 @@ export default {
 .v-btn:before {
   background: none;
 }
+.v-menu__content {
+  padding: 0px 5px !important;
+  margin-left: -5px;
+}
+.dropdown:hover {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
+}
 .dropdown:hover ::before{
   background: var(--pale-lilac) !important;
 }
 .dropdown:active ::before{
   background: var(--pale-lilac) !important;
+}
+.dropdown:hover .icon {
+  color: #ff6100;
 }
 .dropdown:focus .icon {
   color: #ff6100;
@@ -101,6 +114,10 @@ export default {
   border-radius: 4px;
   margin: 7px 0px !important;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.22) !important;
+}
+.dropdown__btn:hover {
+  background: var(--pale-lilac) !important;
+  color: #ff6100;
 }
 .v-menu__content {
   box-shadow: none;

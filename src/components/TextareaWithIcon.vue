@@ -94,9 +94,11 @@ export default {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
-  font-size: 26px;
-  width: 5%;
+  font-size: 33px;
+  width: 60px;
   text-align: center;
+  position: relative;
+  bottom: 6px;
 }
 .close-block {
   position: fixed;
@@ -114,7 +116,17 @@ export default {
   min-width: 400px;
   overflow: auto;
   max-height: 500px;
-  padding-right: 30px;
+  padding-right: 25px;
+  padding-left: 22px;
+}
+.templates-block::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.templates-block::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac); 
 }
 .input {
   color: red;

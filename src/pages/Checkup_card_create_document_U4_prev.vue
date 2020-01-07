@@ -29,13 +29,12 @@
           <InputDateWithIcon icon="" label="7. Начало строительства, реконструкции"/>
           <InputDateWithIcon icon="" label="8. Окончание строительства, реконструкции"/>
           <InputWithIcon placeholder="(заполняется в случае внесения изменений)" icon="" label="9. Основания для внесения изменений в программу проведения проверок"/>
-
-
-          
-          <div class="df jcsb w95 mt25">
-            <h1 class="title">
-              Программа проведения проверок
-            </h1>
+          <div class="df">
+            <div class="w95">
+              <h1 class="title">
+                Программа проведения проверок
+              </h1>
+            </div>
             <div @click="addItem">
               <Icon icon="" class="icon-plus"/>
             </div>
@@ -161,7 +160,7 @@ hr {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 17px;
   font-size: 21px;
-  width: 5%;
+  width: 55px;
   text-align: center;
   cursor: pointer;
 }
@@ -176,6 +175,9 @@ hr {
   line-height: 1.81;
   letter-spacing: normal;
   text-align: left;
+  width: 65px;
+  position: relative;
+  right: 20px;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);

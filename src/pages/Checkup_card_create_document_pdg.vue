@@ -29,8 +29,10 @@
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
           </h1>
-          <div class="df jcsb w95">
-            <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
+          <div class="df">
+            <div class="w95">
+              <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
+            </div>
             <Icon icon="" class="icon-plus"/>
           </div>
           <hr>
@@ -39,8 +41,8 @@
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputDateWithIcon icon=""/>
-
-          <div class="df jcfe w95">
+          <div class="df">
+            <div class="w95"></div>
             <Icon icon="" class="icon-plus"/>
           </div>
         <hr>
@@ -116,7 +118,7 @@ hr {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 17px;
   font-size: 21px;
-  width: 5%;
+  width: 55px;
   text-align: center;
   cursor: pointer;
 }
@@ -131,6 +133,9 @@ hr {
   line-height: 1.81;
   letter-spacing: normal;
   text-align: left;
+  width: 65px;
+  position: relative;
+  right: 20px;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
