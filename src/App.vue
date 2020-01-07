@@ -40,6 +40,7 @@ export default {
   --weird-green: #4cd964;
   --marigold: #ffcc00;
   --blue-grey: #8e8e93;
+  --purpley: #8d43ff;
 }
 .df {
   display: flex;
