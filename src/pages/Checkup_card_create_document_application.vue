@@ -56,7 +56,7 @@
     </div>
     <v-col>
       <DocumentButtonActionSelection />
-      <DocumentImgBlock :img="false"/>
+      <DocumentImgBlock :img="false" class="mt100"/>
     </v-col>
   </div>
 </template>
@@ -98,6 +98,9 @@ export default {
 }
 .mb100 {
   margin-bottom: 100px;
+}
+.mt100 {
+  margin-top: 100px;
 }
 .w66 {
   width: 66%;

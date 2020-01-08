@@ -40,7 +40,7 @@ const routes = [
     meta: {
       layout: 'doc-layout'
     }
-  },{
+  }, {
     path: '/checkup_card_create_document_U6',
     name: 'Checkup_card_create_document_U6',
     component: () => import('../pages/Checkup_card_create_document_U6.vue'),
@@ -57,12 +57,19 @@ const routes = [
     path: '/analytics_a2',
     name: 'Analytics_A2',
     component: () => import('../pages/Analytics_A2.vue')
-  }
-  ,
+  },
   {
     path: '/notifications',
     name: 'Notifications',
     component: () => import('../pages/Notifications.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
+    path: '/checkup_card_list',
+    name: 'Checkup_card_list',
+    component: () => import('../pages/Checkup_card_list.vue'),
     meta: {
       layout: 'doc-layout'
     }

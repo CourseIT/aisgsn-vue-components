@@ -119,10 +119,10 @@ export default {
   text-align: center;
 }
 .doc__block {
-  margin-top: 100px;
   margin-left: 25px;
   width: 232px;
   height: 328px;
+  margin-bottom: 20px;
 }
 .doc__img {
   border-radius: 4px;
