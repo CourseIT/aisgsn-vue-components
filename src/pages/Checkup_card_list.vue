@@ -12,18 +12,27 @@
               color="orange"
             >
               <v-radio class="radio" label="Список"></v-radio>
-              <v-radio class="radio" label="Хронология"></v-radio>
+              <v-radio class="radio radio2" label="Хронология"></v-radio>
             </v-radio-group>
           </div>
         </div>
-
-        <Table :docs="docs" />
+        <div class="df jcsb">
+          <AuthorSelectButton />
+          <DateButton />
+          <PodpisanSelectButton />
+          <StatusSelectButton />
+          <TypeSelectButton />
+          <FiltersButton />
+        </div>
+        <div class="table-block">
+          <Table :docs="docs" />
+        </div>
         <p class="table__info">Время выдачи 12:25, количество записей и любая другая информация</p>
       </div>
       <v-col>
         <div class="df">
           <p class="doc__title">Заявитель (уточняется)</p>
-          <p class="title-value">{{ppplicant}}</p>
+          <p class="title-value">{{podpisant}}</p>
         </div>
         <div class="df">
           <p class="doc__title">Название проверки (уточняется)</p>
@@ -55,6 +64,12 @@ const DocumentImgBlock = () => import('../components/DocumentImgBlock')
 const Search = () => import('../components/Search')
 const IconUploadDoc = () => import('../components/IconUploadDoc')
 const IconCreateDoc = () => import('../components/IconCreateDoc')
+const AuthorSelectButton = () => import('../components/AuthorSelectButton')
+const PodpisanSelectButton = () => import('../components/PodpisanSelectButton')
+const TypeSelectButton = () => import('../components/TypeSelectButton')
+const StatusSelectButton = () => import('../components/StatusSelectButton')
+const DateButton = () => import('../components/DateButton')
+const FiltersButton = () => import('../components/FiltersButton')
 
 export default {
   components: {
@@ -62,10 +77,16 @@ export default {
     DocumentImgBlock,
     Search,
     IconUploadDoc,
-    IconCreateDoc
+    IconCreateDoc,
+    AuthorSelectButton,
+    PodpisanSelectButton,
+    TypeSelectButton,
+    StatusSelectButton,
+    DateButton,
+    FiltersButton
   },
   data: () => ({
-    ppplicant: 'ВНИИЭФ',
+    podpisant: 'ВНИИЭФ',
     title_of_verification: 'Уточняется',
     inspector: 'Куликов Б. Ю.',
     dates: '20.08.20 – 28.08.20',
@@ -74,7 +95,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -82,7 +103,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -90,7 +111,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -98,7 +119,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -106,7 +127,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -114,7 +135,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -122,7 +143,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -130,7 +151,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -138,7 +159,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -146,7 +167,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -154,7 +175,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -162,7 +183,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -170,7 +191,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -178,7 +199,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -186,7 +207,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       },
@@ -194,7 +215,7 @@ export default {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
         author: 'ОТКИ',
         type: 'Что-то',
-        podpisant: '23.08.2020',
+        podpisan: '23.08.2020',
         status: 'Какой-то',
         date: '20.07.2020'
       }
@@ -272,6 +293,9 @@ export default {
   margin-left: 25px;
   margin-bottom: 10px;
 }
+.v-application--is-ltr .v-messages {
+  display: none;
+}
 .checkup-card-list .v-input--selection-controls.v-input {
   margin: 0;
   height: 50px;
@@ -318,5 +342,24 @@ export default {
   color: var(--weird-green) !important;
   background: #000;
   border-radius: 5px;
+}
+.checkup-card-list__radio .radio2 .mdi-radiobox-marked::before {
+  padding-left: 5.5px;
+}
+.checkup-card-list .table-block {
+  height: 57vh;
+  margin-top: 10px;
+  overflow: auto;
+  margin-bottom: 5px;
+  padding-right: 20px;
+}
+.checkup-card-list .table-block::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.checkup-card-list .table-block::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
 }
 </style>

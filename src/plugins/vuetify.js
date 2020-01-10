@@ -5,7 +5,7 @@ Vue.use(Vuetify);
 
 export default new Vuetify({
   lang: {
-    current: 'ru',
+    current: 'Ru',
   },
   theme: {
     themes: {

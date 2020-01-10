@@ -11,4 +11,7 @@ export default {
 </script>
 
 <style scoped>
+.icon {
+  user-select: none;
+}
 </style>

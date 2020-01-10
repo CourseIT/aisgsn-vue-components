@@ -70,7 +70,7 @@ export default {
 }
 .input::placeholder {
   font-family: Roboto;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

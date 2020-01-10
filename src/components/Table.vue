@@ -8,7 +8,7 @@
               <th class="text-left">Название документа</th>
               <th class="text-left">Автор</th>
               <th class="text-left">Тип</th>
-              <th class="text-left">Подписант</th>
+              <th class="text-left">Подписан</th>
               <th class="text-left">Статус</th>
               <th class="text-left">Дата</th>
             </tr>
@@ -18,7 +18,7 @@
               <td class="table__name">{{ item.name }}</td>
               <td class="table__text">{{ item.author }}</td>
               <td class="table__text table__type">{{ item.type }}</td>
-              <td class="table__text">{{ item.podpisant }}</td>
+              <td class="table__text">{{ item.podpisan }}</td>
               <td class="table__text">{{ item.status }}</td>
               <td class="table__text">{{ item.date }}</td>
             </tr>
