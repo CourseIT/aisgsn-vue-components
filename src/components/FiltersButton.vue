@@ -64,7 +64,7 @@ export default {
   margin-right: 22px;
 }
 .mt70 {
-  margin-top: 7px;
+  margin-top: 70px;
 }
 .jcsb {
   justify-content: space-between;
