@@ -13,5 +13,6 @@ export default {
 <style scoped>
 .icon {
   user-select: none;
+  cursor: pointer;
 }
 </style>

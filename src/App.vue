@@ -49,6 +49,9 @@ export default {
   margin-top: 115px;
   margin-left: 27px;
 }
+body {
+  background-color: var(--pale-grey);
+}
 #app {
   background-color: var(--pale-grey);
 }

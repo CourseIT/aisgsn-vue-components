@@ -39,7 +39,7 @@
             </div>
           </div>
           <hr>
-          <v-row class="pr40">
+          <v-row class="pr54">
             <v-col v-for="(item, index) in inspection_items" :key="index"  cols="6">
               <div class="df inspection-program-block">
                 <div class="w95">
@@ -117,8 +117,8 @@ export default {
   position: relative;
   top: 10px;
 }
-.pr40 {
-  padding-right: 40px;
+.pr54 {
+  padding-right: 54px;
 }
 .mb4 {
   margin-bottom: 4px;

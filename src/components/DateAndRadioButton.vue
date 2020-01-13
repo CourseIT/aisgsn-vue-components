@@ -125,6 +125,8 @@ export default {
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
+  cursor: pointer;
+  z-index: 3;
 }
 .date-and-radio .icon1 {
   font-family: var(--font-awesome-5-pro-light);
@@ -139,6 +141,10 @@ export default {
   color: #20262c;
   margin-top: 15px;
   cursor: pointer;
+}
+.date-and-radio .icon1 .icon {
+  cursor: pointer;
+  z-index: 9;
 }
 .date-and-radio .icon2 {
   font-family: var(--font-awesome-5-pro-light);
@@ -156,6 +162,7 @@ export default {
 }
 .date-and-radio .hover-icon:hover {
   display: block;
+  z-index: 1;
 }
 .date-and-radio .hover-icon {
   position: absolute;
@@ -166,9 +173,9 @@ export default {
 }
 .date-and-radio .hover-icon::after {
   content: ''; 
-  position: relative;
-  left: 0px; 
-  bottom: 70px;
+  position: absolute;
+  left: 4px; 
+  bottom: 38px;
   border: 10px solid transparent;
   border-bottom: 10px solid #fff;
 }
