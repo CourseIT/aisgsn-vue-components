@@ -32,15 +32,9 @@
           <InputWithIcon placeholder="(расшифровка подписи)" icon="" />
         <hr>
       </v-form>
-      <div class="df jcsb">
-        <div class="w95">
-      </div>
-        <Icon icon="" class="icon-s mt0 mb100"/>
-        <DocumentButtonActionSelection style="position: absolute; left: 67%; margin-top: 10px"/>
-      </div>
       </div>
     </div>
-    <v-col>
+    <v-col class="pf">
       <DocumentButtonActionSelection />
       <DocumentImgBlock :img="false" class="mt100"/>
     </v-col>
@@ -99,6 +93,10 @@ export default {
 }
 .pl305 {
   padding-left: 305px;
+}
+.pf {
+  position: fixed;
+  left: 66%;
 }
 hr {
   border: dashed 0.5px #000;

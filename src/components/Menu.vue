@@ -21,9 +21,9 @@
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('Надзор')}">
               <ul>
-                <li :style="`font-size: ${text_size}px`">Надзорные дела</li>
-                <li :style="`font-size: ${text_size}px`">Программа проверок</li>
-                <li :style="`font-size: ${text_size}px`">Проверки</li>
+                <li :class="{t03s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Надзорные дела</li>
+                <li :class="{t04s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Программа проверок</li>
+                <li :class="{t05s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Проверки</li>
               </ul>
             </div>
           </div>
@@ -34,10 +34,10 @@
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('ТКИ')}">
               <ul>
-                <li :style="`font-size: ${text_size}px`">План работ</li>
-                <li :style="`font-size: ${text_size}px`">Средства контроля</li>
-                <li :style="`font-size: ${text_size}px`">Повышение квалификации</li>
-                <li :style="`font-size: ${text_size}px`">СМК</li>
+                <li :class="{t03s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">План работ</li>
+                <li :class="{t04s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">Средства контроля</li>
+                <li :class="{t05s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">Повышение квалификации</li>
+                <li :class="{t06s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">СМК</li>
               </ul>
             </div>
           </div>
@@ -48,10 +48,10 @@
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('Аналитика')}">
               <ul>
-                <li :style="`font-size: ${text_size}px`">Статистика</li>
-                <li :style="`font-size: ${text_size}px`">Нарушения</li>
-                <li :style="`font-size: ${text_size}px`">Резонансные нарушения</li>
-                <li :style="`font-size: ${text_size}px`">СМК</li>
+                <li :class="{t03s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Статистика</li>
+                <li :class="{t04s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Нарушения</li>
+                <li :class="{t05s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Резонансные нарушения</li>
+                <li :class="{t06s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">СМК</li>
               </ul>
             </div>
           </div>
@@ -62,14 +62,14 @@
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('НСИ')}">
               <ul>
-                <li :style="`font-size: ${text_size}px`">Регулирующие документы</li>
-                <li :style="`font-size: ${text_size}px`">Журнал ознокомления</li> 
-                <li :style="`font-size: ${text_size}px`">с документами</li>
-                <li :style="`font-size: ${text_size}px`">Реестр организаций</li>
-                <li :style="`font-size: ${text_size}px`">Участники ГСН</li>
-                <li :style="`font-size: ${text_size}px`">Классификатор нарушений</li>
-                <li :style="`font-size: ${text_size}px`">Управление сотрудниками</li>
-                <li :style="`font-size: ${text_size}px`">КоАП</li>
+                <li :class="{t03s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Регулирующие документы</li>
+                <li :class="{t04s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Журнал ознокомления</li> 
+                <li :class="{t05s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">с документами</li>
+                <li :class="{t06s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Реестр организаций</li>
+                <li :class="{t07s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Участники ГСН</li>
+                <li :class="{t08s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Классификатор нарушений</li>
+                <li :class="{t09s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Управление сотрудниками</li>
+                <li :class="{t1s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">КоАП</li>
               </ul>
             </div>
           </div>
@@ -162,6 +162,70 @@ export default {
 </script>
 
 <style>
+.t03s {
+  -webkit-transition: padding-left 0.3s ease-in-out !important;
+  -moz-transition: padding-left 0.3s ease-in-out !important;
+  transition: padding-left 0.3s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t04s {
+  -webkit-transition: padding-left 0.4s ease-in-out !important;
+  -moz-transition: padding-left 0.4s ease-in-out !important;
+  transition: padding-left 0.4s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t05s {
+  -webkit-transition: padding-left 0.5s ease-in-out !important;
+  -moz-transition: padding-left 0.5s ease-in-out !important;
+  transition: padding-left 0.5s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t06s {
+  -webkit-transition: padding-left 0.6s ease-in-out !important;
+  -moz-transition: padding-left 0.6s ease-in-out !important;
+  transition: padding-left 0.6s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t07s {
+  -webkit-transition: padding-left 0.7s ease-in-out !important;
+  -moz-transition: padding-left 0.7s ease-in-out !important;
+  transition: padding-left 0.7s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t08s {
+  -webkit-transition: padding-left 0.8s ease-in-out !important;
+  -moz-transition: padding-left 0.8s ease-in-out !important;
+  transition: padding-left 0.8s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t09s {
+  -webkit-transition: padding-left 0.9s ease-in-out !important;
+  -moz-transition: padding-left 0.9s ease-in-out !important;
+  transition: padding-left 0.9s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t1s {
+  -webkit-transition: padding-left 1s ease-in-out !important;
+  -moz-transition: padding-left 1s ease-in-out !important;
+  transition: padding-left 1s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+.t11s {
+  -webkit-transition: padding-left 1.1s ease-in-out !important;
+  -moz-transition: padding-left 1.1s ease-in-out !important;
+  transition: padding-left 1.1s ease-in-out !important;
+  opacity: 1 !important;
+  padding-left: 0px !important;
+}
+
 .dn {
   transition: all 0.2s ease-out;
   display: none;
@@ -201,15 +265,6 @@ export default {
 }
 .menu .accent--text {
   color: var(--blue-grey) !important;
-}
-.hidden {
-  height: 0px !important;
-  overflow: hidden;
-}
-.hidden ul {
-  opacity: 0 !important;
-  padding-left: 40px !important;
-  transition: all 2s ease-out;
 }
 .colorOrange {
   color: var(--bright-orange);
@@ -315,11 +370,19 @@ nav {
 .icon__dots:hover {
   color: var(--bright-orange)
 }
+.hidden {
+  max-height: 0px !important;
+  overflow-y: hidden;
+}
+/* .hidden ul li {
+  opacity: 0 !important;
+  padding-left: 40px !important;
+} */
 .link__submenu {
   opacity: 1;
-  height: 100%;
-  overflow: auto;
-  transition: all 0.4s linear;
+  max-height: 350px;
+  overflow-y: hidden;
+  transition: all 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5) !important;
 }
 .link__submenu ul{
   padding-left: 15px;
@@ -327,7 +390,6 @@ nav {
   list-style-type: none;
   overflow: hidden;
   position: relative;
-  transition: all 0.5s ease;
 }
 .link__submenu ul li {
   font-family: Roboto;
@@ -335,12 +397,15 @@ nav {
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
+  line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
   opacity: 0.7;
-  transition: all 0.2s ease-out;
   cursor: pointer;
+  margin: 5px 0px;
+  transition: all 0.4s ease-in-out;
+  opacity: 0;
+  padding-left: 40px;
 }
 .link__submenu ul li:hover {
   color: var(--bright-orange);

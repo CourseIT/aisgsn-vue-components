@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style> 
+<style>
 .date-and-radio {
   display: flex;
   margin-bottom: 0px;

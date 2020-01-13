@@ -29,10 +29,8 @@
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
           </h1>
-          <div class="df">
-            <div class="w95">
-              <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
-            </div>
+          <div class="df jcsb">
+            <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
             <Icon icon="" class="icon-plus"/>
           </div>
           <hr>
@@ -41,21 +39,12 @@
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputDateWithIcon icon=""/>
-          <div class="df">
-            <div class="w95"></div>
-            <Icon icon="" class="icon-plus"/>
-          </div>
+          <Icon icon="" class="icon-plus"/>
         <hr>
       </v-form>
-      <div class="df jcsb">
-        <div class="w95">
-        </div>
-        <Icon icon="" class="icon-s mt0 mb100"/>
-        <DocumentButtonActionSelection style="position: absolute; left: 67%; margin-top: 10px"/>
-      </div>
       </div>
     </div>
-    <v-col>
+    <v-col class="pf">
       <DocumentButtonActionSelection />
       <DocumentImgBlock img="true" class="mt100"/>
     </v-col>
@@ -113,6 +102,10 @@ export default {
 .pl305 {
   padding-left: 305px;
 }
+.pf {
+  position: fixed;
+  left: 66%;
+}
 hr {
   border: dashed 0.5px #000;
   margin-bottom: 12px;
@@ -121,7 +114,8 @@ hr {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 17px;
   font-size: 21px;
-  width: 55px;
+  float: right;
+  padding: 0px 17px;
   text-align: center;
   cursor: pointer;
 }
@@ -135,10 +129,9 @@ hr {
   font-style: normal;
   line-height: 1.81;
   letter-spacing: normal;
-  text-align: left;
-  width: 65px;
-  position: relative;
-  right: 20px;
+  text-align: center;
+  padding-right: 16px;
+  float: right;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);

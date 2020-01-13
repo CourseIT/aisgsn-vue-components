@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="doc__btns">
-      <Icon class="icon-text mt0" icon="У24" />
+      <Icon desc="test" class="icon-text mt0" icon="У24" />
       <Icon class="icon mt25 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
       <Icon v-if="img" class="icon mt0 ml5" icon="" />
       <div v-if="img">
@@ -150,6 +150,14 @@ export default {
   text-align: center;
   color: var(--dark);
 }
+.v-menu__content {
+  padding-left: 10px;
+  margin-left: -13px;
+}
+.dropdown__block {
+  padding: 20px 0px;
+  padding-right: 50px;
+}
 .dropdown__user-title {
   font-family: Roboto;
   font-size: 12px;
@@ -183,14 +191,10 @@ export default {
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.22) !important;
   background: #fff;
 }
-.arrow-icon {
-  padding: 20px 0px;
-  padding-right: 50px;
-}
 .arrow-icon::before {
   content: ''; 
   position: relative;
-  left: 0px; 
+  left: 3px; 
   bottom: 5px;
   border: 10px solid transparent;
   border-bottom: 10px solid #fff;
@@ -218,6 +222,7 @@ export default {
   padding: 5px 16px;
   border-radius: 2px;
   background: #000;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   color: #fff;
   font-size: 12px;
@@ -241,7 +246,8 @@ export default {
 .star__desc {
   display: none;
   position: relative;
-  width: 132px;
+  width: 200px;
+  padding: 7px 0px;
   height: 24px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -256,13 +262,13 @@ export default {
   text-align: center;
   color: var(--dark);
   bottom: 70px;
-  right: 50px;
+  right: 85px;
 }
 .star__desc::after {
   content: '';
   position: absolute;
   top: 22px;
-  left: 55px;
+  left: 90px;
   display: inline-block;
   color: #fff;
   border: 8px solid transparent;	

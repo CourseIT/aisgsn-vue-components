@@ -347,7 +347,7 @@ export default {
   padding-left: 5.5px;
 }
 .checkup-card-list .table-block {
-  height: 57vh;
+  height: 65vh;
   margin-top: 10px;
   overflow: auto;
   margin-bottom: 5px;

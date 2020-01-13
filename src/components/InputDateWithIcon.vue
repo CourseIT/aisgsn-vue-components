@@ -9,14 +9,13 @@
           ref="menu"
           v-model="menu"
           :close-on-content-click="false"
-          :return-value.sync="date"
           transition="scale-transition"
           offset-y
           min-width="290px"
           selected-items-text="ru"
         >
           <template v-slot:activator="{ on }">
-            <div class="icon" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
+            <div class="icon-date" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
           </template>
           <v-date-picker v-model="date" no-title show-current color="#8d43ff" range>
           </v-date-picker>
@@ -74,6 +73,7 @@ export default {
 }
 .theme--light.v-date-picker-header .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) button:not(:hover):not(:focus) {
   font-weight: normal;
+  text-transform: capitalize;
 }
 .v-date-picker-header .v-btn--icon::before {
   width: 0px;
@@ -111,14 +111,13 @@ export default {
   margin-bottom: -15px;
   cursor: pointer;
 }
-.input-date .icon {
+.input-date .icon-date {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 4px;
   font-size: 21px;
-  width: 60px;
-  padding-left: 2px;
+  padding: 0px 18px;
   text-align: center;
 }
 .input {

@@ -95,7 +95,7 @@ export default {
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
   font-size: 33px;
-  width: 60px;
+  padding: 0px 25px;
   text-align: center;
   position: relative;
   bottom: 6px;

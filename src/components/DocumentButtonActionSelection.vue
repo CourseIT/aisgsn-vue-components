@@ -81,8 +81,9 @@ export default {
   background: none;
 }
 .v-menu__content {
-  padding: 0px 5px !important;
-  margin-left: -5px;
+  padding: 0px 15px !important;
+  padding-bottom: 20px !important;
+  margin-left: -15px;
 }
 .dropdown:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;

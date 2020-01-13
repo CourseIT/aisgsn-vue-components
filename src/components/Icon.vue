@@ -1,12 +1,12 @@
 <template>
   <div>
-    <span class="icon" :style='{color: `${color}`}'>{{icon}}</span>
+    <div class="icon" :style='{color: `${color}`}'>{{icon}}</div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['icon', 'color']
+  props: ['icon', 'color', 'desc', 'desc-color']
 }
 </script>
 

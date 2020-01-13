@@ -14,7 +14,9 @@
       </div>
       <div v-if="template_show">
         <div class="templates-block">
-          <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
+          <div style="box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);">
+            <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
+          </div>
         </div>
         <div class="icons_text-block">
           <Icon icon="" class="icon-text"/>
@@ -106,7 +108,8 @@ export default {
   height: 36px;
   font-family: var(--font-awesome-5-pro-light);
   font-size: 33px;
-  width: 60px;
+  float: right;
+  padding: 0px 25px;
   text-align: center;
   position: relative;
   bottom: 6px;
@@ -127,8 +130,8 @@ export default {
   min-width: 400px;
   overflow: auto;
   max-height: 500px;
-  padding-right: 25px;
-  padding-left: 22px;
+  padding: 20px;
+  padding-top: 0;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;
@@ -137,7 +140,7 @@ export default {
 }
 .templates-block::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: var(--pale-lilac); 
+  background-color: var(--pale-lilac);
 }
 .input {
   color: red;

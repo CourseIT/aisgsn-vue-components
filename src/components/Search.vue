@@ -35,7 +35,7 @@ export default {
   border-radius: 4px;
   background-color: #fff;
   padding: 0px 15px;
-  width: 33vw;
+  width: 39.5vw;
 }
 .icon-btn {
   width: 36px;

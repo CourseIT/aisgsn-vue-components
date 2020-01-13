@@ -29,12 +29,11 @@
           <InputDateWithIcon icon="" label="7. Начало строительства, реконструкции"/>
           <InputDateWithIcon icon="" label="8. Окончание строительства, реконструкции"/>
           <InputWithIcon placeholder="(заполняется в случае внесения изменений)" icon="" label="9. Основания для внесения изменений в программу проведения проверок"/>
-          <div class="df">
-            <div class="w95">
-              <h1 class="title">
-                Программа проведения проверок
-              </h1>
-            </div>
+
+          <div class="df jcsb">
+            <h1 class="title">
+              Программа проведения проверок
+            </h1>
             <div @click="addItem">
               <Icon icon="" class="icon-plus"/>
             </div>
@@ -63,15 +62,9 @@
           <InputWithIcon placeholder="Заполнено ………" icon="" />
         <hr>
       </v-form>
-      <div class="df jcsb">
-        <div class="w95">
-        </div>
-        <Icon icon="" class="icon-s mt0 mb100"/>
-        <DocumentButtonActionSelection style="position: absolute; left: 67%; margin-top: 10px"/>
-      </div>
       </div>
     </div>
-    <v-col>
+    <v-col class="pf">
       <DocumentButtonActionSelection />
       <DocumentImgBlock img="true" class="mt100"/>
     </v-col>
@@ -155,6 +148,10 @@ export default {
 .pl305 {
   padding-left: 305px;
 }
+.pf {
+  position: fixed;
+  left: 66%;
+}
 hr {
   border: dashed 0.5px var(--dark);
   margin-bottom: 12px;
@@ -177,10 +174,9 @@ hr {
   font-style: normal;
   line-height: 1.81;
   letter-spacing: normal;
-  text-align: left;
-  width: 65px;
-  position: relative;
-  right: 20px;
+  text-align: center;
+  padding-right: 16px;
+  float: right;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);

@@ -49,7 +49,6 @@ export default {
 }
 .template-block:hover{
   background: #f5f5f5;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover p {
   color: var(--bright-orange);

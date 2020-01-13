@@ -134,13 +134,16 @@ export default {
   letter-spacing: normal;
   text-align: center;
   padding: 11px 50px !important;
-  transition: all 0.2s ease-out;
+  transition: all 0.1s ease-out;
 }
 .login__btn:hover {
   background-color: rgb(255, 97, 0) !important;
-  border: 1px var(--bright-orange) solid !important;
+  border: none !important;
   color: #fff !important;
   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.login__btn:active {
+  border: none !important;
 }
 .login__hint {
   margin-top: 35px;
