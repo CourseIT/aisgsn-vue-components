@@ -14,7 +14,7 @@
           <Icon class="icon" icon="" />
         </button>
       </template>
-      <v-date-picker color="#8d43ff" v-model="date" no-title scrollable>
+      <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable>
       </v-date-picker>
     </v-menu>
   </div>

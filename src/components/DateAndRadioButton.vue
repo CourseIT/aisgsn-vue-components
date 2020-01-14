@@ -13,12 +13,11 @@
             <p>{{date}} </p>
           <Icon class="icon" icon="" /></button>
         </template>
-        <v-date-picker color="orange" v-model="date" no-title scrollable>
+        <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable>
         </v-date-picker>
       </v-menu>
       <v-radio-group
       row
-      color="orange"
     >
       <v-radio class="radio" label="На месяц"></v-radio>
       <v-radio class="radio" label="На 1-е февраля"></v-radio>
