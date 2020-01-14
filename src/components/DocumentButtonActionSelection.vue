@@ -47,12 +47,13 @@ export default {
   width: 262px;
 }
 .ff-light {
-  font-family: var(--font-awesome-5-pro-light) !important;
+  font-size: 22px !important;
+  padding-left: 10px;
 }
 .icon {
-  font-family: var(--font-awesome-5-pro);
+  font-family: var(--font-awesome-5-pro-light);
   margin-top: 0px;
-  font-size: 21px;
+  font-size: 33px;
   width: 5%;
   text-align: center;
   float: right;
