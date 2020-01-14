@@ -81,8 +81,8 @@ export default {
   background: none;
 }
 .v-menu__content {
-  padding: 0px 5px !important;
-  margin-left: -5px;
+  padding: 0px 10px !important;
+  margin-left: -10px;
   margin-top: 0px;
   box-shadow: none;
 }
