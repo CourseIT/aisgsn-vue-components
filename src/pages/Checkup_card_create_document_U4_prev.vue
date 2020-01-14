@@ -39,11 +39,16 @@
             </div>
           </div>
           <hr>
-          <v-row class="pr54">
-            <v-col v-for="(item, index) in inspection_items" :key="index"  cols="6">
-              <AddFieldBlock :item="item" />
-            </v-col>
-          </v-row>
+          <draggable :list="list" :disabled="!enabled" class="row pr54" ghost-class="ghost" :move="checkMove" @start="dragging = true" @end="dragging = false" >
+              <v-col
+                class="list-group-item"
+                v-for="element in list"
+                :key="element.id"
+                cols="6"
+              >
+                <AddFieldBlock />
+              </v-col>
+          </draggable>
           <hr>
           <InputWithIcon placeholder="Заполнено ………" icon="" />
           <InputWithIcon placeholder="Заполнено ………" icon="" />
@@ -68,6 +73,7 @@ const InputDateWithIcon = () => import('../components/InputDateWithIcon')
 const TextareaWithIcon = () => import('../components/TextareaWithIcon')
 const AddFieldBlock = () => import('../components/AddFieldBlock')
 const AddFieldModal = () => import('../components/AddFieldModal')
+import draggable from 'vuedraggable'
 
 export default {
   components: {
@@ -78,30 +84,36 @@ export default {
     InputDateWithIcon,
     TextareaWithIcon,
     AddFieldBlock,
-    AddFieldModal
+    AddFieldModal,
+    draggable
   },
   data: () => ({
-    item: 1,
-    inspection_items: [1],
+    list: [
+        { name: "John", id: 0 },
+        { name: "Joao", id: 1 },
+        { name: "Jean", id: 2 }
+      ],
     modal_show: false,
-    add_fields: []
+    add_fields: [],
+    dragging: false,
+    enabled: true
   }),
   methods: {
-    addItem() {
-      this.item += 1
-      this.inspection_items.push(this.item)
-    },
-    removeItem(item) {
-      this.inspection_items = this.inspection_items.filter( x => x != item )
-    },
     toggleModal(show) {
       this.modal_show = show
+    },
+    checkMove: function(e) {
+      window.console.log("Future index: " + e.draggedContext.futureIndex);
     }
   }
 }
 </script>
 
 <style scoped>
+.ghost {
+  opacity: 0.5;
+  background: var(--bright-orange);
+}
 .df {
   display: flex;
 }
@@ -122,7 +134,7 @@ export default {
   margin-bottom: 4px;
 }
 .mb7 {
-  margin-bottom: 7px;
+  margin-bottom: 7.5px;
 }
 .mb100 {
   margin-bottom: 100px;

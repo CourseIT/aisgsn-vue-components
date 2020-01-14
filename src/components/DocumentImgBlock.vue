@@ -7,7 +7,7 @@
       </div>
     </div>
     <div class="doc__btns">
-      <Icon desc="test" class="icon-text mt0" icon="У24" />
+      <Icon class="icon-text mt0" icon="У24" />
       <Icon class="icon mt25 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
       <Icon v-if="img" class="icon mt0 ml5" icon="" />
       <div v-if="img">

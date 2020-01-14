@@ -6,15 +6,7 @@
           <Search />
           <IconUploadDoc />
           <IconCreateDoc />
-          <div class="checkup-card-list__radio"> 
-            <v-radio-group
-              row
-              color="orange"
-            >
-              <v-radio class="radio" label="Список"></v-radio>
-              <v-radio class="radio radio2" label="Хронология"></v-radio>
-            </v-radio-group>
-          </div>
+          <GreenRadioButton :labels="labels" radio_color="orange" />
         </div>
         <div class="df jcsb">
           <AuthorSelectButton />
@@ -70,6 +62,7 @@ const TypeSelectButton = () => import('../components/TypeSelectButton')
 const StatusSelectButton = () => import('../components/StatusSelectButton')
 const DateButton = () => import('../components/DateButton')
 const FiltersButton = () => import('../components/FiltersButton')
+const GreenRadioButton = () => import('../components/GreenRadioButton')
 
 export default {
   components: {
@@ -78,6 +71,7 @@ export default {
     Search,
     IconUploadDoc,
     IconCreateDoc,
+    GreenRadioButton,
     AuthorSelectButton,
     PodpisanSelectButton,
     TypeSelectButton,
@@ -86,6 +80,7 @@ export default {
     FiltersButton
   },
   data: () => ({
+    labels: ['Список','Хронология'],
     podpisant: 'ВНИИЭФ',
     title_of_verification: 'Уточняется',
     inspector: 'Куликов Б. Ю.',
@@ -295,56 +290,6 @@ export default {
 }
 .v-application--is-ltr .v-messages {
   display: none;
-}
-.checkup-card-list .v-input--selection-controls.v-input {
-  margin: 0;
-  height: 50px;
-}
-.checkup-card-list__radio .radio {
-  margin-left: 20px;
-  margin-bottom: 20px;
-}
-.checkup-card-list__radio label {
-  margin-left: 5px;
-  padding-top: 5px;
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-}
-.checkup-card-list__radio .mdi-radiobox-blank::before {
-  content: "";
-  background: #fff;
-  width: 22px;
-  border-radius: 5px;
-  height: 22px;
-  margin-top: 5px;
-}
-.checkup-card-list__radio .v-input--selection-controls__ripple {
-  background-color: rgba(0, 0, 0, 0);
-  background: rgba(0, 0, 0, 0);
-  opacity: 0;
-  cursor: pointer;
-  border-radius: 0px;
-}
-.checkup-card-list__radio .mdi-radiobox-marked::before {
-  content: "\25CF";
-  font-size: 20px;
-  margin-top: 5px;
-  padding-left: 4.5px;
-  width: 22px;
-  height: 22px !important;
-  color: var(--weird-green) !important;
-  background: #000;
-  border-radius: 5px;
-}
-.checkup-card-list__radio .radio2 .mdi-radiobox-marked::before {
-  padding-left: 5.5px;
 }
 .checkup-card-list .table-block {
   height: 65vh;
