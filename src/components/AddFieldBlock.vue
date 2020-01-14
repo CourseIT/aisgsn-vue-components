@@ -56,6 +56,10 @@ export default {
   border-radius: 4px;
   background-color: var(--white);
 }
+.inspection-program-block:hover {
+  cursor: pointer;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+}
 .inspection-program-block p {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;

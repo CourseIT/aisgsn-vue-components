@@ -112,7 +112,6 @@ export default {
 <style scoped>
 .ghost {
   opacity: 0.5;
-  background: var(--bright-orange);
 }
 .df {
   display: flex;
