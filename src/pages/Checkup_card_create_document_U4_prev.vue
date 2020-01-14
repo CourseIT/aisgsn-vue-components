@@ -39,7 +39,7 @@
             </div>
           </div>
           <hr>
-          <draggable :list="list" :disabled="!enabled" class="row pr54" ghost-class="ghost" :move="checkMove" @start="dragging = true" @end="dragging = false" >
+          <draggable :list="list" :disabled="!enabled" class="row pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
               <v-col
                 class="list-group-item"
                 v-for="element in list"
@@ -101,9 +101,6 @@ export default {
   methods: {
     toggleModal(show) {
       this.modal_show = show
-    },
-    checkMove: function(e) {
-      window.console.log("Future index: " + e.draggedContext.futureIndex);
     }
   }
 }

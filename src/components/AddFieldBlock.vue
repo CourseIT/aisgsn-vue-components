@@ -9,7 +9,7 @@
       </div>
       <div>
         <Icon icon="" class="icon-p"/>
-        <div class="top10" @click="removeItem(item)">
+        <div class="top10">
           <Icon icon="" class="icon-p"/>
         </div>
       </div>
@@ -24,16 +24,7 @@ export default {
   components: {
     Icon
   },
-  props: ['item'],
-  methods: {
-    addItem() {
-      this.item += 1
-      this.inspection_items.push(this.item)
-    },
-    removeItem(item) {
-      this.inspection_items = this.inspection_items.filter( x => x != item )
-    }
-  }
+  props: ['item']
 }
 </script>
 
