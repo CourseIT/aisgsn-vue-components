@@ -71,7 +71,7 @@ export default {
   text-align: center;
   color: var(--dark);
 }
-.theme--light.v-date-picker-header .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) button:not(:hover):not(:focus) {
+.v-date-picker-header__value button {
   font-weight: normal;
   text-transform: capitalize;
 }

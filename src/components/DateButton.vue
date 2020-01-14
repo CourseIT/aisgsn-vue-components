@@ -4,7 +4,6 @@
       ref="menu"
       v-model="menu"
       :close-on-content-click="false"
-      :return-value.sync="date"
       transition="scale-transition"
       offset-y
       min-width="290px"
@@ -46,6 +45,10 @@ export default {
 }
 .v-date-picker-table table thead {
   background-color: var(--pale-lilac);
+}
+.v-date-picker-header__value button {
+  font-weight: normal;
+  text-transform: capitalize;
 }
 .v-date-picker-table--date .v-btn {
   margin: 2px !important;

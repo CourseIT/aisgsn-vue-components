@@ -47,7 +47,7 @@
         <v-toolbar-items>
           <i class="fal fa-thunderstorm-sun nav__icon"></i>
           <p class="nav__degree">{{degree}}</p>
-          <span class="nav__celsius">℃</span>
+          <span class="nav__celsius">°C</span>
         </v-toolbar-items>
         <v-spacer></v-spacer>
 
@@ -263,7 +263,7 @@ nav {
 .nav__celsius {
   font-family: Roboto;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;

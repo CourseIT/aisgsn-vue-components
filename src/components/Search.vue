@@ -1,5 +1,5 @@
 <template>
-  <div class="search">
+  <div class="search" :class="{w30: $store.state.menu_visibility}">
     <input type="text" placeholder="Материал">
     <div class="icon-btn">
       <Icon class="icon" icon="" />
@@ -17,8 +17,13 @@ export default {
 </script>
 
 <style scoped>
+.w30 {
+  width: 30vw !important;
+}
 .search {
   display: flex;
+  transition: all 0.3s ease-in-out;
+  width: 41.3vw;
 }
 .search input {
   font-family: Roboto;
@@ -35,7 +40,7 @@ export default {
   border-radius: 4px;
   background-color: #fff;
   padding: 0px 15px;
-  width: 39.5vw;
+  width: 100%;
 }
 .icon-btn {
   width: 36px;

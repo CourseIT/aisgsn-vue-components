@@ -4,7 +4,6 @@
         ref="menu"
         v-model="menu"
         :close-on-content-click="false"
-        :return-value.sync="date"
         transition="scale-transition"
         offset-y
         min-width="290px"
@@ -15,9 +14,6 @@
           <Icon class="icon" icon="" /></button>
         </template>
         <v-date-picker color="orange" v-model="date" no-title scrollable>
-          <v-spacer></v-spacer>
-          <v-btn text color="orange" @click="menu = false">Закрыть</v-btn>
-          <v-btn text color="orange" @click="$refs.menu.save(date)">Выбрать</v-btn>
         </v-date-picker>
       </v-menu>
       <v-radio-group
@@ -43,8 +39,11 @@
 
 <script>
 const Icon = () => import('../components/Icon')
+
 export default {
-  components: { Icon },
+  components: {
+    Icon
+  },
   data: () => ({
     date: new Date().toISOString().substr(0, 10),
     menu: false,
@@ -88,6 +87,26 @@ export default {
   color: var(--bright-orange) !important;
   background: #000;
   border-radius: 5px;
+}
+.v-date-picker-header__value button {
+  font-weight: normal;
+  text-transform: capitalize;
+}
+.v-date-picker-header .v-btn--icon::before {
+  width: 0px;
+}
+.v-btn--icon.v-size--default .v-icon, .v-btn--fab.v-size--default .v-icon{
+  width: 22px !important;
+  border-radius: 0px;
+  padding: 0px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  margin: 0px 10px;
+}
+.v-date-picker-header .v-ripple__container{
+  display: none;
+}
+.input-date .theme--light.v-input--is-disabled .v-label, .theme--light.v-input--is-disabled input, .theme--light.v-input--is-disabled textarea {
+  color: #000;
 }
 .date-and-radio .date__btn {
   outline: none;

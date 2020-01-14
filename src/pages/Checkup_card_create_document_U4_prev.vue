@@ -34,27 +34,14 @@
             <h1 class="title">
               Программа проведения проверок
             </h1>
-            <div @click="addItem">
+            <div @click="modal_show = true">
               <Icon icon="" class="icon-plus"/>
             </div>
           </div>
           <hr>
           <v-row class="pr54">
             <v-col v-for="(item, index) in inspection_items" :key="index"  cols="6">
-              <div class="df inspection-program-block">
-                <div class="w95">
-                  <p class="mb7">20.08.20 – 28.08.20</p>
-                  <p class="mb4">Любая необходимая информация</p>
-                  <p class="mb4">Любая необходимая информация</p>
-                  <p>Любая необходимая информация</p>
-                </div>
-                <div>
-                  <Icon icon="" class="icon-p"/>
-                  <div class="top10" @click="removeItem(item)">
-                    <Icon icon="" class="icon-p"/>
-                  </div>
-                </div>
-              </div>
+              <AddFieldBlock :item="item" />
             </v-col>
           </v-row>
           <hr>
@@ -68,6 +55,7 @@
       <DocumentButtonActionSelection />
       <DocumentImgBlock img="true" class="mt100"/>
     </v-col>
+    <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
   </div>
 </template>
 
@@ -78,6 +66,9 @@ const DocumentImgBlock = () => import('../components/DocumentImgBlock')
 const InputWithIcon = () => import('../components/InputWithIcon')
 const InputDateWithIcon = () => import('../components/InputDateWithIcon')
 const TextareaWithIcon = () => import('../components/TextareaWithIcon')
+const AddFieldBlock = () => import('../components/AddFieldBlock')
+const AddFieldModal = () => import('../components/AddFieldModal')
+
 export default {
   components: {
     Icon,
@@ -85,11 +76,15 @@ export default {
     DocumentImgBlock,
     InputWithIcon,
     InputDateWithIcon,
-    TextareaWithIcon
+    TextareaWithIcon,
+    AddFieldBlock,
+    AddFieldModal
   },
   data: () => ({
     item: 1,
-    inspection_items: [1]
+    inspection_items: [1],
+    modal_show: false,
+    add_fields: []
   }),
   methods: {
     addItem() {
@@ -98,6 +93,9 @@ export default {
     },
     removeItem(item) {
       this.inspection_items = this.inspection_items.filter( x => x != item )
+    },
+    toggleModal(show) {
+      this.modal_show = show
     }
   }
 }
@@ -201,36 +199,6 @@ hr {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 12px;
-  max-width: 720px;
-}
-.inspection-program-block {
-  padding: 7px 13px;
-  border-radius: 4px;
-  background-color: var(--white);
-}
-.inspection-program-block p {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 0;
-}
-.icon-p {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: var(--font-awesome-5-pro-light);
-  cursor: pointer;
-  font-size: 21px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
+  max-width: 790px;
 }
 </style>

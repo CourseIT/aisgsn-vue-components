@@ -30,16 +30,13 @@
           </h1>
           <div class="df jcsb">
             <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
-            <Icon icon="" class="icon-plus"/>
+            <div @click="modal_show = true">
+              <Icon icon="" class="icon-plus"/>
+            </div>
           </div>
           <hr>
-          <InputWithIcon placeholder="(Ф.И.О.)" icon="" />
-          <InputWithIcon placeholder="(номер объекта контроля)" icon="" />
-          <InputWithIcon placeholder="(метод)" icon="" />
-          <InputWithIcon placeholder="(подпись)" icon="" />
-          <InputDateWithIcon icon=""/>
-          <Icon icon="" class="icon-plus"/>
-          <hr>
+          <hr v-if="add_fields.length">
+          <Icon v-if="add_fields.length" icon="" class="icon-plus"/>
         </v-form>
       </div>
     </div>
@@ -47,6 +44,7 @@
       <DocumentButtonActionSelection />
       <DocumentImgBlock :img="false" class="mt100"/>
     </v-col>
+    <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
   </div>
 </template>
 
@@ -57,6 +55,8 @@ const DocumentImgBlock = () => import('../components/DocumentImgBlock')
 const InputWithIcon = () => import('../components/InputWithIcon')
 const InputDateWithIcon = () => import('../components/InputDateWithIcon')
 const TextareaWithIcon = () => import('../components/TextareaWithIcon')
+const AddFieldModal = () => import('../components/AddFieldModal')
+
 export default {
   components: {
     Icon,
@@ -64,11 +64,18 @@ export default {
     DocumentImgBlock,
     InputWithIcon,
     InputDateWithIcon,
-    TextareaWithIcon
+    TextareaWithIcon,
+    AddFieldModal
   },
   data: () => ({
-    
+    modal_show: false,
+    add_fields: []
   }),
+  methods: {
+    toggleModal(show) {
+      this.modal_show = show
+    },
+  }
 }
 </script>
 

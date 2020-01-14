@@ -27,7 +27,9 @@
               placeholder="Пароль"
               required
             />
-            <v-btn class="login__btn" @click="$router.push({name: 'Home'})">Войти</v-btn>
+            <div @click="$router.push({name: 'Home'})">
+              <Button text="Войти"/>
+            </div>
             <div class="login__hint">
               <p>
                 Не можете вспомнить свой пароль?<br>
@@ -43,9 +45,12 @@
 
 <script>
 const Icon = () => import('../components/Icon')
+const Button = () => import('../components/Button')
+
 export default {
   components: {
-    Icon
+    Icon,
+    Button
   },
   data: () => ({
     name: '',
