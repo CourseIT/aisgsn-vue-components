@@ -40,7 +40,7 @@ export default {
 <style>
 .theme--light.checkup-card-list__table thead tr:last-child th {
   height: 30px;
-  border: none;
+  border: none !important;
   font-family: Roboto;
   font-size: 11px;
   font-weight: 300;
@@ -52,7 +52,7 @@ export default {
   color: var(--dark);
 }
 .theme--light.checkup-card-list__table tbody tr:not(:last-child) td:not(.v-data-table__mobile-row) {
-  border: none;
+  border: none !important;
 }
 .checkup-card-list__table tbody tr:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
