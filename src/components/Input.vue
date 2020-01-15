@@ -4,7 +4,7 @@
     <div class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
       <div class="w58"></div>
-      <div class="select-block">
+      <div v-if="select_block_show" class="select-block">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
         </ul>
@@ -16,6 +16,7 @@
 export default {
   props: ['placeholder', 'value', 'label'],
   data: () => ({
+    select_block_show: false,
     input_value: '',
     list: [
       'Объект КС 1',
@@ -24,6 +25,16 @@ export default {
       '...'
     ]
   }),
+  watch: {
+    input_value(value) {
+      this.select_block_show = true
+      setTimeout(() => {
+        if(value === this.input_value) {
+          this.select_block_show = false
+        }
+      }, 1000)
+    }
+  }
 }
 </script>
 <style scoped>
@@ -48,12 +59,6 @@ export default {
 }
 .input-block {
   margin-bottom: -15px;
-}
-.icon:hover + .select-block {
-  display: block;
-}
-.input:focus + .select-block {
-  display: block;
 }
 .input {
   font-family: Roboto;
@@ -83,7 +88,6 @@ export default {
   position: absolute;
   z-index: 99;
   margin-top: 42px;
-  display: none;
 }
 .select-block:hover {
   display: block;

@@ -4,7 +4,7 @@
     <p class="label">{{label}}</p>
     <div class="df">
       <input :placeholder="placeholder" v-model="text" >
-      <div class="select-block">
+      <div v-if="select_block_show" class="select-block">
         <ul>
           <li @click="text = `${text} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
         </ul>
@@ -41,6 +41,7 @@ export default {
   data: () =>({
     text: '',
     template_show: false,
+    select_block_show: false,
     list: [
       'Объект КС 1',
       'Объект КС 2',
@@ -50,8 +51,14 @@ export default {
     texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
   }),
   watch: {
-    text(){
+    text(value){
       this.template_show = false
+      this.select_block_show = true
+      setTimeout(() => {
+        if(value === this.text) {
+          this.select_block_show = false
+        }
+      }, 1000)
     }
   },
   methods: {
