@@ -449,4 +449,7 @@ nav {
   margin-top: 5px;
   margin-left: 20px;
 }
+.menu .theme--light.v-input:not(.v-input--is-disabled) input, .theme--light.v-input:not(.v-input--is-disabled) textarea {
+  margin-top: 10px !important;
+}
 </style>
