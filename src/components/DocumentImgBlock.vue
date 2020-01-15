@@ -18,10 +18,10 @@
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" class="icon list mt0" icon="" />
-              <div class="list__desc">
+              <Icon v-on="on" prompt="Лист визирования" class="icon list mt0" icon="" />
+              <!-- <div class="list__desc">
                 <span>Лист визирования</span>
-              </div>
+              </div> -->
             </div>
             <Icon v-on="on" class="icon mt0 ml5" icon="" />
           </template>
@@ -261,7 +261,7 @@ export default {
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
-  bottom: 70px;
+  bottom: 63px;
   right: 85px;
 }
 .star__desc::after {

@@ -4,8 +4,8 @@
       <div class="w66" :class="{pl305: $store.state.menu_visibility}">
         <div class="df jcsb">
           <Search />
-          <IconUploadDoc />
-          <IconCreateDoc />
+          <Icon class="icon-d icon" icon="" prompt="Создать документ"/>
+          <Icon class="icon-d icon" icon="" prompt="Загрузить документ"/>
           <GreenRadioButton :labels="labels" radio_color="orange" />
         </div>
         <div class="df jcsb">
@@ -39,8 +39,7 @@
 const Table = () => import('../components/Table')
 const DocumentImgBlock = () => import('../components/DocumentImgBlock')
 const Search = () => import('../components/Search')
-const IconUploadDoc = () => import('../components/IconUploadDoc')
-const IconCreateDoc = () => import('../components/IconCreateDoc')
+const Icon = () => import('../components/Icon')
 const AuthorSelectButton = () => import('../components/AuthorSelectButton')
 const PodpisanSelectButton = () => import('../components/PodpisanSelectButton')
 const TypeSelectButton = () => import('../components/TypeSelectButton')
@@ -55,8 +54,7 @@ export default {
     Table,
     DocumentImgBlock,
     Search,
-    IconUploadDoc,
-    IconCreateDoc,
+    Icon,
     GreenRadioButton,
     AuthorSelectButton,
     PodpisanSelectButton,
@@ -224,6 +222,18 @@ export default {
 }
 .pl305 {
   padding-left: 305px;
+}
+.icon-d {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.62;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+  cursor: pointer;
 }
 .checkup-card-list .table__info {
   font-family: Roboto;

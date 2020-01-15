@@ -1,19 +1,76 @@
 <template>
   <div>
-    <div class="icon" :style='{color: `${color}`}'>{{icon}}</div>
+    <div>
+      <div class="icon" :style='{color: `${color}`}'>{{icon}}</div>
+    </div>
+    <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
+      <div class="arrow"></div>
+      <div class="icon__prompt">
+        <span>{{prompt}}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['icon', 'color', 'desc', 'desc-theme']
+  props: ['icon', 'color', 'prompt', 'prompt_theme']
 }
 </script>
 
 <style scoped>
+.dark .icon__prompt{
+  background-color: var(--dark) !important;
+  color: #fff;
+}
+.dark::after {
+  border-bottom: 8px solid var(--dark) !important;
+}
 .icon {
   display: block;
   user-select: none;
   cursor: pointer;
+  z-index: 99;
+}
+.icon:hover .icon__prompt-block {
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  margin-left: -192px;
+  margin-top: -64px;
+}
+.icon__prompt-block {
+  display: none;
+  width: 400px;
+  position: absolute;
+  text-align: center;
+  
+}
+.icon__prompt {
+  position: absolute;
+  z-index: 9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+.arrow {
+  position: absolute;
+  top: 23px;
+  display: inline-block;
+  color: #fff;
+  z-index: 99;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid #fff;
+  transform: rotate(180deg);
 }
 </style>
