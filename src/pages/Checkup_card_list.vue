@@ -22,22 +22,7 @@
         <p class="table__info">Время выдачи 12:25, количество записей и любая другая информация</p>
       </div>
       <v-col>
-        <div class="df">
-          <p class="doc__title">Заявитель (уточняется)</p>
-          <p class="title-value">{{podpisant}}</p>
-        </div>
-        <div class="df">
-          <p class="doc__title">Название проверки (уточняется)</p>
-          <p class="title-value">{{title_of_verification}}</p>
-        </div>
-        <div class="df">
-          <p class="doc__title">Проверяющий (уточняется)</p>
-          <p class="title-value">{{inspector}}</p>
-        </div>
-        <div class="df">
-          <p class="doc__title">Сроки проведения</p>
-          <p class="title-value color-orange">{{dates}}</p>
-        </div>
+        <DocInfo :doc_info="doc_info"/>
         <DocumentImgBlock img="true" class="mt60"/>
         <p class="doc__info">Информация о документе</p>
         <p class="doc__info">Информация о документе</p>
@@ -63,6 +48,7 @@ const StatusSelectButton = () => import('../components/StatusSelectButton')
 const DateButton = () => import('../components/DateButton')
 const FiltersButton = () => import('../components/FiltersButton')
 const GreenRadioButton = () => import('../components/GreenRadioButton')
+const DocInfo = () => import('../components/DocInfo')
 
 export default {
   components: {
@@ -77,14 +63,17 @@ export default {
     TypeSelectButton,
     StatusSelectButton,
     DateButton,
-    FiltersButton
+    FiltersButton,
+    DocInfo
   },
   data: () => ({
     labels: ['Список','Хронология'],
-    podpisant: 'ВНИИЭФ',
-    title_of_verification: 'Уточняется',
-    inspector: 'Куликов Б. Ю.',
-    dates: '20.08.20 – 28.08.20',
+    doc_info: {
+      declarant: 'ВНИИЭФ',
+      title_of_verification: 'Уточняется',
+      inspector: 'Куликов Б. Ю.',
+      dates: '20.08.20 – 28.08.20'
+    },
     docs: [
       {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
@@ -236,9 +225,6 @@ export default {
 .pl305 {
   padding-left: 305px;
 }
-.color-orange {
-  color: var(--bright-orange) !important;
-}
 .checkup-card-list .table__info {
   font-family: Roboto;
   font-size: 12px;
@@ -246,31 +232,6 @@ export default {
   font-stretch: normal;
   font-style: normal;
   line-height: 1.25;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-}
-.checkup-card-list .doc__title {
-  width: 190px;
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 14px;
-  margin-left: 25px;
-}
-.checkup-card-list .title-value {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);

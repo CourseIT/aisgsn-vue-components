@@ -12,7 +12,7 @@
             </p>
             <Icon class="icon" icon="" />
           </div>
-          <v-form>
+          <v-form @submit="$router.push({name: 'Home'})">
             <input
               v-model="name"
               class="login__input"
@@ -27,7 +27,7 @@
               placeholder="Пароль"
               required
             />
-            <div @click="$router.push({name: 'Home'})">
+            <div >
               <Button text="Войти"/>
             </div>
             <div class="login__hint">

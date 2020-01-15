@@ -1,4 +1,4 @@
-<template>
+<template class="db">
 	<button class="btn">{{text}}</button>
 </template>
 
@@ -10,6 +10,9 @@ export default {
 </script>
 
 <style scoped>
+.db {
+  display: block;
+}
 .btn{
 	width: 132px;
   height: 34px;

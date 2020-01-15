@@ -68,7 +68,7 @@ export default {
   background: none !important;
 }
 .checkup-card-list__table table {
-  border-spacing: 0 10px;
+  border-spacing: 0 10px !important;
 }
 .checkup-card-list__table .table__tr {
   transition: all 0.2s ease-out;
