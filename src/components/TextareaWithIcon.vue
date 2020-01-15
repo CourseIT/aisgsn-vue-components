@@ -25,6 +25,7 @@
 <script>
 const Icon = () => import('./Icon')
 const TemplateText = () => import('./TemplateText')
+
 export default {
 	props: ['placeholder', 'value', 'icon', 'label'],
   components: {

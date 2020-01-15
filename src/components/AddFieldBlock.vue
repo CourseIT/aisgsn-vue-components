@@ -18,7 +18,7 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
+const Icon = () => import('@/components/Icon')
 
 export default {
   components: {

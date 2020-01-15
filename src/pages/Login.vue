@@ -44,8 +44,8 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
-const Button = () => import('../components/Button')
+const Icon = () => import('@/components/Icon')
+const Button = () => import('@/components/Button')
 
 export default {
   components: {

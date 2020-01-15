@@ -12,6 +12,7 @@
 
 <script>
 const Icon = () => import('./Icon')
+
 export default {
   props: ['type'],
   components: {

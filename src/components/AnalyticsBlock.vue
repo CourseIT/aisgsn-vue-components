@@ -174,9 +174,6 @@ li {
   position: relative;
   bottom: 3px;
 }
-
-
-
 .r38{
   right: 38px;
 }
@@ -186,7 +183,6 @@ li {
 .r76{
   right: 76px;
 }
-
 .aic {
   align-items: center;
 }

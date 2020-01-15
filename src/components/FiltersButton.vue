@@ -35,10 +35,10 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
-const SelectButtonW132 = () => import('../components/SelectButtonW132')
-const SelectButtonW438 = () => import('../components/SelectButtonW438')
-const Button = () => import('../components/Button')
+const Icon = () => import('@/components/Icon')
+const SelectButtonW132 = () => import('@/components/SelectButtonW132')
+const SelectButtonW438 = () => import('@/components/SelectButtonW438')
+const Button = () => import('@/components/Button')
 
 export default {
   components: { 

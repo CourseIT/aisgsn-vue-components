@@ -60,9 +60,10 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
+const Icon = () => import('@/components/Icon')
 const Notifications = () => import('./Notifications')
-const Breadcrumbs = () => import('../components/Breadcrumbs')
+const Breadcrumbs = () => import('@/components/Breadcrumbs')
+
 export default {
   components: {
     Notifications,

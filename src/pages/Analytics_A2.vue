@@ -20,8 +20,9 @@
 </template>
 
 <script>
-const DateAndRadioButton = () => import('../components/DateAndRadioButton')
-const AnalyticsBlock = () => import('../components/AnalyticsBlock')
+const DateAndRadioButton = () => import('@/components/DateAndRadioButton')
+const AnalyticsBlock = () => import('@/components/AnalyticsBlock')
+
 export default {
   name: 'Analytics_A2',
   components: { DateAndRadioButton, AnalyticsBlock },

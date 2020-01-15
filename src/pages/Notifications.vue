@@ -26,7 +26,7 @@
 </template>
 
 <script>
-const Notification = () =>import('../components/Notification')
+const Notification = () =>import('@/components/Notification')
 export default {
   components: {
     Notification

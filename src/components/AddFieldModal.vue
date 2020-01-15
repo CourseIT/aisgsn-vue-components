@@ -25,9 +25,9 @@
 </template>
 
 <script>
-const InputWithIcon = () => import('../components/InputWithIcon')
-const InputDateWithIcon = () => import('../components/InputDateWithIcon')
-const Icon = () => import('../components/Icon')
+const InputWithIcon = () => import('@/components/InputWithIcon')
+const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
+const Icon = () => import('@/components/Icon')
 
 export default {
   props: ['modal_show'],

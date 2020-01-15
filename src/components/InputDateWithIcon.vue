@@ -27,6 +27,7 @@
 
 <script>
 const Icon = () => import('./Icon')
+
 export default {
   props: ['placeholder', 'value', 'icon', 'label'],
   components: {

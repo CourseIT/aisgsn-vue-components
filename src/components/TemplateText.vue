@@ -13,6 +13,7 @@
 
 <script>
 const Icon = () => import('./Icon')
+
 export default {
   components: {
     Icon

@@ -100,6 +100,7 @@
 
 <script>
 const Icon = () => import ('@/components/Icon.vue')
+
 export default {
   props:['drawer'],
   components: {

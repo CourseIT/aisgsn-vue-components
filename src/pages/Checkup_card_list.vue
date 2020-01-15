@@ -36,18 +36,18 @@
 </template>
 
 <script>
-const Table = () => import('../components/Table')
-const DocumentImgBlock = () => import('../components/DocumentImgBlock')
-const Search = () => import('../components/Search')
-const Icon = () => import('../components/Icon')
-const AuthorSelectButton = () => import('../components/AuthorSelectButton')
-const PodpisanSelectButton = () => import('../components/PodpisanSelectButton')
-const TypeSelectButton = () => import('../components/TypeSelectButton')
-const StatusSelectButton = () => import('../components/StatusSelectButton')
-const DateButton = () => import('../components/DateButton')
-const FiltersButton = () => import('../components/FiltersButton')
-const GreenRadioButton = () => import('../components/GreenRadioButton')
-const DocInfo = () => import('../components/DocInfo')
+const Table = () => import('@/components/Table')
+const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
+const Search = () => import('@/components/Search')
+const Icon = () => import('@/components/Icon')
+const AuthorSelectButton = () => import('@/components/AuthorSelectButton')
+const PodpisanSelectButton = () => import('@/components/PodpisanSelectButton')
+const TypeSelectButton = () => import('@/components/TypeSelectButton')
+const StatusSelectButton = () => import('@/components/StatusSelectButton')
+const DateButton = () => import('@/components/DateButton')
+const FiltersButton = () => import('@/components/FiltersButton')
+const GreenRadioButton = () => import('@/components/GreenRadioButton')
+const DocInfo = () => import('@/components/DocInfo')
 
 export default {
   components: {

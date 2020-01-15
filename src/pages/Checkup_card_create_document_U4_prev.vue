@@ -65,14 +65,14 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
-const DocumentButtonActionSelection = () => import('../components/DocumentButtonActionSelection')
-const DocumentImgBlock = () => import('../components/DocumentImgBlock')
-const InputWithIcon = () => import('../components/InputWithIcon')
-const InputDateWithIcon = () => import('../components/InputDateWithIcon')
-const TextareaWithIcon = () => import('../components/TextareaWithIcon')
-const AddFieldBlock = () => import('../components/AddFieldBlock')
-const AddFieldModal = () => import('../components/AddFieldModal')
+const Icon = () => import('@/components/Icon')
+const DocumentButtonActionSelection = () => import('@/components/DocumentButtonActionSelection')
+const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
+const InputWithIcon = () => import('@/components/InputWithIcon')
+const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
+const TextareaWithIcon = () => import('@/components/TextareaWithIcon')
+const AddFieldBlock = () => import('@/components/AddFieldBlock')
+const AddFieldModal = () => import('@/components/AddFieldModal')
 import draggable from 'vuedraggable'
 
 export default {

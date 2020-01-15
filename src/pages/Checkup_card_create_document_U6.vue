@@ -42,13 +42,13 @@
 </template>
 
 <script>
-const Icon = () => import('../components/Icon')
-const DocumentButtonActionSelection = () => import('../components/DocumentButtonActionSelection')
-const DocumentImgBlock = () => import('../components/DocumentImgBlock')
-const Input = () => import('../components/Input')
-const InputWithIcon = () => import('../components/InputWithIcon')
-const InputDateWithIcon = () => import('../components/InputDateWithIcon')
-const TextareaWithIcon = () => import('../components/TextareaWithIcon')
+const Icon = () => import('@/components/Icon')
+const DocumentButtonActionSelection = () => import('@/components/DocumentButtonActionSelection')
+const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
+const Input = () => import('@/components/Input')
+const InputWithIcon = () => import('@/components/InputWithIcon')
+const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
+const TextareaWithIcon = () => import('@/components/TextareaWithIcon')
 export default {
   components: {
     Icon,
