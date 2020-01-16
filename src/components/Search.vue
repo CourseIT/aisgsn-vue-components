@@ -64,7 +64,6 @@ export default {
   line-height: 1.57;
   letter-spacing: normal;
   text-align: left;
-  color: var(--dark);
-  margin-left: 5px;
+  color: #000;
 }
 </style>

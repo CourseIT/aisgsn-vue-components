@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="icon" :class="{'hover-icon': hover}" :style='{color: `${color}`}'>{{icon}}</div>
+      <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
     </div>
     <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
       <div class="arrow"></div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ['icon', 'color', 'prompt', 'prompt_theme', 'hover']
+  props: ['icon', 'color', 'prompt', 'prompt_theme', 'hover_shadow', 'hover_color', 'width', 'height']
 }
 </script>
 
@@ -38,10 +38,10 @@ export default {
   text-align: center;
   align-items: center;
 }
-.icon:hover {
+.hover-color:hover {
   color: var(--bright-orange) !important;
 }
-.hover-icon:hover {
+.hover-shadow:hover {
   background-color: var(--pale-grey);
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);

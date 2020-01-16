@@ -10,11 +10,11 @@
         </ul>
       </div>
       <div class="icon" @click="template_show = true">
-        <Icon :icon="icon" :hover="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+        <Icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
         <div class="templates-block">
-          <div style="box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);">
+          <div>
             <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
           </div>
         </div>
@@ -94,8 +94,8 @@ export default {
 .icons_text-block {
   display: flex;
   position: absolute;
-  margin-top: 510px;
-  margin-left: 255px;
+  margin-top: 682px;
+  margin-left: 240px;
   z-index: 99;
 }
 .icon-text {
@@ -136,10 +136,11 @@ export default {
   max-width: 450px;
   min-width: 400px;
   overflow: auto;
-  max-height: 500px;
-  padding: 20px;
-  padding-left: 0;
-  padding-top: 0;
+  max-height: 672px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: -20px;
+  padding-bottom: 10px;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;

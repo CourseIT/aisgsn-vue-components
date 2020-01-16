@@ -5,7 +5,7 @@
     <div class="df">
       <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
       <div class="icon" @click="template_show = true">
-        <Icon :icon="icon" :hover="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+        <Icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
         <div class="templates-block">

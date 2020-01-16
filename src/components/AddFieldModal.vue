@@ -20,7 +20,9 @@
         </div>
       </div>
     </div>
-    <div @click="closeModal"  class="modal__bg" :class="{pl305: $store.state.menu_visibility}"></div>
+    <transition name="modal">
+      <div @click="closeModal"  class="modal__bg" :class="{pl305: $store.state.menu_visibility}"></div>
+    </transition>
   </div>
 </template>
 
@@ -60,6 +62,7 @@ export default {
   position: fixed;
   width: 50%;
   left: 0;
+  top: 15vh;
   margin-left: 25%;
   z-index: 100;
 }

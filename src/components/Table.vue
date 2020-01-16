@@ -1,43 +1,78 @@
 <template>
   <div>
     <div>
-      <v-simple-table class="checkup-card-list__table">
-        <template v-slot:default>
-          <thead>
-            <tr>
-              <th class="text-left">Название документа</th>
-              <th class="text-left">Автор</th>
-              <th class="text-left">Тип</th>
-              <th class="text-left">Подписан</th>
-              <th class="text-left">Статус</th>
-              <th class="text-left">Дата</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, index) in docs" :key="index" class="table__tr">
-              <td class="table__name">{{ item.name }}</td>
-              <td class="table__text">{{ item.author }}</td>
-              <td class="table__text table__type">{{ item.type }}</td>
-              <td class="table__text">{{ item.podpisan }}</td>
-              <td class="table__text">{{ item.status }}</td>
-              <td class="table__text">{{ item.date }}</td>
-            </tr>
-          </tbody>
-        </template>
-      </v-simple-table>
+      <!-- <div class="table-fix" :style="{width: `${width}`}">
+        <v-data-table class="checkup-card-list__table">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left" v-for="(th, index) in thead" :key="index">{{th}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="table__tr o0">
+                <td class="table__name">{{ docs[0].name }} 123</td>
+                <td class="table__text">{{ docs[0].author }}</td>
+                <td class="table__text table__type">{{ docs[0].type }}</td>
+                <td class="table__text">{{ docs[0].podpisan }}</td>
+                <td class="table__text">{{ docs[0].status }}</td>
+                <td class="table__text">{{ docs[0].date }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-data-table>
+      </div> -->
+      <div class="mt50 scroll">
+        <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left" v-for="(th, index) in thead" :key="index">{{th}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(item, index) in docs" :key="index" class="table__tr">
+                <td class="table__name">{{ item.name }}</td>
+                <td class="table__text">{{ item.author }}</td>
+                <td class="table__text table__type">{{ item.type }}</td>
+                <td class="table__text">{{ item.podpisan }}</td>
+                <td class="table__text">{{ item.status }}</td>
+                <td class="table__text">{{ item.date }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['docs'],
+  props: ['docs', 'thead', 'height'],
   data: () => ({
   })
 }
 </script>
 
 <style>
+.table-fix {
+  position: absolute;
+  margin-top: -60px;
+}
+.table-fix thead tr{
+  background-color: var(--pale-grey);
+  height: 50px;
+  z-index: 8;
+}
+.mt50 {
+  margin-top: 50px;
+}
+.o0 {
+  opacity: 0;
+  z-index: -1;
+  height: 1px !important;
+}
 .theme--light.checkup-card-list__table thead tr:last-child th {
   height: 30px;
   border: none !important;
@@ -50,8 +85,17 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  z-index: 1;
+  border: none !important;
+  border-bottom: none !important;
 }
 .theme--light.checkup-card-list__table tbody tr:not(:last-child) td:not(.v-data-table__mobile-row) {
+  border: none !important;
+}
+.theme--light.v-data-table thead tr:last-child th {
+  background: var(--pale-grey) !important;
+}
+.theme--light.v-data-table thead tr th {
   border: none !important;
 }
 .checkup-card-list__table tbody tr:hover {
@@ -87,6 +131,9 @@ export default {
   text-align: left;
   color: var(--dark);
 }
+.checkup-card-list__table .table__text {
+  z-index: 1;
+}
 .checkup-card-list__table .table__text:last-child {
   font-family: Roboto;
   font-size: 15px;
@@ -100,5 +147,20 @@ export default {
 }
 .checkup-card-list__table .table__type {
   color: var(--dark) !important;
+}
+.checkup-card-list__table .v-data-table__wrapper {
+  padding-right: 20px;
+}
+.checkup-card-list__table .v-data-table__wrapper thead tr th {
+  background: none;
+}
+.checkup-card-list__table .v-data-table__wrapper::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.checkup-card-list__table .v-data-table__wrapper::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
 }
 </style>

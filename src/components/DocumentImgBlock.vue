@@ -7,9 +7,9 @@
       </div>
     </div>
     <div class="doc__btns">
-      <Icon class="icon-text" :hover="true" icon="У24" />
-      <Icon class="icon" :hover="true" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
-      <Icon v-if="img" :hover="true" class="icon" icon="" />
+      <Icon class="icon-text" :hover_shadow="true" :hover_color="true" icon="У24" />
+      <Icon class="icon" :hover_shadow="true" :hover_color="true" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
+      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
       <div v-if="img">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
@@ -18,12 +18,12 @@
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" :hover="true" prompt="Лист визирования" class="icon list ml0" icon="" />
+              <Icon v-on="on" :hover_shadow="true" :hover_color="true" prompt="Лист визирования" class="icon list ml0" icon="" />
               <!-- <div class="list__desc">
                 <span>Лист визирования</span>
               </div> -->
             </div>
-            <Icon :hover="true" v-on="on" class="icon" icon="" />
+            <Icon :hover_shadow="true" :hover_color="true" v-on="on" class="icon" icon="" />
           </template>
           <div class="dropdown__block arrow-icon">
             <div v-for="(uesr, index) in users"  :key="index">
@@ -38,9 +38,9 @@
           </div>
         </v-menu>
       </div>
-      <Icon v-if="img" :hover="true" class="icon" icon="" />
-      <Icon v-if="img" :hover="true" class="icon" icon="" />
-      <Icon v-if="img" :hover="true" prompt="Подписано всеми участниками" class="icon" color="#ff6100" icon="" />
+      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
+      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
+      <Icon v-if="img" :hover_shadow="true" :hover_color="true" prompt="Подписано всеми участниками" class="icon" color="#ff6100" icon="" />
     </div>
   </div>
 </template>

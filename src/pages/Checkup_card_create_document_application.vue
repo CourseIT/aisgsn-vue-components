@@ -41,12 +41,14 @@
     </div>
     <v-col class="pf">
       <div class="df">
-        <Icon icon="" :hover="true" class="icon-s mt0"/>
+        <Icon icon="" :hover_shadow="true" :hover_color="true" class="icon-s mt0"/>
         <DocumentButtonActionSelection />
       </div>
       <DocumentImgBlock :img="false" class="mt100"/>
     </v-col>
-    <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
+    <transition name="modal">
+      <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
+    </transition>
   </div>
 </template>
 
@@ -82,6 +84,18 @@ export default {
 </script>
 
 <style scoped>
+.modal-enter-active, .modal-leave-active{
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+.modal-enter, .modal-leave-to{
+  opacity: 0;
+  transform: translateY(-50vh);
+}
 .df {
   display: flex;
 }

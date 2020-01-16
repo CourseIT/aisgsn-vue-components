@@ -4,8 +4,8 @@
       <div class="w66" :class="{pl305: $store.state.menu_visibility}">
         <div class="df jcsb">
           <Search />
-          <Icon class="icon-d icon" icon="" prompt="Создать документ"/>
-          <Icon class="icon-d icon" icon="" prompt="Загрузить документ"/>
+          <Icon class="icon-d icon" :hover_color="true" icon="" prompt="Создать документ"/>
+          <Icon class="icon-d icon" :hover_color="true" icon="" prompt="Загрузить документ"/>
           <GreenRadioButton :labels="labels" radio_color="orange" />
         </div>
         <div class="df jcsb">
@@ -17,7 +17,7 @@
           <FiltersButton />
         </div>
         <div class="table-block">
-          <Table :docs="docs" />
+          <Table :docs="docs" :thead="thead" height="60vh" />
         </div>
         <p class="table__info">Время выдачи 12:25, количество записей и любая другая информация</p>
       </div>
@@ -72,6 +72,7 @@ export default {
       inspector: 'Куликов Б. Ю.',
       dates: '20.08.20 – 28.08.20'
     },
+    thead: ['Название документа', 'Автор', 'Тип', 'Подписан', 'Статус', 'Дата'],
     docs: [
       {
         name: 'Материалы проведённых испытаний (измерений) к протоколу РРК-9.7.14/ХХ-20__  от __.__.20__. ',
@@ -263,19 +264,7 @@ export default {
   display: none;
 }
 .checkup-card-list .table-block {
-  height: 65vh;
   margin-top: 10px;
-  overflow: auto;
-  margin-bottom: 5px;
-  padding-right: 20px;
 }
-.checkup-card-list .table-block::-webkit-scrollbar {
-  width: 11px;
-  height: 8px;
-  background-color: rgba(0, 0, 0, 0);
-}
-.checkup-card-list .table-block::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--pale-lilac);
-}
+
 </style>
