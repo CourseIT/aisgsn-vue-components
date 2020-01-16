@@ -10,19 +10,19 @@
         <SelectButtonW438 />
         <SelectButtonW438 />
         <div class="df jcsb">
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
         </div>
         <div class="df jcsb">
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
         </div>
         <div class="df jcsb">
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
-          <SelectButtonW132 class="" />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
+          <SelectButtonW132 />
         </div>
         <div class="df jcfe">
           <Button class="mt70 mr22" text="Применить" />

@@ -94,8 +94,8 @@ export default {
 .icons_text-block {
   display: flex;
   position: absolute;
-  margin-top: 682px;
-  margin-left: 240px;
+  margin-top: 672px;
+  margin-left: 293px;
   z-index: 99;
 }
 .icon-text {
