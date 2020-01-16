@@ -297,6 +297,9 @@ nav {
   overflow-y: auto;
   height: 65vh;
 }
+.menu__container .df{
+  align-items: center;
+}
 .menu__container::-webkit-scrollbar {
   width: 0px;
   background: rgba(255, 255, 255, 0.0);
