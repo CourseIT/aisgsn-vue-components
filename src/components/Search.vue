@@ -23,7 +23,7 @@ export default {
 }
 .search {
   display: flex;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
   width: 41.3vw;
 }
 .search input {
