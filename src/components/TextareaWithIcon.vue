@@ -5,7 +5,7 @@
     <div class="df">
       <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
       <div class="icon" @click="template_show = true">
-        <Icon :icon="icon" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+        <Icon :icon="icon" :hover="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
         <div class="templates-block">
@@ -96,10 +96,10 @@ export default {
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
   font-size: 33px;
-  padding: 0px 25px;
+  padding: 0px 18px;
   text-align: center;
   position: relative;
-  bottom: 6px;
+  bottom: 0px;
 }
 .close-block {
   position: fixed;
@@ -118,7 +118,7 @@ export default {
   overflow: auto;
   max-height: 500px;
   padding-right: 25px;
-  padding-left: 22px;
+  padding-left: 10px;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;

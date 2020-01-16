@@ -9,7 +9,6 @@
                 капитального строительства для включения в план ОТКИ УГСН
             </h1>
           </div>
-          <Icon icon="" class="icon-s mt0"/>
         </div>
         <v-form
           ref="form"
@@ -41,7 +40,10 @@
       </div>
     </div>
     <v-col class="pf">
-      <DocumentButtonActionSelection />
+      <div class="df">
+        <Icon icon="" :hover="true" class="icon-s mt0"/>
+        <DocumentButtonActionSelection />
+      </div>
       <DocumentImgBlock :img="false" class="mt100"/>
     </v-col>
     <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
@@ -118,7 +120,7 @@ hr {
 }
 .icon-s {
   font-family: var(--font-awesome-5-pro-light);
-  margin-top: 17px;
+  margin-top: 2px;
   font-size: 21px;
   width: 55px;
   text-align: center;

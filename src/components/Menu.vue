@@ -3,19 +3,12 @@
     <div class="animate" :class="{'lightGamma': light_gamma}">
       <div class="menu-top-bg"></div>
       <div class="menu__container">
-        <!-- <div class="df">
-          <div class="menu__close-btn" @click="closeMenu">
-            <Icon class="menu__close-icon" :class="{colorBlack: light_gamma}" icon=""/>
-          </div>
-          <img v-if="!light_gamma" class="menu__logo-img" @click="$router.push({name: 'Home'})" src="@/assets/menu-logo.svg" alt="">
-          <img v-else class="menu__logo-img" @click="$router.push({name: 'Home'})" src="@/assets/logo.svg" alt="">
-        </div> -->
         <div class="menu__links">
           <div class="link">
             <h1 class="menu__title cp" :style="`font-size: ${text_size}px`" @click="$router.push({name: 'Home'})">Главная</h1>
           </div>
           <div class="link">
-            <div class="df jcsb pr30 cp" @click="openSubmenu('Надзор')">
+            <div class="df jcsb cp" @click="openSubmenu('Надзор')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">Надзор</h1>
               <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Надзор')}" />
             </div>
@@ -28,7 +21,7 @@
             </div>
           </div>
           <div class="link">
-            <div class="df jcsb pr30 cp" @click="openSubmenu('ТКИ')">
+            <div class="df jcsb cp" @click="openSubmenu('ТКИ')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">ТКИ</h1>
               <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('ТКИ')}"/>
             </div>
@@ -42,7 +35,7 @@
             </div>
           </div>
           <div class="link">
-            <div class="df jcsb pr30 cp" @click="openSubmenu('Аналитика')">
+            <div class="df jcsb cp" @click="openSubmenu('Аналитика')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">Аналитика</h1>
               <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Аналитика')}" />
             </div>
@@ -56,20 +49,19 @@
             </div>
           </div>
           <div class="link">
-            <div class="df jcsb pr30 cp" @click="openSubmenu('НСИ')">
+            <div class="df jcsb cp" @click="openSubmenu('НСИ')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">НСИ</h1>
               <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('НСИ')}" />
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('НСИ')}">
               <ul>
                 <li :class="{t03s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Регулирующие документы</li>
-                <li :class="{t04s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Журнал ознокомления</li> 
-                <li :class="{t05s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">с документами</li>
-                <li :class="{t06s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Реестр организаций</li>
-                <li :class="{t07s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Участники ГСН</li>
-                <li :class="{t08s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Классификатор нарушений</li>
-                <li :class="{t09s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Управление сотрудниками</li>
-                <li :class="{t1s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">КоАП</li>
+                <li :class="{t04s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Журнал ознокомления с документами</li>
+                <li :class="{t05s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Реестр организаций</li>
+                <li :class="{t06s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Участники ГСН</li>
+                <li :class="{t07s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Классификатор нарушений</li>
+                <li :class="{t08s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Управление сотрудниками</li>
+                <li :class="{t09s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">КоАП</li>
               </ul>
             </div>
           </div>
@@ -300,7 +292,7 @@ nav {
   height: 130px;
 }
 .menu__container {
-  width: 300px;
+  width: 312px;
   padding: 20px 30px;
   overflow-y: auto;
   height: 65vh;

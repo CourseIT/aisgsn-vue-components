@@ -3,7 +3,7 @@
       <div class="breadcrumbs">
       <v-breadcrumbs :items="items" :large="large">
         <template v-if="customDiv" v-slot:divider>
-          <Icon icon="" class="breadcrumbs_icon"/>
+          <span class="breadcrumbs_icon"></span>
         </template>
       </v-breadcrumbs>
     </div>
@@ -11,11 +11,7 @@
 </template>
 
 <script>
-const Icon = () => import('./Icon')
 export default {
-  components: {
-    Icon
-  },
   data: () => ({
     items: [
       {

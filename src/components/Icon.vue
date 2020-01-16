@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="icon" :style='{color: `${color}`}'>{{icon}}</div>
+      <div class="icon" :class="{'hover-icon': hover}" :style='{color: `${color}`}'>{{icon}}</div>
     </div>
     <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
       <div class="arrow"></div>
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  props: ['icon', 'color', 'prompt', 'prompt_theme']
+  props: ['icon', 'color', 'prompt', 'prompt_theme', 'hover']
 }
 </script>
 
@@ -31,20 +31,37 @@ export default {
   user-select: none;
   cursor: pointer;
   z-index: 99;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+.icon:hover {
+  color: var(--bright-orange) !important;
+}
+.hover-icon:hover {
+  background-color: var(--pale-grey);
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .icon:hover .icon__prompt-block {
   display: flex;
   height: 32px;
   justify-content: center;
   margin-left: -192px;
-  margin-top: -64px;
+  margin-top: -34px;
+  justify-content: center;
+  margin-left: 0px;
 }
 .icon__prompt-block {
   display: none;
   width: 400px;
   position: absolute;
   text-align: center;
-  
+  justify-content: center;
+  margin-left: 0px;
 }
 .icon__prompt {
   position: absolute;

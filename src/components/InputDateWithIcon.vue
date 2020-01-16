@@ -15,7 +15,9 @@
           selected-items-text="ru"
         >
           <template v-slot:activator="{ on }">
-            <div class="icon-date" v-on="on"><Icon :icon="icon" :color="menu ? '#fb6229' : 'black' " class="icon-block"/></div>
+            <div class="icon-date" v-on="on">
+              <Icon :icon="icon" :hover="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
+            </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
           </v-date-picker>
@@ -116,7 +118,7 @@ export default {
   cursor: pointer;
   height: 40px;
   font-family: var(--font-awesome-5-pro-light);
-  margin-top: 4px;
+  margin-top: 00px;
   font-size: 21px;
   padding: 0px 18px;
   text-align: center;

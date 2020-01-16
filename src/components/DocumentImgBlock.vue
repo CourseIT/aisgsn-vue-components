@@ -7,23 +7,23 @@
       </div>
     </div>
     <div class="doc__btns">
-      <Icon class="icon-text mt0" icon="У24" />
-      <Icon class="icon mt25 ml2" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
-      <Icon v-if="img" class="icon mt0 ml5" icon="" />
+      <Icon class="icon-text" :hover="true" icon="У24" />
+      <Icon class="icon" :hover="true" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
+      <Icon v-if="img" :hover="true" class="icon" icon="" />
       <div v-if="img">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
             <div
-              class="icon-btn"
+              class="icon"
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" prompt="Лист визирования" class="icon list mt0" icon="" />
+              <Icon v-on="on" :hover="true" prompt="Лист визирования" class="icon list ml0" icon="" />
               <!-- <div class="list__desc">
                 <span>Лист визирования</span>
               </div> -->
             </div>
-            <Icon v-on="on" class="icon mt0 ml5" icon="" />
+            <Icon :hover="true" v-on="on" class="icon" icon="" />
           </template>
           <div class="dropdown__block arrow-icon">
             <div v-for="(uesr, index) in users"  :key="index">
@@ -38,12 +38,9 @@
           </div>
         </v-menu>
       </div>
-      <Icon v-if="img" class="icon mt0 ml5" icon="" />
-      <Icon v-if="img" class="icon mt0 ml5" icon="" />
-      <Icon v-if="img" class="icon star mt0 ml2" color="#ff6100" icon="" />
-      <div class="star__desc">
-        <span>Подписано всеми участниками</span>
-      </div>
+      <Icon v-if="img" :hover="true" class="icon" icon="" />
+      <Icon v-if="img" :hover="true" class="icon" icon="" />
+      <Icon v-if="img" :hover="true" prompt="Подписано всеми участниками" class="icon" color="#ff6100" icon="" />
     </div>
   </div>
 </template>
@@ -72,7 +69,10 @@ export default {
 .df {
   display: flex;
 }
-.mt0 {
+.ml0 {
+  margin-left: 0px !important;
+}
+/* .mt0 {
   margin-top: 0px;
 }
 .mr15 {
@@ -89,6 +89,10 @@ export default {
 }
 .mt25 {
   margin-top: 25px !important;
+} */
+.doc__btns {
+  align-items: center;
+  margin-left: 15px;
 }
 .icon-text {
   cursor: pointer;
@@ -100,7 +104,7 @@ export default {
   line-height: 1.2;
   letter-spacing: normal;
   text-align: center;
-  position: absolute;
+  margin-bottom: -5px;
 }
 .icon-btn {
   background: none;
@@ -115,7 +119,6 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 9px;
   font-size: 21px;
-  width: 5%;
   text-align: center;
 }
 .doc__block {
@@ -216,8 +219,8 @@ export default {
 [data-title]:hover::before {
   content: attr(data-title);
   position: absolute;
-  bottom: 30px;
-  left: -60px;
+  bottom: 40px;
+  left: -53px;
   display: inline-block;
   padding: 5px 16px;
   border-radius: 2px;
@@ -232,83 +235,13 @@ export default {
 [data-title]:hover::after {
   content: '';
   position: absolute;
-  bottom: 15px;
-  left: 2px;
+  bottom: 25px;
+  left: 10px;
   display: inline-block;
   color: #fff;
   border: 8px solid transparent;	
   border-bottom: 8px solid #000;
   transform: rotate(180deg);
 }
-.star:hover + .star__desc {
-  display: block;
-}
-.star__desc {
-  display: none;
-  position: relative;
-  width: 200px;
-  padding: 7px 0px;
-  height: 24px;
-  border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--white);
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--dark);
-  bottom: 63px;
-  right: 85px;
-}
-.star__desc::after {
-  content: '';
-  position: absolute;
-  top: 22px;
-  left: 90px;
-  display: inline-block;
-  color: #fff;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid #fff;
-  transform: rotate(180deg);
-}
 
-.list:hover + .list__desc {
-  display: block;
-}
-.list__desc {
-  display: none;
-  position: absolute;
-  width: 132px;
-  height: 24px;
-  padding: 6px 0px;
-  border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--white);
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--dark);
-  margin-top: -70px;
-  margin-left: -55px;
-}
-.list__desc::after {
-  content: '';
-  position: absolute;
-  top: 22px;
-  left: 55px;
-  display: inline-block;
-  color: #fff;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid #fff;
-  transform: rotate(180deg);
-}
 </style>

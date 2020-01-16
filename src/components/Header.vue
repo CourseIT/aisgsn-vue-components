@@ -174,6 +174,8 @@ nav {
 .close-icon {
   position: absolute;
   height: 40px;
+  margin-left: 5px;
+  margin-top: -5px;
   width: 40px;
   cursor: pointer;
 }
