@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="mt50">
+      <div>
         <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
           <template v-slot:default>
             <thead>
@@ -35,23 +35,6 @@ export default {
 </script>
 
 <style>
-.table-fix {
-  position: absolute;
-  margin-top: -60px;
-}
-.table-fix thead tr{
-  background-color: var(--pale-grey);
-  height: 50px;
-  z-index: 8;
-}
-.mt50 {
-  margin-top: 50px;
-}
-.o0 {
-  opacity: 0;
-  z-index: -1;
-  height: 1px !important;
-}
 .theme--light.checkup-card-list__table thead tr:last-child th {
   height: 30px;
   border: none !important;

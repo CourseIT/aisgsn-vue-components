@@ -32,7 +32,6 @@ const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
 const Icon = () => import('@/components/Icon')
 
 export default {
-  props: ['modal_show'],
   components: {
     InputWithIcon,
     InputDateWithIcon,

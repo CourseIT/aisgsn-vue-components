@@ -133,7 +133,8 @@ export default {
 .templates-block {
   position: absolute;
   z-index: 99;
-  max-width: 450px;
+  width: 454px;
+  max-width: 454px;
   min-width: 400px;
   overflow: auto;
   max-height: 672px;

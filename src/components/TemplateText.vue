@@ -55,6 +55,7 @@ export default {
   justify-content: space-between;
   background: #fff;
   padding: 4px 8px;
+  padding-right: 2px;
   border-radius: 4px;
   width: 100%;
   height: 50px;
@@ -86,5 +87,6 @@ export default {
   font-size: 11px;
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
+  font-weight: bold;
 }
 </style>
