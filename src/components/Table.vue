@@ -1,28 +1,7 @@
 <template>
   <div>
     <div>
-      <!-- <div class="table-fix" :style="{width: `${width}`}">
-        <v-data-table class="checkup-card-list__table">
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left" v-for="(th, index) in thead" :key="index">{{th}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="table__tr o0">
-                <td class="table__name">{{ docs[0].name }} 123</td>
-                <td class="table__text">{{ docs[0].author }}</td>
-                <td class="table__text table__type">{{ docs[0].type }}</td>
-                <td class="table__text">{{ docs[0].podpisan }}</td>
-                <td class="table__text">{{ docs[0].status }}</td>
-                <td class="table__text">{{ docs[0].date }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-data-table>
-      </div> -->
-      <div class="mt50 scroll">
+      <div class="mt50">
         <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
           <template v-slot:default>
             <thead>
@@ -150,6 +129,8 @@ export default {
 }
 .checkup-card-list__table .v-data-table__wrapper {
   padding-right: 20px;
+  padding-left: 10px;
+  margin-left: -10px;
 }
 .checkup-card-list__table .v-data-table__wrapper thead tr th {
   background: none;
