@@ -245,6 +245,7 @@ export default {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
+  margin-top: 5px;
   color: var(--dark);
 }
 .checkup-card-list .doc__info {
