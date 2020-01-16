@@ -1,8 +1,6 @@
 <template>
   <div class="checkup-card-list__radio"> 
-    <v-radio-group
-      row
-    >
+    <v-radio-group row>
       <v-radio v-for="label in labels" :key="label" class="radio" :label="label"></v-radio>
     </v-radio-group>
   </div>
@@ -15,11 +13,13 @@ export default {
 </script>
 
 <style>
+.checkup-card-list__radio .v-radio:last-child {
+  margin-right: 0;
+}
 .checkup-card-list__radio .v-input {
   margin-top: 0;
 }
 .checkup-card-list__radio .radio {
-  margin-left: 20px;
   margin-bottom: 20px;
 }
 .checkup-card-list__radio label {

@@ -19,11 +19,11 @@ export default {
 
 <style scoped>
 .w30 {
-  width: 30vw !important;
+  width: 31.8vw !important;
 }
 .search {
   display: flex;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease;
   width: 41.3vw;
 }
 .search input {

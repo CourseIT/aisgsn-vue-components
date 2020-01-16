@@ -63,6 +63,19 @@ export default {
 .date-and-radio label {
   margin-left: 5px;
 }
+.v-menu__content {
+  margin-top: 6px;
+}
+.v-date-picker-header__value {
+  font-family: Roboto;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
 .date-and-radio .mdi-radiobox-blank::before {
     content: "";
     background: #fff;
@@ -192,7 +205,7 @@ export default {
 .date-and-radio .hover-icon::after {
   content: ''; 
   position: absolute;
-  left: 4px; 
+  left: 10px; 
   bottom: 38px;
   border: 10px solid transparent;
   border-bottom: 10px solid #fff;
@@ -203,7 +216,7 @@ export default {
 .date-and-radio .hover-icon__bg {
   background-color: #fff;
   border-radius: 5px;
-  padding: 2px 4px;
+  padding: 2px 0px;
   transition: all 0.2s ease-out;
 }
 .date-and-radio .hover-icon__bg:hover {
