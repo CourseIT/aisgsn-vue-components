@@ -159,7 +159,7 @@ export default {
 }
 .dropdown__block {
   padding: 20px 0px;
-  padding-right: 50px;
+  padding-right: 60px;
 }
 .dropdown__user-title {
   font-family: Roboto;
@@ -197,17 +197,17 @@ export default {
 .arrow-icon::before {
   content: ''; 
   position: relative;
-  left: 3px; 
+  left: 9px; 
   bottom: 5px;
   border: 10px solid transparent;
   border-bottom: 10px solid #fff;
 }
 .dropdown__users .icon {
   cursor: pointer;
-  margin-right: 20px;
   margin-top: 5px !important;
   position: relative;
   bottom: 6px;
+  left: 10px;
 }
 .v-menu__content {
   box-shadow: none;

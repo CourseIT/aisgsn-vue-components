@@ -13,7 +13,7 @@
               <tr v-for="(item, index) in docs" :key="index" class="table__tr">
                 <td class="table__name">{{ item.name }}</td>
                 <td class="table__text">{{ item.author }}</td>
-                <td class="table__text table__type">{{ item.type }}</td>
+                <td class="table__text">{{ item.type }}</td>
                 <td class="table__text">{{ item.podpisan }}</td>
                 <td class="table__text">{{ item.status }}</td>
                 <td class="table__text">{{ item.date }}</td>
@@ -67,7 +67,7 @@ export default {
 }
 .checkup-card-list__table tbody tr {
   height: 50px;
-  border-radius: 4px;
+  border-radius: 4px !important;
   background-color: #fff;
 }
 .checkup-card-list__table {
@@ -77,6 +77,15 @@ export default {
   border-spacing: 0 10px !important;
 }
 .checkup-card-list__table .table__tr {
+  background: #fff;
+}
+.checkup-card-list__table .table__tr td:first-child {
+  border-radius: 4px 0px 0px 4px;
+}
+.checkup-card-list__table .table__tr td:last-child {
+  border-radius: 0px 4px 4px 0px;
+}
+.checkup-card-list__table .table__tr td{
   transition: all 0.2s ease-out;
 }
 .checkup-card-list__table .table__tr:hover td{
@@ -94,7 +103,7 @@ export default {
   color: var(--dark);
 }
 .checkup-card-list__table .table__text {
-  z-index: 1;
+  min-width: 100px;
 }
 .checkup-card-list__table .table__text:last-child {
   font-family: Roboto;
@@ -106,9 +115,6 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-}
-.checkup-card-list__table .table__type {
-  color: var(--dark) !important;
 }
 .checkup-card-list__table .v-data-table__wrapper {
   padding-right: 20px;

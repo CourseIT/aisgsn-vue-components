@@ -88,6 +88,9 @@ export default {
 .dropdown:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
+.dropdown:focus {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
+}
 .dropdown:hover ::before{
   background: var(--pale-lilac) !important;
 }

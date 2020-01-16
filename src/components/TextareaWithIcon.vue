@@ -8,13 +8,7 @@
         <Icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
-        <div class="templates-block">
-          <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
-        </div>
-        <div class="icons_text-block">
-          <Icon icon="" class="icon-text"/>
-          <Icon icon="" class="icon-text"/>
-        </div>
+        <TemplateBlock />
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>
@@ -24,13 +18,13 @@
 
 <script>
 const Icon = () => import('./Icon')
-const TemplateText = () => import('./TemplateText')
+const TemplateBlock = () => import('./TemplateBlock')
 
 export default {
 	props: ['placeholder', 'value', 'icon', 'label'],
   components: {
     Icon,
-    TemplateText
+    TemplateBlock
   },
   data: () =>({
     text: '',

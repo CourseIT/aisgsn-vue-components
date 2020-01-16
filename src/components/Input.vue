@@ -3,7 +3,6 @@
     <p v-if="label" class="label">{{label}}</p>
     <div class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
-      <div class="w58"></div>
       <div v-if="select_block_show" class="select-block">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -41,8 +40,8 @@ export default {
 .df {
   display: flex;
 }
-.w58{
-  width: 58px;
+.w74{
+  width: 74px;
 }
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -55,9 +54,10 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
-  width: 96%;
+  width: 100%;
 }
 .input-block {
+  width: 100%;
   margin-bottom: -15px;
 }
 .input {
@@ -71,7 +71,7 @@ export default {
   border: 1px solid #fff;
   margin-bottom: 30px;
   height: 36px;
-  width: 96%;
+  width: 100%;
 }
 .input::placeholder {
   font-family: Roboto;

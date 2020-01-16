@@ -38,7 +38,7 @@ export default {
   color: var(--dark);
   outline: none;
   height: 36px;
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
   background-color: #fff;
   padding: 0px 15px;
   width: 100%;
@@ -56,7 +56,7 @@ export default {
   color: var(--bright-orange);
 }
 .icon {
-  font-family: var(--font-awesome-5-pro-regular);
+  font-family: var(--font-awesome-5-pro-light);
   font-size: 21px;
   font-weight: normal;
   font-stretch: normal;

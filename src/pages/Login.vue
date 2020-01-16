@@ -10,7 +10,9 @@
               информационная система <br>
               «Госстройнадзор»
             </p>
-            <Icon class="icon" icon="" />
+            <div class="jcc">
+              <Icon class="icon" icon="" />
+            </div>
           </div>
           <v-form @submit="$router.push({name: 'Home'})">
             <input
@@ -27,7 +29,7 @@
               placeholder="Пароль"
               required
             />
-            <div >
+            <div>
               <Button text="Войти"/>
             </div>
             <div class="login__hint">
@@ -62,6 +64,10 @@ export default {
 <style scoped>
 .tc {
   text-align: center;
+}
+.jcc {
+  display: flex;
+  justify-content: center;
 }
 .icon{
   margin: 10vh 0px;

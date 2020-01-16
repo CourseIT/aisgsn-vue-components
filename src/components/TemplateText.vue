@@ -42,13 +42,6 @@ export default {
 .mb3 {
   margin-bottom: 3px;
 }
-.bg {
-  background-color: var(--pale-grey);
-  width: 100%;
-  height: 20px;
-  position: relative;
-  bottom: -4px;
-}
 .template-block {
   padding-top: 2px;
   display: flex;
@@ -64,10 +57,11 @@ export default {
   overflow: auto;  
   transition: all 0.2s ease-out;
   cursor: pointer;
-  margin-bottom: -14px;
+  margin-bottom: 6px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover{
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background: var(--pale-lilac);
 }
 .template-block p {
   font-family: Roboto;

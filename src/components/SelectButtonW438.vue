@@ -53,7 +53,7 @@ export default {
   margin-left: 191px;
 }
 .dropdown {
-  width: 438px !important;
+  width: 438.5px !important;
   height: 36px !important;
   box-shadow: none;
   display: flex;
@@ -88,6 +88,9 @@ export default {
   box-shadow: none;
 }
 .dropdown:hover {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
+}
+.dropdown:focus {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
 .dropdown:hover ::before{

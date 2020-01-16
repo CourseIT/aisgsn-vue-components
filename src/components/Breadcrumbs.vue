@@ -86,6 +86,6 @@ export default {
   text-align: left;
 }
 .breadcrumbs_icon{
-  font-family: var(--font-awesome-5-pro);
+  font-family: var(--font-awesome-5-pro-light);
 }
 </style>

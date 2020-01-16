@@ -114,6 +114,9 @@ export default {
 .filter__btn:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
+.filter__btn:focus {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
+}
 .filter__btn:hover .icon {
   color: var(--bright-orange);
 }

@@ -13,15 +13,7 @@
         <Icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
       </div>
       <div v-if="template_show">
-        <div class="templates-block">
-          <div>
-            <TemplateText @selectText="selectText" v-for="(text, index) in texts" :key="index" />
-          </div>
-        </div>
-        <div class="icons_text-block">
-          <Icon icon="" class="icon-text"/>
-          <Icon icon="" class="icon-text"/>
-        </div>
+        <TemplateBlock />
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>
@@ -31,13 +23,13 @@
 
 <script>
 const Icon = () => import('./Icon')
-const TemplateText = () => import('./TemplateText')
+const TemplateBlock = () => import('./TemplateBlock')
 
 export default {
 	props: ['placeholder', 'value', 'icon', 'label'],
   components: {
     Icon,
-    TemplateText
+    TemplateBlock
   },
   data: () =>({
     text: '',
@@ -48,8 +40,7 @@ export default {
       'Объект КС 2',
       '...',
       '...'
-    ],
-    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    ]
   }),
   watch: {
     text(value){
@@ -91,26 +82,6 @@ export default {
 .input-block {
   margin-bottom: 15px;
 }
-.icons_text-block {
-  display: flex;
-  position: absolute;
-  margin-top: 672px;
-  margin-left: 293px;
-  z-index: 99;
-}
-.icon-text {
-  cursor: pointer;
-  font-family: var(--font-awesome-5-pro-light);
-  font-size: 21px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.81;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-left: 22px;
-}
 .icon {
   cursor: pointer;
   height: 36px;
@@ -129,28 +100,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-}
-.templates-block {
-  position: absolute;
-  z-index: 99;
-  width: 454px;
-  max-width: 454px;
-  min-width: 400px;
-  overflow: auto;
-  max-height: 672px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-left: -20px;
-  padding-bottom: 10px;
-}
-.templates-block::-webkit-scrollbar {
-  width: 11px;
-  height: 8px;
-  background-color: rgba(0, 0, 0, 0);
-}
-.templates-block::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--pale-lilac);
 }
 .input {
   color: red;

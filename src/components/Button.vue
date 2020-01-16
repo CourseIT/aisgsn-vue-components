@@ -32,6 +32,7 @@ export default {
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
+  padding: 10.5px;
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
 }
