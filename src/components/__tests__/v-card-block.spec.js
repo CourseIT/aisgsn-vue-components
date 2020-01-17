@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import AddFieldBlock from '@/components/AddFieldBlock.vue'
+import VCardBlock from '@/components/v-card-block.vue'
 
 function mountComponentWithProps (Component, propsData) {
   const Constructor = Vue.extend(Component);
@@ -9,9 +9,9 @@ function mountComponentWithProps (Component, propsData) {
   return vm.$el;
 }
 
-describe('AddFieldBlock.vue', () => {
+describe('v-card-block.vue', () => {
   test('Является экземпляром Vue', () => {
-    const wrapper = AddFieldBlock
+    const wrapper = VCardBlock
     expect(wrapper).toBeTruthy()
   })
 })

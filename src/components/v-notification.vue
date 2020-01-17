@@ -93,6 +93,9 @@ export default {
   border-radius: 35px 0px 0px 35px;
   margin-bottom: 10px;
 }
+.notification .v-btn__content {
+  height: 50px !important;
+}
 .icon {
   font-family: var(--font-awesome-5-pro-light);
   font-size: 21px;
@@ -117,8 +120,8 @@ export default {
   cursor: pointer;
 }
 .notification__btn {
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
   background: red;
 }
 .notification__text {

@@ -10,7 +10,9 @@
         </ul>
       </div>
       <div class="icon" @click="template_show = true">
-        <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+        <slot name="icon">
+          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+        </slot>
       </div>
       <div v-if="template_show">
         <v-template-block />

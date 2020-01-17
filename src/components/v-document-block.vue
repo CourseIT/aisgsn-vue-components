@@ -69,24 +69,6 @@ export default {
 .ml0 {
   margin-left: 0px !important;
 }
-/* .mt0 {
-  margin-top: 0px;
-}
-.mr15 {
-  margin-right: 15px;
-}
-.ml5{
-  margin-left: 5px;
-}
-.ml2 {
-  margin-left: 2px;
-}
-.ml0 {
-  margin-left: 0;
-}
-.mt25 {
-  margin-top: 25px !important;
-} */
 .doc__btns {
   align-items: center;
   margin-left: 15px;
@@ -201,7 +183,7 @@ export default {
 }
 .dropdown__users .icon {
   cursor: pointer;
-  margin-top: 5px !important;
+  margin-top: 2px !important;
   position: relative;
   bottom: 6px;
   left: 10px;

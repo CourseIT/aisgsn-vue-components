@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Button from '@/components/Button.vue'
+import VButton from '@/components/v-button.vue'
 
 function mountComponentWithProps (Component, propsData) {
   const Constructor = Vue.extend(Component);
@@ -9,15 +9,15 @@ function mountComponentWithProps (Component, propsData) {
   return vm.$el;
 }
 
-describe('Button.vue', () => {
+describe('v-button.vue', () => {
   it('Проверка пропсов', () => {
-    const Data = mountComponentWithProps(Button, { text: 'Кнопка' });
+    const Data = mountComponentWithProps(VButton, {text:'Кнопка'});
     const text = Data.textContent;
     expect(text).toEqual('Кнопка');
   });
   it('Проверка дефолтного значения', () => {
-    const Data = mountComponentWithProps(Button);
+    const Data = mountComponentWithProps(VButton);
     const text = Data.textContent;
-    expect(text).toEqual('Кнопка');
+    expect(text.find("button")).toEqual('Кнопка');
   });
 });
