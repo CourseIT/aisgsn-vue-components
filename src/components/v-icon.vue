@@ -30,7 +30,7 @@ export default {
   display: block;
   user-select: none;
   cursor: pointer;
-  z-index: 99;
+  z-index: 8;
   width: 36px;
   height: 36px;
   justify-content: center;

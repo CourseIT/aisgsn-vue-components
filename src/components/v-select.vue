@@ -111,7 +111,7 @@ button {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease-in-out;
-  z-index: 9;
+  z-index: 8;
 }
 .main-btn:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
@@ -140,7 +140,7 @@ button {
   text-align: left;
   color: var(--dark);
   height: 34px !important;
-  z-index: 8;
+  z-index: 5;
 }
 .select__icon-colse:hover {
   color: var(--bright-orange);
