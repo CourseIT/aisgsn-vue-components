@@ -90,7 +90,7 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   font-size: 33px;
   float: right;
-  padding: 0px 18px;
+  padding: 0px 10px;
   text-align: center;
   position: relative;
   bottom: 0px;

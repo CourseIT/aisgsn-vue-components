@@ -108,6 +108,9 @@ export default {
 </script>
 
 <style scoped>
+.doc__block {
+  margin-left: 70px;
+}
 .ghost {
   opacity: 0.5;
 }
@@ -182,7 +185,7 @@ hr {
   line-height: 1.81;
   letter-spacing: normal;
   text-align: center;
-  padding-right: 16px;
+  padding-right: 9px;
   float: right;
 }
 .label {

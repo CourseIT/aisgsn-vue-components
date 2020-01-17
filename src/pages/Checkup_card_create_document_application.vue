@@ -95,7 +95,9 @@ export default {
 }
 .modal-enter, .modal-leave-to{
   opacity: 0;
-  transform: translateY(-50vh);
+}
+.doc__block {
+  margin-left: 70px;
 }
 .df {
   display: flex;
@@ -152,7 +154,7 @@ hr {
   line-height: 1.81;
   letter-spacing: normal;
   text-align: center;
-  padding-right: 16px;
+  padding-right: 9px;
   float: right;
 }
 .label {

@@ -90,6 +90,7 @@ export default {
 }
 .checkup-card-list__table .table__tr:hover td{
   color: var(--bright-orange);
+  background-color: var(--pale-lilac);
 }
 .checkup-card-list__table .table__name {
   font-family: Roboto;

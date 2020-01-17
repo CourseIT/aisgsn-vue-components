@@ -3,13 +3,14 @@
     <div class="df inspection-program-block">
       <div class="w95">
         <p class="mb7 fwb">20.08.20 – 28.08.20</p>
-        <p class="mb4">Любая необходимая информация</p>
-        <p class="mb4">Любая необходимая информация</p>
+        <p class="mb4">Номер объекта контроля</p>
+        <p class="mb4">Метод</p>
+        <p class="mb4">Подпись</p>
         <p>Любая необходимая информация</p>
       </div>
       <div>
         <v-icon icon="" class="icon-p"/>
-        <div class="top10">
+        <div class="bottom-icon">
           <v-icon icon="" class="icon-p"/>
         </div>
       </div>
@@ -30,21 +31,29 @@ export default {
 </script>
 
 <style scoped>
+.mb7 {
+  margin-bottom: 6px !important;
+}
+.mb4  {
+  margin-bottom: 4px !important;
+}
 .df {
   display: flex;
 }
 .fwb {
   font-weight: 500 !important;
 }
-.top10{
+.bottom-icon{
   position: relative;
-  top: 10px;
+  top: 17px;
+  right: 2px;
 }
 .w95 {
   width: 95%;
 }
 .inspection-program-block {
-  padding: 7px 13px;
+  padding: 6px 13px;
+  height: 100px;
   border-radius: 4px;
   background-color: var(--white);
 }
@@ -59,8 +68,7 @@ export default {
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
+  line-height: 1.3;
   text-align: left;
   color: var(--dark);
   margin-bottom: 0;

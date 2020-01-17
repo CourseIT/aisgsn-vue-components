@@ -101,7 +101,6 @@ export default {
   text-align: center;
 }
 .doc__block {
-  margin-left: 25px;
   width: 232px;
   height: 328px;
   margin-bottom: 20px;

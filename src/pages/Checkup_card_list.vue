@@ -22,7 +22,7 @@
           <v-dropdown-button value="Подписан" :buttons="dates"/>
           <v-dropdown-button value="Статус" :buttons="statuses"/>
           <v-dropdown-button value="Тип" :buttons="types"/>
-          <v-filters-button />
+          <v-filters-button class="mr29"/>
         </div>
         <div class="table-block">
           <v-table :docs="docs" :thead="thead" height="60vh" />
@@ -236,6 +236,9 @@ export default {
 }
 .mt60 {
   margin-top: 60px;
+}
+.mr29 {
+  margin-right: 29px;
 }
 .w66 {
   width: 66%;

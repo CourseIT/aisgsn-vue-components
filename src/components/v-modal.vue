@@ -49,6 +49,7 @@ export default {
 .fr {
   display: flex;
   float: right;
+  margin-right: 38px;
 }
 .pl305 {
   margin-left: 305px;

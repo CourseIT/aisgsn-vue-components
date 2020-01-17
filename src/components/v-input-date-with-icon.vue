@@ -7,7 +7,7 @@
         <input v-model="dateRangeText" class="input" type="text">
         <v-menu
           ref="menu"
-          :nudge-right="80"
+          :nudge-right="56"
           :nudge-top="37"
           v-model="menu"
           :close-on-content-click="false"
@@ -17,7 +17,7 @@
           selected-items-text="ru"
         >
           <template v-slot:activator="{ on }">
-            <div class="icon-date" v-on="on">
+            <div class="icon-date" hint="MM/DD/YYYY format" v-on="on">
               <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
             </div>
           </template>
@@ -45,7 +45,7 @@ export default {
     dateRangeText () {
       return this.date.join(' - ')
     },
-  },
+  }
 }
 </script>
 
@@ -126,7 +126,7 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 00px;
   font-size: 21px;
-  padding: 0px 18px;
+  padding: 0px 10px;
   text-align: center;
 }
 .input {

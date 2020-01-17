@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .dropdown-btns .icon {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 0px;
