@@ -1,5 +1,5 @@
 <template>
-  <div class="w262">
+  <div class="w262 doc-btn">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn
@@ -67,8 +67,8 @@ export default {
   height: 36px !important;
   box-shadow: none;
   display: flex;
-  font-family: Roboto;
-  font-size: 11px;
+  font-family: Roboto !important;
+  font-size: 11px !important;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -109,8 +109,8 @@ export default {
 .dropdown__btn {
   text-transform: none;  
   width: 100%;
-  font-family: Roboto;
-  font-size: 11px;
+  font-family: Roboto !important;
+  font-size: 11px !important;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

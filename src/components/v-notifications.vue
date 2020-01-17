@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="notifications">
     <v-badge
         color="#fff"
         overlap
@@ -39,8 +39,8 @@ export default {
   text-align: left;
 }
 .notifications__btn {
-  width: 50px;
-  height: 50px;
+  width: 50px !important;
+  height: 50px !important;
   background-color: #ff3b30;
 }
 </style>
