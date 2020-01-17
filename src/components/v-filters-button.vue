@@ -6,23 +6,23 @@
         <v-icon class="icon" icon="" />
       </button>
       <div v-if="filters__show" class="filters__block">
-        <v-select-button width="438" />
-        <v-select-button width="438" />
-        <v-select-button width="438" />
+        <v-select v-model="value1" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
+        <v-select v-model="value2" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
+        <v-select v-model="value3" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
         <div class="df jcsb">
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-select v-model="value4" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value5" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value6" defailt_value="Выбор" width="132px" :list="buttons"/>
         </div>
         <div class="df jcsb">
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-select v-model="value7" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value8" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value9" defailt_value="Выбор" width="132px" :list="buttons"/>
         </div>
         <div class="df jcsb">
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
-          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-select v-model="value10" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value11" defailt_value="Выбор" width="132px" :list="buttons"/>
+          <v-select v-model="value12" defailt_value="Выбор" width="132px" :list="buttons"/>
         </div>
         <div class="df jcfe">
           <v-button class="mt70 mr22" text="Применить" />
@@ -36,20 +36,30 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const vDropdownButton = () => import('@/components/v-dropdown-button')
-const VSelectButton = () => import('@/components/v-select-button')
 const VButton = () => import('@/components/v-button')
+const VSelect = () => import('@/components/v-select')
 
 export default {
   components: { 
     VIcon,
-    vDropdownButton,
-    VSelectButton,
-    VButton
+    VButton,
+    VSelect
   },
   data: () => ({
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
+    value5: '',
+    value6: '',
+    value7: '',
+    value8: '',
+    value9: '',
+    value10: '',
+    value11: '',
+    value12: '',
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
-    filters__show: false
+    filters__show: false,
   }),
 }
 </script>

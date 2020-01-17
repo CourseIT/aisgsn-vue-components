@@ -9,19 +9,11 @@
           <v-green-radio-buttons :labels="labels" />
         </div>
         <div class="df jcsb">
-          <v-dropdown-button :value="author">
-            <template v-slot:buttons>
-              <v-btn v-for="(item, index) in authors" :key="index" @click="author = item" class="dropdown dropdown__btn">
-                <div>
-                  {{item}}
-                </div>
-              </v-btn>
-            </template>
-          </v-dropdown-button>
+          <v-select v-model="author" defailt_value="Автор" :list="select_list"/>
           <v-date-button />
-          <v-dropdown-button value="Подписан" :buttons="dates"/>
-          <v-dropdown-button value="Статус" :buttons="statuses"/>
-          <v-dropdown-button value="Тип" :buttons="types"/>
+          <v-select v-model="date" defailt_value="Подписан" :list="select_list"/>
+          <v-select v-model="status" defailt_value="Статус" :list="select_list"/>
+          <v-select v-model="type" defailt_value="Тип" :list="select_list"/>
           <v-filters-button class="mr29"/>
         </div>
         <div class="table-block">
@@ -52,7 +44,7 @@ const VDateButton = () => import('@/components/v-date-button')
 const VFiltersButton = () => import('@/components/v-filters-button')
 const VGreenRadioButtons = () => import('@/components/v-green-radio-buttons')
 const VDocInfo = () => import('@/components/v-doc-info')
-const VDropdownButton = () => import('@/components/v-dropdown-button')
+const VSelect = () => import('@/components/v-select')
 
 export default {
   components: {
@@ -64,10 +56,14 @@ export default {
     VDateButton,
     VFiltersButton,
     VDocInfo,
-    VDropdownButton
+    VSelect
   },
   data: () => ({
-    author: 'Автор',
+    author: '',
+    date: '',
+    type: '',
+    status: '',
+    select_list:['test1', 'test2'],
     src: 'https://static.thenounproject.com/png/4561-200.png',
     labels: ['Список','Хронология'],
     authors: [
