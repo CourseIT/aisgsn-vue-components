@@ -109,6 +109,7 @@ button {
   letter-spacing: normal;
   color: var(--dark);
   cursor: pointer;
+  position: relative;
   transition: all 0.2s ease-in-out;
   z-index: 9;
 }
