@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Header />
-    <Menu drawer='false' />
+    <v-header />
+    <v-menu drawer='false' />
     <main>
       <div class="content">
         <router-view></router-view>
@@ -11,13 +11,13 @@
 </template>
 
 <script>
-const Menu = () => import('@/components/Menu')
-const Header = () => import('@/components/Header')
+const VMenu = () => import('@/components/v-menu')
+const VHeader = () => import('@/components/v-header')
 export default {
   name: 'DocLayout',
   components: {
-    Menu,
-    Header
+    VMenu,
+    VHeader
   },
   data: () => ({
     //

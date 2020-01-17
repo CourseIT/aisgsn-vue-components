@@ -2,17 +2,17 @@
   <div class="search" :class="{w30: $store.state.menu_visibility}">
     <input type="text" placeholder="Материал">
     <div class="icon-btn">
-      <Icon class="icon" icon="" />
+      <v-icon class="icon" icon="" />
     </div>
   </div>
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon') 
+const VIcon = () => import('@/components/v-icon') 
 
 export default {
   components: {
-    Icon
+    VIcon
   }
 }
 </script>

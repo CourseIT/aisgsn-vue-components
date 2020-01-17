@@ -1,35 +1,35 @@
 <template>
   <div class="df">
     <div class="notifications" :class="{pl305: $store.state.menu_visibility}">
-      <Notification type="error"/>
-      <Notification type="warning"/>
-      <Notification type="success"/>
-      <Notification type="info"/>
-      <Notification type="error"/>
-      <Notification type="warning"/>
-      <Notification type="success"/>
-      <Notification type="info"/>
-      <Notification type="error"/>
-      <Notification type="warning"/>
-      <Notification type="success"/>
-      <Notification type="info"/>
-      <Notification type="error"/>
-      <Notification type="warning"/>
-      <Notification type="success"/>
-      <Notification type="info"/>
-      <Notification type="error"/>
-      <Notification type="warning"/>
-      <Notification type="success"/>
-      <Notification type="info"/>
+      <v-notification type="error"/>
+      <v-notification type="warning"/>
+      <v-notification type="success"/>
+      <v-notification type="info"/>
+      <v-notification type="error"/>
+      <v-notification type="warning"/>
+      <v-notification type="success"/>
+      <v-notification type="info"/>
+      <v-notification type="error"/>
+      <v-notification type="warning"/>
+      <v-notification type="success"/>
+      <v-notification type="info"/>
+      <v-notification type="error"/>
+      <v-notification type="warning"/>
+      <v-notification type="success"/>
+      <v-notification type="info"/>
+      <v-notification type="error"/>
+      <v-notification type="warning"/>
+      <v-notification type="success"/>
+      <v-notification type="info"/>
     </div>
   </div>
 </template>
 
 <script>
-const Notification = () =>import('@/components/Notification')
+const VNotification = () =>import('@/components/v-notification')
 export default {
   components: {
-    Notification
+    VNotification
   },
   data: () => ({
     

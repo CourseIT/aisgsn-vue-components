@@ -8,18 +8,18 @@
         <span v-if="messages.length > 0" style="color: #21262c">{{ messages.length }}</span>
       </template>
       <v-btn class="notifications__btn" text icon>
-        <Icon class="icon" icon="" color="#fff" />
+        <v-icon class="icon" icon="" color="#fff" />
       </v-btn>
     </v-badge>
   </div>
 </template>
 
 <script>
-const Icon = () => import('./Icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     messages: [{},{},{}],

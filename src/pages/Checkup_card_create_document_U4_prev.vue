@@ -9,33 +9,33 @@
               (Госкорпорация «Росатом») Управление государственного строительного надзора
             </h1>
           </div>
-          <Icon icon="" class="icon-s mt0"/>
+          <v-icon icon="" class="icon-s mt0"/>
         </div>
         <v-form
           ref="form"
         >
-          <InputWithIcon placeholder="                    №" icon="" label="Программа проверок"/>
-          <InputWithIcon placeholder="(Имя, Отчество, Фамилия)" icon="" label="Утверждаю Начальник Управления"/>
-          <InputDateWithIcon icon="" label="Дата"/>
-          <InputWithIcon placeholder="(значение)" icon="" label="Номер дела"/>
-          <InputWithIcon placeholder="(значение)" icon="" label="Экземпляр"/>
-          <TextareaWithIcon placeholder="(наименование застройщика, технического заказчика (при наличии технического заказчика), номер и дата выдачи свидетельства о государственной регистрации, ОГРН, ИНН, почтовые реквизиты, телефон/факс - для юридических лиц;
+          <v-input-with-icon placeholder="                    №" icon="" label="Программа проверок"/>
+          <v-input-with-icon placeholder="(Имя, Отчество, Фамилия)" icon="" label="Утверждаю Начальник Управления"/>
+          <v-input-date-with-icon icon="" label="Дата"/>
+          <v-input-with-icon placeholder="(значение)" icon="" label="Номер дела"/>
+          <v-input-with-icon placeholder="(значение)" icon="" label="Экземпляр"/>
+          <v-textarea-with-icon placeholder="(наименование застройщика, технического заказчика (при наличии технического заказчика), номер и дата выдачи свидетельства о государственной регистрации, ОГРН, ИНН, почтовые реквизиты, телефон/факс - для юридических лиц;
 фамилия, имя, отчество застройщика или технического заказчика, паспортные данные, место проживания, телефон/факс - для физических лиц)" icon="" label="1. Застройщик, технический заказчик"/>
-          <TextareaWithIcon placeholder="(наименование объекта капитального строительства, в соответствии с проектной документацией, краткие проектные характеристики, описание этапа строительства, реконструкции, если разрешение выдается на этап строительства, реконструкции)" icon="" label="2. Объект капитального строительства"/>
-          <InputWithIcon placeholder="(почтовый или строительный адрес объекта капитального строительства)" icon="" label="3. Адрес (местоположение) объекта капитального строительства"/>
-          <InputWithIcon placeholder="(номер и дата выдачи, кем выдано, срок действия)" icon="" label="4. Разрешение на строительство объекта капитального строительства"/>
-          <InputWithIcon placeholder="(номер и дата выдачи, кем выдано)" icon="" label="5. Положительное заключение экспертизы проектной документации, если проектная документация объекта капитального строительства подлежит экспертизе в соответствии с требованиями статьи 49 Градостроительного кодекса Российской Федерации (указание на применение типовой проектной документации или ее модификации, включенной в реестр типовой проектной документации)"/>
-          <InputWithIcon placeholder="(номер и дата выдачи, кем выдано)" icon="" label="6. Положительное заключение государственной экологической экспертизы проектной документации, если проектная документация объекта капитального строительства подлежит государственной экологической экспертизе"/>
-          <InputDateWithIcon icon="" label="7. Начало строительства, реконструкции"/>
-          <InputDateWithIcon icon="" label="8. Окончание строительства, реконструкции"/>
-          <InputWithIcon placeholder="(заполняется в случае внесения изменений)" icon="" label="9. Основания для внесения изменений в программу проведения проверок"/>
+          <v-textarea-with-icon placeholder="(наименование объекта капитального строительства, в соответствии с проектной документацией, краткие проектные характеристики, описание этапа строительства, реконструкции, если разрешение выдается на этап строительства, реконструкции)" icon="" label="2. Объект капитального строительства"/>
+          <v-input-with-icon placeholder="(почтовый или строительный адрес объекта капитального строительства)" icon="" label="3. Адрес (местоположение) объекта капитального строительства"/>
+          <v-input-with-icon placeholder="(номер и дата выдачи, кем выдано, срок действия)" icon="" label="4. Разрешение на строительство объекта капитального строительства"/>
+          <v-input-with-icon placeholder="(номер и дата выдачи, кем выдано)" icon="" label="5. Положительное заключение экспертизы проектной документации, если проектная документация объекта капитального строительства подлежит экспертизе в соответствии с требованиями статьи 49 Градостроительного кодекса Российской Федерации (указание на применение типовой проектной документации или ее модификации, включенной в реестр типовой проектной документации)"/>
+          <v-input-with-icon placeholder="(номер и дата выдачи, кем выдано)" icon="" label="6. Положительное заключение государственной экологической экспертизы проектной документации, если проектная документация объекта капитального строительства подлежит государственной экологической экспертизе"/>
+          <v-input-date-with-icon icon="" label="7. Начало строительства, реконструкции"/>
+          <v-input-date-with-icon icon="" label="8. Окончание строительства, реконструкции"/>
+          <v-input-with-icon placeholder="(заполняется в случае внесения изменений)" icon="" label="9. Основания для внесения изменений в программу проведения проверок"/>
 
           <div class="df jcsb">
             <h1 class="title">
               Программа проведения проверок
             </h1>
             <div @click="modal_show = true">
-              <Icon icon="" class="icon-plus"/>
+              <v-icon icon="" class="icon-plus"/>
             </div>
           </div>
           <hr>
@@ -46,48 +46,49 @@
                 :key="element.id"
                 cols="6"
               >
-                <AddFieldBlock />
+                <v-card-block />
               </v-col>
           </draggable>
           <hr>
-          <InputWithIcon placeholder="Заполнено ………" icon="" />
-          <InputWithIcon placeholder="Заполнено ………" icon="" />
+          <v-input-with-icon placeholder="Заполнено ………" icon="" />
+          <v-input-with-icon placeholder="Заполнено ………" icon="" />
         <hr>
       </v-form>
       </div>
     </div>
     <v-col class="pf">
-      <DocumentButtonActionSelection />
-      <DocumentImgBlock img="true" class="mt100"/>
+      <v-doc-button />
+      <v-document-block img="true" :src="src" class="mt100"/>
     </v-col>
-    <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
+    <v-modal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
   </div>
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
-const DocumentButtonActionSelection = () => import('@/components/DocumentButtonActionSelection')
-const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
-const InputWithIcon = () => import('@/components/InputWithIcon')
-const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
-const TextareaWithIcon = () => import('@/components/TextareaWithIcon')
-const AddFieldBlock = () => import('@/components/AddFieldBlock')
-const AddFieldModal = () => import('@/components/AddFieldModal')
+const VIcon = () => import('@/components/v-icon')
+const VDocButton = () => import('@/components/v-doc-button')
+const VDocumentBlock = () => import('@/components/v-document-block')
+const VInputWithIcon = () => import('@/components/v-input-with-icon')
+const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
+const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
+const VCardBlock = () => import('@/components/v-card-block')
+const VModal = () => import('@/components/v-modal')
 import draggable from 'vuedraggable'
 
 export default {
   components: {
-    Icon,
-    DocumentButtonActionSelection,
-    DocumentImgBlock,
-    InputWithIcon,
-    InputDateWithIcon,
-    TextareaWithIcon,
-    AddFieldBlock,
-    AddFieldModal,
+    VIcon,
+    VDocButton,
+    VDocumentBlock,
+    VInputWithIcon,
+    VInputDateWithIcon,
+    VTextareaWithIcon,
+    VCardBlock,
+    VModal,
     draggable
   },
   data: () => ({
+    src: 'https://static.thenounproject.com/png/4561-200.png',
     list: [
         { name: "John", id: 0 },
         { name: "Joao", id: 1 },

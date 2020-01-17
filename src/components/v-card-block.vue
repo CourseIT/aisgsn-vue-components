@@ -8,9 +8,9 @@
         <p>Любая необходимая информация</p>
       </div>
       <div>
-        <Icon icon="" class="icon-p"/>
+        <v-icon icon="" class="icon-p"/>
         <div class="top10">
-          <Icon icon="" class="icon-p"/>
+          <v-icon icon="" class="icon-p"/>
         </div>
       </div>
     </div>
@@ -18,11 +18,12 @@
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
+const VIcon = () => import('@/components/v-icon')
 
 export default {
+  name: 'v-card-block',
   components: {
-    Icon
+    VIcon
   },
   props: ['item']
 }

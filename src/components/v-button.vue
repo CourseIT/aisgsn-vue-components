@@ -1,5 +1,9 @@
 <template class="db">
-	<button class="btn">{{text}}</button>
+	<button class="btn">
+    <slot>
+      {{text}}
+    </slot>
+  </button>
 </template>
 
 <script>

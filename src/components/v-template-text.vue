@@ -5,9 +5,9 @@
         <p>{{text}}</p>
       </div>
       <div class="icons-block">
-        <Icon icon="" height="11" width="11" class="icon-b mb7"/>
-        <Icon icon="" height="11" width="11" class="icon-b mb3"/>
-        <Icon icon="" height="11" width="11" class="icon-b"/>
+        <v-icon icon="" height="11" width="11" class="icon-b mb7"/>
+        <v-icon icon="" height="11" width="11" class="icon-b mb3"/>
+        <v-icon icon="" height="11" width="11" class="icon-b"/>
       </div>
     </div>
     <div class="bg"></div>
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-const Icon = () => import('./Icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     text: 'Шаблонный текст 1 …'

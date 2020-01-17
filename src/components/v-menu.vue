@@ -10,7 +10,7 @@
           <div class="link">
             <div class="df jcsb cp" @click="openSubmenu('Надзор')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">Надзор</h1>
-              <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Надзор')}" />
+              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Надзор')}" />
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('Надзор')}">
               <ul>
@@ -23,7 +23,7 @@
           <div class="link">
             <div class="df jcsb cp" @click="openSubmenu('ТКИ')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">ТКИ</h1>
-              <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('ТКИ')}"/>
+              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('ТКИ')}"/>
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('ТКИ')}">
               <ul>
@@ -37,7 +37,7 @@
           <div class="link">
             <div class="df jcsb cp" @click="openSubmenu('Аналитика')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">Аналитика</h1>
-              <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Аналитика')}" />
+              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Аналитика')}" />
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('Аналитика')}">
               <ul>
@@ -51,7 +51,7 @@
           <div class="link">
             <div class="df jcsb cp" @click="openSubmenu('НСИ')">
               <h1 class="menu__title" :style="`font-size: ${text_size}px`">НСИ</h1>
-              <Icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('НСИ')}" />
+              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('НСИ')}" />
             </div>
             <div class="link__submenu" :class="{hidden: !open_submenu.includes('НСИ')}">
               <ul>
@@ -73,10 +73,10 @@
           <p class="settings__text">Размер шрифта</p>
           <div class="df">
             <div @click="textSizePlus">
-              <Icon class="icon-btn" :class="{'icon-btn__disable': text_size === 17}" icon="" />
+              <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 17}" icon="" />
             </div>
             <div @click="textSizeMinus">
-              <Icon class="icon-btn" :class="{'icon-btn__disable': text_size === 13}" icon="" />
+              <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 13}" icon="" />
             </div>
           </div>
         </div>
@@ -91,12 +91,12 @@
 </template>
 
 <script>
-const Icon = () => import ('@/components/Icon.vue')
+const VIcon = () => import ('@/components/v-icon.vue')
 
 export default {
   props:['drawer'],
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     open_submenu: [],

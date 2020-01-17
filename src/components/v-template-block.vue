@@ -2,24 +2,24 @@
   <div>
     <div class="templates-block">
       <div>
-        <TemplateText v-for="(text, index) in texts" :key="index" />
+        <v-template-text v-for="(text, index) in texts" :key="index" />
       </div>
     </div>
     <div class="icons_text-block">
-      <Icon icon="" class="icon-text"/>
-      <Icon icon="" class="icon-text"/>
+      <v-icon icon="" class="icon-text"/>
+      <v-icon icon="" class="icon-text"/>
     </div>
   </div>
 </template>
 
 <script>
-const TemplateText = () => import('./TemplateText')
-const Icon = () => import('./Icon')
+const VTemplateText = () => import('./v-template-text')
+const VIcon = () => import('./v-icon')
 
 export default {
   components: {
-    Icon,
-    TemplateText
+    VIcon,
+    VTemplateText
   },
   data: () =>({
     texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]

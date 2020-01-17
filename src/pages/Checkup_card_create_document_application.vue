@@ -13,65 +13,66 @@
         <v-form
           ref="form"
         >
-          <InputWithIcon placeholder="Заполнено ………" icon="" label="Кому"/>
-          <InputWithIcon placeholder="(наименование объекта капитального строительства, ФЯО)" icon="" label="Поднадзорный объект"/>
-          <InputWithIcon placeholder="(завершен строительством и/или указать этапы работ, выполненные по объекту)" icon="" label="Состояние объекта"/>
-          <InputWithIcon placeholder="Заполнено ………" icon="" label="Наличие на объекте системы мониторинга метеоусловий"/>
-          <InputWithIcon placeholder="(дата, номера актов и нарушений из материалов проверки, проведенной ОГСН) " icon="" label="Основание для включения в план"/>
-          <InputDateWithIcon icon="" label="Срок проведения работ"/>
-          <InputWithIcon placeholder="(наименование зданий, сооружений их элементов с указанием отметок, осей, узлов. Объекты контроля нумеруются по порядку)" icon="" label="Объекты контроля:"/>
-          <InputWithIcon placeholder="(наименование, инв.№, шифр, номер листа и/или чертежа)" icon="" label="Проектная документация по объекту контроля"/>
-          <InputWithIcon placeholder="(имеется, имеется частично, отсутствует)" icon="" label="Наличие исполнительной документации по объекту контроля"/>
-          <TextareaWithIcon placeholder="(указать номер объекта контроля согласно настоящей заявке и характеристику, подлежащую исследованию: тепловая защита; прочность бетонных конструкций; толщина защитного слоя бетонных конструкций; геометрические размеры, положение строительных конструкций и качество сварных соединений; прочность сцепления гидроизоляционных слоев с основанием кровли и между собой; характер и величина раскрытия трещин строительных конструкций; освещенность; толщина лакокрасочного покрытия; скорость воздушных потоков и производительность систем вентиляции)" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:"/>
-          <InputWithIcon placeholder="(указать номер объекта контроля согласно настоящей заявке и наименование итогового документа: заключение, акт, протокол)" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Кому"/>
+          <v-input-with-icon placeholder="(наименование объекта капитального строительства, ФЯО)" icon="" label="Поднадзорный объект"/>
+          <v-input-with-icon placeholder="(завершен строительством и/или указать этапы работ, выполненные по объекту)" icon="" label="Состояние объекта"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие на объекте системы мониторинга метеоусловий"/>
+          <v-input-with-icon placeholder="(дата, номера актов и нарушений из материалов проверки, проведенной ОГСН) " icon="" label="Основание для включения в план"/>
+          <v-input-date-with-icon icon="" label="Срок проведения работ"/>
+          <v-input-with-icon placeholder="(наименование зданий, сооружений их элементов с указанием отметок, осей, узлов. Объекты контроля нумеруются по порядку)" icon="" label="Объекты контроля:"/>
+          <v-input-with-icon placeholder="(наименование, инв.№, шифр, номер листа и/или чертежа)" icon="" label="Проектная документация по объекту контроля"/>
+          <v-input-with-icon placeholder="(имеется, имеется частично, отсутствует)" icon="" label="Наличие исполнительной документации по объекту контроля"/>
+          <v-textarea-with-icon placeholder="(указать номер объекта контроля согласно настоящей заявке и характеристику, подлежащую исследованию: тепловая защита; прочность бетонных конструкций; толщина защитного слоя бетонных конструкций; геометрические размеры, положение строительных конструкций и качество сварных соединений; прочность сцепления гидроизоляционных слоев с основанием кровли и между собой; характер и величина раскрытия трещин строительных конструкций; освещенность; толщина лакокрасочного покрытия; скорость воздушных потоков и производительность систем вентиляции)" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:"/>
+          <v-input-with-icon placeholder="(указать номер объекта контроля согласно настоящей заявке и наименование итогового документа: заключение, акт, протокол)" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:"/>
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
           </h1>
           <div class="df jcsb">
             <p class="label">Провести испытания (измерения) объектов контроля следующим работникам:</p>
             <div @click="modal_show = true">
-              <Icon icon="" class="icon-plus"/>
+              <v-icon icon="" class="icon-plus"/>
             </div>
           </div>
           <hr>
           <hr v-if="add_fields.length">
-          <Icon v-if="add_fields.length" icon="" class="icon-plus"/>
+          <v-icon v-if="add_fields.length" icon="" class="icon-plus"/>
         </v-form>
       </div>
     </div>
     <v-col class="pf">
       <div class="df">
-        <Icon icon="" :hover_shadow="true" :hover_color="true" class="icon-s mt0"/>
-        <DocumentButtonActionSelection />
+        <v-icon icon="" :hover_shadow="true" :hover_color="true" class="icon-s mt0"/>
+        <v-doc-button />
       </div>
-      <DocumentImgBlock :img="false" class="mt100"/>
+      <v-document-block :img="false" :src="src" class="mt100"/>
     </v-col>
     <transition name="modal">
-      <AddFieldModal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
+      <v-modal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
     </transition>
   </div>
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
-const DocumentButtonActionSelection = () => import('@/components/DocumentButtonActionSelection')
-const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
-const InputWithIcon = () => import('@/components/InputWithIcon')
-const InputDateWithIcon = () => import('@/components/InputDateWithIcon')
-const TextareaWithIcon = () => import('@/components/TextareaWithIcon')
-const AddFieldModal = () => import('@/components/AddFieldModal')
+const VIcon = () => import('@/components/v-icon')
+const VDocButton = () => import('@/components/v-doc-button')
+const VDocumentBlock = () => import('@/components/v-document-block')
+const VInputWithIcon = () => import('@/components/v-input-with-icon')
+const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
+const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
+const VModal = () => import('@/components/v-modal')
 
 export default {
   components: {
-    Icon,
-    DocumentButtonActionSelection,
-    DocumentImgBlock,
-    InputWithIcon,
-    InputDateWithIcon,
-    TextareaWithIcon,
-    AddFieldModal
+    VIcon,
+    VDocButton,
+    VDocumentBlock,
+    VInputWithIcon,
+    VInputDateWithIcon,
+    VTextareaWithIcon,
+    VModal
   },
   data: () => ({
+    src: 'https://static.thenounproject.com/png/4561-200.png',
     modal_show: false,
     add_fields: []
   }),

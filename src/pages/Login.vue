@@ -11,7 +11,7 @@
               «Госстройнадзор»
             </p>
             <div class="jcc">
-              <Icon class="icon" icon="" />
+              <v-icon class="icon" icon="" />
             </div>
           </div>
           <v-form @submit="$router.push({name: 'Home'})">
@@ -30,7 +30,7 @@
               required
             />
             <div>
-              <Button text="Войти"/>
+              <v-button>Войти</v-button>
             </div>
             <div class="login__hint">
               <p>
@@ -46,13 +46,13 @@
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
-const Button = () => import('@/components/Button')
+const VIcon = () => import('@/components/v-icon')
+const VButton = () => import('@/components/v-button')
 
 export default {
   components: {
-    Icon,
-    Button
+    VIcon,
+    VButton
   },
   data: () => ({
     name: '',

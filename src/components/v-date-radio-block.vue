@@ -11,7 +11,7 @@
         <template v-slot:activator="{ on }">
           <button class="date__btn" v-on="on">
             <p>{{date}} </p>
-          <Icon class="icon" icon="" /></button>
+          <v-icon class="icon" icon="" /></button>
         </template>
         <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable>
         </v-date-picker>
@@ -26,10 +26,10 @@
       <v-radio class="radio" label="На 1-е октября"></v-radio>
     </v-radio-group>
     <div class="icons-block">
-      <Icon class="icon1" icon="" />
+      <v-icon class="icon1" icon="" />
       <div class="hover-icon">
         <div class="hover-icon__bg">
-          <Icon class="icon2" icon="" />
+          <v-icon class="icon2" icon="" />
         </div>
       </div>
     </div>
@@ -37,11 +37,11 @@
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
+const VIcon = () => import('@/components/v-icon')
 
 export default {
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     date: new Date().toISOString().substr(0, 10),

@@ -1,7 +1,7 @@
 <template>
   <div class="analytics">
     <h1 class="analytics__title">Государственный строительный надзор на объектах ФЯО</h1>
-    <DateAndRadioButton  />
+    <v-date-radio-block  />
     <div class="df">
       <div class="analytics__links">
         <p>ФГУП «ГХК»</p>
@@ -14,18 +14,18 @@
         <p>ФГУП «ЭХП»</p>
         <p>ФГУП «Атомфлот»</p>
       </div>
-      <AnalyticsBlock :analytics="analytics" />
+      <v-analytics :analytics="analytics" />
     </div>
   </div>
 </template>
 
 <script>
-const DateAndRadioButton = () => import('@/components/DateAndRadioButton')
-const AnalyticsBlock = () => import('@/components/AnalyticsBlock')
+const VDateRadioBlock = () => import('@/components/v-date-radio-block')
+const VAnalytics = () => import('@/components/v-analytics')
 
 export default {
   name: 'Analytics_A2',
-  components: { DateAndRadioButton, AnalyticsBlock },
+  components: { VDateRadioBlock, VAnalytics },
   data: () => ({
     analytics: {
       title: '',

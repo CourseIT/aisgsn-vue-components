@@ -3,30 +3,30 @@
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
-        <Icon class="icon" icon="" />
+        <v-icon class="icon" icon="" />
       </button>
       <div v-if="filters__show" class="filters__block">
-        <SelectButtonW438 />
-        <SelectButtonW438 />
-        <SelectButtonW438 />
+        <v-select-button width="438" />
+        <v-select-button width="438" />
+        <v-select-button width="438" />
         <div class="df jcsb">
-          <SelectButtonW132 />
-          <SelectButtonW132 />
-          <SelectButtonW132 />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
         </div>
         <div class="df jcsb">
-          <SelectButtonW132 />
-          <SelectButtonW132 />
-          <SelectButtonW132 />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
         </div>
         <div class="df jcsb">
-          <SelectButtonW132 />
-          <SelectButtonW132 />
-          <SelectButtonW132 />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
+          <v-dropdown-button value="Выбор" :buttons="buttons" />
         </div>
         <div class="df jcfe">
-          <Button class="mt70 mr22" text="Применить" />
-          <Button class="mt70" text="СБРОСИТЬ ВСЕ" />
+          <v-button class="mt70 mr22" text="Применить" />
+          <v-button class="mt70" text="СБРОСИТЬ ВСЕ" />
         </div>
       </div>
     </div>
@@ -35,19 +35,20 @@
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
-const SelectButtonW132 = () => import('@/components/SelectButtonW132')
-const SelectButtonW438 = () => import('@/components/SelectButtonW438')
-const Button = () => import('@/components/Button')
+const VIcon = () => import('@/components/v-icon')
+const vDropdownButton = () => import('@/components/v-dropdown-button')
+const VSelectButton = () => import('@/components/v-select-button')
+const VButton = () => import('@/components/v-button')
 
 export default {
   components: { 
-    Icon,
-    SelectButtonW132,
-    SelectButtonW438,
-    Button
+    VIcon,
+    vDropdownButton,
+    VSelectButton,
+    VButton
   },
   data: () => ({
+    buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
     filters__show: false
   }),
 }
@@ -68,9 +69,7 @@ export default {
 }
 .jcsb {
   justify-content: space-between;
-}
-.w132 {
-  width: 132px;
+  padding-right: 1px;
 }
 .filter__btn {
   display: flex;
@@ -83,7 +82,8 @@ export default {
   padding-right: 14px;
   border-radius: 4px;
   transition: all 0.2s ease-out;
-  margin: 3px 0px;
+  margin: 0px;
+  margin-bottom: 7px;
   outline: none;
 }
 .filter__btn p {

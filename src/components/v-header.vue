@@ -9,7 +9,7 @@
             <span :class="{'openClose2': show_close || $store.state.menu_visibility, 'colorBlack': $store.state.menu_visibility && $store.state.light_gamma }"></span>
           </div>
           <div @click="openMenu">
-            <Icon class="menu-icon" :class="{'closeMenuIcon': show_close || $store.state.menu_visibility }" icon=""/>
+            <v-icon class="menu-icon" :class="{'closeMenuIcon': show_close || $store.state.menu_visibility }" icon=""/>
           </div>
         </v-toolbar-items>
         <v-toolbar-title class="df aic">
@@ -50,25 +50,24 @@
           <span class="nav__celsius">°C</span>
         </v-toolbar-items>
         <v-spacer></v-spacer>
-
-        <Notifications />
+        <v-notifications />
     </nav>
   </header>
-  <Breadcrumbs />
+  <v-breadcrumbs />
 </div>
    
 </template>
 
 <script>
-const Icon = () => import('@/components/Icon')
-const Notifications = () => import('./Notifications')
-const Breadcrumbs = () => import('@/components/Breadcrumbs')
+const VIcon = () => import('@/components/v-icon')
+const VNotifications = () => import('./v-notifications')
+const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
 
 export default {
   components: {
-    Notifications,
-    Breadcrumbs,
-    Icon
+    VNotifications,
+    VBreadcrumbs,
+    VIcon
   },
   data: () => ({
     show_close: false,

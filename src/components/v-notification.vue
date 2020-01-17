@@ -2,21 +2,21 @@
   <div class="notification">
     <div class="df">
       <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
-        <Icon class="icon" :icon="icon" color="#fff" />
+        <v-icon class="icon" :icon="icon" color="#fff" />
       </v-btn>
       <p class="notification__text"><strong class="mr5">{{title}} </strong> {{text}}</p>
     </div>
-    <Icon class="icon-close" icon="" :color="color" />
+    <v-icon class="icon-close" icon="" :color="color" />
   </div>
 </template>
 
 <script>
-const Icon = () => import('./Icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   props: ['type'],
   components: {
-    Icon
+    VIcon
   },
   computed: {
     color() {

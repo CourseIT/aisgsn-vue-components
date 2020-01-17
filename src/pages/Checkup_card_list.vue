@@ -3,27 +3,35 @@
     <div class="df">
       <div class="w66" :class="{pl305: $store.state.menu_visibility}">
         <div class="df jcsb">
-          <Search />
-          <Icon class="icon-d icon" :hover_color="true" icon="" prompt="Создать документ"/>
-          <Icon class="icon-d icon" :hover_color="true" icon="" prompt="Загрузить документ"/>
-          <GreenRadioButton :labels="labels" radio_color="orange" />
+          <v-search />
+          <v-icon class="icon-d icon" :hover_color="true" icon="" prompt="Создать документ"/>
+          <v-icon class="icon-d icon" :hover_color="true" icon="" prompt="Загрузить документ"/>
+          <v-green-radio-buttons :labels="labels" />
         </div>
         <div class="df jcsb">
-          <AuthorSelectButton />
-          <DateButton />
-          <PodpisanSelectButton />
-          <StatusSelectButton />
-          <TypeSelectButton />
-          <FiltersButton />
+          <v-dropdown-button :value="author">
+            <template v-slot:buttons>
+              <v-btn v-for="(item, index) in authors" :key="index" @click="author = item" class="dropdown dropdown__btn">
+                <div>
+                  {{item}}
+                </div>
+              </v-btn>
+            </template>
+          </v-dropdown-button>
+          <v-date-button />
+          <v-dropdown-button value="Подписан" :buttons="dates"/>
+          <v-dropdown-button value="Статус" :buttons="statuses"/>
+          <v-dropdown-button value="Тип" :buttons="types"/>
+          <v-filters-button />
         </div>
         <div class="table-block">
-          <Table :docs="docs" :thead="thead" height="60vh" />
+          <v-table :docs="docs" :thead="thead" height="60vh" />
         </div>
         <p class="table__info">Время выдачи 12:25, количество записей и любая другая информация</p>
       </div>
       <v-col>
-        <DocInfo :doc_info="doc_info"/>
-        <DocumentImgBlock img="true" class="mt60"/>
+        <v-doc-info :doc_info="doc_info"/>
+        <v-document-block img="true" :src="src" class="mt60"/>
         <p class="doc__info">Информация о документе</p>
         <p class="doc__info">Информация о документе</p>
         <p class="doc__info">Информация о документе</p>
@@ -36,36 +44,48 @@
 </template>
 
 <script>
-const Table = () => import('@/components/Table')
-const DocumentImgBlock = () => import('@/components/DocumentImgBlock')
-const Search = () => import('@/components/Search')
-const Icon = () => import('@/components/Icon')
-const AuthorSelectButton = () => import('@/components/AuthorSelectButton')
-const PodpisanSelectButton = () => import('@/components/PodpisanSelectButton')
-const TypeSelectButton = () => import('@/components/TypeSelectButton')
-const StatusSelectButton = () => import('@/components/StatusSelectButton')
-const DateButton = () => import('@/components/DateButton')
-const FiltersButton = () => import('@/components/FiltersButton')
-const GreenRadioButton = () => import('@/components/GreenRadioButton')
-const DocInfo = () => import('@/components/DocInfo')
+const VTable = () => import('@/components/v-table')
+const VDocumentBlock = () => import('@/components/v-document-block')
+const VSearch = () => import('@/components/v-search')
+const VIcon = () => import('@/components/v-icon')
+const VDateButton = () => import('@/components/v-date-button')
+const VFiltersButton = () => import('@/components/v-filters-button')
+const VGreenRadioButtons = () => import('@/components/v-green-radio-buttons')
+const VDocInfo = () => import('@/components/v-doc-info')
+const VDropdownButton = () => import('@/components/v-dropdown-button')
 
 export default {
   components: {
-    Table,
-    DocumentImgBlock,
-    Search,
-    Icon,
-    GreenRadioButton,
-    AuthorSelectButton,
-    PodpisanSelectButton,
-    TypeSelectButton,
-    StatusSelectButton,
-    DateButton,
-    FiltersButton,
-    DocInfo
+    VTable,
+    VDocumentBlock,
+    VSearch,
+    VIcon,
+    VGreenRadioButtons,
+    VDateButton,
+    VFiltersButton,
+    VDocInfo,
+    VDropdownButton
   },
   data: () => ({
+    author: 'Автор',
+    src: 'https://static.thenounproject.com/png/4561-200.png',
     labels: ['Список','Хронология'],
+    authors: [
+      'НО',
+      'ОТКИ'
+    ],
+    dates: [
+      '23.08.2020',
+      '23.08.2020'
+    ],
+    statuses: [
+      'Статус1',
+      'Статус2'
+    ],
+    types: [
+      'Тип1',
+      'Тип2'
+    ],
     doc_info: {
       declarant: 'ВНИИЭФ',
       title_of_verification: 'Уточняется',

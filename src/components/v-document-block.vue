@@ -1,15 +1,15 @@
 <template>
   <div class="doc__block df">
     <div class="mr15">
-      <img v-if="img" class="doc__img" src="../assets/doc.png" alt="">
+      <img v-if="img" class="doc__img" :src="src" alt="">
       <div v-else class="doc__img">
         <p class="img-preview">DOCS PREVIEW</p>
       </div>
     </div>
     <div class="doc__btns">
-      <Icon class="icon-text" :hover_shadow="true" :hover_color="true" icon="У24" />
-      <Icon class="icon" :hover_shadow="true" :hover_color="true" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
-      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
+      <v-icon class="icon-text" :hover_shadow="true" :hover_color="true" icon="У24" />
+      <v-icon class="icon" :hover_shadow="true" :hover_color="true" :color=" img ? '#8e8e93' : '#21262c' " icon="" />
+      <v-icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
       <div v-if="img">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
@@ -18,12 +18,9 @@
               color="#e5e5ea"
               v-on="on"
             >
-              <Icon v-on="on" :hover_shadow="true" :hover_color="true" prompt="Лист визирования" class="icon list ml0" icon="" />
-              <!-- <div class="list__desc">
-                <span>Лист визирования</span>
-              </div> -->
+              <v-icon v-on="on" :hover_shadow="true" :hover_color="true" prompt="Лист визирования" class="icon list ml0" icon="" />
             </div>
-            <Icon :hover_shadow="true" :hover_color="true" v-on="on" class="icon" icon="" />
+            <v-icon :hover_shadow="true" :hover_color="true" v-on="on" class="icon" icon="" />
           </template>
           <div class="dropdown__block arrow-icon">
             <div v-for="(uesr, index) in users"  :key="index">
@@ -32,25 +29,25 @@
                   <p class="dropdown__user-title">{{uesr.title}}</p>
                   <p class="dropdown__user-name">{{uesr.name}}</p>
                 </div>
-                <Icon class="icon" data-title="Проверить подпись" style="margin-top: 0px;" icon="" />
+                <v-icon class="icon" data-title="Проверить подпись" style="margin-top: 0px;" icon="" />
               </div>
             </div>
           </div>
         </v-menu>
       </div>
-      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
-      <Icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
-      <Icon v-if="img" :hover_shadow="true" :hover_color="true" prompt="Подписано всеми участниками" class="icon" color="#ff6100" icon="" />
+      <v-icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
+      <v-icon v-if="img" :hover_shadow="true" :hover_color="true" class="icon" icon="" />
+      <v-icon v-if="img" :hover_shadow="true" :hover_color="true" prompt="Подписано всеми участниками" class="icon" color="#ff6100" icon="" />
     </div>
   </div>
 </template>
 
 <script>
-const Icon = () => import('./Icon')
+const VIcon = () => import('./v-icon')
 export default {
-  props: ['img'],
+  props: ['img', 'src'],
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     users: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="w438">
+  <div class="w262">
     <v-menu offset-y>
       <template v-slot:activator="{ on }">
         <v-btn
@@ -8,57 +8,66 @@
           v-ripple="false"
           class="dropdown"
         >
-        <div>
-          {{select}}
+        <div class="w80">
+          Выбор действия
         </div>
-          <Icon class="icon" icon="" />
+          <v-icon class="icon" icon="" />
         </v-btn>
       </template>
-      <v-btn @click="select = item" v-for="(item, index) in selects" :key="index" class="dropdown dropdown__btn">
-        <div>
-          {{item}}
-        </div>
-      </v-btn>
+      <slot name="buttons">
+        <v-btn class="dropdown dropdown__btn">
+          <div class="w80">
+            Подписать документ
+          </div>
+          <v-icon class="icon ff-light" icon="" />
+        </v-btn>
+        <v-btn class="dropdown dropdown__btn">
+          <div class="w80">
+            Вернуть на доработку
+          </div>
+          <v-icon class="icon ff-light" icon="" />
+        </v-btn>
+      </slot>
     </v-menu>
   </div>
 </template>
 
 <script>
-const Icon = () => import('./Icon')
-
+const VIcon = () => import('./v-icon')
 export default {
   components: {
-    Icon
-  },
-  data: () => ({
-    select: 'Выбор',
-    selects: ['Выбор', 'Выбор', 'Выбор', 'Выбор']
-  })
+    VIcon
+  }
 }
 </script>
 
 <style scoped>
-.w438 {
-  width: 438px;
-  margin-bottom: 3px;
+.w80 {
+  width: 80%;
+}
+.w262 {
+  width: 262px;
+}
+.ff-light {
+  font-size: 22px !important;
+  padding-left: 10px;
 }
 .icon {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 0px;
-  font-size: 28px;
+  font-size: 33px;
+  width: 5%;
   text-align: center;
   float: right;
+  width: 20%;
   transition: all 0.2s ease-out;
-  position: absolute;
-  margin-left: 191px;
 }
 .dropdown {
-  width: 438.5px !important;
+  width: 262px !important;
   height: 36px !important;
   box-shadow: none;
   display: flex;
   font-family: Roboto;
-  padding: 0px;
   font-size: 11px;
   font-weight: normal;
   font-stretch: normal;
@@ -67,31 +76,23 @@ export default {
   letter-spacing: normal;
   text-align: center;
   text-transform: none;
-  margin-bottom: 6px;
+  margin: 3px 0px;
   justify-content: space-around;
   background: var(--pale-lilac) !important;
-}
-.v-btn:not(.v-btn--round).v-size--default {
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-}
-.v-btn__content {
-  justify-content: space-between;
 }
 .v-btn:before {
   background: none;
 }
 .v-menu__content {
-  padding: 0px 10px !important;
-  margin-left: -10px;
-  margin-top: 0px;
-  box-shadow: none;
+  padding: 0px 15px !important;
+  padding-bottom: 20px !important;
+  margin-left: -15px;
 }
 .dropdown:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
 .dropdown:focus {
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
+   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
 .dropdown:hover ::before{
   background: var(--pale-lilac) !important;
@@ -110,7 +111,6 @@ export default {
   width: 100%;
   font-family: Roboto;
   font-size: 11px;
-  padding-right: 50px !important;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -119,11 +119,14 @@ export default {
   background-color: #fff !important;
   text-align: center;
   border-radius: 4px;
-  margin: 6px 0px !important;
+  margin: 7px 0px !important;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.22) !important;
 }
 .dropdown__btn:hover {
   background: var(--pale-lilac) !important;
   color: #ff6100;
+}
+.v-menu__content {
+  box-shadow: none;
 }
 </style>

@@ -7,15 +7,7 @@
 </template>
 
 <script>
-const Menu = () => import('@/components/Menu')
-const Header = () => import('@/components/Header')
-const Breadcrumbs = () => import('@/components/Breadcrumbs')
 export default {
-  components: {
-    Menu,
-    Header,
-    Breadcrumbs
-  },
   name: 'App',
   data: () => ({
     //

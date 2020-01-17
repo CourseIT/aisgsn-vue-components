@@ -7,6 +7,8 @@
         <input v-model="dateRangeText" class="input" type="text">
         <v-menu
           ref="menu"
+          :nudge-right="80"
+          :nudge-top="37"
           v-model="menu"
           :close-on-content-click="false"
           transition="scale-transition"
@@ -16,7 +18,7 @@
         >
           <template v-slot:activator="{ on }">
             <div class="icon-date" v-on="on">
-              <Icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
+              <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
@@ -28,12 +30,12 @@
 </template>
 
 <script>
-const Icon = () => import('./Icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   props: ['placeholder', 'value', 'icon', 'label'],
   components: {
-    Icon
+    VIcon
   },
   data: () => ({
     date: [],
@@ -48,6 +50,10 @@ export default {
 </script>
 
 <style>
+.input-date .v-menu__content {
+  margin-left: 80px !important;
+  margin-top: -40px !important;
+}
 .v-date-picker-header {
   padding: 8px 0px;
 }
