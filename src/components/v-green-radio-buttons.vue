@@ -1,18 +1,29 @@
 <template>
   <div class="checkup-card-list__radio"> 
-    <v-radio-group row>
-      <v-radio v-for="label in labels" :key="label" class="radio" :label="label"></v-radio>
+    <v-radio-group row v-model="radios">
+      <v-radio v-for="label in labels" :key="label" class="radio" :value="label" :label="label"></v-radio>
     </v-radio-group>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['labels', 'radio_color']
+  props: ['labels', 'radio_color'],
+  data: () => ({
+    radios: ''
+  }),
+  watch: {
+    radios(radios) {
+      this.$emit('input', radios)
+    }
+  }
 }
 </script>
 
 <style>
+.v-input--radio-group--row .v-input--radio-group__input {
+  flex-wrap: unset;
+}
 .checkup-card-list__radio .v-radio:last-child {
   margin-right: 0;
 }

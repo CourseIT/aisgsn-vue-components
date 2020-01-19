@@ -1,5 +1,5 @@
 <template class="db">
-	<button class="btn">
+	<button class="btn" :class="{'border': !background_color}" :style='{background: `${background_color}`, color: `${color}`}'>
     <slot>
       {{text}}
     </slot>
@@ -12,7 +12,9 @@ export default {
     text: {
       type: String,
       default: 'Кнопка'
-    }
+    },
+    background_color: {},
+    color: {}
   }
 }
 </script>
@@ -21,12 +23,19 @@ export default {
 .db {
   display: block;
 }
+.border {
+  border: dashed 1px var(--dark);
+}
+.border:hover {
+  border: solid 1px var(--bright-orange);
+  background: var(--bright-orange);
+}
 .btn{
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 	width: 132px;
   height: 34px;
 	outline: none;
   border-radius: 4px;
-  border: dashed 1px var(--dark);
 	font-family: Roboto;
   font-size: 11px;
   font-weight: bold;
@@ -42,8 +51,6 @@ export default {
 }
 .btn:hover {
 	color: #fff;
-	background-color: var(--bright-orange);
-	border-color: var(--bright-orange);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+  opacity: 0.8;
 }
 </style>

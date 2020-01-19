@@ -3,23 +3,27 @@
     <div class="select w132" :style="{'width': width}">
       <button class="main-btn">
         <button v-if="value" @click="$emit('input', '')">
-          <v-icon icon="" class="select__icon-colse"/>
+          <v-icon icon="" width="16" class="select__icon-colse"/>
         </button>
         <div class="hover-btn df w100">
-          <div @click="menu_show = true" class="w100 df aic"  :class="{'pl36': !value, 'jcc': text_center}">
+          <div @click="menu_show = true" class="w100 df aic jcc"  :class="{'pl16': !value}">
             {{value || defailt_value}}
           </div>
           <div @click="menu_show = true" class="hover-btn">
-            <v-icon icon="" class="select__icon-dots"/>
+            <v-icon icon="" width="16" class="select__icon-dots"/>
           </div>
         </div>
       </button>
       <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
-        <button @click="value = item, menu_show = false, $emit('input', item)" v-for="(item, index) in list" :key="index" class="select-btn select_shadow">
-          <div class="df aic jcsb w100 hover-btn" :class="{'jcc': text_center, 'pl36': !text_center}">
-            {{item}}
-          </div>
-        </button>
+        <div @click="menu_show = false">
+          <slot>
+            <button @click="value = item, $emit('input', item)" v-for="(item, index) in list" :key="index" class="select-btn select_shadow">
+              <div class="df aic jcsb w100 hover-btn jcc">
+                {{item}}
+              </div>
+            </button>
+          </slot>
+        </div>
       </div>
     </div>
     <div v-if="menu_show" @click="menu_show = false" class="colse-bg"></div>
@@ -68,8 +72,8 @@ button {
 .w132 {
   width: 132px;
 }
-.pl36 {
-  padding-left: 36px;
+.pl16 {
+  padding-left: 16px;
 }
 .aic {
   align-items: center;
@@ -93,6 +97,7 @@ button {
 .main-btn {
   width: 100%;
   height: 36px;
+  padding: 0px 10px;
   background-color: var(--pale-lilac);
   display: flex;
   margin-bottom: 6px;
@@ -111,7 +116,6 @@ button {
   cursor: pointer;
   position: relative;
   transition: all 0.2s ease-in-out;
-  z-index: 8;
 }
 .main-btn:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);

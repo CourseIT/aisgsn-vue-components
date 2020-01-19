@@ -1,5 +1,5 @@
 <template>
-  <div class="date-btn__block">
+  <div class="date-range-btn__block">
     <v-menu
       ref="menu"
       v-model="menu"
@@ -7,17 +7,20 @@
       transition="scale-transition"
       offset-y
       min-width="290px"
+      selected-items-text="ru"
     >
       <template v-slot:activator="{ on }">
-        <button class="date__btn">
-          <div @click="date = new Date().toISOString().substr(0, 10)">
-            <v-icon v-if="date != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
+        <div class="df date__btn">
+          <div @click="date = [new Date().toISOString().substr(0, 10)]">
+            <v-icon v-if="date.length > 1" class="icon-colse" width="15" icon="" />
           </div>
-          <p  v-on="on" :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}-{{month}}-{{year}} </p>
-          <v-icon  v-on="on" class="icon w19" width="19" icon="" />
-        </button>
+          <button class="hover" v-on="on">
+            <p :class="{'pl25': date.length < 2}">{{dateRangeText}} </p>
+          </button>
+          <v-icon class="icon hover" width="19" icon="" />
+        </div>
       </template>
-      <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable>
+      <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable range>
       </v-date-picker>
     </v-menu>
   </div>
@@ -29,7 +32,7 @@ const VIcon = () => import('@/components/v-icon')
 export default {
   components: { VIcon },
   data: () => ({
-    date: new Date().toISOString().substr(0, 10),
+    date: [new Date().toISOString().substr(0, 10)],
     menu: false,
     modal: false,
   }),
@@ -39,25 +42,19 @@ export default {
     }
   },
   computed: {
-    year() {
-      return this.date.substr(0, 4)
+    dateRangeText () {
+      return this.date.join(' – ')
     },
-    month() {
-      return this.date.substr(5, 2)
-    },
-    day() {
-      return this.date.substr(8, 2)
-    }
   }
 }
 </script>
 
 <style>
-.w19 {
-  width: 19px;
+button {
+  outline: none;
 }
-.pl15 {
-  padding-left: 15px;
+.pl25 {
+  padding-left: 25px !important;
 }
 .v-date-picker-header {
   padding: 8px 0px;
@@ -108,11 +105,14 @@ export default {
 .v-menu__content {
   margin-top: 6px;
 }
-.date-btn__block .date__btn {
+.date-range-btn__block button {
+  width: 100%;
+}
+.date-range-btn__block .date__btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 132px;
+  width: 263px;
   height: 36px;
   background-color: var(--pale-lilac);
   padding: 0px 10px;
@@ -122,7 +122,7 @@ export default {
   margin-bottom: 7px;
   outline: none;
 }
-.date-btn__block .date__btn p {
+.date-range-btn__block .date__btn p {
   margin-bottom: 0;
   font-family: Roboto;
   font-size: 11px;
@@ -133,20 +133,20 @@ export default {
   letter-spacing: normal;
   color: var(--dark);
 }
-.date-btn__block .icon {
+.date-range-btn__block .icon {
   font-family: var(--font-awesome-5-pro-light);
   font-size: 21px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  width: 19px;
   line-height: 1.67;
+  width: 19px;
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
   transition: all 0.2s ease-out;
 }
-.date-btn__block .icon-colse {
+.date-range-btn__block .icon-colse {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: FontAwesome5Pro;
   font-weight: 300;
@@ -158,23 +158,26 @@ export default {
   color: var(--dark);
   z-index: 9;
 }
-.date-btn__block .icon-colse:hover .icon{
+.date-range-btn__block .icon-colse:hover .icon{
   color: var(--bright-orange);
 }
-.date-btn__block .icon-colse .icon {
+.date-range-btn__block .icon-colse .icon {
   font-size: 15px !important;
   z-index: 9;
 }
-.date-btn__block .date__btn:hover {
+.date-range-btn__block .date__btn:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
-.date-btn__block .date__btn:focus {
+.date-range-btn__block .date__btn:focus {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
-.date-btn__block .date__btn:hover .icon {
+.date-range-btn__block .date__btn:hover .icon .icon {
   color: var(--bright-orange);
 }
-.date-btn__block .date__btn:focus .icon {
+.date-range-btn__block .date__btn:hover .icon-colse {
+  color: var(--dark);
+}
+.date-range-btn__block .date__btn:focus .icon {
   color: var(--bright-orange);
 }
 </style>

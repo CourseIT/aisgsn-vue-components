@@ -18,12 +18,13 @@
       </v-menu>
       <v-radio-group
       row
+      v-model="radios"
     >
-      <v-radio class="radio" label="На месяц"></v-radio>
-      <v-radio class="radio" label="На 1-е февраля"></v-radio>
-      <v-radio class="radio" label="На 1-е апреля"></v-radio>
-      <v-radio class="radio" label="На 1-е июля"></v-radio>
-      <v-radio class="radio" label="На 1-е октября"></v-radio>
+      <v-radio class="radio" value="На месяц" label="На месяц"></v-radio>
+      <v-radio class="radio" value="На 1-е февраля" label="На 1-е февраля"></v-radio>
+      <v-radio class="radio" value="На 1-е апреля" label="На 1-е апреля"></v-radio>
+      <v-radio class="radio" value="На 1-е июля" label="На 1-е июля"></v-radio>
+      <v-radio class="radio" value="На 1-е октября" label="На 1-е октября"></v-radio>
     </v-radio-group>
     <div class="icons-block">
       <v-icon class="icon1" icon="" />
@@ -47,6 +48,7 @@ export default {
     date: new Date().toISOString().substr(0, 10),
     menu: false,
     modal: false,
+    radios: ''
   }),
 }
 </script>

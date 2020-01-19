@@ -57,8 +57,7 @@
       </div>
     </div>
     <v-col class="pf">
-      <v-doc-button />
-      <v-document-block img="true" :src="src" class="mt100"/>
+      <v-field-block />
     </v-col>
     <v-modal v-if="modal_show" :modal_show="modal_show" @toggleModal=toggleModal />
   </div>
@@ -66,25 +65,27 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const VDocButton = () => import('@/components/v-doc-button')
-const VDocumentBlock = () => import('@/components/v-document-block')
+// const VDocButton = () => import('@/components/v-doc-button')
+// const VDocumentBlock = () => import('@/components/v-document-block')
 const VInputWithIcon = () => import('@/components/v-input-with-icon')
 const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
 const VCardBlock = () => import('@/components/v-card-block')
 const VModal = () => import('@/components/v-modal')
+const VFieldBlock = () => import('@/components/v-field-block')
 import draggable from 'vuedraggable'
 
 export default {
   components: {
     VIcon,
-    VDocButton,
-    VDocumentBlock,
+    // VDocButton,
+    // VDocumentBlock,
     VInputWithIcon,
     VInputDateWithIcon,
     VTextareaWithIcon,
     VCardBlock,
     VModal,
+    VFieldBlock,
     draggable
   },
   data: () => ({
@@ -161,6 +162,7 @@ export default {
 .pf {
   position: fixed;
   left: 66%;
+  padding-top: 78px;
 }
 hr {
   border: dashed 0.5px var(--dark);

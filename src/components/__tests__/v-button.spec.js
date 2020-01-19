@@ -1,23 +1,28 @@
-import Vue from 'vue';
 import VButton from '@/components/v-button.vue'
+import { shallowMount } from '@vue/test-utils';
 
-function mountComponentWithProps (Component, propsData) {
-  const Constructor = Vue.extend(Component);
-  const vm = new Constructor({
-    propsData
-  }).$mount();
-  return vm.$el;
-}
+describe('Проверка пропсов', () => {
+  const wrapper = shallowMount(VButton, {
+    propsData: {
+      text: 'text',
+      background_color: 'background',
+      color: 'color'
+    }
+  });
+  it('text', () => {
+    expect(wrapper.props().text).toBe('text');
+  })
+  it('background_color', () => {
+    expect(wrapper.props().background_color).toBe('background');
+  })
+  it('color', () => {
+    expect(wrapper.props().color).toBe('color');
+  })
+})
 
-describe('v-button.vue', () => {
-  it('Проверка пропсов', () => {
-    const Data = mountComponentWithProps(VButton, {text:'Кнопка'});
-    const text = Data.textContent;
-    expect(text).toEqual('Кнопка');
-  });
-  it('Проверка дефолтного значения', () => {
-    const Data = mountComponentWithProps(VButton);
-    const text = Data.textContent;
-    expect(text.find("button")).toEqual('Кнопка');
-  });
-});
+describe('Проверка дефолтного текста', () => {
+  const wrapper = shallowMount(VButton);
+  it('text  ', () => {
+    expect(wrapper.props().text).toBe('Кнопка');
+  })
+})

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="template-block">
+    <div class="template-block" :class="{'tb-shadow': shadow}">
       <div class="w90" @click="selectText">
         <p>{{text}}</p>
       </div>
@@ -18,6 +18,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  props: ['shadow'],
   components: {
     VIcon
   },
@@ -42,13 +43,19 @@ export default {
 .mb3 {
   margin-bottom: 3px;
 }
+.tb-shadow{
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+}
+.template-block:hover {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+}
 .template-block {
   padding-top: 2px;
   display: flex;
   justify-content: space-between;
   background: #fff;
   padding: 4px 8px;
-  padding-right: 2px;
+  padding-right: 12px;
   border-radius: 4px;
   width: 100%;
   height: 50px;
@@ -58,7 +65,6 @@ export default {
   transition: all 0.2s ease-out;
   cursor: pointer;
   margin-bottom: 6px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover{
   background: var(--pale-lilac);

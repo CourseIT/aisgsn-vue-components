@@ -30,7 +30,7 @@
               required
             />
             <div>
-              <v-button>Войти</v-button>
+              <v-button >Войти</v-button>
             </div>
             <div class="login__hint">
               <p>

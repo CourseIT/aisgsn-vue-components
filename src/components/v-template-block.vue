@@ -1,8 +1,9 @@
 <template>
   <div>
-    <div class="templates-block">
+    <div class="templates-block" :style='{width: `${width}`}' >
       <div>
-        <v-template-text v-for="(text, index) in texts" :key="index" />
+        <v-search class="search"/>
+        <v-template-text :shadow="true" v-for="(text, index) in texts" :key="index" />
       </div>
     </div>
     <div class="icons_text-block">
@@ -15,11 +16,14 @@
 <script>
 const VTemplateText = () => import('./v-template-text')
 const VIcon = () => import('./v-icon')
+const VSearch = () => import('./v-search')
 
 export default {
+  props: ['width'],
   components: {
     VIcon,
-    VTemplateText
+    VTemplateText,
+    VSearch
   },
   data: () =>({
     texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
@@ -40,6 +44,7 @@ export default {
   padding-left: 20px;
   margin-left: -20px;
   padding-bottom: 10px;
+  margin-top: -51px;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;
@@ -50,10 +55,13 @@ export default {
   border-radius: 4px;
   background-color: var(--pale-lilac);
 }
+.templates-block .search {
+  margin-bottom: 14.5px;
+}
 .icons_text-block {
   display: flex;
   position: absolute;
-  margin-top: 672px;
+  margin-top: 642px;
   margin-left: 293px;
   z-index: 99;
 }

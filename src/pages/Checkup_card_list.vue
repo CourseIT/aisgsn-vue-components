@@ -2,18 +2,22 @@
   <div class="checkup-card-list">
     <div class="df">
       <div class="w66" :class="{pl305: $store.state.menu_visibility}">
-        <div class="df jcsb">
-          <v-search />
-          <v-icon class="icon-d icon" :hover_color="true" icon="" prompt="Создать документ"/>
-          <v-icon class="icon-d icon" :hover_color="true" icon="" prompt="Загрузить документ"/>
-          <v-green-radio-buttons :labels="labels" />
+        <div class="df fr">
+          <v-search v-model="search" width="812px"/>
+          <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Создать документ"/>
+          <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Загрузить документ"/>
+          <v-green-radio-buttons :labels="labels" class="g-radio"/>
         </div>
         <div class="df jcsb">
           <v-select v-model="author" defailt_value="Автор" :list="select_list"/>
-          <v-date-button />
+          <v-date-button v-model="date_btn"/>
           <v-select v-model="date" defailt_value="Подписан" :list="select_list"/>
           <v-select v-model="status" defailt_value="Статус" :list="select_list"/>
-          <v-select v-model="type" defailt_value="Тип" :list="select_list"/>
+          <v-select v-model="type" defailt_value="Тип" :list="select_list">
+            <div @click="type = item" v-for="(item, index) in select_list" :key="index">
+              <v-options :option="item" :action="test"/>
+            </div>
+          </v-select>
           <v-filters-button class="mr29"/>
         </div>
         <div class="table-block">
@@ -45,6 +49,7 @@ const VFiltersButton = () => import('@/components/v-filters-button')
 const VGreenRadioButtons = () => import('@/components/v-green-radio-buttons')
 const VDocInfo = () => import('@/components/v-doc-info')
 const VSelect = () => import('@/components/v-select')
+const VOptions = () => import('@/components/v-options')
 
 export default {
   components: {
@@ -56,9 +61,17 @@ export default {
     VDateButton,
     VFiltersButton,
     VDocInfo,
-    VSelect
+    VSelect,
+    VOptions
+  },
+  methods: {
+    test() {
+      window.console.log('test')
+    }
   },
   data: () => ({
+    date_btn: '',
+    search: '',
     author: '',
     date: '',
     type: '',
@@ -230,11 +243,17 @@ export default {
 .jcsb {
   justify-content: space-between;
 }
+.fr {
+  justify-content: flex-end;
+}
 .mt60 {
   margin-top: 60px;
 }
 .mr29 {
   margin-right: 29px;
+}
+.ml42 {
+  margin-left: 42px;
 }
 .w66 {
   width: 66%;
@@ -254,6 +273,9 @@ export default {
   text-align: center;
   color: var(--dark);
   cursor: pointer;
+}
+.checkup-card-list {
+  padding-top: 30px;
 }
 .checkup-card-list .table__info {
   font-family: Roboto;
@@ -286,5 +308,8 @@ export default {
 .checkup-card-list .table-block {
   margin-top: 10px;
 }
-
+.g-radio {
+  margin-right: 30px;
+  margin-left: 50px;
+}
 </style>

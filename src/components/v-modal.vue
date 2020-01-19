@@ -73,8 +73,9 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: 0.7;
-  background-color: var(--dark);
+  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 1);
+  backdrop-filter: blur(10px)
 }
 .icon {
   font-family: var(--font-awesome-5-pro-light);

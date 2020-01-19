@@ -46,6 +46,7 @@ export default {
   }),
   watch: {
     text(value){
+      this.$emit('input', value)
       this.template_show = false
       this.select_block_show = true
       setTimeout(() => {

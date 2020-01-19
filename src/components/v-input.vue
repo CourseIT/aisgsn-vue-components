@@ -1,7 +1,10 @@
 <template>
   <div class="input-block">
     <p v-if="label" class="label">{{label}}</p>
-    <div class="df">
+    <div v-if="type == 'textarea'">
+      <textarea class="textarea" :placeholder="placeholder" v-model="input_value" cols="10" rows="4"></textarea>
+    </div>
+    <div v-else class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
       <div v-if="select_block_show" class="select-block">
         <ul>
@@ -13,7 +16,7 @@
 </template>
 <script>
 export default {
-  props: ['placeholder', 'value', 'label'],
+  props: ['placeholder', 'value', 'label', 'type'],
   data: () => ({
     select_block_show: false,
     input_value: '',
@@ -26,6 +29,7 @@ export default {
   }),
   watch: {
     input_value(value) {
+      this.$emit('input', value)
       this.select_block_show = true
       setTimeout(() => {
         if(value === this.input_value) {
@@ -72,6 +76,28 @@ export default {
   margin-bottom: 30px;
   height: 36px;
   width: 100%;
+}
+.textarea {
+  width: 100%;
+  outline: none;
+  padding: 9px 15px;
+  border-radius: 4px;
+  background-color: var(--white);
+  font-family: Roboto;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  resize : none;
+  height: 95px;
+  margin-bottom: 20px;
+}
+.textarea::placeholder {
+  padding-top: 5px;
+  font-size: 9px;
+  color: var(--blue-grey);
 }
 .input::placeholder {
   font-family: Roboto;

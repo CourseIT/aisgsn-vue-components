@@ -3,7 +3,7 @@
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
-        <v-icon class="icon" icon="" />
+        <v-icon class="icon" width="22" icon="" />
       </button>
       <div v-if="filters__show" class="filters__block">
         <v-select v-model="value1" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
@@ -24,9 +24,19 @@
           <v-select v-model="value11" defailt_value="Выбор" width="132px" :list="buttons"/>
           <v-select v-model="value12" defailt_value="Выбор" width="132px" :list="buttons"/>
         </div>
-        <div class="df jcfe">
-          <v-button class="mt70 mr22" text="Применить" />
-          <v-button class="mt70" text="СБРОСИТЬ ВСЕ" />
+        <div>
+          <p class="record">Количество записей и любая другая информация</p>
+        </div>
+        <div class="df jcsb">
+          <div class="df mt70">
+            <v-icon class="time-icon" width="21" icon="" />
+            <div>
+              <p class="time-text">Время выдачи</p>
+              <p class="time-text">12:25</p>
+            </div>
+          </div>
+          <v-button class="mt70" background_color="#8e8e93" color="#fff" text="СБРОСИТЬ ВСЕ" />
+          <v-button class="mt70" background_color="#ff6100" color="#fff" text="Применить" />
         </div>
       </div>
     </div>
@@ -88,8 +98,7 @@ export default {
   width: 132px;
   height: 36px;
   background-color: var(--pale-lilac);
-  padding-left: 20px;
-  padding-right: 14px;
+  padding: 0px 10px;
   border-radius: 4px;
   transition: all 0.2s ease-out;
   margin: 0px;
@@ -102,6 +111,7 @@ export default {
   margin-bottom: 0;
   font-family: Roboto;
   font-size: 11px;
+  padding-left: 22px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -120,6 +130,42 @@ export default {
   text-align: center;
   color: var(--dark);
   transition: all 0.2s ease-out;
+}
+.time-icon {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.time-text {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  margin-bottom: 0;
+  margin-left: 12px;
+}
+.record {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+  color: #38393b;
+  margin-top: 30px;
 }
 .filter__btn:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
