@@ -42,6 +42,7 @@ export default {
   align-items: center;
   padding-right: 12px;
   margin-bottom: 6px;
+  z-index: 9;
 }
 .action-btn:hover {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
