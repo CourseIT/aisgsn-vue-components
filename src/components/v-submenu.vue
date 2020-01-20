@@ -1,7 +1,7 @@
 <template>
   <div class="mb20">
     <div class="df jcsb cp menu__title" @click="open_submenu = !open_submenu">
-      <h1 :style="`font-size: ${text_size}px`">{{title}}</h1>
+      <h1 @click="action" :style="`font-size: ${text_size}px`">{{title}}</h1>
       <v-icon v-if="!only_title" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
     </div>
     <transition name="submenu">
@@ -21,7 +21,11 @@ export default {
   props: {
     title: {},
     text_size: {},
-    only_title: {}
+    only_title: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
   },
   components: {
     VIcon

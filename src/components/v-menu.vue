@@ -4,9 +4,9 @@
       <div class="menu-top-bg"></div>
       <div class="menu__container">
         <div class="menu__links">
-          <v-submenu title="Главная" only_title="true" :text_size="text_size" />
+          <v-submenu title="Главная" :action="test" only_title="true" :text_size="text_size" />
           <v-submenu title="НАДЗОР" :text_size="text_size">
-            <v-submenu-link text="Надзорные дела" />
+            <v-submenu-link :action="test" text="Надзорные дела" />
             <v-submenu-link text="Программа проверок" />
             <v-submenu-link text="Проверки" />
           </v-submenu>
@@ -69,7 +69,6 @@ export default {
     VSubmenuLink
   },
   data: () => ({
-    open_submenu: [],
     light_gamma: false,
     text_size: 15
   }),
@@ -86,6 +85,9 @@ export default {
     this.checkVisibilityInCookie()
   },
   methods: {
+    test() {
+      window.console.log('test')
+    },
     checkVisibilityInCookie() {
       var name_cook = "menu_visibility=";
       var spl = document.cookie.split(";");
@@ -101,13 +103,6 @@ export default {
             this.$store.commit('SET_MENU_VISIBILITY', false)
           }
         }
-      }
-    },
-    openSubmenu(title) {
-      if(this.open_submenu.includes(title)) {
-        this.open_submenu = this.open_submenu.filter(word => word != title);
-      } else {
-        this.open_submenu.push(title)
       }
     },
     textSizePlus() {

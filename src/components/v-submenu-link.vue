@@ -1,5 +1,5 @@
 <template>
-  <li class="submenu__link t03s" :style="`font-size: ${text_size}px`">{{text}}</li>
+  <li @click="action" class="submenu__link t03s" :style="`font-size: ${text_size}px`">{{text}}</li>
 </template>
 
 <script>
@@ -7,7 +7,11 @@ export default {
   props: {
     text: {},
     text_size: {},
-    transition: {}
+    transition: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
   }
 }
 </script>
