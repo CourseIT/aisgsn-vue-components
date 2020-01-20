@@ -22,7 +22,7 @@ export default {
 
 <style>
 .v-input--radio-group--row .v-input--radio-group__input {
-  flex-wrap: unset;
+  flex-wrap: unset !important;
 }
 .checkup-card-list__radio .v-radio:last-child {
   margin-right: 0;

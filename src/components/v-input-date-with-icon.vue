@@ -49,9 +49,9 @@ export default {
   computed: {
     dateRangeText () {
       if(this.date.length > 1) {
-        return `${this.date[0].substr(8, 2)}-${this.date[0].substr(5, 2)}-${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}-${this.date[1].substr(5, 2)}-${this.date[1].substr(0, 4)}`
+        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
       }
-        return `${this.date[0].substr(8, 2)}-${this.date[0].substr(5, 2)}-${this.date[0].substr(0, 4)}`
+        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
     },
   }
 }

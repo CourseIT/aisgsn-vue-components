@@ -13,7 +13,7 @@
           <div @click="date = new Date().toISOString().substr(0, 10)">
             <v-icon v-if="date != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
           </div>
-          <p  v-on="on" :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}-{{month}}-{{year}} </p>
+          <p  v-on="on" :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}.{{month}}.{{year}} </p>
           <v-icon  v-on="on" class="icon w19" width="19" icon="" />
         </button>
       </template>
@@ -54,7 +54,7 @@ export default {
 
 <style>
 .w19 {
-  width: 19px;
+  width: 19px !important;
 }
 .pl15 {
   padding-left: 15px;
