@@ -1,0 +1,89 @@
+<template>
+<div class="w262" :style="{'width': width}">
+  <button @click="action" class="action-btn">
+    <p class="action-btn__title">{{title}}</p>
+    <v-icon class="action-btn__icon" :icon="icon" width="30"/>
+  </button>
+</div>
+</template>
+
+<script>
+const VIcon = () => import('@/components/v-icon')
+
+export default {
+  props: {
+    title: {
+      type: String,
+    },
+    width: {},
+    icon: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
+  },
+  components: {
+    VIcon
+  }
+}
+</script>
+
+<style scoped>
+.w262 {
+  width: 262px;
+}
+.action-btn {
+  outline: none;
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
+  width: 100%;
+  height: 36px !important;
+  display: flex;
+  align-items: center;
+  padding-right: 12px;
+  margin-bottom: 6px;
+}
+.action-btn:hover {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+}
+.action-btn:focus {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+}
+.action-btn:hover .action-btn__title{
+  color: var(--bright-orange);
+}
+.action-btn:focus .action-btn__title{
+  color: var(--bright-orange);
+}
+.action-btn:hover .action-btn__icon {
+  color: var(--bright-orange);
+}
+.action-btn:focus .action-btn__icon {
+  color: var(--bright-orange);
+}
+.action-btn__title {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+  width: 100%;
+  margin-bottom: 0;
+}
+.action-btn__icon {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  width: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+</style>

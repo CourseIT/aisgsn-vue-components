@@ -36,7 +36,7 @@
             </div>
           </div>
           <v-button class="mt70" background_color="#8e8e93" color="#fff" text="СБРОСИТЬ ВСЕ" />
-          <v-button class="mt70" background_color="#ff6100" color="#fff" text="Применить" />
+          <v-button class="mt70" text="Применить" />
         </div>
       </div>
     </div>

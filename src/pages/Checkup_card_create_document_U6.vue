@@ -38,7 +38,10 @@
       </div>
     </div>
     <v-col class="pf">
-      <v-doc-button />
+      <v-action-group title="Выбор действия">
+        <v-action-button title="Подписать документ" icon=""/>
+        <v-action-button title="Вернуть на доработку" icon=""/>
+      </v-action-group>
       <v-document-block :img="false" :src="src" class="mt100"/>
     </v-col>
   </div>
@@ -46,7 +49,8 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const VDocButton = () => import('@/components/v-doc-button')
+const VActionGroup = () => import('@/components/v-action-group')
+const VActionButton = () => import('@/components/v-action-button')
 const VDocumentBlock = () => import('@/components/v-document-block')
 const VInput = () => import('@/components/v-input')
 const VInputWithIcon = () => import('@/components/v-input-with-icon')
@@ -56,7 +60,8 @@ const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
 export default {
   components: {
     VIcon,
-    VDocButton,
+    VActionGroup,
+    VActionButton,
     VDocumentBlock,
     VInput,
     VInputWithIcon,

@@ -29,7 +29,7 @@
               placeholder="Пароль"
               required
             />
-            <div>
+            <div class="jcc">
               <v-button >Войти</v-button>
             </div>
             <div class="login__hint">

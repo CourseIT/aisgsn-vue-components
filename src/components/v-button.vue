@@ -26,13 +26,13 @@ export default {
 .border {
   border: dashed 1px var(--dark);
 }
-.border:hover {
+.btn:hover {
   border: solid 1px var(--bright-orange);
-  background: var(--bright-orange);
+  background: var(--bright-orange) !important;
 }
 .btn{
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-	width: 132px;
+	width: 130px;
   height: 34px;
 	outline: none;
   border-radius: 4px;
@@ -41,11 +41,14 @@ export default {
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.18;
+  line-height: 1;
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
-  padding: 10.5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 	text-transform: uppercase;
 	transition: all 0.1s ease-out;
 }

@@ -42,7 +42,10 @@
     <v-col class="pf">
       <div class="df">
         <v-icon icon="" :hover_shadow="true" :hover_color="true" class="icon-s mt0"/>
-        <v-doc-button />
+        <v-action-group title="Выбор действия">
+          <v-action-button :action="test" title="Подписать документ" icon=""/>
+          <v-action-button title="Вернуть на доработку" icon=""/>
+        </v-action-group>
       </div>
       <v-document-block img="true" :src="src" class="mt100 doc__block"/>
     </v-col>
@@ -54,22 +57,24 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const VDocButton = () => import('@/components/v-doc-button')
 const VDocumentBlock = () => import('@/components/v-document-block')
 const VInputWithIcon = () => import('@/components/v-input-with-icon')
 const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
 const VModal = () => import('@/components/v-modal')
+const VActionGroup = () => import('@/components/v-action-group')
+const VActionButton = () => import('@/components/v-action-button')
 
 export default {
   components: {
     VIcon,
-    VDocButton,
     VDocumentBlock,
     VInputWithIcon,
     VInputDateWithIcon,
     VTextareaWithIcon,
-    VModal
+    VModal,
+    VActionGroup,
+    VActionButton
   },
   data: () => ({
     src: 'https://static.thenounproject.com/png/4561-200.png',
@@ -80,6 +85,9 @@ export default {
     toggleModal(show) {
       this.modal_show = show
     },
+    test() {
+      window.console.log('test')
+    }
   }
 }
 </script>

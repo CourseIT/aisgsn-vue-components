@@ -42,7 +42,10 @@
     <v-col class="pf">
       <div class="df">
         <v-icon icon="" :hover_shadow="true" :hover_color="true" class="icon-s mt0"/>
-        <v-doc-button />
+        <v-action-group title="Выбор действия">
+          <v-action-button title="Подписать документ" icon=""/>
+          <v-action-button title="Вернуть на доработку" icon=""/>
+        </v-action-group>
       </div>
       <v-document-block :img="false" :src="src" class="mt100"/>
     </v-col>
@@ -54,7 +57,8 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const VDocButton = () => import('@/components/v-doc-button')
+const VActionGroup = () => import('@/components/v-action-group')
+const VActionButton = () => import('@/components/v-action-button')
 const VDocumentBlock = () => import('@/components/v-document-block')
 const VInputWithIcon = () => import('@/components/v-input-with-icon')
 const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
@@ -64,7 +68,8 @@ const VModal = () => import('@/components/v-modal')
 export default {
   components: {
     VIcon,
-    VDocButton,
+    VActionGroup,
+    VActionButton,
     VDocumentBlock,
     VInputWithIcon,
     VInputDateWithIcon,
