@@ -138,6 +138,9 @@ export default {
   top: 12px !important;
   height: 19px !important;
 }
+.menu .v-input--selection-controls{
+  margin-top: 5px !important;
+}
 .menu .v-input--selection-controls__ripple {
   display: none;
 }
