@@ -65,8 +65,6 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-// const VDocButton = () => import('@/components/v-doc-button')
-// const VDocumentBlock = () => import('@/components/v-document-block')
 const VInputWithIcon = () => import('@/components/v-input-with-icon')
 const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VTextareaWithIcon = () => import('@/components/v-textarea-with-icon')
@@ -78,8 +76,6 @@ import draggable from 'vuedraggable'
 export default {
   components: {
     VIcon,
-    // VDocButton,
-    // VDocumentBlock,
     VInputWithIcon,
     VInputDateWithIcon,
     VTextareaWithIcon,
@@ -115,15 +111,6 @@ export default {
 .ghost {
   opacity: 0.5;
 }
-.df {
-  display: flex;
-}
-.jcsb {
-  justify-content: space-between;
-}
-.jcfe{
-  justify-content: flex-end;
-}
 .top10{
   position: relative;
   top: 10px;
@@ -143,18 +130,12 @@ export default {
 .mt100 {
   margin-top: 100px;
 }
-.mt0 {
-  margin-top: 0px;
-}
 .mt25 {
   margin-top: 25px;
 }
 .w66 {
   width: 66%;
   transition: all 0.3s ease;
-}
-.w95 {
-  width: 95%;
 }
 .pl305 {
   padding-left: 305px;

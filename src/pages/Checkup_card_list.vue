@@ -237,12 +237,6 @@ export default {
 </script>
 
 <style>
-.df {
-  display: flex;
-}
-.jcsb {
-  justify-content: space-between;
-}
 .fr {
   justify-content: flex-end;
 }

@@ -72,9 +72,6 @@ export default {
   margin-top: 22px;
   margin-right: 10px;
 }
-.df {
-  display: flex;
-}
 .analytics-title {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;

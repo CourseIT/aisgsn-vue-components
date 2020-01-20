@@ -119,9 +119,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
 .analytics {
   padding-bottom: 200px;
 }

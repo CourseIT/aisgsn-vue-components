@@ -34,9 +34,6 @@ export default {
   --blue-grey: #8e8e93;
   --purpley: #8d43ff;
 }
-.df {
-  display: flex;
-}
 .content {
   margin-top: 115px;
   margin-left: 27px;
@@ -46,6 +43,64 @@ body {
 }
 #app {
   background-color: var(--pale-grey);
+}
+.df {
+  display: flex;
+}
+.db {
+  display: block;
+}
+.jcfe {
+  justify-content: flex-end;
+}
+.jcsb {
+  justify-content: space-between;
+  padding-right: 1px;
+}
+.jcc {
+  justify-content: center;
+}
+.aic {
+  align-items: center;
+}
+.w90 {
+  width: 90%;
+}
+.w95 {
+  width: 95%;
+}
+.w100 {
+  width: 100%;
+}
+.pl15 {
+  padding-left: 15px;
+}
+.pl25 {
+  padding-left: 25px !important;
+}
+.pr30 {
+  padding-right: 30px;
+}
+.mr5 {
+  margin-right: 5px;
+}
+.mt0 {
+  margin-top: 0px;
+}
+.mb20 {
+  margin-bottom: 20px;
+}
+.ml0 {
+  margin-left: 0px !important;
+}
+button {
+  outline: none;
+}
+.cp {
+  cursor: pointer;
+}
+.color-orange {
+  color: var(--bright-orange) !important;
 }
 @font-face {font-family: "Font Awesome 5 Pro Regular"; src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot"); src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff") format("woff"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.svg#Font Awesome 5 Pro Regular") format("svg"); }
 @font-face {font-family: "Font Awesome 5 Pro Light"; src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot"); src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff") format("woff"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.svg#Font Awesome 5 Pro") format("svg"); }

@@ -13,18 +13,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
-.aic {
-  align-items: center;
-}
-.jcc {
-  justify-content: center;
-}
-.w100 {
-  width: 100%;
-}
 .select-btn {
   width: 100%;
   height: 36px;

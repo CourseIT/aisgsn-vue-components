@@ -10,7 +10,7 @@
               информационная система <br>
               «Госстройнадзор»
             </p>
-            <div class="jcc">
+            <div class="df jcc">
               <v-icon class="icon" icon="" />
             </div>
           </div>
@@ -29,7 +29,7 @@
               placeholder="Пароль"
               required
             />
-            <div class="jcc">
+            <div class="jcc df">
               <v-button >Войти</v-button>
             </div>
             <div class="login__hint">
@@ -64,10 +64,6 @@ export default {
 <style scoped>
 .tc {
   text-align: center;
-}
-.jcc {
-  display: flex;
-  justify-content: center;
 }
 .icon{
   margin: 10vh 0px;

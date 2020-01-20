@@ -26,12 +26,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
-.color-orange {
-  color: var(--bright-orange) !important;
-}
 .doc__title {
   width: 190px;
   font-family: Roboto;

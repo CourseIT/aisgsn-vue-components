@@ -37,9 +37,6 @@ export default {
 .mb4  {
   margin-bottom: 4px !important;
 }
-.df {
-  display: flex;
-}
 .fwb {
   font-weight: 500 !important;
 }
@@ -47,9 +44,6 @@ export default {
   position: relative;
   top: 17px;
   right: 2px;
-}
-.w95 {
-  width: 95%;
 }
 .inspection-program-block {
   padding: 6px 13px;

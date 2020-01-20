@@ -108,9 +108,6 @@ export default {
 .input-date .theme--light.v-input--is-disabled .v-label, .theme--light.v-input--is-disabled input, .theme--light.v-input--is-disabled textarea {
   color: #000;
 }
-.df {
-  display: flex;
-}
 .input-date .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;

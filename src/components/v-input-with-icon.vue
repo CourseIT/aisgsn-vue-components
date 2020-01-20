@@ -66,9 +66,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
@@ -103,9 +100,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-}
-.input {
-  color: red;
 }
 input {
   width: 100%;

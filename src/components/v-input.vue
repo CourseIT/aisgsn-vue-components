@@ -41,9 +41,6 @@ export default {
 }
 </script>
 <style scoped>
-.df {
-  display: flex;
-}
 .w74{
   width: 74px;
 }

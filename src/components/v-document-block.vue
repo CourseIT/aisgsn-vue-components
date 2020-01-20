@@ -63,12 +63,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
-.ml0 {
-  margin-left: 0px !important;
-}
 .doc__btns {
   align-items: center;
   margin-left: 15px;

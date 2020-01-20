@@ -20,9 +20,6 @@ export default {
 </script>
 
 <style scoped>
-.db {
-  display: block;
-}
 .border {
   border: dashed 1px var(--dark);
 }

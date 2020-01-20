@@ -78,20 +78,8 @@ export default {
 .doc__block {
   margin-left: 70px;
 }
-.df {
-  display: flex;
-}
 .w60 {
   width: 60px;
-}
-.jcsb {
-  justify-content: space-between;
-}
-.jcfe{
-  justify-content: flex-end;
-}
-.mt0 {
-  margin-top: 0px;
 }
 .mb100 {
   margin-bottom: 100px;
@@ -102,9 +90,6 @@ export default {
 .w66 {
   width: 66%;
   transition: all 0.3s ease;
-}
-.w95 {
-  width: 95%;
 }
 .pl305 {
   padding-left: 305px;

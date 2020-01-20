@@ -120,18 +120,6 @@ export default {
 </script>
 
 <style>
-.df {
-  display: flex;
-}
-.jcsb {
-  justify-content: space-between;
-}
-.pr30 {
-  padding-right: 30px;
-}
-.cp {
-  cursor: pointer;
-}
 .menu .v-input__control {
   position: relative !important;
   bottom: 10px !important;

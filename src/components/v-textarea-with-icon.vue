@@ -48,9 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;

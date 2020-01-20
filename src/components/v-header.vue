@@ -92,15 +92,6 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex !important;
-}
-.db{
-  display: block !important;
-}
-.aic {
-  align-items: center;
-}
 .colorBlack {
   transition: all 0.2s ease-in-out;
   background: #000 !important;
@@ -122,7 +113,6 @@ export default {
   align-items: center;
   padding: 30px;
   background-color: rgba(0, 0, 0, 0);
-  /* background-color: var(--pale-grey); */
 }
 .menu__close-icon {
   margin-top: -9px;

@@ -75,21 +75,11 @@ export default {
 </script>
 
 <style scoped>
-.df {
-  display: flex;
-}
-.jcfe {
-  justify-content: flex-end;
-}
 .mr22 {
   margin-right: 22px;
 }
 .mt70 {
   margin-top: 70px;
-}
-.jcsb {
-  justify-content: space-between;
-  padding-right: 1px;
 }
 .filter__btn {
   display: flex;

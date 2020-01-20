@@ -34,9 +34,6 @@ export default {
 </script>
 
 <style scoped>
-.w90 {
-  width: 90%;
-}
 .mb7 {
   margin-bottom: 7px;
 }

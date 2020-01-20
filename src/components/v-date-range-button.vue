@@ -56,9 +56,6 @@ export default {
 button {
   outline: none;
 }
-.pl25 {
-  padding-left: 25px !important;
-}
 .v-date-picker-header {
   padding: 8px 0px;
 }

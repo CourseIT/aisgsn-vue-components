@@ -56,9 +56,6 @@ export default {
 .w19 {
   width: 19px !important;
 }
-.pl15 {
-  padding-left: 15px;
-}
 .v-date-picker-header {
   padding: 8px 0px;
 }

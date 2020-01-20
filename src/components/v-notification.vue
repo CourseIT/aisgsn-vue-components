@@ -81,9 +81,6 @@ export default {
 </script>
 
 <style scoped>
-.mr5 {
-  margin-right: 5px;
-}
 .notification {
   width: 100%;
   display: flex;

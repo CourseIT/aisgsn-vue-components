@@ -59,12 +59,6 @@ export default {
 </script>
 
 <style scoped>
-button {
-  outline: none;
-}
-.w100 {
-  width: 100%;
-}
 .w36 {
   width: 47px;
   height: 36px;
@@ -74,12 +68,6 @@ button {
 }
 .pl16 {
   padding-left: 16px;
-}
-.aic {
-  align-items: center;
-}
-.jcsb {
-  justify-content: space-between;
 }
 .jcc {
   justify-content: center;

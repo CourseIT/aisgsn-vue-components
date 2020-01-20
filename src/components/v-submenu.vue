@@ -54,12 +54,6 @@ export default {
     max-height: 350px;
   }
 }
-.mb20 {
-  margin-bottom: 20px;
-}
-.color-orange {
-  color: var(--bright-orange);
-}
 .icon__dots {
   font-family: var(--font-awesome-5-pro);
   font-size: 15px;
