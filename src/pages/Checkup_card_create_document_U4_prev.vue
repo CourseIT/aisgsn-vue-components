@@ -161,8 +161,8 @@ export default {
 }
 .pf {
   position: fixed;
-  left: 66%;
-  padding-top: 78px;
+  left: 65.9%;
+  padding-top: 76px;
 }
 hr {
   border: dashed 0.5px var(--dark);
