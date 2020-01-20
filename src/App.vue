@@ -93,6 +93,9 @@ body {
 .ml0 {
   margin-left: 0px !important;
 }
+.ml25 {
+  margin-left: 25px;
+}
 button {
   outline: none;
 }

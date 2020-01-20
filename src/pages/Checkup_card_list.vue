@@ -27,7 +27,9 @@
       </div>
       <v-col>
         <v-doc-info :doc_info="doc_info"/>
-        <v-document-block img="true" :src="src" class="mt60"/>
+        <div class="ml25">
+          <v-document-block img="true" :src="src" class="mt60"/>
+        </div>
         <p class="doc__info">Информация о документе</p>
         <p class="doc__info">Информация о документе</p>
         <p class="doc__info">Информация о документе</p>
