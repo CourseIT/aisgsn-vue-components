@@ -79,11 +79,11 @@ export default {
   color: var(--dark);
 }
 .date-and-radio .mdi-radiobox-blank::before {
-    content: "";
-    background: #fff;
-    width: 30px;
-    border-radius: 5px;
-    height: 30px;
+  content: "";
+  background: #fff;
+  width: 30px;
+  border-radius: 5px;
+  height: 30px;
 }
 .date-and-radio .v-input--selection-controls__ripple {
   background-color: rgba(0, 0, 0, 0);

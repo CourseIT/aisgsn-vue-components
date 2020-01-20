@@ -1,5 +1,5 @@
 <template class="db">
-	<button class="btn" :class="{'border': !background_color}" :style='{background: `${background_color}`, color: `${color}`}'>
+	<button @click="action" class="btn" :class="{'border': !background_color}" :style='{background: `${background_color}`, color: `${color}`}'>
     <slot>
       {{text}}
     </slot>
@@ -14,7 +14,11 @@ export default {
       default: 'Кнопка'
     },
     background_color: {},
-    color: {}
+    color: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
   }
 }
 </script>
