@@ -1,19 +1,21 @@
 <template>
   <div>
     <div class="df inspection-program-block">
-      <div class="w95">
-        <p class="mb7 fwb">20.08.20 – 28.08.20</p>
-        <p class="mb4">Номер объекта контроля</p>
-        <p class="mb4">Метод</p>
-        <p class="mb4">Подпись</p>
-        <p>Любая необходимая информация</p>
-      </div>
-      <div>
-        <v-icon icon="" class="icon-p"/>
-        <div class="bottom-icon">
-          <v-icon icon="" class="icon-p"/>
+      <slot>
+        <div class="w95">
+          <p class="mb7 fwb">{{item.date}}</p>
+          <p class="mb4">{{item.number}}</p>
+          <p class="mb4">{{item.method}}</p>
+          <p class="mb4">{{item.signature}}</p>
+          <p>{{item.text}}</p>
         </div>
-      </div>
+        <div>
+          <v-icon icon="" class="icon-p"/>
+          <div class="bottom-icon">
+            <v-icon icon="" class="icon-p"/>
+          </div>
+        </div>
+      </slot>
     </div>
   </div>
 </template>
@@ -26,7 +28,20 @@ export default {
   components: {
     VIcon
   },
-  props: ['item']
+  props: {
+    item: {
+      default: function () { 
+        return {
+          date: '20.08.20 – 28.08.20',
+          number: 'Номер объекта контроля',
+          method: 'Метод',
+          signature: 'Подпись',
+          text: 'Любая необходимая информация',
+          id: 0
+        }
+      }
+    }
+  }
 }
 </script>
 

@@ -87,9 +87,30 @@ export default {
   data: () => ({
     src: 'https://static.thenounproject.com/png/4561-200.png',
     list: [
-        { name: "John", id: 0 },
-        { name: "Joao", id: 1 },
-        { name: "Jean", id: 2 }
+        { 
+          date: '20.08.20 – 28.08.20',
+          number: 'Номер объекта контроля 1',
+          method: 'Метод 1',
+          signature: 'Подпись 1',
+          text: 'Любая необходимая информация 1',
+          id: 1
+        },
+        { 
+          date: '20.08.20 – 28.08.20',
+          number: 'Номер объекта контроля 2',
+          method: 'Метод 2',
+          signature: 'Подпись 2',
+          text: 'Любая необходимая информация 2',
+          id: 2
+        },
+        { 
+          date: '20.08.20 – 28.08.20',
+          number: 'Номер объекта контроля 3',
+          method: 'Метод 3',
+          signature: 'Подпись 3',
+          text: 'Любая необходимая информация 3',
+          id: 3
+        }
       ],
     modal_show: false,
     add_fields: [],
