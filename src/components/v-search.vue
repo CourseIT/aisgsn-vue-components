@@ -8,7 +8,7 @@
         <span>Фильтрация по тексту</span>
       </div>
     </div>
-    <div class="icon-btn" @click="value = ''">
+    <div v-if="value != ''" class="icon-btn" @click="value = ''">
       <v-icon class="icon" width="15" icon="" />
     </div>
   </div>

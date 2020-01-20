@@ -30,7 +30,7 @@
               required
             />
             <div class="jcc df">
-              <v-button >Войти</v-button>
+              <v-button text="Войти" />
             </div>
             <div class="login__hint">
               <p>

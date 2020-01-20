@@ -35,17 +35,18 @@ export default {
 .action-btn {
   outline: none;
   border-radius: 4px;
-  background-color: var(--pale-lilac);
   width: 100%;
+  background: #fff;
   height: 36px !important;
   display: flex;
   align-items: center;
   padding-right: 12px;
   margin-bottom: 6px;
   z-index: 9;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
 }
 .action-btn:hover {
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+  background-color: var(--pale-lilac);
 }
 .action-btn:focus {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);

@@ -3,7 +3,7 @@
     <div class="df">
       <div class="w66" :class="{pl305: $store.state.menu_visibility}">
         <div class="df fr">
-          <v-search v-model="search" width="812px"/>
+          <v-search v-model="search" width="100%"/>
           <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Создать документ"/>
           <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Загрузить документ"/>
           <v-green-radio-buttons :labels="labels" class="g-radio"/>
