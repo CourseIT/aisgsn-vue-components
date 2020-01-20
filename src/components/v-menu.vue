@@ -4,68 +4,34 @@
       <div class="menu-top-bg"></div>
       <div class="menu__container">
         <div class="menu__links">
-          <div class="link">
-            <h1 class="menu__title cp" :style="`font-size: ${text_size}px`" @click="$router.push({name: 'Home'})">Главная</h1>
-          </div>
-          <div class="link">
-            <div class="df jcsb cp" @click="openSubmenu('Надзор')">
-              <h1 class="menu__title" :style="`font-size: ${text_size}px`">Надзор</h1>
-              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Надзор')}" />
-            </div>
-            <div class="link__submenu" :class="{hidden: !open_submenu.includes('Надзор')}">
-              <ul>
-                <li :class="{t03s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Надзорные дела</li>
-                <li :class="{t04s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Программа проверок</li>
-                <li :class="{t05s: open_submenu.includes('Надзор')}" :style="`font-size: ${text_size}px`">Проверки</li>
-              </ul>
-            </div>
-          </div>
-          <div class="link">
-            <div class="df jcsb cp" @click="openSubmenu('ТКИ')">
-              <h1 class="menu__title" :style="`font-size: ${text_size}px`">ТКИ</h1>
-              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('ТКИ')}"/>
-            </div>
-            <div class="link__submenu" :class="{hidden: !open_submenu.includes('ТКИ')}">
-              <ul>
-                <li :class="{t03s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">План работ</li>
-                <li :class="{t04s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">Средства контроля</li>
-                <li :class="{t05s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">Повышение квалификации</li>
-                <li :class="{t06s: open_submenu.includes('ТКИ')}" :style="`font-size: ${text_size}px`">СМК</li>
-              </ul>
-            </div>
-          </div>
-          <div class="link">
-            <div class="df jcsb cp" @click="openSubmenu('Аналитика')">
-              <h1 class="menu__title" :style="`font-size: ${text_size}px`">Аналитика</h1>
-              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('Аналитика')}" />
-            </div>
-            <div class="link__submenu" :class="{hidden: !open_submenu.includes('Аналитика')}">
-              <ul>
-                <li :class="{t03s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Статистика</li>
-                <li :class="{t04s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Нарушения</li>
-                <li :class="{t05s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">Резонансные нарушения</li>
-                <li :class="{t06s: open_submenu.includes('Аналитика')}" :style="`font-size: ${text_size}px`">СМК</li>
-              </ul>
-            </div>
-          </div>
-          <div class="link">
-            <div class="df jcsb cp" @click="openSubmenu('НСИ')">
-              <h1 class="menu__title" :style="`font-size: ${text_size}px`">НСИ</h1>
-              <v-icon class="icon__dots" icon="" :class="{colorOrange: open_submenu.includes('НСИ')}" />
-            </div>
-            <div class="link__submenu" :class="{hidden: !open_submenu.includes('НСИ')}">
-              <ul>
-                <li :class="{t03s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Регулирующие документы</li>
-                <li :class="{t04s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Журнал ознокомления с документами</li>
-                <li :class="{t05s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Реестр организаций</li>
-                <li :class="{t06s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Участники ГСН</li>
-                <li :class="{t07s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Классификатор нарушений</li>
-                <li :class="{t08s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">Управление сотрудниками</li>
-                <li :class="{t09s: open_submenu.includes('НСИ')}" :style="`font-size: ${text_size}px`">КоАП</li>
-              </ul>
-            </div>
-          </div>
-          <h1 class="menu__title cp" :style="`font-size: ${text_size}px`">Поиск документов</h1>
+          <v-submenu title="Главная" only_title="true" :text_size="text_size" />
+          <v-submenu title="НАДЗОР" :text_size="text_size">
+            <v-submenu-link text="Надзорные дела" />
+            <v-submenu-link text="Программа проверок" />
+            <v-submenu-link text="Проверки" />
+          </v-submenu>
+          <v-submenu title="ТКИ" :text_size="text_size">
+            <v-submenu-link text="План работ" />
+            <v-submenu-link text="Средства контроля" />
+            <v-submenu-link text="Повышение квалификации" />
+            <v-submenu-link text="СМК" />
+          </v-submenu>
+          <v-submenu title="АНАЛИТИКА" :text_size="text_size">
+            <v-submenu-link text="Статистика" />
+            <v-submenu-link text="Нарушения" />
+            <v-submenu-link text="Резонансные нарушения" />
+            <v-submenu-link text="СМК" />
+          </v-submenu>
+          <v-submenu title="НСИ" :text_size="text_size">
+            <v-submenu-link text="Регулирующие документы" />
+            <v-submenu-link text="Журнал ознокомления с документами" />
+            <v-submenu-link text="Реестр организаций" />
+            <v-submenu-link text="Участники ГСН" />
+            <v-submenu-link text="Классификатор нарушений" />
+            <v-submenu-link text="Управление сотрудниками" />
+            <v-submenu-link text="КоАП" />
+          </v-submenu>
+          <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" :text_size="text_size" />
         </div>
       </div>
       <div class="menu__settings">
@@ -91,12 +57,16 @@
 </template>
 
 <script>
-const VIcon = () => import ('@/components/v-icon.vue')
+const VIcon = () => import('@/components/v-icon.vue')
+const VSubmenu = () => import('@/components/v-submenu')
+const VSubmenuLink = () => import('@/components/v-submenu-link')
 
 export default {
   props:['drawer'],
   components: {
-    VIcon
+    VIcon,
+    VSubmenu,
+    VSubmenuLink
   },
   data: () => ({
     open_submenu: [],
@@ -155,74 +125,6 @@ export default {
 </script>
 
 <style>
-.t03s {
-  -webkit-transition: padding-left 0.3s ease-in-out !important;
-  -moz-transition: padding-left 0.3s ease-in-out !important;
-  transition: padding-left 0.3s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t04s {
-  -webkit-transition: padding-left 0.4s ease-in-out !important;
-  -moz-transition: padding-left 0.4s ease-in-out !important;
-  transition: padding-left 0.4s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t05s {
-  -webkit-transition: padding-left 0.5s ease-in-out !important;
-  -moz-transition: padding-left 0.5s ease-in-out !important;
-  transition: padding-left 0.5s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t06s {
-  -webkit-transition: padding-left 0.6s ease-in-out !important;
-  -moz-transition: padding-left 0.6s ease-in-out !important;
-  transition: padding-left 0.6s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t07s {
-  -webkit-transition: padding-left 0.7s ease-in-out !important;
-  -moz-transition: padding-left 0.7s ease-in-out !important;
-  transition: padding-left 0.7s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t08s {
-  -webkit-transition: padding-left 0.8s ease-in-out !important;
-  -moz-transition: padding-left 0.8s ease-in-out !important;
-  transition: padding-left 0.8s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t09s {
-  -webkit-transition: padding-left 0.9s ease-in-out !important;
-  -moz-transition: padding-left 0.9s ease-in-out !important;
-  transition: padding-left 0.9s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t1s {
-  -webkit-transition: padding-left 1s ease-in-out !important;
-  -moz-transition: padding-left 1s ease-in-out !important;
-  transition: padding-left 1s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-.t11s {
-  -webkit-transition: padding-left 1.1s ease-in-out !important;
-  -moz-transition: padding-left 1.1s ease-in-out !important;
-  transition: padding-left 1.1s ease-in-out !important;
-  opacity: 1 !important;
-  padding-left: 0px !important;
-}
-
-.dn {
-  transition: all 0.2s ease-out;
-  display: none;
-}
 .df {
   display: flex;
 }
@@ -258,9 +160,6 @@ export default {
 }
 .menu .accent--text {
   color: var(--blue-grey) !important;
-}
-.colorOrange {
-  color: var(--bright-orange);
 }
 nav {
   padding-right: 5px;
@@ -336,75 +235,6 @@ nav {
   min-height: 40px;
   margin-bottom: 100px;
   cursor: pointer;
-}
-.link {
-  margin-bottom: 25px;
-}
-.menu__title {
-  width: 200px;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.47;
-  letter-spacing: 0.5px;
-  text-align: left;
-  text-transform: uppercase;
-}
-.icon__dots {
-  font-family: var(--font-awesome-5-pro);
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.47;
-  letter-spacing: normal;
-  text-align: left;
-  transition: all 0.2s ease-out;
-}
-.icon__dots:hover {
-  color: var(--bright-orange)
-}
-.hidden {
-  max-height: 0px !important;
-  overflow-y: hidden;
-}
-/* .hidden ul li {
-  opacity: 0 !important;
-  padding-left: 40px !important;
-} */
-.link__submenu {
-  opacity: 1;
-  max-height: 350px;
-  overflow-y: hidden;
-  transition: all 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5) !important;
-}
-.link__submenu ul{
-  padding-left: 15px;
-  margin-top: 10px;
-  list-style-type: none;
-  overflow: hidden;
-  position: relative;
-}
-.link__submenu ul li {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: left;
-  opacity: 0.7;
-  cursor: pointer;
-  margin: 5px 0px;
-  transition: all 0.4s ease-in-out;
-  opacity: 0;
-  padding-left: 40px;
-}
-.link__submenu ul li:hover {
-  color: var(--bright-orange);
 }
 .menu__settings {
   position: relative;
