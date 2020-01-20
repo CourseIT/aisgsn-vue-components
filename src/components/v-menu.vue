@@ -6,30 +6,30 @@
         <div class="menu__links">
           <v-submenu title="Главная" :action="test" only_title="true" :text_size="text_size" />
           <v-submenu title="НАДЗОР" :text_size="text_size">
-            <v-submenu-link :action="test" text="Надзорные дела" />
-            <v-submenu-link text="Программа проверок" />
-            <v-submenu-link text="Проверки" />
+            <v-submenu-link :text_size="text_size" :action="test" text="Надзорные дела" />
+            <v-submenu-link :text_size="text_size" text="Программа проверок" />
+            <v-submenu-link :text_size="text_size" text="Проверки" />
           </v-submenu>
           <v-submenu title="ТКИ" :text_size="text_size">
-            <v-submenu-link text="План работ" />
-            <v-submenu-link text="Средства контроля" />
-            <v-submenu-link text="Повышение квалификации" />
-            <v-submenu-link text="СМК" />
+            <v-submenu-link :text_size="text_size" text="План работ" />
+            <v-submenu-link :text_size="text_size" text="Средства контроля" />
+            <v-submenu-link :text_size="text_size" text="Повышение квалификации" />
+            <v-submenu-link :text_size="text_size" text="СМК" />
           </v-submenu>
           <v-submenu title="АНАЛИТИКА" :text_size="text_size">
-            <v-submenu-link text="Статистика" />
-            <v-submenu-link text="Нарушения" />
-            <v-submenu-link text="Резонансные нарушения" />
-            <v-submenu-link text="СМК" />
+            <v-submenu-link :text_size="text_size" text="Статистика" />
+            <v-submenu-link :text_size="text_size" text="Нарушения" />
+            <v-submenu-link :text_size="text_size" text="Резонансные нарушения" />
+            <v-submenu-link :text_size="text_size" text="СМК" />
           </v-submenu>
           <v-submenu title="НСИ" :text_size="text_size">
-            <v-submenu-link text="Регулирующие документы" />
-            <v-submenu-link text="Журнал ознокомления с документами" />
-            <v-submenu-link text="Реестр организаций" />
-            <v-submenu-link text="Участники ГСН" />
-            <v-submenu-link text="Классификатор нарушений" />
-            <v-submenu-link text="Управление сотрудниками" />
-            <v-submenu-link text="КоАП" />
+            <v-submenu-link :text_size="text_size" text="Регулирующие документы" />
+            <v-submenu-link :text_size="text_size" text="Журнал ознокомления с документами" />
+            <v-submenu-link :text_size="text_size" text="Реестр организаций" />
+            <v-submenu-link :text_size="text_size" text="Участники ГСН" />
+            <v-submenu-link :text_size="text_size" text="Классификатор нарушений" />
+            <v-submenu-link :text_size="text_size" text="Управление сотрудниками" />
+            <v-submenu-link :text_size="text_size" text="КоАП" />
           </v-submenu>
           <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" :text_size="text_size" />
         </div>
