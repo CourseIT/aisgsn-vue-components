@@ -92,6 +92,9 @@ export default {
 </script>
 
 <style scoped>
+.db {
+  display: block;
+}
 .colorBlack {
   transition: all 0.2s ease-in-out;
   background: #000 !important;
