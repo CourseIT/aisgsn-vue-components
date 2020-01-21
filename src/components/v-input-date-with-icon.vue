@@ -18,7 +18,7 @@
         >
           <template v-slot:activator="{ on }">
             <div class="icon-date" hint="MM/DD/YYYY format" v-on="on">
-              <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
+              <v-icon :icon="icon" :class="{'icon-shadow': menu}" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
