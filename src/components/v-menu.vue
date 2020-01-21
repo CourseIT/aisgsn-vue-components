@@ -62,7 +62,6 @@ const VSubmenu = () => import('@/components/v-submenu')
 const VSubmenuLink = () => import('@/components/v-submenu-link')
 
 export default {
-  props:['drawer'],
   components: {
     VIcon,
     VSubmenu,
@@ -144,12 +143,6 @@ export default {
 .menu .v-input--selection-controls__ripple {
   display: none;
 }
-.menu .accent--text {
-  color: var(--blue-grey) !important;
-}
-nav {
-  padding-right: 5px;
-}
 .lightGamma {
   background-color: #e5e5ea !important;
   color: #000 !important;
@@ -189,38 +182,9 @@ nav {
   width: 0px;
   background: rgba(255, 255, 255, 0.0);
 }
-.menu__close-btn {
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  margin-right: 35px;
-  height: 40px;
-  max-width: 22px;
-}
 .colorBlack {
   transition: all 0.2s ease-in-out;
   color: #000 !important;
-}
-.menu__close-icon {
-  margin-top: -5px;
-  color: #fff;
-}
-.menu__close-icon span {
-  max-width: 22px;
-  height: 35px;
-  font-family: var(--font-awesome-5-pro-light);
-  font-size: 35px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.54;
-  letter-spacing: normal;
-  text-align: center;
-}
-.menu__logo-img {
-  min-width: 190px;
-  min-height: 40px;
-  margin-bottom: 100px;
-  cursor: pointer;
 }
 .menu__settings {
   position: relative;

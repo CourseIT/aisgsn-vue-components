@@ -116,22 +116,6 @@ export default {
   padding: 30px;
   background-color: rgba(0, 0, 0, 0);
 }
-.menu__close-icon {
-  margin-top: -9px;
-}
-.menu__close-icon span {
-  max-width: 22px;
-  height: 35px;
-  font-family: var(--font-awesome-5-pro);
-  font-size: 35px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.54;
-  letter-spacing: normal;
-  text-align: center;
-  margin-right: 30px;
-}
 .nav__logo {
   margin-right: 55px;
   cursor: pointer;
