@@ -9,7 +9,7 @@
           <p>{{analytics.year[1]}}</p>
         </div>
       </div>
-      <div  v-if="analytics.title" class="mt22mr10">
+      <div v-if="analytics.title" class="mt22mr10">
         <div class="main-dot"></div>
         <div class="border-y"></div>
         <div class="df m-d-b">

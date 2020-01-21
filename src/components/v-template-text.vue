@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="template-block" :class="{'tb-shadow': shadow}">
+    <div class="template-block" :class="{'tb-shadow': shadow}" :style="{'padding-right': padding_right}">
       <div class="w90" @click="selectText">
         <p>{{text}}</p>
       </div>
@@ -18,7 +18,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['shadow'],
+  props: ['shadow', 'padding_right'],
   components: {
     VIcon
   },
@@ -52,7 +52,7 @@ export default {
   justify-content: space-between;
   background: #fff;
   padding: 4px 8px;
-  padding-right: 12px;
+  padding-right: 2px;
   border-radius: 4px;
   width: 100%;
   height: 50px;

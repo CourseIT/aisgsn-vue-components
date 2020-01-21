@@ -1,7 +1,7 @@
 <template>
   <div class="field-block">
     <v-search class="search"/>
-    <v-template-text v-for="(text, index) in texts" :key="index" />
+    <v-template-text v-for="(text, index) in texts" padding_right="5px" :key="index" />
   </div>
 </template>
 
