@@ -1,7 +1,7 @@
 import VDocInfo from '@/components/v-doc-info.vue'
 import { shallowMount } from '@vue/test-utils';
 
-describe('Проверка пропсов', () => {
+describe('Props', () => {
   const wrapper = shallowMount(VDocInfo, {
     propsData: {
       doc_info: {
@@ -12,7 +12,7 @@ describe('Проверка пропсов', () => {
       }
     }
   });
-  it('props', () => {
+  it('Props', () => {
     expect(wrapper.props().doc_info.declarant).toBe('declarant');
     expect(wrapper.props().doc_info.title_of_verification).toBe('title_of_verification');
     expect(wrapper.props().doc_info.inspector).toBe('inspector');

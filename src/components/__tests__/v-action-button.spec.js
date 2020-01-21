@@ -1,7 +1,7 @@
 import VActionButton from '@/components/v-action-button.vue'
 import { shallowMount } from '@vue/test-utils';
 
-describe('Проверка пропсов', () => {
+describe('VActionButton', () => {
   const wrapper = shallowMount(VActionButton, {
     propsData: {
       title: 'title',
@@ -9,13 +9,9 @@ describe('Проверка пропсов', () => {
       icon: 'icon',
     }
   });
-  it('title', () => {
+  it('Props', () => {
     expect(wrapper.props().title).toBe('title');
-  })
-  it('width', () => {
     expect(wrapper.props().width).toBe('300px');
-  })
-  it('icon', () => {
     expect(wrapper.props().icon).toBe('icon');
   })
 })

@@ -21,7 +21,7 @@
           <v-filters-button class="mr29"/>
         </div>
         <div class="table-block">
-          <v-table :docs="docs" :thead="thead" height="60vh" />
+          <v-table :action="test" :docs="docs" :thead="thead" height="60vh" />
         </div>
         <p class="table__info">Время выдачи 12:25, количество записей и любая другая информация</p>
       </div>

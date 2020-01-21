@@ -10,7 +10,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(item, index) in docs" :key="index" class="table__tr">
+              <tr @click="action" v-for="(item, index) in docs" :key="index" class="table__tr">
                 <td class="table__name">{{ item.name }}</td>
                 <td class="table__text">{{ item.author }}</td>
                 <td class="table__text">{{ item.type }}</td>
@@ -28,7 +28,15 @@
 
 <script>
 export default {
-  props: ['docs', 'thead', 'height'],
+  props: {
+    docs: {},
+    thead: {},
+    height: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
+  },
   data: () => ({
   })
 }

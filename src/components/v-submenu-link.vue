@@ -7,7 +7,6 @@ export default {
   props: {
     text: {},
     text_size: {},
-    transition: {},
     action: {
       type: Function,
       default: ()=>({})
