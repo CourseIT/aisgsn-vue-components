@@ -1,8 +1,10 @@
 <template>
   <div>
+    <div class="search-block" :style='{width: `${width}`}'>
+      <v-search class="search" width="403px"/>
+    </div>
     <div class="templates-block" :style='{width: `${width}`}' >
       <div>
-        <v-search class="search"/>
         <v-template-text :shadow="true" v-for="(text, index) in texts" :key="index" />
       </div>
     </div>
@@ -32,6 +34,12 @@ export default {
 </script>
 
 <style scoped>
+.search-block {
+  z-index: 99;
+  position: absolute;
+  width: 454px;
+  margin-top: -51px;
+}
 .templates-block {
   position: absolute;
   z-index: 99;
@@ -43,8 +51,6 @@ export default {
   padding-right: 20px;
   padding-left: 20px;
   margin-left: -20px;
-  padding-bottom: 10px;
-  margin-top: -51px;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;
@@ -61,7 +67,7 @@ export default {
 .icons_text-block {
   display: flex;
   position: absolute;
-  margin-top: 642px;
+  margin-top: 682px;
   margin-left: 293px;
   z-index: 99;
 }
