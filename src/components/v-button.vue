@@ -55,6 +55,5 @@ export default {
 }
 .btn:hover {
 	color: #fff;
-  opacity: 0.8;
 }
 </style>

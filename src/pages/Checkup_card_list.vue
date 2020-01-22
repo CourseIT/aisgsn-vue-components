@@ -13,7 +13,7 @@
           <v-date-button v-model="date_btn"/>
           <v-select v-model="date" defailt_value="Подписан" :list="select_list"/>
           <v-select v-model="status" defailt_value="Статус" :list="select_list"/>
-          <v-select v-model="type" defailt_value="Тип" :list="select_list">
+          <v-select v-model="type" defailt_value="Тип">
             <div @click="type = item" v-for="(item, index) in select_list" :key="index">
               <v-options :option="item" :action="test"/>
             </div>
