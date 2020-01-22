@@ -11,7 +11,7 @@
       </div>
       <div class="icon" @click="template_show = true">
         <slot name="icon">
-          <v-icon :icon="icon" :class="{'icon-shadow': template_show}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+          <v-icon :icon="icon" :class="{'icon-shadow w33': template_show}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
         </slot>
       </div>
       <div v-if="template_show">
@@ -119,6 +119,8 @@ input {
 }
 input::placeholder {
   font-size: 9px;
+  position: relative;
+  bottom: 2px;
   color: var(--blue-grey);
 }
 

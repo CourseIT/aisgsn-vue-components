@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="templates__block-bg">
     <div class="search-block" :style='{width: `${width}`}'>
       <v-search class="search" width="403px"/>
     </div>
@@ -34,20 +34,33 @@ export default {
 </script>
 
 <style scoped>
+.templates__block-bg {
+  background: #fff;
+  position: fixed;
+  top: 246px;
+  padding: 10px;
+  z-index: 99;
+  padding-right: 0;
+  border-radius: 4px;
+  margin-left: -10px;
+}
 .search-block {
   z-index: 99;
-  position: absolute;
   width: 454px;
-  margin-top: -51px;
+}
+.search {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22) !important;
+  border-radius: 4px;
 }
 .templates-block {
-  position: absolute;
+  margin-top: 15px;
   z-index: 99;
   width: 454px;
   max-width: 454px;
   min-width: 400px;
   overflow: auto;
-  max-height: 672px;
+  max-height: 503px;
+  padding-bottom: 10px;
   padding-right: 20px;
   padding-left: 20px;
   margin-left: -20px;
@@ -66,8 +79,7 @@ export default {
 }
 .icons_text-block {
   display: flex;
-  position: absolute;
-  margin-top: 682px;
+  margin-top: 20px;
   margin-left: 293px;
   z-index: 99;
 }

@@ -9,12 +9,12 @@
       min-width="290px"
     >
       <template v-slot:activator="{ on }">
-        <button class="date__btn">
-          <div @click="date = new Date().toISOString().substr(0, 10)">
+        <button v-on="on" class="date__btn">
+          <div v-on="on" @click="date = new Date().toISOString().substr(0, 10)">
             <v-icon v-if="date != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
           </div>
-          <p  v-on="on" :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}.{{month}}.{{year}} </p>
-          <v-icon  v-on="on" class="icon w19" width="19" icon="" />
+          <p :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}.{{month}}.{{year}}</p>
+          <v-icon v-on="on" class="icon w19" width="19" icon="" />
         </button>
       </template>
       <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable>

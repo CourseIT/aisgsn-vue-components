@@ -58,7 +58,9 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--pale-lilac);
   border-radius: 4px;
-  padding: 20px;
+  padding: 30px;
+  padding-right: 0;
+  padding-bottom: 15px;
   position: fixed;
   width: 50%;
   left: 0;

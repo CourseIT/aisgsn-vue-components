@@ -4,15 +4,15 @@
     <v-date-radio-block  />
     <div class="df">
       <div class="analytics__links">
-        <p>ФГУП «ГХК»</p>
-        <p>ФГУП «РФЯЦ-ВНИИТФ»</p>
-        <p>ФГУП «РФЯЦ-ВНИИЭФ»</p>
-        <p>ФГУП «ПО «Маяк»</p>
-        <p>ФГУП «НИТИ им. А.П. Александрова»</p>
-        <p>ФГУП «ВНИИА им. Н.Л. Духова»</p>
-        <p>ФГУП «ПСЗ»</p>
-        <p>ФГУП «ЭХП»</p>
-        <p>ФГУП «Атомфлот»</p>
+        <button>ФГУП «ГХК»</button>
+        <button>ФГУП «РФЯЦ-ВНИИТФ»</button>
+        <button>ФГУП «РФЯЦ-ВНИИЭФ»</button>
+        <button>ФГУП «ПО «Маяк»</button>
+        <button>ФГУП «НИТИ им. А.П. Александрова»</button>
+        <button>ФГУП «ВНИИА им. Н.Л. Духова»</button>
+        <button>ФГУП «ПСЗ»</button>
+        <button>ФГУП «ЭХП»</button>
+        <button>ФГУП «Атомфлот»</button>
       </div>
       <v-analytics :analytics="analytics" />
     </div>
@@ -141,7 +141,7 @@ export default {
   padding-top: 85px;
   margin-right: 65px;
 }
-.analytics__links p{
+.analytics__links button{
   font-family: Roboto;
   font-size: 15px;
   font-weight: normal;
@@ -149,12 +149,18 @@ export default {
   font-style: normal;
   line-height: 2.33;
   letter-spacing: normal;
+  display: block;
+  margin: 5px 0px;
   text-align: left;
   color: var(--dark);
   cursor: pointer;
   transition: all 0.1s ease-out;
 }
-.analytics__links p:hover {
+.analytics__links button:hover {
+  font-weight: 900;
+  color: var(--bright-orange);
+}
+.analytics__links button:focus {
   font-weight: 900;
   color: var(--bright-orange);
 }

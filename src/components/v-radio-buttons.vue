@@ -1,7 +1,7 @@
 <template>
-  <div class="checkup-card-list__radio"> 
+  <div class="checkup-card-list__radio" :class="{'green-radio': radio_color == 'green'}"> 
     <v-radio-group row v-model="radios">
-      <v-radio v-for="label in labels" :key="label" class="radio" :value="label" :label="label"></v-radio>
+      <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
     </v-radio-group>
   </div>
 </template>
@@ -66,10 +66,13 @@ export default {
   font-size: 20px;
   margin-top: 5px;
   padding-left: 5px !important;
-  color: var(--weird-green) !important;
+  color: var(--bright-orange);
   width: 22px;
   height: 22px !important;
   background: #000;
   border-radius: 5px;
+}
+.green-radio .mdi-radiobox-marked::before {
+  color: var(--weird-green) !important;
 }
 </style>

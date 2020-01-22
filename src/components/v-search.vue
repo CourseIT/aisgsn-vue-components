@@ -57,7 +57,7 @@ export default {
   height: 36px;
   border-radius: 4px;
   background-color: #fff;
-  padding: 0px 15px;
+  padding: 0px 10px;
   padding-right: 35px;
   width: 100%;
 }

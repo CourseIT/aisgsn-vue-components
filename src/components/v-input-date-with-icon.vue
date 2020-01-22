@@ -164,5 +164,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--blue-grey);
+  position: relative;
+  bottom: 2px;
 }
 </style>

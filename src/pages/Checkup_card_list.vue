@@ -6,7 +6,7 @@
           <v-search v-model="search" width="100%"/>
           <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Создать документ"/>
           <v-icon class="icon-d icon ml42" :hover_color="true" icon="" prompt="Загрузить документ"/>
-          <v-green-radio-buttons :labels="labels" class="g-radio"/>
+          <v-radio-buttons radio_color="green" :labels="labels" class="g-radio"/>
         </div>
         <div class="df jcsb">
           <v-select v-model="author" defailt_value="Автор" :list="select_list"/>
@@ -48,7 +48,7 @@ const VSearch = () => import('@/components/v-search')
 const VIcon = () => import('@/components/v-icon')
 const VDateButton = () => import('@/components/v-date-button')
 const VFiltersButton = () => import('@/components/v-filters-button')
-const VGreenRadioButtons = () => import('@/components/v-green-radio-buttons')
+const VRadioButtons = () => import('@/components/v-radio-buttons')
 const VDocInfo = () => import('@/components/v-doc-info')
 const VSelect = () => import('@/components/v-select')
 const VOptions = () => import('@/components/v-options')
@@ -59,7 +59,7 @@ export default {
     VDocumentBlock,
     VSearch,
     VIcon,
-    VGreenRadioButtons,
+    VRadioButtons,
     VDateButton,
     VFiltersButton,
     VDocInfo,

@@ -35,7 +35,7 @@ export default {
 }
 .content {
   transition: all 0.3s ease;
-  margin-top: 165px;
+  margin-top: 170px;
   margin-left: 15px;
   width: 100%;
   padding: 0px 15px;

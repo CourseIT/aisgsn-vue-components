@@ -145,5 +145,7 @@ textarea::placeholder {
   padding-top: 5px;
   font-size: 9px;
   color: var(--blue-grey);
+  position: relative;
+  bottom: 2px;
 }
 </style>

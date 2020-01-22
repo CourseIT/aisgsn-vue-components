@@ -35,7 +35,7 @@
               <p class="time-text">12:25</p>
             </div>
           </div>
-          <v-button class="mt70" background_color="#8e8e93" color="#fff" text="СБРОСИТЬ ВСЕ" />
+          <v-button class="mt70 clear-btn" text="СБРОСИТЬ ВСЕ" />
           <v-button class="mt70" text="Применить" />
         </div>
       </div>
@@ -188,5 +188,13 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.filters__block .clear-btn{
+  background-color: var(--pale-lilac);
+  border: 1px solid var(--pale-lilac);
+}
+.filters__block .clear-btn:hover{
+  background-color: var(--blue-grey) !important;
+  border: 1px solid var(--blue-grey);
 }
 </style>
