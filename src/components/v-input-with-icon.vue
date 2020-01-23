@@ -13,6 +13,7 @@
         <slot name="icon">
           <v-icon :icon="icon" :class="{'icon-shadow': template_show}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
         </slot>
+      <!-- <div v-if="template_show" class="test"></div> -->
       </div>
       <div v-if="template_show" >
         <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
@@ -54,6 +55,14 @@ export default {
           this.select_block_show = false
         }
       }, 1000)
+    },
+    template_show(value) {
+      if(value) {
+        document.getElementsByTagName('html')[0].style.overflow = "hidden";
+        document.getElementsByTagName('html')[0].style.marginRight = "17px";
+      } else {
+        document.getElementsByTagName('html')[0].removeAttribute("style")
+      }
     }
   },
   methods: {
@@ -66,6 +75,17 @@ export default {
 </script>
 
 <style scoped>
+.test {
+  width: 18px;
+  position: absolute;
+  background-color: var(--pale-grey);
+  height: 38px;
+  z-index: 100;
+  margin-top: -36px;
+  margin-left: 28px;
+  border-radius: 13px;
+  cursor: default;
+}
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;

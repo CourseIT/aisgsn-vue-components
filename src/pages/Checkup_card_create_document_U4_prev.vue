@@ -129,9 +129,6 @@ export default {
 .doc__block {
   margin-left: 70px;
 }
-.ghost {
-  opacity: 0.5;
-}
 .top10{
   position: relative;
   top: 10px;

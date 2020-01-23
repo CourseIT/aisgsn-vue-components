@@ -32,7 +32,7 @@ export default {
     item: {
       default: function () { 
         return {
-          date: '20.08.20 – 28.08.20',
+          date: '20.08.2020 – 28.08.2020',
           number: 'Номер объекта контроля',
           method: 'Метод',
           signature: 'Подпись',
@@ -61,7 +61,8 @@ export default {
   right: 2px;
 }
 .inspection-program-block {
-  padding: 6px 13px;
+  padding: 6px 10px;
+  
   height: 100px;
   border-radius: 4px;
   background-color: var(--white);
@@ -87,6 +88,7 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
   font-size: 21px;
+  width: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

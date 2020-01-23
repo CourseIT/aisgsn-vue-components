@@ -81,6 +81,10 @@ export default {
 .mt70 {
   margin-top: 70px;
 }
+.filter-btn__block {
+  z-index: 100;
+  position: relative;
+}
 .filter__btn {
   display: flex;
   justify-content: space-between;
@@ -183,7 +187,8 @@ export default {
 .close-block {
   position: absolute;
   background: none;
-  z-index: 6;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
   top: 0;
   left: 0;
   width: 100%;

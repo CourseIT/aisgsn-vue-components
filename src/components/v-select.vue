@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="select w132" :style="{'width': width}">
+    <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
       <button class="main-btn">
-        <button v-if="value" @click="$emit('input', '')">
+        <button v-if="value" @click="$emit('input', ''), menu_show = false">
           <v-icon icon="" width="16" class="select__icon-colse"/>
         </button>
         <div class="hover-btn df w100">
@@ -10,7 +10,7 @@
             {{value || defailt_value}}
           </div>
           <div @click="menu_show = true" class="hover-btn">
-            <v-icon icon="" width="16" class="select__icon-dots"/>
+            <v-icon :icon="icon" width="16" class="select__icon-dots"/>
           </div>
         </div>
       </button>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div v-if="menu_show" @click="menu_show = false" class="colse-bg"></div>
+    <div v-if="menu_show" @click="menu_show = false" class="colse-bg" :class="{'dark_bg': dark_bg}"></div>
   </div>
   
 </template>
@@ -46,6 +46,12 @@ export default {
     defailt_value: {
       default: 'Кнопка'
     },
+    icon: {
+      default: ''
+    },
+    dark_bg: {
+      default: false
+    },
     width: {},
     text_center: {}
   },
@@ -59,6 +65,9 @@ export default {
 </script>
 
 <style scoped>
+.pos-r {
+  position: relative;
+}
 .w36 {
   width: 47px;
   height: 36px;
@@ -76,7 +85,7 @@ export default {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
 }
 .select {
-  z-index: 9;
+  z-index: 109;
 }
 .no-icon {
   width: 36px;
@@ -180,10 +189,14 @@ export default {
 }
 .colse-bg {
   position: fixed;
-  z-index: 5;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
+}
+.dark_bg {
+  z-index: 101;
+  background: rgba(0, 0, 0, 0.4);
 }
 </style>

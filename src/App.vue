@@ -103,20 +103,19 @@ html {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 4px;
 }
+.icon-shadow-t .icon{
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  position: relative;
+  z-index: 900;
+}
 .template_block-fix {
   position: absolute;
   margin-left: -10px;
 }
 .ghost {
-  cursor: grabbing !important;
+  opacity: 0.5;
 }
-.ghost:hover {
-  cursor: -webkit-grab !important;
-}
-.ghost:active {
-  cursor: -webkit-grabbing !important;
-}
-
 button {
   outline: none;
 }

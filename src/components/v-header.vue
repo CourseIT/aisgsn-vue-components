@@ -50,7 +50,16 @@
             <span class="nav__celsius">°C</span>
           </v-toolbar-items>
           <v-spacer></v-spacer>
-          <v-notifications />
+          <div class="df aic">
+            <v-icon v-if="notifications.length == 0" class="header-icon" icon=""/>
+            <div v-else>
+              <v-icon class="header-icon regular" icon=""/>
+              <div class="notifications">{{notifications.length}}</div>
+            </div>
+            <p class="header-name">Смирнова Светлана Ивановна</p>
+            <v-icon class="header-icon mt3" :hover_color="true" icon=""/>
+          </div>
+          <!-- <v-notifications /> -->
       </nav>
     </header>
     <v-breadcrumbs />
@@ -59,16 +68,17 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-const VNotifications = () => import('./v-notifications')
+// const VNotifications = () => import('./v-notifications')
 const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
 
 export default {
   components: {
-    VNotifications,
+    // VNotifications,
     VBreadcrumbs,
     VIcon
   },
   data: () => ({
+    notifications: [],
     show_close: false,
     time: '12:25',
     day_week: 'Понедельник',
@@ -93,6 +103,9 @@ export default {
 <style scoped>
 .db {
   display: block;
+}
+.mt3 {
+  margin-top: 3px;
 }
 .colorBlack {
   transition: all 0.2s ease-in-out;
@@ -248,5 +261,52 @@ nav {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+}
+.header-icon {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 21px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #38393b;
+}
+.header-name {
+  margin: 0px 18px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #38393b;
+}
+.regular {
+  font-family: var(--font-awesome-5-pro) !important;
+}
+.notifications {
+  position: absolute;
+  margin-left: 23px;
+  margin-top: -44px;
+  border-radius: 50%;
+  padding: 8px;
+  background-color: var(--bright-orange);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--white);
 }
 </style>

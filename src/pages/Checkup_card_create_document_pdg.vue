@@ -19,9 +19,9 @@
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие на объекте системы мониторинга метеоусловий" template_text_top="250px"/>
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="Основание для включения в план" template_text_top="250px"/>
           <v-input-date-with-icon icon="" label="Срок проведения работ"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Объекты контроля:" template_text_top="427px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Проектная документация по объекту контроля" template_text_top="427px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие исполнительной документации по объекту контроля" template_text_top="427px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Объекты контроля:" template_text_top="323px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Проектная документация по объекту контроля" template_text_top="323px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие исполнительной документации по объекту контроля" template_text_top="323px"/>
           <v-textarea-with-icon placeholder="Заполнено ………" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:" template_text_top="427px"/>
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:" template_text_top="427px"/>
           <h1 class="title">
