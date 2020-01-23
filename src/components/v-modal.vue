@@ -130,7 +130,7 @@ export default {
 .template_block-fix-modal {
   position: absolute;
   top: 0px;
-  margin-left: 10px;
+  margin-left: -10px;
   z-index: 100;
 }
 .modal {

@@ -5,9 +5,8 @@
         <p>{{text}}</p>
       </div>
       <div class="icons-block">
-        <v-icon icon="" height="11" width="11" class="icon-b mb7"/>
-        <v-icon icon="" height="11" width="11" class="icon-b mb3"/>
-        <v-icon icon="" height="11" width="11" class="icon-b"/>
+        <v-icon icon="" height="11" width="11" class="icon-b mb15"/>
+        <v-icon icon="" height="15" width="11" class="icon-b drag-icon"/>
       </div>
     </div>
     <div class="bg"></div>
@@ -33,18 +32,25 @@ export default {
 }
 </script>
 
-<style scoped>
-.mb7 {
-  margin-bottom: 7px;
+<style>
+.mb15 {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
-.mb3 {
-  margin-bottom: 3px;
+.drag-icon div .icon{
+  cursor: grab;
+}
+.drag-icon div .icon:active{
+  cursor: grabbing;
 }
 .tb-shadow{
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .template-block:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+}
+.template-block:hover .icon-b {
+  color: var(--bright-orange);
 }
 .template-block {
   padding-top: 2px;
@@ -81,9 +87,8 @@ export default {
   color: var(--bright-orange);
 }
 .icon-b {
-  font-size: 11px;
+  font-weight: 300;
+  font-size: 15px;
   font-family: var(--font-awesome-5-pro-light);
-  cursor: pointer;
-  font-weight: bold;
 }
 </style>

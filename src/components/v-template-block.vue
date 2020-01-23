@@ -5,7 +5,9 @@
     </div>
     <div class="templates-block" :style='{width: `${width}`}' >
       <div>
-        <v-template-text :shadow="true" v-for="(text, index) in texts" :key="index" />
+        <draggable :list="texts" :disabled="!enabled" class="" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >  
+          <v-template-text v-for="(text) in texts" :key="text.id" />
+          </draggable>
       </div>
     </div>
     <div class="icons_text-block">
@@ -19,23 +21,43 @@
 const VTemplateText = () => import('./v-template-text')
 const VIcon = () => import('./v-icon')
 const VSearch = () => import('./v-search')
+import draggable from 'vuedraggable'
 
 export default {
   props: ['width'],
   components: {
     VIcon,
     VTemplateText,
-    VSearch
+    VSearch,
+    draggable
   },
   data: () =>({
-    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    dragging: false,
+    enabled: true,
+    texts:[
+      {id: 1},
+      {id: 2},
+      {id: 3},
+      {id: 4},
+      {id: 5},
+      {id: 6},
+      {id: 7},
+      {id: 8},
+      {id: 9},
+      {id: 10},
+      {id: 11},
+      {id: 12},
+      {id: 13},
+
+    ]
   })
 }
 </script>
 
 <style scoped>
 .templates__block-bg {
-  background: #fff;
+  background-color: var(--pale-grey);
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22) !important;
   padding: 10px;
   z-index: 99;
   padding-right: 0;

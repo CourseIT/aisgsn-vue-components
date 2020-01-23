@@ -10,7 +10,7 @@
         </slot>
       </div>
       <div v-if="template_show">
-        <v-template-block class="template_block-fix"/>
+        <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>
@@ -23,7 +23,7 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-	props: ['placeholder', 'value', 'icon', 'label'],
+  props: ['placeholder', 'value', 'icon', 'label','template_text_top'],
   components: {
     VIcon,
     VTemplateBlock

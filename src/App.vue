@@ -44,6 +44,9 @@ body {
 #app {
   background-color: var(--pale-grey);
 }
+html {
+  scroll-behavior: smooth;
+}
 .df {
   display: flex;
 }
@@ -99,13 +102,21 @@ body {
 .icon-shadow {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 4px;
-  background: #fff;
 }
 .template_block-fix {
-  position: fixed;
-  top: 246px;
+  position: absolute;
   margin-left: -10px;
 }
+.ghost {
+  cursor: grabbing !important;
+}
+.ghost:hover {
+  cursor: -webkit-grab !important;
+}
+.ghost:active {
+  cursor: -webkit-grabbing !important;
+}
+
 button {
   outline: none;
 }
