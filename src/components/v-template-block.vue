@@ -36,13 +36,10 @@ export default {
 <style scoped>
 .templates__block-bg {
   background: #fff;
-  position: fixed;
-  top: 246px;
   padding: 10px;
   z-index: 99;
   padding-right: 0;
   border-radius: 4px;
-  margin-left: -10px;
 }
 .search-block {
   z-index: 99;

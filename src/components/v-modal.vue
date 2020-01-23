@@ -1,13 +1,63 @@
 <template>
   <div>
     <div class="modal">
-      <v-input-with-icon placeholder="" icon="" label="п/п" />
-      <v-input-with-icon placeholder="" icon="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" />
-      <v-input-with-icon placeholder="" icon="" label="Предмет каждой проверки" />
+      <div class="df">
+        <v-input placeholder="" icon="" label="п/п" />
+        <div @click="template_show = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-modal"/>
+        </div>
+        <div v-if="template_show">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
+      <div class="df">
+        <v-input placeholder="" icon="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" />
+        <div @click="template_show2 = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show2}" :hover_shadow="true" :hover_color="true" :color="template_show2 ? '#fb6229' : '#21262c' " class="icon-modal"/>
+        </div>
+        <div v-if="template_show2">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
+      <div class="df">
+        <v-input placeholder="" icon="" label="Предмет каждой проверки" />
+        <div @click="template_show3 = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show3}" :hover_shadow="true" :hover_color="true" :color="template_show3 ? '#fb6229' : '#21262c' " class="icon-modal"/>
+        </div>
+        <div v-if="template_show3">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
       <v-input-date-with-icon placeholder="" icon="" label="Примерная дата проведения каждой проверки" />
-      <v-input-with-icon placeholder="" icon="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" />
-      <v-input-with-icon placeholder="" icon="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" />
-      <v-input-with-icon placeholder="" icon="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,предусмотренных программой проведения проверок, является обязательным" />
+      <div class="df">
+        <v-input placeholder="" icon="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" />
+        <div @click="template_show4 = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show4}" :hover_shadow="true" :hover_color="true" :color="template_show4 ? '#fb6229' : '#21262c' " class="icon-modal"/>
+        </div>
+        <div v-if="template_show4">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
+      <div class="df">
+        <v-input placeholder="" icon="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" />
+        <div @click="template_show5 = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show5}" :hover_shadow="true" :hover_color="true" :color="template_show5 ? '#fb6229' : '#21262c' " class="icon-modal"/>
+        </div>
+        <div v-if="template_show5">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
+      <div class="df">
+        <v-input placeholder="" icon="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,предусмотренных программой проведения проверок, является обязательным" />
+        <div @click="template_show6 = true">
+          <v-icon icon="" :class="{'icon-shadow': template_show6}" :hover_shadow="true" :hover_color="true" :color="template_show6 ? '#fb6229' : '#21262c' " class="icon-modal mt35"/>
+        </div>
+        <div v-if="template_show6">
+          <v-template-block class="template_block-fix-modal"/>
+        </div>
+      </div>
+      
+    <div class="close-block" v-if="template_show || template_show2 || template_show3 || template_show4 || template_show5 || template_show6" @click="closeTemplate"></div>
       <div class="fr">
         <div>
           <v-icon icon="" class="icon" />
@@ -27,19 +77,39 @@
 </template>
 
 <script>
-const VInputWithIcon = () => import('@/components/v-input-with-icon')
+const VInput = () => import('@/components/v-input')
 const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VIcon = () => import('@/components/v-icon')
+const VTemplateBlock = () => import('@/components/v-template-block')
 
 export default {
   components: {
-    VInputWithIcon,
+    VInput,
     VInputDateWithIcon,
-    VIcon
+    VIcon,
+    VTemplateBlock
   },
+  data: () =>({
+    text: '',
+    template_show: false,
+    template_show2: false,
+    template_show3: false,
+    template_show4: false,
+    template_show5: false,
+    template_show6: false,
+    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+  }),
   methods: {
     closeModal() {
       this.$emit('toggleModal', false)
+    },
+    closeTemplate(){
+      this.template_show = false
+      this.template_show2 = false
+      this.template_show3 = false
+      this.template_show4 = false
+      this.template_show5 = false
+      this.template_show6 = false
     },
   }
 }
@@ -51,8 +121,17 @@ export default {
   float: right;
   margin-right: 38px;
 }
+.mt35 {
+  margin-top: 35px;
+}
 .pl305 {
   margin-left: 305px;
+}
+.template_block-fix-modal {
+  position: absolute;
+  top: 0px;
+  margin-left: 10px;
+  z-index: 100;
 }
 .modal {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -60,7 +139,7 @@ export default {
   border-radius: 4px;
   padding: 30px;
   padding-right: 0;
-  padding-bottom: 15px;
+  padding-bottom: 2px;
   position: fixed;
   width: 50%;
   left: 0;
@@ -79,6 +158,14 @@ export default {
   background-color: rgba(0, 0, 0, 1);
   backdrop-filter: blur(10px)
 }
+.close-block {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 .icon {
   font-family: var(--font-awesome-5-pro-light);
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -91,5 +178,17 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  margin-top: 40px;
+}
+.icon-modal {
+  cursor: pointer;
+  height: 36px;
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 33px;
+  margin: 0px 10px;
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+  margin-top: 20px;
 }
 </style>

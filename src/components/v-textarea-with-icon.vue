@@ -10,7 +10,7 @@
         </slot>
       </div>
       <div v-if="template_show">
-        <v-template-block />
+        <v-template-block class="template_block-fix"/>
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>

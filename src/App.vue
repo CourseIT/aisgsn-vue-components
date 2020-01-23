@@ -101,6 +101,11 @@ body {
   border-radius: 4px;
   background: #fff;
 }
+.template_block-fix {
+  position: fixed;
+  top: 246px;
+  margin-left: -10px;
+}
 button {
   outline: none;
 }

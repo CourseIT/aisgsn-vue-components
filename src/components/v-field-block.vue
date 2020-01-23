@@ -42,7 +42,7 @@ export default {
 }
 .search {
   margin-bottom: 14.5px;
-  padding-right: 30px;
+  padding-right: 26px;
 }
 .icons_text-block {
   display: flex;
