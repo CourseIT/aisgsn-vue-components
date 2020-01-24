@@ -4,9 +4,9 @@
     <p class="label">{{label}}</p>
     <div class="df">
       <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
-      <div class="icon" @click="template_show = true">
+      <div class="icon" :class="{'icon-template-shadow': template_show}" @click="template_show = !template_show">
         <slot name="icon">
-          <v-icon :icon="icon" :class="{'icon-shadow': template_show}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
         </slot>
       </div>
       <div v-if="template_show">
@@ -86,10 +86,10 @@ export default {
 }
 .icon {
   cursor: pointer;
-  height: 40px;
+  height: 36px;
   font-family: var(--font-awesome-5-pro-light);
   font-size: 33px;
-  padding: 0px 10px;
+  margin: 0px 10px;
   text-align: center;
   position: relative;
   bottom: 0px;

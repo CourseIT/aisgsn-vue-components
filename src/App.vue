@@ -103,11 +103,15 @@ html {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 4px;
 }
+.icon-block {
+  border-radius: 4px 0px 0px 4px;
+  background-color: var(--pale-grey);
+}
 .icon-template-shadow {
   position: relative;
   z-index: 100;
-  box-shadow: -3px 6px 8px 0px rgba(0, 0, 0, 0.22);
-  border-radius: 4px;
+  box-shadow: -5px 5px 7px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px 0px 0px 4px;
 }
 .template_block-fix {
   position: absolute;

@@ -9,11 +9,10 @@
           <li @click="text = `${text} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
         </ul>
       </div>
-      <div class="icon" :class="{'icon-template-shadow': template_show}" @click="template_show = true">
+      <div class="icon" :class="{'icon-template-shadow': template_show}" @click="template_show = !template_show">
         <slot name="icon">
           <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
         </slot>
-      <div v-if="template_show" class="test"></div>
       </div>
       <div v-if="template_show" >
         <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
@@ -75,17 +74,6 @@ export default {
 </script>
 
 <style scoped>
-.test {
-      width: 13px;
-    position: absolute;
-    background-color: var(--pale-grey);
-    height: 38px;
-    z-index: 999;
-    margin-top: -36px;
-    margin-left: 30px;
-    border-radius: 13px;
-    cursor: default;
-}
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
