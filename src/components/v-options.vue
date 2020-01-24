@@ -8,7 +8,13 @@
 
 <script>
 export default {
-  props: ['option', 'action']
+  props : {
+    option: {},
+    action: {
+      type: Function,
+      default: ()=>({})
+    }
+  }
 }
 </script>
 

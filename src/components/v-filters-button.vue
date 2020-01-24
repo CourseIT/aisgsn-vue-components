@@ -35,7 +35,7 @@
               <p class="time-text">12:25</p>
             </div>
           </div>
-          <v-button class="mt70 clear-btn" text="СБРОСИТЬ ВСЕ" />
+          <v-button :action="reset" class="mt70 clear-btn" text="СБРОСИТЬ ВСЕ" />
           <v-button class="mt70" text="Применить" />
         </div>
       </div>
@@ -71,6 +71,22 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
     filters__show: false,
   }),
+  methods: {
+    reset() {
+      this.value1 = '',
+      this.value2 = '',
+      this.value3 = '',
+      this.value4 = '',
+      this.value5 = '',
+      this.value6 = '',
+      this.value7 = '',
+      this.value8 = '',
+      this.value9 = '',
+      this.value10 = '',
+      this.value11 = '',
+      this.value12 = ''
+    }
+  }
 }
 </script>
 
