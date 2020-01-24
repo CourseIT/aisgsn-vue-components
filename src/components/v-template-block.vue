@@ -5,9 +5,9 @@
     </div>
     <div class="templates-block" :style='{width: `${width}`}' >
       <div>
-        <draggable :list="texts" :disabled="!enabled" class="" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >  
-          <v-template-text v-for="(text) in texts" :key="text.id" />
-          </draggable>
+        <draggable :list="texts" handle=".handle" class="" ghost-class="ghost" :disabled="!enabled" >  
+          <v-template-text v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+        </draggable>
       </div>
     </div>
     <div class="icons_text-block">

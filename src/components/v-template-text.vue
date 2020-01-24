@@ -6,7 +6,9 @@
       </div>
       <div class="icons-block">
         <v-icon icon="" height="11" width="11" class="icon-b mb15"/>
-        <v-icon icon="" height="15" width="11" class="icon-b drag-icon"/>
+        <div class="handle">
+          <v-icon icon="" height="15" width="11" class="icon-b drag-icon"/>
+        </div>
       </div>
     </div>
     <div class="bg"></div>
