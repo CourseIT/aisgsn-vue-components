@@ -22,8 +22,8 @@
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="Объекты контроля:" template_text_top="323px"/>
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="Проектная документация по объекту контроля" template_text_top="323px"/>
           <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие исполнительной документации по объекту контроля" template_text_top="323px"/>
-          <v-textarea-with-icon placeholder="Заполнено ………" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:" template_text_top="427px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:" template_text_top="427px"/>
+          <v-textarea-with-icon placeholder="Заполнено ………" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:" template_text_top="426px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:" template_text_top="426px"/>
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
           </h1>

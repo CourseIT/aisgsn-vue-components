@@ -109,6 +109,8 @@ html {
 }
 .icon-template-shadow {
   position: relative;
+  width: 40px;
+  left: 2px;
   z-index: 100;
   box-shadow: -5px 5px 7px 0px rgba(0, 0, 0, 0.15);
   border-radius: 4px 0px 0px 4px;
