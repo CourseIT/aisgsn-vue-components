@@ -31,10 +31,14 @@ export default {
   props: {
     width: {},
     action_plus: {
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     },
     action_edit: {
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     },
   },
   components: {

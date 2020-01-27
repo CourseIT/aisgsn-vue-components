@@ -22,10 +22,14 @@ export default {
   props: {
     shadow: {},
     action: {
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     },
     action_minus: {
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {

@@ -29,39 +29,25 @@ const VIcon = () => import('@/components/v-icon')
 export default {
   props: {
     action_delete: {
-      type: Function,
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     },
     action_apply: {
-      type: Function,
-      default: () => ({})
+      default: function() {
+        return () => ({})
+      }
     },
   },
   components: {
     VIcon,
   },
   data: () =>({
-    text: '',
-    template_show: false,
-    template_show2: false,
-    template_show3: false,
-    template_show4: false,
-    template_show5: false,
-    template_show6: false,
-    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
   }),
   methods: {
     closeModal() {
       this.$emit('toggleModal', false)
-    },
-    closeTemplate(){
-      this.template_show = false
-      this.template_show2 = false
-      this.template_show3 = false
-      this.template_show4 = false
-      this.template_show5 = false
-      this.template_show6 = false
-    },
+    }
   }
 }
 </script>

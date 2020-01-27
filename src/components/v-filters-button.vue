@@ -44,12 +44,14 @@ export default {
     info: {},
     time: {},
     action_reset: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     },
     action_apply: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     },
   },
   components: { 

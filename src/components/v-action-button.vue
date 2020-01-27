@@ -18,8 +18,9 @@ export default {
     width: {},
     icon: {},
     action: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {

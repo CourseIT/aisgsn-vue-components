@@ -45,12 +45,14 @@ export default {
     },
     width: {},
     action_minus: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     },
     action_edit: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   }
 }

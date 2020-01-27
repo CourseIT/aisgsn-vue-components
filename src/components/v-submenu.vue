@@ -8,7 +8,6 @@
       <div class="submenu" v-if="open_submenu">
         <ul>
           <slot>
-            links
           </slot>
         </ul>
       </div>
@@ -25,7 +24,9 @@ export default {
     text_size: {},
     only_title: {},
     action: {
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {

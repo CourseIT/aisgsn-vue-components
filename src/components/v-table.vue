@@ -33,8 +33,9 @@ export default {
     thead: {},
     height: {},
     action: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   },
   data: () => ({

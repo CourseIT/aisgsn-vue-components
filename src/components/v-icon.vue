@@ -25,7 +25,9 @@ export default {
     height: {},
     font_size: {},
     action: {
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     },
   }
 }

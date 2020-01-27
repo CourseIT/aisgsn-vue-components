@@ -8,8 +8,9 @@ export default {
     text: {},
     text_size: {},
     action: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   }
 }

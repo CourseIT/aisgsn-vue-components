@@ -11,8 +11,9 @@ export default {
   props : {
     option: {},
     action: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   }
 }

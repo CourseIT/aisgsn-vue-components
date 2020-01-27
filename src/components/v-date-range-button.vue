@@ -10,15 +10,15 @@
       selected-items-text="ru"
     >
       <template v-slot:activator="{ on }">
-        <div class="df date__btn">
-          <div @click="date = [new Date().toISOString().substr(0, 10)]">
+        <button v-on="on" class="df date__btn">
+          <div v-on="on" @click="date = [new Date().toISOString().substr(0, 10)]">
             <v-icon v-if="date.length > 1" class="icon-colse" width="15" icon="" />
           </div>
           <button class="hover" v-on="on">
-            <p :class="{'pl25': date.length < 2}">{{dateRangeText}} </p>
+            <p v-on="on" :class="{'pl25': date.length < 2}">{{dateRangeText}} </p>
           </button>
           <v-icon class="icon hover" width="19" icon="" />
-        </div>
+        </button>
       </template>
       <v-date-picker color="#8d43ff" :first-day-of-week="1" v-model="date" no-title scrollable range>
       </v-date-picker>

@@ -17,8 +17,9 @@ export default {
     background_color: {},
     color: {},
     action: {
-      type: Function,
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     }
   }
 }

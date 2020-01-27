@@ -19,7 +19,9 @@ export default {
   },
   props: {
     icon_action: {
-      default: ()=>({})
+      default: function() {
+        return () => ({})
+      }
     },
     title: {},
     name: {}
