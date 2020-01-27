@@ -134,7 +134,6 @@ html {
 .icon-template-shadow {
   position: relative;
   width: 40px;
-  left: 2px;
   z-index: 100;
   box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.10);
   border-radius: 4px 0px 0px 4px;
@@ -154,7 +153,7 @@ html {
   transform: rotate(-135deg);
   content: ''; 
   position: absolute;
-  left: 35px; 
+  left: 37px; 
   bottom: -4px;
   border: 5px solid transparent;
   border-top: 5px solid var(--pale-grey);
@@ -163,7 +162,7 @@ html {
   transform: rotate(-45deg);
   content: ''; 
   position: absolute;
-  left: 35px; 
+  left: 37px; 
   bottom: 30px;
   border: 5px solid transparent;
   border-top: 5px solid var(--pale-grey);
@@ -204,6 +203,17 @@ button {
 }
 
 
+.modal-enter-active, .modal-leave-active{
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+.modal-enter, .modal-leave-to{
+  opacity: 0;
+}
 
 
 .media-min-1500 {

@@ -2,72 +2,17 @@
   <div>
     <div class="modal">
       <slot>
-        <!-- <div class="df">
-          <v-input placeholder="" icon="" label="п/п" />
-          <div @click="template_show = true">
-            <v-icon icon="" :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-modal"/>
-          </div>
-          <div v-if="template_show">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div>
-        <div class="df">
-          <v-input placeholder="" icon="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" />
-          <div @click="template_show2 = true">
-            <v-icon icon="" :class="{'icon-shadow': template_show2}" :hover_shadow="true" :hover_color="true" :color="template_show2 ? '#fb6229' : '#21262c' " class="icon-modal"/>
-          </div>
-          <div v-if="template_show2">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div>
-        <div class="df">
-          <v-input placeholder="" icon="" label="Предмет каждой проверки" />
-          <div @click="template_show3 = true">
-            <v-icon icon="" :class="{'icon-shadow': template_show3}" :hover_shadow="true" :hover_color="true" :color="template_show3 ? '#fb6229' : '#21262c' " class="icon-modal"/>
-          </div>
-          <div v-if="template_show3">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div>
-        <v-input-date-with-icon placeholder="" icon="" label="Примерная дата проведения каждой проверки" />
-        <div class="df">
-          <v-input placeholder="" icon="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" />
-          <div @click="template_show4 = true">
-            <v-icon icon="" :class="{'icon-shadow': template_show4}" :hover_shadow="true" :hover_color="true" :color="template_show4 ? '#fb6229' : '#21262c' " class="icon-modal"/>
-          </div>
-          <div v-if="template_show4">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div>
-        <div class="df">
-          <v-input placeholder="" icon="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" />
-          <div @click="template_show5 = true">
-            <v-icon icon="" :class="{'icon-shadow': template_show5}" :hover_shadow="true" :hover_color="true" :color="template_show5 ? '#fb6229' : '#21262c' " class="icon-modal"/>
-          </div>
-          <div v-if="template_show5">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div>
-        <div class="df">
-          <v-input placeholder="" icon="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,предусмотренных программой проведения проверок, является обязательным" />
-          <div @click="template_show6 = true">
-            <v-icon icon="" :class="{'icon-shadow': template_show6}" :hover_shadow="true" :hover_color="true" :color="template_show6 ? '#fb6229' : '#21262c' " class="icon-modal mt35"/>
-          </div>
-          <div v-if="template_show6">
-            <v-template-block class="template_block-fix-modal"/>
-          </div>
-        </div> -->
-        
+        Modal
       </slot>
         <div class="close-block" v-if="template_show || template_show2 || template_show3 || template_show4 || template_show5 || template_show6" @click="closeTemplate"></div>
         <div class="fr">
-          <div>
+          <div @click="action_delete">
             <v-icon icon="" class="icon" />
           </div>
           <div @click="closeModal">
             <v-icon icon="" class="icon" />
           </div>
-          <div>
+          <div @click="action_apply">
             <v-icon icon="" class="icon" />
           </div>
         </div>
@@ -79,17 +24,21 @@
 </template>
 
 <script>
-// const VInput = () => import('@/components/v-input')
-// const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VIcon = () => import('@/components/v-icon')
-// const VTemplateBlock = () => import('@/components/v-template-block')
 
 export default {
+  props: {
+    action_delete: {
+      type: Function,
+      default: () => ({})
+    },
+    action_apply: {
+      type: Function,
+      default: () => ({})
+    },
+  },
   components: {
-    // VInput,
-    // VInputDateWithIcon,
     VIcon,
-    // VTemplateBlock
   },
   data: () =>({
     text: '',
@@ -180,7 +129,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  margin-top: 51px;
+  margin-top: 46px;
 }
 .icon-modal {
   cursor: pointer;

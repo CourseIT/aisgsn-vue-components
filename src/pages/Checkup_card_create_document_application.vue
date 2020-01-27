@@ -90,17 +90,6 @@ export default {
 </script>
 
 <style scoped>
-.modal-enter-active, .modal-leave-active{
-  transition: all 0.5s ease;
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 999;
-}
-.modal-enter, .modal-leave-to{
-  opacity: 0;
-}
 .doc__block {
   margin-left: 70px;
 }

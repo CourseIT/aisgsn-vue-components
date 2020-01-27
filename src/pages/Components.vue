@@ -22,7 +22,7 @@
 
 <!-------------------------------- icons-group -------------------------------->
     <v-icons-group>
-      <template v-slot:main-icon>
+      <template #main-icon>
         <v-icon class="icon1" :action="test" :hover_shadow="true" :hover_color="true" icon="" />
       </template>
       <v-icon font_size="21px" :hover_color="true" :action="test" icon="" />
@@ -34,7 +34,7 @@
 <!-------------------------------- template-block-with-icon -------------------------------->
     <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="ml600" template_text_top="207px">
       <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-        <template v-slot:search>
+        <template #search>
           <v-search v-model="search" class="search" width="403px"/>
         </template>
         <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -70,12 +70,12 @@
 
 <!-------------------------------- document-block -------------------------------->
     <v-document-block :src="src">
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" color="#8e8e93" icon=""  class="mb5"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="pl2 mb5"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Лист визирования" icon="" class="mb5"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Подписано всеми участниками" color="#ff6100" icon="" class="mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" color="#8e8e93" icon=""  class="mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="pl2 mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Лист визирования" icon="" class="mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Подписано всеми участниками" color="#ff6100" icon="" class="mb5 icon"/>
     </v-document-block>
 <!-------------------------------- document-block -------------------------------->
 
@@ -154,13 +154,13 @@
 
 <!-------------------------------- modal -------------------------------->
     <transition name="modal">
-      <v-modal v-if="modal_show" @toggleModal="toggleModal">
+      <v-modal v-if="modal_show" @toggleModal="toggleModal" :action_delete="test" :action_apply="test2">
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -174,7 +174,7 @@
           <v-input v-model="input" placeholder="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -188,7 +188,7 @@
           <v-input v-model="input" placeholder="" label="Предмет каждой проверки" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -204,7 +204,7 @@
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -218,7 +218,7 @@
           <v-input v-model="input" placeholder="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -233,7 +233,7 @@
 предусмотренных программой проведения проверок, является обязательным" :list="list_input"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt34">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-              <template v-slot:search>
+              <template #search>
                 <v-search v-model="search" class="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
@@ -256,7 +256,7 @@
 
 <!-------------------------------- template-block -------------------------------->
     <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
-      <template v-slot:search>
+      <template #search>
         <v-search v-model="search" class="search" width="403px"/>
       </template>
       <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >

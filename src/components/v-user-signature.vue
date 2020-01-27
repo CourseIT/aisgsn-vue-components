@@ -19,7 +19,6 @@ export default {
   },
   props: {
     icon_action: {
-      type: Function,
       default: ()=>({})
     },
     title: {},

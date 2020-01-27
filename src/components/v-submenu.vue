@@ -2,7 +2,7 @@
   <div class="mb20">
     <div class="df jcsb cp menu__title" @click="open_submenu = !open_submenu">
       <h1 @click="action" :style="`font-size: ${$store.state.text_size}px`">{{title}}</h1>
-      <v-icon v-if="!only_title" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
+      <v-icon v-if="!only_title" font_size="26px" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
     </div>
     <transition name="submenu">
       <div class="submenu" v-if="open_submenu">

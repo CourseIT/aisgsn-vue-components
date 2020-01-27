@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div @click="action">
+    <div class="hover_prompt" @click="action">
       <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"font-size": `${font_size}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
     </div>
     <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
@@ -61,7 +61,7 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .icon:hover .icon__prompt-block {
-  display: flex;
+  display: flex !important;
   height: 32px;
   justify-content: center;
   margin-left: -192px;

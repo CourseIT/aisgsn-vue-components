@@ -8,7 +8,7 @@ Vue.use(Vuetify)
 
 describe('VInputWithIcon', () => {
   const wrapper = shallowMount(VInputWithIcon);
-  it('action', () => {
+  it('Action', () => {
     expect(wrapper.vm.template_show).toBe(false)
     wrapper.find('.icon').trigger('click')
     expect(wrapper.vm.template_show).toBe(true)
