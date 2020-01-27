@@ -37,8 +37,8 @@ export default {
     modal: false,
   }),
   watch: {
-    date(date) {
-      this.$emit('input', date)
+    date() {
+      this.$emit('input', this.dateRangeText)
     }
   },
   computed: {

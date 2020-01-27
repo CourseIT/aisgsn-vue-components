@@ -1,5 +1,5 @@
 <template class="db">
-	<button @click="action" class="btn" :class="{'border': !background_color}" :style='{background: `${background_color}`, color: `${color}`}'>
+	<button @click="action" class="btn" :class="{'border': !background_color, 'clear-btn': type == 'reset'}" :style='{background: `${background_color}`, color: `${color}`}'>
     <slot>
       {{text}}
     </slot>
@@ -13,6 +13,7 @@ export default {
       type: String,
       default: 'Кнопка'
     },
+    type: {},
     background_color: {},
     color: {},
     action: {
@@ -55,5 +56,14 @@ export default {
 }
 .btn:hover {
 	color: #fff;
+}
+
+.clear-btn{
+  background-color: var(--pale-lilac);
+  border: 1px solid var(--pale-lilac);
+}
+.clear-btn:hover{
+  background-color: var(--blue-grey) !important;
+  border: 1px solid var(--blue-grey);
 }
 </style>

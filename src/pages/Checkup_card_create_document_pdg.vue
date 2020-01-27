@@ -13,17 +13,17 @@
         <v-form
           ref="form"
         >
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Кому" template_text_top="250px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Поднадзорный объект" template_text_top="250px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Состояние объекта" template_text_top="250px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие на объекте системы мониторинга метеоусловий" template_text_top="250px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Основание для включения в план" template_text_top="250px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_after="true" label="Кому" template_text_top="250px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Поднадзорный объект" template_text_top="250px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Состояние объекта" template_text_top="250px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Наличие на объекте системы мониторинга метеоусловий" template_text_top="250px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Основание для включения в план" template_text_top="250px"/>
           <v-input-date-with-icon icon="" label="Срок проведения работ"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Объекты контроля:" template_text_top="323px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Проектная документация по объекту контроля" template_text_top="323px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="Наличие исполнительной документации по объекту контроля" template_text_top="323px"/>
-          <v-textarea-with-icon placeholder="Заполнено ………" icon="" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:" template_text_top="426px"/>
-          <v-input-with-icon placeholder="Заполнено ………" icon="" label="По результатам выполнения планируемых на объектах контроля измерений представить:" template_text_top="426px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Объекты контроля:" template_text_top="323px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Проектная документация по объекту контроля" template_text_top="323px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Наличие исполнительной документации по объекту контроля" template_text_top="323px"/>
+          <v-textarea-with-icon placeholder="Заполнено ………" icon="" el_before="true" el_after="true" label="Включить в план оценку соответствия следующих характеристик на заявляемых объектах контроля:" template_text_top="426px"/>
+          <v-input-with-icon placeholder="Заполнено ………" icon="" el_before="true" label="По результатам выполнения планируемых на объектах контроля измерений представить:" template_text_top="426px"/>
           <h1 class="title">
             Распоряжение по ОТКИ УГСН на проведение работ
           </h1>

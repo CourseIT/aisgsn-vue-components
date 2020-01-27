@@ -38,7 +38,6 @@ export default {
   text-align: left;
   color: var(--dark);
   margin-bottom: 14px;
-  margin-left: 25px;
 }
 .title-value {
   font-family: Roboto;

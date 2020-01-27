@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="template-block" :class="{'tb-shadow': shadow}">
-      <div class="w90" @click="selectText">
+      <div @click="action" class="w90">
         <p>{{text}}</p>
       </div>
       <div class="icons-block">
-        <v-icon icon="" height="11" width="11" class="icon-b mb15"/>
+        <v-icon :action="action_minus" icon="" height="11" width="11" class="icon-b mb15"/>
         <div class="handle">
           <v-icon icon="" height="15" width="11" class="icon-b drag-icon"/>
         </div>
@@ -19,18 +19,26 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['shadow'],
+  props: {
+    shadow: {},
+    action: {
+      default: () => ({})
+    },
+    action_minus: {
+      default: () => ({})
+    }
+  },
   components: {
     VIcon
   },
   data: () => ({
     text: 'Шаблонный текст 1 …'
   }),
-  methods:{
-    selectText() {
-      this.$emit('selectText', this.text)
-    },
-  }
+  // methods:{
+  //   selectText() {
+  //     this.$emit('selectText', this.text)
+  //   },
+  // }
 }
 </script>
 

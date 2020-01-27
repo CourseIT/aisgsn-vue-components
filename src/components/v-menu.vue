@@ -4,44 +4,46 @@
       <div class="menu-top-bg"></div>
       <div class="menu__container">
         <div class="menu__links">
-          <v-submenu title="Главная" :action="test" only_title="true" :text_size="text_size" />
-          <v-submenu title="НАДЗОР" :text_size="text_size">
-            <v-submenu-link :text_size="text_size" :action="test" text="Надзорные дела" />
-            <v-submenu-link :text_size="text_size" text="Программа проверок" />
-            <v-submenu-link :text_size="text_size" text="Проверки" />
-          </v-submenu>
-          <v-submenu title="ТКИ" :text_size="text_size">
-            <v-submenu-link :text_size="text_size" text="План работ" />
-            <v-submenu-link :text_size="text_size" text="Средства контроля" />
-            <v-submenu-link :text_size="text_size" text="Повышение квалификации" />
-            <v-submenu-link :text_size="text_size" text="СМК" />
-          </v-submenu>
-          <v-submenu title="АНАЛИТИКА" :text_size="text_size">
-            <v-submenu-link :text_size="text_size" text="Статистика" />
-            <v-submenu-link :text_size="text_size" text="Нарушения" />
-            <v-submenu-link :text_size="text_size" text="Резонансные нарушения" />
-            <v-submenu-link :text_size="text_size" text="СМК" />
-          </v-submenu>
-          <v-submenu title="НСИ" :text_size="text_size">
-            <v-submenu-link :text_size="text_size" text="Регулирующие документы" />
-            <v-submenu-link :text_size="text_size" text="Журнал ознокомления с документами" />
-            <v-submenu-link :text_size="text_size" text="Реестр организаций" />
-            <v-submenu-link :text_size="text_size" text="Участники ГСН" />
-            <v-submenu-link :text_size="text_size" text="Классификатор нарушений" />
-            <v-submenu-link :text_size="text_size" text="Управление сотрудниками" />
-            <v-submenu-link :text_size="text_size" text="КоАП" />
-          </v-submenu>
-          <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" :text_size="text_size" />
+          <slot>
+            <v-submenu title="Главная" :action="test" only_title="true" />
+            <v-submenu title="НАДЗОР" :text_size="text_size">
+              <v-submenu-link :action="test" text="Надзорные дела" />
+              <v-submenu-link text="Программа проверок" />
+              <v-submenu-link text="Проверки" />
+            </v-submenu>
+            <v-submenu title="ТКИ">
+              <v-submenu-link text="План работ" />
+              <v-submenu-link text="Средства контроля" />
+              <v-submenu-link text="Повышение квалификации" />
+              <v-submenu-link text="СМК" />
+            </v-submenu>
+            <v-submenu title="АНАЛИТИКА">
+              <v-submenu-link text="Статистика" />
+              <v-submenu-link text="Нарушения" />
+              <v-submenu-link text="Резонансные нарушения" />
+              <v-submenu-link text="СМК" />
+            </v-submenu>
+            <v-submenu title="НСИ">
+              <v-submenu-link text="Регулирующие документы" />
+              <v-submenu-link text="Журнал ознокомления с документами" />
+              <v-submenu-link text="Реестр организаций" />
+              <v-submenu-link text="Участники ГСН" />
+              <v-submenu-link text="Классификатор нарушений" />
+              <v-submenu-link text="Управление сотрудниками" />
+              <v-submenu-link text="КоАП" />
+            </v-submenu>
+            <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" />
+          </slot>
         </div>
       </div>
       <div class="menu__settings">
         <div class="df jcsb">
           <p class="settings__text">Размер шрифта</p>
           <div class="df">
-            <div @click="textSizePlus">
+            <div @click="textSizePlus" class="text-plus">
               <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 17}" icon="" />
             </div>
-            <div @click="textSizeMinus">
+            <div @click="textSizeMinus" class="text-minus">
               <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 13}" icon="" />
             </div>
           </div>
@@ -107,11 +109,13 @@ export default {
     textSizePlus() {
       if(this.text_size >= 13 && this.text_size < 17){
         this.text_size++
+        this.$store.commit('TEXT_SIZE_PLUS', this.text_size)
       }
     },
     textSizeMinus() {
       if(this.text_size > 13 && this.text_size <= 17){
         this.text_size--
+        this.$store.commit('TEXT_SIZE_MINUS', this.text_size)
       }
     }
   }

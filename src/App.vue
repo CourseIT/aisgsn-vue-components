@@ -66,6 +66,12 @@ html {
 .aic {
   align-items: center;
 }
+.h55 {
+  height: 55px;
+}
+.w20 {
+  width: 20px;
+}
 .w90 {
   width: 90%;
 }
@@ -74,6 +80,12 @@ html {
 }
 .w100 {
   width: 100%;
+}
+.pl305 {
+  padding-left: 305px;
+}
+.pl2 {
+  padding-left: 2px;
 }
 .pl15 {
   padding-left: 15px;
@@ -87,11 +99,23 @@ html {
 .mr5 {
   margin-right: 5px;
 }
+.ml3 {
+  margin-left: 3px;
+}
 .mt0 {
   margin-top: 0px;
 }
 .mb20 {
   margin-bottom: 20px;
+}
+.mb5 {
+  margin-bottom: 5px;
+}
+.mt19 {
+  margin-top: 19px;
+}
+.mt34 {
+  margin-top: 34px;
 }
 .ml0 {
   margin-left: 0px !important;
@@ -112,8 +136,11 @@ html {
   width: 40px;
   left: 2px;
   z-index: 100;
-  box-shadow: -5px 5px 7px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.10);
   border-radius: 4px 0px 0px 4px;
+}
+.icon-template-shadow .hover-shadow:hover {
+  box-shadow: none !important;
 }
 .template_block-fix {
   position: absolute;
@@ -121,6 +148,25 @@ html {
 }
 .ghost {
   opacity: 0.5;
+}
+
+.el-after::after {
+  transform: rotate(-135deg);
+  content: ''; 
+  position: absolute;
+  left: 35px; 
+  bottom: -4px;
+  border: 5px solid transparent;
+  border-top: 5px solid var(--pale-grey);
+}
+.el-before::before{
+  transform: rotate(-45deg);
+  content: ''; 
+  position: absolute;
+  left: 35px; 
+  bottom: 30px;
+  border: 5px solid transparent;
+  border-top: 5px solid var(--pale-grey);
 }
 button {
   outline: none;
@@ -131,6 +177,85 @@ button {
 .color-orange {
   color: var(--bright-orange) !important;
 }
+.icon-text {
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  margin-bottom: -5px;
+}
+.icon-plus {
+  display: inline-block;
+  font-family: var(--font-awesome-5-pro-light);
+  cursor: pointer;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-size: 21px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.81;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+
+
+
+.media-min-1500 {
+  display: none;
+}
+.media-max-1500 {
+  display: none;
+}
+.media-min-1200 {
+  display: none;
+}
+.media-max-1200 {
+  display: none;
+}
+.media-min-900 {
+  display: none;
+}
+.media-max-900 {
+  display: none;
+}
+
+@media (min-width: 1500px) { 
+  .media-min-1500 {
+    display: block;
+  }
+}
+@media (max-width: 1499px) { 
+  .media-max-1500 {
+    display: block;
+  }
+}
+@media (min-width: 1200px) { 
+  .media-min-1200 {
+    display: block;
+  }
+}
+@media (max-width: 1199px) { 
+  .media-max-1200 {
+    display: block;
+  }
+}
+@media (min-width: 900px) { 
+  .media-min-900 {
+    display: block;
+  }
+}
+@media (max-width: 899px) { 
+  .media-max-900 {
+    display: block;
+  }
+}
+
 @font-face {font-family: "Font Awesome 5 Pro Regular"; src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot"); src: url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.woff") format("woff"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/363fb99c06d93ab0b553b029f8b5dfb4.svg#Font Awesome 5 Pro Regular") format("svg"); }
 @font-face {font-family: "Font Awesome 5 Pro Light"; src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot"); src: url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.woff") format("woff"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/14126655f43628074be1976d86f13eae.svg#Font Awesome 5 Pro") format("svg"); }
 @font-face {font-family: "Font Awesome 5 Pro"; src: url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.eot"); src: url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.woff") format("woff"), url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0b28d43e90a11a93d935b305ff2cefb2.svg#Font Awesome 5 Pro") format("svg"); }

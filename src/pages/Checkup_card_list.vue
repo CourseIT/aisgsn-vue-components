@@ -11,7 +11,7 @@
         <div class="df jcsb">
           <v-select dark_bg="true" v-model="author" defailt_value="Автор" :list="select_list"/>
           <v-date-button v-model="date_btn"/>
-          <v-select dark_bg="true" v-model="date" defailt_value="Подписан" :list="select_list"/>
+          <v-date-range-button v-model="date_btn"/>
           <v-select dark_bg="true" v-model="status" defailt_value="Статус" :list="select_list"/>
           <v-select dark_bg="true" v-model="type" defailt_value="Тип">
             <div @click="type = item" v-for="(item, index) in select_list" :key="index">
@@ -47,6 +47,7 @@ const VDocumentBlock = () => import('@/components/v-document-block')
 const VSearch = () => import('@/components/v-search')
 const VIcon = () => import('@/components/v-icon')
 const VDateButton = () => import('@/components/v-date-button')
+const VDateRangeButton = () => import('@/components/v-date-range-button')
 const VFiltersButton = () => import('@/components/v-filters-button')
 const VRadioButtons = () => import('@/components/v-radio-buttons')
 const VDocInfo = () => import('@/components/v-doc-info')
@@ -61,6 +62,7 @@ export default {
     VIcon,
     VRadioButtons,
     VDateButton,
+    VDateRangeButton,
     VFiltersButton,
     VDocInfo,
     VSelect,

@@ -1,8 +1,16 @@
 <template>
-  <div class="input-block">
+  <div class="input-block" :style="{'width': width}">
     <p v-if="label" class="label">{{label}}</p>
     <div v-if="type == 'textarea'">
       <textarea class="textarea" :placeholder="placeholder" v-model="input_value" cols="10" rows="4"></textarea>
+      <div v-if="select_block_show" class="select-block select-block_textarea">
+        <ul>
+          <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+        </ul>
+      </div>
+    </div>
+    <div v-else-if="type == 'number'">
+      <input v-model="input_value" :placeholder="placeholder" class="input" type="number">
     </div>
     <div v-else class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
@@ -16,16 +24,10 @@
 </template>
 <script>
 export default {
-  props: ['placeholder', 'value', 'label', 'type'],
+  props: ['placeholder', 'value', 'label', 'type', 'list', 'width'],
   data: () => ({
     select_block_show: false,
-    input_value: '',
-    list: [
-      'Объект КС 1',
-      'Объект КС 2',
-      '...',
-      '...'
-    ]
+    input_value: ''
   }),
   watch: {
     input_value(value) {
@@ -35,7 +37,7 @@ export default {
         if(value === this.input_value) {
           this.select_block_show = false
         }
-      }, 1000)
+      }, 2000)
     }
   }
 }
@@ -112,6 +114,9 @@ export default {
   z-index: 99;
   margin-top: 42px;
 }
+.select-block_textarea {
+  margin-top: -20px;
+}
 .select-block:hover {
   display: block;
 }
@@ -119,7 +124,6 @@ export default {
   padding: 0px;
   list-style-type: none;
   z-index: 99;
-  width: 200px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);

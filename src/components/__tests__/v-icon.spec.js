@@ -11,7 +11,8 @@ describe('VIcon', () => {
       hover_shadow: 'ture',
       hover_color: 'true',
       width: '30',
-      height: 'height'
+      height: 'height',
+      action: Function
     }
   })
   it('отрендерить div', () => {

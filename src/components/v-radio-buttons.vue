@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style>
+.v-input__control {
+  height: 40px;
+}
 .v-input--radio-group--row .v-input--radio-group__input {
   flex-wrap: unset !important;
 }

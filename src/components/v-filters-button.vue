@@ -5,38 +5,25 @@
         <p>Фильтры</p>
         <v-icon class="icon" width="22" icon="" />
       </button>
-      <div v-if="filters__show" class="filters__block">
-        <v-select v-model="value1" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
-        <v-select v-model="value2" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
-        <v-select v-model="value3" defailt_value="Выбор" text_center="true" width="438px" :list="buttons"/>
-        <div class="df jcsb">
-          <v-select v-model="value4" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value5" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value6" defailt_value="Выбор" width="132px" :list="buttons"/>
-        </div>
-        <div class="df jcsb">
-          <v-select v-model="value7" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value8" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value9" defailt_value="Выбор" width="132px" :list="buttons"/>
-        </div>
-        <div class="df jcsb">
-          <v-select v-model="value10" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value11" defailt_value="Выбор" width="132px" :list="buttons"/>
-          <v-select v-model="value12" defailt_value="Выбор" width="132px" :list="buttons"/>
-        </div>
+      <div v-if="filters__show" class="filters__block" :style='{top: `${top}`, bottom: `${bottom}`, left: `${left}`, right: `${right}`}'>
+        <slot>
+          filters__btns
+        </slot>
         <div>
-          <p class="record">Количество записей и любая другая информация</p>
+          <p class="record">{{info}}</p>
         </div>
         <div class="df jcsb">
           <div class="df mt70">
             <v-icon class="time-icon" width="21" icon="" />
             <div>
               <p class="time-text">Время выдачи</p>
-              <p class="time-text">12:25</p>
+              <p class="time-text">{{time}}</p>
             </div>
           </div>
-          <v-button :action="reset" class="mt70 clear-btn" text="СБРОСИТЬ ВСЕ" />
-          <v-button class="mt70" text="Применить" />
+          <slot name="butons">
+            <v-button :action="action_reset" class="mt70 clear-btn" text="СБРОСИТЬ ВСЕ" />
+            <v-button :action="action_apply" class="mt70" text="Применить" />
+          </slot>
         </div>
       </div>
     </div>
@@ -47,46 +34,31 @@
 <script>
 const VIcon = () => import('@/components/v-icon')
 const VButton = () => import('@/components/v-button')
-const VSelect = () => import('@/components/v-select')
 
 export default {
+  props: {
+    top: {},
+    left: {},
+    bottom: {},
+    right: {},
+    info: {},
+    time: {},
+    action_reset: {
+      type: Function,
+      default: ()=>({})
+    },
+    action_apply: {
+      type: Function,
+      default: ()=>({})
+    },
+  },
   components: { 
     VIcon,
     VButton,
-    VSelect
   },
   data: () => ({
-    value1: '',
-    value2: '',
-    value3: '',
-    value4: '',
-    value5: '',
-    value6: '',
-    value7: '',
-    value8: '',
-    value9: '',
-    value10: '',
-    value11: '',
-    value12: '',
-    buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
     filters__show: false,
-  }),
-  methods: {
-    reset() {
-      this.value1 = '',
-      this.value2 = '',
-      this.value3 = '',
-      this.value4 = '',
-      this.value5 = '',
-      this.value6 = '',
-      this.value7 = '',
-      this.value8 = '',
-      this.value9 = '',
-      this.value10 = '',
-      this.value11 = '',
-      this.value12 = ''
-    }
-  }
+  })
 }
 </script>
 
@@ -193,7 +165,6 @@ export default {
   z-index: 8;
   position: absolute;
   width: 485px;
-  margin-left: -353px;
   box-shadow: 0 7px 10px 0 rgba(34, 34, 34, 0.22);
   background-color: var(--white);
   border-radius: 4px;

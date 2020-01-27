@@ -4,13 +4,15 @@
     <p class="label">{{label}}</p>
     <div class="df">
       <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
-      <div class="icon" :class="{'icon-template-shadow': template_show}" @click="template_show = !template_show">
+      <div class="icon" :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
         <slot name="icon">
           <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
         </slot>
       </div>
       <div v-if="template_show">
-        <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
+        <v-template-block class="temp late_block-fix" :style='{top: `${template_text_top}`}'>
+          <v-template-text v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+        </v-template-block>
       </div>
 		</div>
     <div class="close-block" v-if="template_show" @click="template_show = false"></div>
@@ -23,7 +25,7 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-  props: ['placeholder', 'value', 'icon', 'label','template_text_top'],
+  props: ['placeholder', 'value', 'icon', 'label','template_text_top','el_after', 'el_before'],
   components: {
     VIcon,
     VTemplateBlock
@@ -31,11 +33,32 @@ export default {
   data: () =>({
     text: '',
     template_show: false,
-    texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    texts:[
+      {id: 1},
+      {id: 2},
+      {id: 3},
+      {id: 4},
+      {id: 5},
+      {id: 6},
+      {id: 7},
+      {id: 8},
+      {id: 9},
+      {id: 10},
+      {id: 11},
+      {id: 12},
+      {id: 13},
+    ]
   }),
   watch: {
     text(){
       this.template_show = false
+    },
+    template_show(value) {
+      if(value) {
+        document.getElementsByTagName('html')[0].style.overflow = "hidden";
+      } else {
+        document.getElementsByTagName('html')[0].removeAttribute("style")
+      }
     }
   },
   methods: {

@@ -1,14 +1,14 @@
 <template>
-  <div class="input-date">
+  <div class="input-date" :style="{'width': width}">
     <div class="input-block">
       <p class="label">{{label}}</p>
-      <div class="df" 
+      <div class="df h55" 
         @click="menu = true">
         <input v-model="dateRangeText" class="input" type="text">
         <v-menu
           ref="menu"
           :nudge-right="56"
-          :nudge-top="37"
+          :nudge-top="44"
           v-model="menu"
           :close-on-content-click="false"
           transition="scale-transition"
@@ -18,7 +18,7 @@
         >
           <template v-slot:activator="{ on }">
             <div class="icon-date" hint="MM/DD/YYYY format" v-on="on">
-              <v-icon :icon="icon" :class="{'icon-shadow': menu}" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " class="icon-block"/>
+              <v-icon :icon="icon" :class="{'icon-shadow': menu, 'icon-block': menu}" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " />
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
@@ -33,7 +33,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['placeholder', 'value', 'icon', 'label'],
+  props: ['placeholder', 'value', 'icon', 'label', 'width'],
   components: {
     VIcon
   },

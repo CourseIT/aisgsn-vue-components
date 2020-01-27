@@ -1,25 +1,25 @@
 <template>
-  <div class="textarea-with-icon">
+  <div class="textarea-with-icon" :style="{'width': width}">
     <div class="input-block">
-    <p class="label">{{label}}</p>
-    <div class="df">
-      <input :placeholder="placeholder" v-model="text" >
-      <div v-if="select_block_show" class="select-block">
-        <ul>
-          <li @click="text = `${text} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-        </ul>
+      <p class="label">{{label}}</p>
+      <div class="df">
+        <input :placeholder="placeholder" v-model="text" >
+        <div v-if="select_block_show" class="select-block">
+          <ul>
+            <li @click="text = `${text} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+          </ul>
+        </div>
+        <div class="icon " :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
+          <slot name="icon">
+            <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+          </slot>
+        </div>
+        <div v-if="template_show">
+          <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
+        </div>
       </div>
-      <div class="icon" :class="{'icon-template-shadow': template_show}" @click="template_show = !template_show">
-        <slot name="icon">
-          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
-        </slot>
-      </div>
-      <div v-if="template_show" >
-        <v-template-block class="template_block-fix" :style='{top: `${template_text_top}`}'/>
-      </div>
-		</div>
-    <div class="close-block" v-if="template_show" @click="template_show = false"></div>
-  </div>
+      <div class="close-block" v-if="template_show" @click="template_show = false"></div>
+    </div>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-	props: ['placeholder', 'value', 'icon', 'label', 'template_text_top'],
+	props: ['placeholder', 'value', 'icon', 'label', 'template_text_top', 'el_after', 'el_before', 'width'],
   components: {
     VIcon,
     VTemplateBlock
@@ -58,7 +58,6 @@ export default {
     template_show(value) {
       if(value) {
         document.getElementsByTagName('html')[0].style.overflow = "hidden";
-        document.getElementsByTagName('html')[0].style.marginRight = "17px";
       } else {
         document.getElementsByTagName('html')[0].removeAttribute("style")
       }

@@ -4,7 +4,7 @@ import { shallowMount } from '@vue/test-utils';
 describe('Props', () => {
   const wrapper = shallowMount(VCardBlock, {
     item: {
-      date: '20.08.20 – 28.08.20',
+      date: '20.08.2020 – 28.08.2020',
       number: 'Номер объекта контроля',
       method: 'Метод',
       signature: 'Подпись',
@@ -13,7 +13,7 @@ describe('Props', () => {
     }
   });
   it('props', () => {
-    expect(wrapper.props().item.date).toBe('20.08.20 – 28.08.20');
+    expect(wrapper.props().item.date).toBe('20.08.2020 – 28.08.2020');
     expect(wrapper.props().item.number).toBe('Номер объекта контроля');
     expect(wrapper.props().item.method).toBe('Метод');
     expect(wrapper.props().item.signature).toBe('Подпись');
@@ -25,7 +25,7 @@ describe('Props', () => {
 describe('Dafault props', () => {
   const wrapper = shallowMount(VCardBlock);
   it('default props', () => {
-    expect(wrapper.props().item.date).toBe('20.08.20 – 28.08.20');
+    expect(wrapper.props().item.date).toBe('20.08.2020 – 28.08.2020');
     expect(wrapper.props().item.number).toBe('Номер объекта контроля');
     expect(wrapper.props().item.method).toBe('Метод');
     expect(wrapper.props().item.signature).toBe('Подпись');

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>
-      <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
+    <div @click="action">
+      <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"font-size": `${font_size}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
     </div>
     <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
       <div class="arrow"></div>
@@ -14,7 +14,20 @@
 
 <script>
 export default {
-  props: ['icon', 'color', 'prompt', 'prompt_theme', 'hover_shadow', 'hover_color', 'width', 'height']
+  props: {
+    icon: {},
+    color: {},
+    prompt: {},
+    prompt_theme: {},
+    hover_shadow: {},
+    hover_color: {},
+    width: {},
+    height: {},
+    font_size: {},
+    action: {
+      default: ()=>({})
+    },
+  }
 }
 </script>
 
@@ -37,6 +50,7 @@ export default {
   display: flex;
   text-align: center;
   align-items: center;
+  font-family: var(--font-awesome-5-pro-light);
 }
 .hover-color:hover {
   color: var(--bright-orange) !important;

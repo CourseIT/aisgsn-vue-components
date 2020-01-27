@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style='{width: `${width}`}'>
     <div class="df inspection-program-block">
       <slot>
         <div class="w95">
@@ -10,8 +10,10 @@
           <p>{{item.text}}</p>
         </div>
         <div>
-          <v-icon icon="" class="icon-p"/>
-          <div class="bottom-icon">
+          <div @click="action_edit">
+            <v-icon icon="" class="icon-p"/>
+          </div>
+          <div @click="action_minus" class="bottom-icon">
             <v-icon icon="" class="icon-p"/>
           </div>
         </div>
@@ -40,6 +42,15 @@ export default {
           id: 0
         }
       }
+    },
+    width: {},
+    action_minus: {
+      type: Function,
+      default: ()=>({})
+    },
+    action_edit: {
+      type: Function,
+      default: ()=>({})
     }
   }
 }
@@ -95,5 +106,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  position: relative;
+  left: -6px;
 }
 </style>

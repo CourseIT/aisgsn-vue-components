@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     menu_visibility: false,
     light_gamma: false,
-    layout: 'default-layout'
+    layout: 'default-layout',
+    text_size: 15
   },
   mutations: {
     SET_MENU_VISIBILITY(state, visibility) {
@@ -20,7 +21,13 @@ export default new Vuex.Store({
     },
     setLayout(state, payload) {
       state.layout = payload
-    }
+    },
+    TEXT_SIZE_PLUS(state, text_size) {
+      state.text_size = text_size
+    },
+    TEXT_SIZE_MINUS(state, text_size) {
+      state.text_size = text_size
+    },
   },
   actions: {
   },

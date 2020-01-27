@@ -59,7 +59,6 @@
             <p class="header-name">Смирнова Светлана Ивановна</p>
             <v-icon class="header-icon mt3" :hover_color="true" icon=""/>
           </div>
-          <!-- <v-notifications /> -->
       </nav>
     </header>
     <v-breadcrumbs />
@@ -68,24 +67,42 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon')
-// const VNotifications = () => import('./v-notifications')
 const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
 
 export default {
+  props: {
+    time: {
+      default: '12:25'
+    },
+    day_week: {
+      default: 'Понедельник'
+    },
+    year: {
+      default: '2020'
+    },
+    date: {
+      default: '24 августа'
+    },
+    city: {
+      default: 'Москва'
+    },
+    degree: {
+      default: '28'
+    },
+    notifications: {
+      type: Array,
+      default: ()=>{
+        return[]
+      }
+    }
+  },
   components: {
     // VNotifications,
     VBreadcrumbs,
     VIcon
   },
   data: () => ({
-    notifications: [],
-    show_close: false,
-    time: '12:25',
-    day_week: 'Понедельник',
-    year: '2020',
-    date: '24 августа',
-    city: 'Москва',
-    degree: '28'
+    show_close: false
   }),
   methods: {
     openMenu() {

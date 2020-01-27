@@ -1,18 +1,22 @@
 <template>
   <div class="templates__block-bg">
     <div class="search-block" :style='{width: `${width}`}'>
-      <v-search class="search" width="403px"/>
+      <slot name="search">
+        <v-search class="search" width="403px"/>
+      </slot>
     </div>
     <div class="templates-block" :style='{width: `${width}`}' >
       <div>
-        <draggable :list="texts" handle=".handle" class="" ghost-class="ghost" :disabled="!enabled" >  
-          <v-template-text v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+        <draggable :list="texts" handle=".handle" class="" ghost-class="ghost" :disabled="!enabled" > 
+          <slot>
+            <v-template-text v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+          </slot>
         </draggable>
       </div>
     </div>
     <div class="icons_text-block">
-      <v-icon icon="" class="icon-text"/>
-      <v-icon icon="" class="icon-text"/>
+      <v-icon :action="action_edit" icon="" class="icon-text"/>
+      <v-icon :action="action_plus" icon="" class="icon-text"/>
     </div>
   </div>
 </template>
@@ -24,7 +28,15 @@ const VSearch = () => import('./v-search')
 import draggable from 'vuedraggable'
 
 export default {
-  props: ['width'],
+  props: {
+    width: {},
+    action_plus: {
+      default: () => ({})
+    },
+    action_edit: {
+      default: () => ({})
+    },
+  },
   components: {
     VIcon,
     VTemplateText,
@@ -48,7 +60,6 @@ export default {
       {id: 11},
       {id: 12},
       {id: 13},
-
     ]
   })
 }
@@ -62,10 +73,12 @@ export default {
   z-index: 99;
   padding-right: 0;
   border-radius: 4px;
+  max-width: 445px;
+  min-width: 400px;
 }
 .search-block {
   z-index: 99;
-  width: 454px;
+  width: 435px;
 }
 .search {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22) !important;
@@ -80,9 +93,9 @@ export default {
   overflow: auto;
   max-height: 503px;
   padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-left: -20px;
+  padding-right: 10px;
+  padding-left: 30px;
+  margin-left: -30px;
 }
 .templates-block::-webkit-scrollbar {
   width: 11px;
@@ -99,7 +112,7 @@ export default {
 .icons_text-block {
   display: flex;
   margin-top: 20px;
-  margin-left: 293px;
+  margin-left: 289px;
   z-index: 99;
 }
 .icon-text {

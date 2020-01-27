@@ -67,6 +67,14 @@ const routes = [
     }
   },
   {
+    path: '/components',
+    name: 'Components',
+    component: () => import('../pages/Components.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
     path: '/checkup_card_list',
     name: 'Checkup_card_list',
     component: () => import('../pages/Checkup_card_list.vue'),

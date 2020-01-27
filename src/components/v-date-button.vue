@@ -34,8 +34,8 @@ export default {
     modal: false,
   }),
   watch: {
-    date(date) {
-      this.$emit('input', date)
+    date() {
+      this.$emit('input', `${this.day},${this.month},${this.year}`)
     }
   },
   computed: {
@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style>
+.test {
+  position: relative;
+  z-index: 100;
+}
 .w19 {
   width: 19px !important;
 }
