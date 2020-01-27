@@ -17,37 +17,37 @@ const routes = [
       layout: 'auth-layout'
     }
   },
-  // {
-  //   path: '/checkup_card_create_document_pdg',
-  //   name: 'Checkup_card_create_document_pdg',
-  //   component: () => import('../pages/Checkup_card_create_document_pdg.vue'),
-  //   meta: {
-  //     layout: 'doc-layout'
-  //   }
-  // },
-  // {
-  //   path: '/checkup_card_create_document_application',
-  //   name: 'Checkup_card_create_document_application',
-  //   component: () => import('../pages/Checkup_card_create_document_application.vue'),
-  //   meta: {
-  //     layout: 'doc-layout'
-  //   }
-  // },
-  // {
-  //   path: '/checkup_card_create_document_U4_prev',
-  //   name: 'Checkup_card_create_document_U4_prev',
-  //   component: () => import('../pages/Checkup_card_create_document_U4_prev.vue'),
-  //   meta: {
-  //     layout: 'doc-layout'
-  //   }
-  // }, {
-  //   path: '/checkup_card_create_document_U6',
-  //   name: 'Checkup_card_create_document_U6',
-  //   component: () => import('../pages/Checkup_card_create_document_U6.vue'),
-  //   meta: {
-  //     layout: 'doc-layout'
-  //   }
-  // },
+  {
+    path: '/checkup_card_create_document_pdg',
+    name: 'Checkup_card_create_document_pdg',
+    component: () => import('../pages/Checkup_card_create_document_pdg.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
+    path: '/checkup_card_create_document_application',
+    name: 'Checkup_card_create_document_application',
+    component: () => import('../pages/Checkup_card_create_document_application.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
+  {
+    path: '/checkup_card_create_document_U4_prev',
+    name: 'Checkup_card_create_document_U4_prev',
+    component: () => import('../pages/Checkup_card_create_document_U4_prev.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  }, {
+    path: '/checkup_card_create_document_U6',
+    name: 'Checkup_card_create_document_U6',
+    component: () => import('../pages/Checkup_card_create_document_U6.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
   {
     path: '/analytics_a1',
     name: 'Analytics_A1',
