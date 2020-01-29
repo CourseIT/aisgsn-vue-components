@@ -1,52 +1,65 @@
 <template>
-  <div>
-    <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
-      <button class="main-btn">
-        <button v-if="value" @click="$emit('input', ''), menu_show = false">
-          <v-icon icon="" width="16" class="select__icon-colse"/>
-        </button>
-        <div class="hover-btn df w100">
-          <div @click="menu_show = true" class="w100 df aic jcc"  :class="{'pl16': !value}">
-            {{value || defailt_value}}
+  <div class="categories">
+    <div class="df">
+      <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
+        <button class="main-btn">
+          <button v-if="value" @click="$emit('input', ''), menu_show = false">
+            <v-icon icon="" width="16" class="select__icon-colse"/>
+          </button>
+          <div class="hover-btn df w100">
+            <div @click="menu_show = true" class="w100 df aic jcc"  :class="{'pl16': !value}">
+              {{value || defailt_value}}
+            </div>
+            <div @click="menu_show = true" class="hover-btn">
+              <slot name="main-icon">
+                <v-icon :icon="icon" width="16" class="select__icon-dots"/>
+              </slot>
+            </div>
           </div>
-          <div @click="menu_show = true" class="hover-btn">
-            <slot name="main-icon">
-              <v-icon :icon="icon" :style="{'font-size': icon_size}" width="16" class="select__icon-dots"/>
+        </button>
+        <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
+          <div @click="menu_show = false">
+            <slot>
+
+
+              <button @click="value = item, $emit('input', item)" v-for="(item, index) in list" :key="index" class="select-btn select_shadow">
+                <div class="df aic jcsb w100 hover-btn jcc">
+                  {{item}}
+                </div>
+              </button>
+
+
             </slot>
           </div>
         </div>
-      </button>
-      <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
-        <div @click="menu_show = false">
-          <slot>
-            <button @click="value = item, $emit('input', item)" v-for="(item, index) in list" :key="index" class="select-btn select_shadow">
-              <div class="df aic jcsb w100 hover-btn jcc">
-                {{item}}
-              </div>
-            </button>
-          </slot>
+      </div>
+      <div class="categories-search">
+        <input type="text" v-model="search" placeholder="Поиск">
+        <div v-if="search != ''" class="icon-btn" @click="search = ''">
+          <v-icon class="icon" width="15" icon="" />
         </div>
       </div>
     </div>
+    
     <div v-if="menu_show" @click="menu_show = false" class="colse-bg" :class="{'dark_bg': dark_bg}"></div>
   </div>
-  
 </template>
 
 <script>
+// const VSelect = () => import('@/components/v-select')
+// const VSearch = () => import('@/components/v-search')
 const VIcon = () => import('@/components/v-icon')
 
 export default {
   props: {
     value: {
       type: String,
-      default: 'Кнопка'
     },
     list: {
       type: Array
     },
     defailt_value: {
-      default: 'Кнопка'
+      default: 'Категории'
     },
     icon: {
       default: ''
@@ -55,19 +68,69 @@ export default {
       default: false
     },
     width: {},
-    text_center: {},
-    icon_size: {}
+    text_center: {}
   },
   components: {
     VIcon
   },
   data: () => ({
-    menu_show: false
+    menu_show: false,
+    search: '',
   })
 }
 </script>
 
 <style scoped>
+.categories-search {
+}
+
+.categories-search {
+  display: flex;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.categories-search input {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  outline: none;
+  height: 36px;
+  border-radius: 0px 4px 4px 0px;
+  background-color: #fff;
+  padding: 0px 10px;
+  padding-right: 35px;
+  width: 340px;
+}
+.icon-btn {
+  width: 15px;
+  height: 36px;
+  display: flex;
+  position: relative;
+  margin-left: -25px;
+  align-items: center;
+}
+.icon-btn:hover .icon {
+  color: var(--bright-orange);
+}
+.icon {
+  font-family: var(--font-awesome-5-pro-light);
+  font-size: 15px;
+  width: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000;
+}
+
 .pos-r {
   position: relative;
 }
@@ -76,7 +139,7 @@ export default {
   height: 36px;
 }
 .w132 {
-  width: 132px;
+  width: 140px;
 }
 .pl16 {
   padding-left: 16px;
@@ -105,7 +168,7 @@ export default {
   align-items: center;
   font-family: Roboto;
   outline: none;
-  border-radius: 4px;
+  border-radius: 4px 0px 0px 4px;
   font-size: 11px;
   font-weight: normal;
   font-stretch: normal;

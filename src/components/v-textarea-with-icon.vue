@@ -1,22 +1,20 @@
 <template>
   <div class="textarea-with-icon">
     <div class="input-block">
-    <p class="label">{{label}}</p>
-    <div class="df">
-      <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
-      <div class="icon" :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
-        <slot name="icon">
-          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
-        </slot>
+      <p class="label">{{label}}</p>
+      <div class="df">
+        <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
+        <div class="icon" :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
+          <slot name="icon">
+            <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+          </slot>
+        </div>
+        <div v-if="template_show">
+          <v-template-block class="temp late_block-fix" :style='{top: `${template_text_top}`}' />
+        </div>
       </div>
-      <div v-if="template_show">
-        <v-template-block class="temp late_block-fix" :style='{top: `${template_text_top}`}'>
-          <v-template-text v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
-        </v-template-block>
-      </div>
-		</div>
-    <div class="close-block" v-if="template_show" @click="template_show = false"></div>
-  </div>
+      <div class="close-block" v-if="template_show" @click="template_show = false"></div>
+    </div>
   </div>
 </template>
 

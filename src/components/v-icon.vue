@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'icon': prompt}">
     <div class="hover_prompt" @click="action">
       <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"font-size": `${font_size}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
     </div>

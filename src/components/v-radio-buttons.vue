@@ -1,7 +1,9 @@
 <template>
   <div class="checkup-card-list__radio" :class="{'green-radio': radio_color == 'green'}"> 
     <v-radio-group row v-model="radios">
-      <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
+      <slot>
+        <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
+      </slot>
     </v-radio-group>
   </div>
 </template>

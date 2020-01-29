@@ -70,12 +70,12 @@
 
 <!-------------------------------- document-block -------------------------------->
     <v-document-block :src="src">
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" color="#8e8e93" icon=""  class="mb5 icon"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="pl2 mb5 icon"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Лист визирования" icon="" class="mb5 icon"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5 icon"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5 icon"/>
-      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Подписано всеми участниками" color="#ff6100" icon="" class="mb5 icon"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" color="#8e8e93" icon=""  class="mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="pl2 mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Лист визирования" icon="" class="mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" icon="" class="mb5"/>
+      <v-icon :hover_shadow="true" :hover_color="true" font_size="21px" prompt="Подписано всеми участниками" color="#ff6100" icon="" class="mb5"/>
     </v-document-block>
 <!-------------------------------- document-block -------------------------------->
 
@@ -249,8 +249,12 @@
 
 
 <!-------------------------------- radio-buttons -------------------------------->
-    <v-radio-buttons v-model="label" radio_color="green" :labels="labels" class="g-radio"/>
-    <v-radio-buttons v-model="label2" :labels="labels2" class="g-radio"/>
+    <v-radio-buttons v-model="label" radio_color="green" :labels="labels">
+      <v-radio v-for="label in labels" :key="label" :value="label" :label="label"></v-radio>
+    </v-radio-buttons>
+    <v-radio-buttons v-model="label2" :labels="labels2">
+      <v-radio v-for="label in labels2" :key="label" :value="label" :label="label"></v-radio>
+    </v-radio-buttons>
 <!-------------------------------- radio-buttons -------------------------------->
 
 
@@ -265,11 +269,19 @@
     </v-template-block>
 <!-------------------------------- template-block -------------------------------->
 
-
 <!-------------------------------- search -------------------------------->
     <v-search class="mb20" v-model="search" width="600px"/>
 <!-------------------------------- search -------------------------------->
 
+<!-------------------------------- categories-search -------------------------------->
+    <v-categories-search v-model="categories_search"/>
+<!-------------------------------- categories-search -------------------------------->
+
+<!-------------------------------- SORT (slect with sort icon) -------------------------------->
+    <v-select class="media-min-1500" v-model="value1" icon="" icon_size="20px" defailt_value="Выбор1" text_center="true" width="238px">
+      <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+    </v-select>
+<!-------------------------------- SORT (slect with sort icon) -------------------------------->
 
   </div>
 </template>
@@ -299,6 +311,7 @@ const VTemplateText = () => import('@/components/v-template-text')
 const VSearch = () => import('@/components/v-search')
 const VTemplateBlockWithIcon = () => import('@/components/v-template-block-with-icon')
 const VIconsGroup = () => import('@/components/v-icons-group')
+const VCategoriesSearch = () => import('@/components/v-categories-search')
 
 export default {
   components: {
@@ -325,7 +338,8 @@ export default {
     VTemplateBlock,
     VTemplateText,
     VSearch,
-    VTemplateBlockWithIcon
+    VTemplateBlockWithIcon,
+    VCategoriesSearch
   },
   data: () => ({
     // drag`n`drop
@@ -429,6 +443,8 @@ export default {
     template_show4: false,
     template_show5: false,
     template_show6: false,
+
+    categories_search: ''
     
 
   }),

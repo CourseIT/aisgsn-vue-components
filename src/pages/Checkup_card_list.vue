@@ -9,14 +9,16 @@
           <v-radio-buttons radio_color="green" :labels="labels" class="g-radio"/>
         </div>
         <div class="df jcsb">
-          <v-select dark_bg="true" v-model="author" defailt_value="Автор" :list="select_list"/>
+          <v-select dark_bg="true" v-model="author" defailt_value="Автор">
+            <v-options :option="item" :action="function(){author = item}" v-for="(item, index) in select_list" :key="index"/>
+          </v-select>
           <v-date-button v-model="date_btn"/>
           <v-date-range-button v-model="date_btn"/>
-          <v-select dark_bg="true" v-model="status" defailt_value="Статус" :list="select_list"/>
+          <v-select dark_bg="true" v-model="status" defailt_value="Статус">
+            <v-options :option="item" :action="function(){status = item}" v-for="(item, index) in select_list" :key="index"/>
+          </v-select>
           <v-select dark_bg="true" v-model="type" defailt_value="Тип">
-            <div @click="type = item" v-for="(item, index) in select_list" :key="index">
-              <v-options :option="item" :action="test"/>
-            </div>
+            <v-options :option="item" :action="function(){type = item}" v-for="(item, index) in select_list" :key="index"/>
           </v-select>
           <v-filters-button class="mr29"/>
         </div>

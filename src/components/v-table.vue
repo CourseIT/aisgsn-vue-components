@@ -54,7 +54,7 @@ export default {
   font-style: normal;
   line-height: 1.55;
   letter-spacing: normal;
-  text-align: left;
+  text-align: center !important;
   color: var(--dark);
   z-index: 1;
   border: none !important;
