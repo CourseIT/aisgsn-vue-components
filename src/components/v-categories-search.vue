@@ -1,14 +1,11 @@
 <template>
   <div class="categories">
     <div class="df">
-      <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
-        <button class="main-btn">
-          <button v-if="value" @click="$emit('input', ''), menu_show = false">
-            <v-icon icon="" width="16" class="select__icon-colse"/>
-          </button>
+      <div class="select w140" :class="{'pos-r': menu_show}" :style="{'width': width}">
+        <button class="main-btn" :style="{'width': width}">
           <div class="hover-btn df w100">
-            <div @click="menu_show = true" class="w100 df aic jcc"  :class="{'pl16': !value}">
-              {{value || defailt_value}}
+            <div @click="menu_show = true" class="w100 df aic jcc pl16">
+              {{option || defailt_text}}
             </div>
             <div @click="menu_show = true" class="hover-btn">
               <slot name="main-icon">
@@ -20,15 +17,7 @@
         <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
           <div @click="menu_show = false">
             <slot>
-
-
-              <button @click="value = item, $emit('input', item)" v-for="(item, index) in list" :key="index" class="select-btn select_shadow">
-                <div class="df aic jcsb w100 hover-btn jcc">
-                  {{item}}
-                </div>
-              </button>
-
-
+              <v-categories-option @click="value = item" :option="item" v-for="(item, index) in list" :key="index" />
             </slot>
           </div>
         </div>
@@ -40,25 +29,25 @@
         </div>
       </div>
     </div>
-    
     <div v-if="menu_show" @click="menu_show = false" class="colse-bg" :class="{'dark_bg': dark_bg}"></div>
   </div>
 </template>
 
 <script>
-// const VSelect = () => import('@/components/v-select')
-// const VSearch = () => import('@/components/v-search')
 const VIcon = () => import('@/components/v-icon')
+const VCategoriesOption = () => import('@/components/v-categories-option')
 
 export default {
   props: {
-    value: {
-      type: String,
-    },
+    option: {},
     list: {
-      type: Array
+      default: () => {
+        return [
+          'Все'
+        ]
+      }
     },
-    defailt_value: {
+    defailt_text: {
       default: 'Категории'
     },
     icon: {
@@ -67,23 +56,27 @@ export default {
     dark_bg: {
       default: false
     },
-    width: {},
-    text_center: {}
+    width: {
+      default: '140px'
+    },
   },
   components: {
-    VIcon
+    VIcon,
+    VCategoriesOption
   },
   data: () => ({
     menu_show: false,
     search: '',
-  })
+  }),
+  watch:{
+    search(search) {
+      this.$emit('input', search)
+    }
+  },
 }
 </script>
 
 <style scoped>
-.categories-search {
-}
-
 .categories-search {
   display: flex;
   transition: all 0.3s ease;

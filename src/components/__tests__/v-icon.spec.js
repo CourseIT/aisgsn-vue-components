@@ -35,6 +35,6 @@ describe('VIcon', () => {
     expect(wrapper.find(".icon__prompt-block").attributes().class).toBe('icon__prompt-block dark');
   });
   it("icon shadow + color", () => {
-    expect(wrapper.find(".icon").attributes().class).toBe('icon hover-shadow hover-color');
+    expect(wrapper.find(".hover-shadow").attributes().class).toBe('icon hover-shadow hover-color');
   });
 })

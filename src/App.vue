@@ -69,6 +69,9 @@ html {
 .h55 {
   height: 55px;
 }
+.w140 {
+  width: 140px;
+}
 .w20 {
   width: 20px;
 }

@@ -4,7 +4,6 @@
       <slot>
         Modal
       </slot>
-        <div class="close-block" v-if="template_show || template_show2 || template_show3 || template_show4 || template_show5 || template_show6" @click="closeTemplate"></div>
         <div class="fr">
           <div @click="action_delete">
             <v-icon icon="" class="icon" />

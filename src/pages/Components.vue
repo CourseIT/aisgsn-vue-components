@@ -161,7 +161,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -175,7 +175,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -189,7 +189,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -205,7 +205,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -219,7 +219,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -234,7 +234,7 @@
           <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt34">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
-                <v-search v-model="search" class="search" width="403px"/>
+                <v-search v-model="search" width="403px"/>
               </template>
               <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
                 <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -261,7 +261,7 @@
 <!-------------------------------- template-block -------------------------------->
     <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
       <template #search>
-        <v-search v-model="search" class="search" width="403px"/>
+        <v-search v-model="search" width="403px"/>
       </template>
       <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
         <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
@@ -274,7 +274,9 @@
 <!-------------------------------- search -------------------------------->
 
 <!-------------------------------- categories-search -------------------------------->
-    <v-categories-search v-model="categories_search"/>
+    <v-categories-search v-model="categories_search" :option="categories_option" defailt_text="Категории">
+      <v-categories-option v-model="categories_option" :option="item" v-for="(item, index) in categories_list" :key="index" />
+    </v-categories-search>
 <!-------------------------------- categories-search -------------------------------->
 
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->
@@ -312,6 +314,7 @@ const VSearch = () => import('@/components/v-search')
 const VTemplateBlockWithIcon = () => import('@/components/v-template-block-with-icon')
 const VIconsGroup = () => import('@/components/v-icons-group')
 const VCategoriesSearch = () => import('@/components/v-categories-search')
+const VCategoriesOption = () => import('@/components/v-categories-option')
 
 export default {
   components: {
@@ -339,7 +342,8 @@ export default {
     VTemplateText,
     VSearch,
     VTemplateBlockWithIcon,
-    VCategoriesSearch
+    VCategoriesSearch,
+    VCategoriesOption
   },
   data: () => ({
     // drag`n`drop
@@ -420,6 +424,7 @@ export default {
     label2: '',
 
     search: '',
+    search123: '',
 
     texts:[
       {id: 1},
@@ -444,7 +449,15 @@ export default {
     template_show5: false,
     template_show6: false,
 
-    categories_search: ''
+    categories_search: '',
+    categories_option: '',
+    categories_list: [
+      'Все',
+      'Категория1',
+      'Категория2',
+      'Категория3',
+      'Категория4'
+    ]
     
 
   }),

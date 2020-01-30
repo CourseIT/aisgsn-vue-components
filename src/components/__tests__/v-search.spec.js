@@ -10,4 +10,7 @@ describe('Search', () => {
   it('Props', () => {
     expect(wrapper.props().width).toBe('300px');
   })
+  it('Render', () => {
+    expect(wrapper.contains('div')).toBe(true)
+  })
 })

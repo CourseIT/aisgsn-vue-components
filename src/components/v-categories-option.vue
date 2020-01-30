@@ -1,0 +1,72 @@
+<template>
+  <button @click="$emit('input', option)" class="categories-btn">
+    <div class="circle-block">
+      <div v-if="value == option" class="circle"></div>
+    </div>
+    <div @click="action" class="df aic w100 hover-btn jcc">
+      {{option}}
+    </div>
+  </button>
+</template>
+
+<script>
+export default {
+  props : {
+    value: {
+      default: 'Все'
+    },
+    option: {},
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+.categories-btn {
+  width: 100%;
+  height: 36px;
+  background-color: #fff;
+  display: flex;
+  margin-bottom: 6px;
+  text-align: center;
+  align-items: center;
+  font-family: Roboto;
+  outline: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  color: var(--dark);
+  cursor: pointer;
+  z-index: 9;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+}
+.categories-btn:hover {
+  background: var(--pale-lilac);
+  color: var(--bright-orange);
+}
+.circle-block {
+  position: absolute;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.circle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--bright-orange);
+  border-radius: 50%;
+}
+</style>
