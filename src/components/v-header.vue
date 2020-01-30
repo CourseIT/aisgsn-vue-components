@@ -56,8 +56,8 @@
               <v-icon class="header-icon regular" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
             </div>
-            <p class="header-name">Смирнова Светлана Ивановна</p>
-            <v-icon class="header-icon mt3" :hover_color="true" icon=""/>
+            <p class="header-name">{{user}}</p>
+            <v-icon :action="logout_action" class="header-icon mt3" :hover_color="true" icon=""/>
           </div>
       </nav>
     </header>
@@ -88,6 +88,14 @@ export default {
     },
     degree: {
       default: '28'
+    },
+    user: {
+      default: 'Смирнова Светлана Ивановна'
+    },
+    logout_action: {
+      default: function() {
+        return () => ({})
+      }
     },
     notifications: {
       type: Array,

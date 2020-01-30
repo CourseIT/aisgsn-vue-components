@@ -1,6 +1,13 @@
 <template>
   <div class="date-btn__block">
+    <div v-if="date_input_show">
+      <div class="date-btn-input">
+        <input v-model="date_input" type="text" autofocus>
+        <v-icon :action="emitDateInput" class="icon-apply" width="15" icon="" />
+      </div>
+    </div>
     <v-menu
+      v-else
       ref="menu"
       v-model="menu"
       :close-on-content-click="false"
@@ -10,10 +17,10 @@
     >
       <template v-slot:activator="{ on }">
         <button v-on="on" class="date__btn">
-          <div v-on="on" @click="date = new Date().toISOString().substr(0, 10)">
-            <v-icon v-if="date != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
+          <div v-on="on" @click="clearDate">
+            <v-icon v-if="date_input != `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`" class="icon-colse" width="15" icon="" />
           </div>
-          <p :class="{'pl15': date == new Date().toISOString().substr(0, 10)}">{{day}}.{{month}}.{{year}}</p>
+          <p @click="date_input_show = true" v-on="on" :class="{'pl15': date_input == `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`}">{{date_input}}</p>
           <v-icon v-on="on" class="icon w19" width="19" icon="" />
         </button>
       </template>
@@ -30,13 +37,19 @@ export default {
   components: { VIcon },
   data: () => ({
     date: new Date().toISOString().substr(0, 10),
+    date_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     menu: false,
     modal: false,
+    date_input_show: false
   }),
+  mounted() {
+    this.$emit('input', this.date_input)
+  },
   watch: {
     date() {
-      this.$emit('input', `${this.day},${this.month},${this.year}`)
-    }
+      this.$emit('input', `${this.day}.${this.month}.${this.year}`)
+      this.date_input = `${this.day}.${this.month}.${this.year}`
+    },
   },
   computed: {
     year() {
@@ -47,6 +60,18 @@ export default {
     },
     day() {
       return this.date.substr(8, 2)
+    }
+  },
+  methods: {
+    emitDateInput() {
+      this.date_input_show = false
+      this.$emit('input', this.date_input)
+      this.date = `${this.date_input.substr(6, 4)}-${this.date_input.substr(3, 2)}-${this.date_input.substr(0, 2)}`
+    },
+    clearDate() {
+      this.date = new Date().toISOString().substr(0, 10)
+      this.date_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
+      this.$emit('input', this.date_input)
     }
   }
 }
@@ -149,7 +174,6 @@ export default {
 }
 .date-btn__block .icon-colse {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: FontAwesome5Pro;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -176,6 +200,51 @@ export default {
   color: var(--bright-orange);
 }
 .date-btn__block .date__btn:focus .icon {
+  color: var(--bright-orange);
+}
+
+.date-btn-input {
+  display: flex;
+  width: 132px;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--pale-lilac);
+  padding: 4px;
+  height: 36px;
+}
+.date-btn-input input {
+  outline: none;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: var(--dark);
+  padding: 4px 23px;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.date-btn-input .icon-apply .icon{
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -20px;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.date-btn-input .icon-apply .icon:hover {
   color: var(--bright-orange);
 }
 </style>

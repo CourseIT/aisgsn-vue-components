@@ -1,6 +1,13 @@
 <template>
   <div class="date-range-btn__block">
+    <div v-if="date_range_input_show">
+      <div class="date-range-btn-input">
+        <input v-model="date_range_input" type="text" autofocus>
+        <v-icon :action="emitDateRangeInput" class="icon-apply" width="15" icon="" />
+      </div>
+    </div>
     <v-menu
+      v-else
       ref="menu"
       v-model="menu"
       :close-on-content-click="false"
@@ -11,11 +18,11 @@
     >
       <template v-slot:activator="{ on }">
         <button v-on="on" class="df date__btn">
-          <div v-on="on" @click="date = [new Date().toISOString().substr(0, 10)]">
-            <v-icon v-if="date.length > 1" class="icon-colse" width="15" icon="" />
+          <div v-on="on" @click="clearDate">
+            <v-icon v-if="date.length > 1 || date[0] != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
           </div>
           <button class="hover" v-on="on">
-            <p v-on="on" :class="{'pl25': date.length < 2}">{{dateRangeText}} </p>
+            <p @click="date_range_input_show = true" class="pl25">{{dateRangeText}} </p>
           </button>
           <v-icon class="icon hover" width="19" icon="" />
         </button>
@@ -33,12 +40,18 @@ export default {
   components: { VIcon },
   data: () => ({
     date: [new Date().toISOString().substr(0, 10)],
+    date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     menu: false,
     modal: false,
+    date_range_input_show: false
   }),
+  mounted() {
+    this.$emit('input', this.date_range_input)
+  },
   watch: {
     date() {
       this.$emit('input', this.dateRangeText)
+      this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
     }
   },
   computed: {
@@ -48,6 +61,27 @@ export default {
       }
         return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
     },
+  },
+  methods: {
+    emitDateRangeInput() {
+      this.date_range_input_show = false
+      this.$emit('input', this.date_range_input)
+      if(this.date_range_input.length > 13) {
+        const date1 = this.date_range_input.split('-')[0].replace(/\s+/g, '').replace(/\./g, "-")
+        const date2 = this.date_range_input.split('-')[1].replace(/\s+/g, '').replace(/\./g, "-")
+        window.console.log(date1, date2)
+        this.date = [`${date1.split('-')[2]}-${date1.split('-')[1]}-${date1.split('-')[0]}`, `${date2.split('-')[2]}-${date2.split('-')[1]}-${date2.split('-')[0]}`]
+      } else {
+        const date1 = this.date_range_input.split('-')[0].replace(/\s+/g, '').replace(/\./g, "-")
+        this.date = [`${date1.split('-')[2]}-${date1.split('-')[1]}-${date1.split('-')[0]}`]
+      }
+     
+    },
+    clearDate() {
+      this.date = [new Date().toISOString().substr(0, 10)]
+      this.date_range_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
+      this.$emit('input', this.date_input)
+    }
   }
 }
 </script>
@@ -157,6 +191,8 @@ button {
   text-align: left;
   color: var(--dark);
   z-index: 9;
+  position: absolute;
+  margin-top: -17px;
 }
 .date-range-btn__block .icon-colse:hover .icon{
   color: var(--bright-orange);
@@ -178,6 +214,51 @@ button {
   color: var(--dark);
 }
 .date-range-btn__block .date__btn:focus .icon {
+  color: var(--bright-orange);
+}
+
+.date-range-btn-input {
+  display: flex;
+  width: 263px;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: var(--pale-lilac);
+  padding: 4px;
+  height: 36px;
+}
+.date-range-btn-input input {
+  outline: none;
+  text-align: center;
+  border-radius: 4px;
+  background-color: #fff;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: var(--dark);
+  padding: 4px 23px;
+  padding-top: 5px;
+  padding-left: 27px;
+}
+.date-range-btn-input .icon-apply .icon{
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -20px;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.date-range-btn-input .icon-apply .icon:hover {
   color: var(--bright-orange);
 }
 </style>

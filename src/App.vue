@@ -66,11 +66,17 @@ html {
 .aic {
   align-items: center;
 }
+.h15 {
+  height: 15px;
+}
 .h55 {
   height: 55px;
 }
 .w140 {
   width: 140px;
+}
+.w15 {
+  width: 15px;
 }
 .w20 {
   width: 20px;

@@ -275,7 +275,7 @@
 
 <!-------------------------------- categories-search -------------------------------->
     <v-categories-search v-model="categories_search" :option="categories_option" defailt_text="Категории">
-      <v-categories-option v-model="categories_option" :option="item" v-for="(item, index) in categories_list" :key="index" />
+      <v-categories-option v-model="categories_option" :action="test" :option="item" v-for="(item, index) in categories_list" :key="index" />
     </v-categories-search>
 <!-------------------------------- categories-search -------------------------------->
 
@@ -494,6 +494,7 @@ export default {
   margin-left: 600px;
 }
 .components {
+  padding-bottom: 200px;
   transition: all 0.3s ease;
 }
 </style>
