@@ -76,7 +76,7 @@ export default {
   border-radius: 4px;
   width: 100%;
   height: 50px;
-  z-index: 9;
+  z-index: 8;
   position: relative;
   overflow: auto;  
   transition: all 0.2s ease-out;
