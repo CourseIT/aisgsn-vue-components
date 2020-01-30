@@ -58,8 +58,9 @@ export default {
     dateRangeText () {
       if(this.date.length > 1) {
         return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
-      }
+      } else {
         return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
+      }
     },
   },
   methods: {
@@ -67,12 +68,12 @@ export default {
       this.date_range_input_show = false
       this.$emit('input', this.date_range_input)
       if(this.date_range_input.length > 13) {
-        const date1 = this.date_range_input.split('-')[0].replace(/\s+/g, '').replace(/\./g, "-")
-        const date2 = this.date_range_input.split('-')[1].replace(/\s+/g, '').replace(/\./g, "-")
+        const date1 = this.date_range_input.split('–')[0].replace(/\s+/g, '').replace(/\./g, "-")
+        const date2 = this.date_range_input.split('–')[1].replace(/\s+/g, '').replace(/\./g, "-")
         window.console.log(date1, date2)
         this.date = [`${date1.split('-')[2]}-${date1.split('-')[1]}-${date1.split('-')[0]}`, `${date2.split('-')[2]}-${date2.split('-')[1]}-${date2.split('-')[0]}`]
       } else {
-        const date1 = this.date_range_input.split('-')[0].replace(/\s+/g, '').replace(/\./g, "-")
+        const date1 = this.date_range_input.split('–')[0].replace(/\s+/g, '').replace(/\./g, "-")
         this.date = [`${date1.split('-')[2]}-${date1.split('-')[1]}-${date1.split('-')[0]}`]
       }
      
