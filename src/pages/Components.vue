@@ -450,7 +450,7 @@ export default {
     template_show6: false,
 
     categories_search: '',
-    categories_option: '',
+    categories_option: 'Все',
     categories_list: [
       'Все',
       'Категория1',

@@ -5,7 +5,7 @@
         <button class="main-btn" :style="{'width': width}">
           <div class="hover-btn df w100">
             <div @click="menu_show = true" class="w100 df aic jcc pl16">
-              {{option || defailt_text}}
+              {{title || defailt_text}}
             </div>
             <div @click="menu_show = true" class="hover-btn">
               <slot name="main-icon">
@@ -73,6 +73,11 @@ export default {
       this.$emit('input', search)
     }
   },
+  computed: {
+    title() {
+      return this.option == 'Все' ? 'Категории' : this.option
+    }
+  }
 }
 </script>
 
