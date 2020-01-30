@@ -168,7 +168,7 @@ button {
   letter-spacing: normal;
   color: var(--dark);
   height: 36px;
-  padding-top: 10.5px;
+  padding-top: 10px;
 }
 .date-range-btn__block .icon {
   font-family: var(--font-awesome-5-pro-light);
