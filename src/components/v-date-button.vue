@@ -158,6 +158,8 @@ export default {
   line-height: 1.55;
   letter-spacing: normal;
   color: var(--dark);
+  height: 36px;
+  padding-top: 10.5px;
 }
 .date-btn__block .icon {
   font-family: var(--font-awesome-5-pro-light);
