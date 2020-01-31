@@ -280,7 +280,7 @@
 <!-------------------------------- categories-search -------------------------------->
 
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->
-    <v-select class="media-min-1500" v-model="value1" icon="" icon_size="20px" defailt_value="Выбор1" text_center="true" width="238px">
+    <v-select class="media-min-1500" v-model="value1" icon="" icon_size="20px" defailt_value="Сортировка" text_center="true" width="238px">
       <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
     </v-select>
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->

@@ -2,7 +2,7 @@
   <div class="date-btn__block">
     <div v-if="date_input_show">
       <div class="date-btn-input">
-        <input v-model="date_input" type="text" autofocus>
+        <input v-model="date_input" type="text" placeholder="дд.мм.гггг" autofocus class="date-input">
         <v-icon :action="emitDateInput" class="icon-apply" width="15" icon="" />
       </div>
     </div>
@@ -50,6 +50,9 @@ export default {
       this.$emit('input', `${this.day}.${this.month}.${this.year}`)
       this.date_input = `${this.day}.${this.month}.${this.year}`
     },
+    date_input(value) {
+      this.date_input = value.replace(/[^+.\d]/g, '').substr(0,10)
+    }
   },
   computed: {
     year() {
@@ -66,13 +69,14 @@ export default {
     emitDateInput() {
       this.date_input_show = false
       this.$emit('input', this.date_input)
+      window.console.log(this.date_input)
       this.date = `${this.date_input.substr(6, 4)}-${this.date_input.substr(3, 2)}-${this.date_input.substr(0, 2)}`
     },
     clearDate() {
       this.date = new Date().toISOString().substr(0, 10)
       this.date_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
       this.$emit('input', this.date_input)
-    }
+    },
   }
 }
 </script>
@@ -231,6 +235,12 @@ export default {
   padding-top: 5px;
   padding-left: 20px;
 }
+.date-btn-input input::-webkit-inner-spin-button,
+.date-btn-input input::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
 .date-btn-input .icon-apply .icon{
   position: absolute;
   margin-top: 7px;

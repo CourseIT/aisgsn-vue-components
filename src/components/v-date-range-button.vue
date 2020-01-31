@@ -2,7 +2,7 @@
   <div class="date-range-btn__block">
     <div v-if="date_range_input_show">
       <div class="date-range-btn-input">
-        <input v-model="date_range_input" type="text" autofocus>
+        <input v-model="date_range_input" placeholder="дд.мм.гггг - дд.мм.гггг" type="text" autofocus>
         <v-icon :action="emitDateRangeInput" class="icon-apply" width="15" icon="" />
       </div>
     </div>
@@ -52,6 +52,9 @@ export default {
     date() {
       this.$emit('input', this.dateRangeText)
       this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
+    },
+    date_range_input(value) {
+      this.date_range_input = value.replace(/[^+-\s.\d]/g, '').substr(0,23)
     }
   },
   computed: {
@@ -67,9 +70,10 @@ export default {
     emitDateRangeInput() {
       this.date_range_input_show = false
       this.$emit('input', this.date_range_input)
+      window.console.log(this.date_range_input)
       if(this.date_range_input.length > 13) {
-        const date1 = this.date_range_input.split('–')[0].replace(/\s+/g, '').replace(/\./g, "-")
-        const date2 = this.date_range_input.split('–')[1].replace(/\s+/g, '').replace(/\./g, "-")
+        const date1 = this.date_range_input.split('-')[0].replace(/\s+/g, '').replace(/\./g, "-")
+        const date2 = this.date_range_input.split('-')[1].replace(/\s+/g, '').replace(/\./g, "-")
         window.console.log(date1, date2)
         this.date = [`${date1.split('-')[2]}-${date1.split('-')[1]}-${date1.split('-')[0]}`, `${date2.split('-')[2]}-${date2.split('-')[1]}-${date2.split('-')[0]}`]
       } else {
