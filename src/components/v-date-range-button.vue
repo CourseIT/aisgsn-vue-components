@@ -3,7 +3,8 @@
     <div v-if="date_range_input_show">
       <div class="date-range-btn-input">
         <input v-model="date_range_input" placeholder="дд.мм.гггг - дд.мм.гггг" type="text" autofocus>
-        <v-icon :action="emitDateRangeInput" class="icon-apply" width="15" icon="" />
+        <v-icon v-if="date_range_input.length == 23" :action="emitDateRangeInput" class="icon-apply" width="15" icon="" />
+        <v-icon v-else :action="clearDate" class="icon-apply" width="15" icon="" />
       </div>
     </div>
     <v-menu
@@ -19,7 +20,7 @@
       <template v-slot:activator="{ on }">
         <button v-on="on" class="df date__btn">
           <div v-on="on" @click="clearDate">
-            <v-icon v-if="date.length > 1 || date[0] != new Date().toISOString().substr(0, 10)" class="icon-colse" width="15" icon="" />
+            <v-icon v-if="show_close" class="icon-colse" width="15" icon="" />
           </div>
           <button class="hover" v-on="on">
             <p @click="date_range_input_show = true" class="pl25">{{dateRangeText}} </p>
@@ -39,19 +40,26 @@ const VIcon = () => import('@/components/v-icon')
 export default {
   components: { VIcon },
   data: () => ({
-    date: [new Date().toISOString().substr(0, 10)],
-    date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
+    today: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
+    date: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
+    date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)} - ${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     menu: false,
     modal: false,
+    show_close: false,
     date_range_input_show: false
   }),
   mounted() {
     this.$emit('input', this.date_range_input)
   },
   watch: {
-    date() {
+    date(value) {
+      if(value !== this.today) {
+        this.show_close = true
+      } else {
+        this.show_close = false
+      }
       this.$emit('input', this.dateRangeText)
-      this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
+      this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
     },
     date_range_input(value) {
       this.date_range_input = value.replace(/[^+-\s.\d]/g, '').substr(0,23)
@@ -83,9 +91,10 @@ export default {
      
     },
     clearDate() {
-      this.date = [new Date().toISOString().substr(0, 10)]
+      this.date = this.today
       this.date_range_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
       this.$emit('input', this.date_input)
+      this.date_range_input_show = false
     }
   }
 }

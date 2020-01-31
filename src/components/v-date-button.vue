@@ -3,7 +3,8 @@
     <div v-if="date_input_show">
       <div class="date-btn-input">
         <input v-model="date_input" type="text" placeholder="дд.мм.гггг" autofocus class="date-input">
-        <v-icon :action="emitDateInput" class="icon-apply" width="15" icon="" />
+        <v-icon v-if="date_input.length == 10" :action="emitDateInput" class="icon-apply" width="15" icon="" />
+        <v-icon v-else :action="clearDate" class="icon-apply" width="15" icon="" />
       </div>
     </div>
     <v-menu
@@ -76,6 +77,7 @@ export default {
       this.date = new Date().toISOString().substr(0, 10)
       this.date_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
       this.$emit('input', this.date_input)
+      this.date_input_show = false
     },
   }
 }
