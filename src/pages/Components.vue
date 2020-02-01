@@ -285,6 +285,14 @@
     </v-select>
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->
 
+<!-------------------------------- filter-input -------------------------------->
+    <v-filter-input class="mb20" v-model="filter_input"/>
+<!-------------------------------- filter-input -------------------------------->
+
+<!-------------------------------- filter-input-switch -------------------------------->
+    <v-filter-input-switch v-model="filter_input_switch" :list="filter_list"/>
+<!-------------------------------- filter-input-switch -------------------------------->
+
   </div>
 </template>
 
@@ -315,6 +323,8 @@ const VTemplateBlockWithIcon = () => import('@/components/v-template-block-with-
 const VIconsGroup = () => import('@/components/v-icons-group')
 const VCategoriesSearch = () => import('@/components/v-categories-search')
 const VCategoriesOption = () => import('@/components/v-categories-option')
+const VFilterInput = () => import('@/components/v-filter-input')
+const VFilterInputSwitch = () => import('@/components/v-filter-input-switch')
 
 export default {
   components: {
@@ -343,7 +353,9 @@ export default {
     VSearch,
     VTemplateBlockWithIcon,
     VCategoriesSearch,
-    VCategoriesOption
+    VCategoriesOption,
+    VFilterInput,
+    VFilterInputSwitch
   },
   data: () => ({
     // drag`n`drop
@@ -457,6 +469,17 @@ export default {
       'Категория2',
       'Категория3',
       'Категория4'
+    ],
+
+
+    filter_input: '',
+    filter_input_switch: '',
+    filter_list: [
+      'Материалы проверки №21',
+      'Материалы проверки №22',
+      'Материалы проверки №23',
+      'Материалы проверки №24',
+      'Материалы проверки №25'
     ]
     
 

@@ -237,12 +237,6 @@ export default {
   padding-top: 5px;
   padding-left: 20px;
 }
-.date-btn-input input::-webkit-inner-spin-button,
-.date-btn-input input::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
-
 .date-btn-input .icon-apply .icon{
   position: absolute;
   margin-top: 7px;

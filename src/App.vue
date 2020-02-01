@@ -111,6 +111,9 @@ html {
 .ml3 {
   margin-left: 3px;
 }
+.ml15 {
+  margin-left: 15px;
+}
 .mt0 {
   margin-top: 0px;
 }
