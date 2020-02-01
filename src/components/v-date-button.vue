@@ -70,7 +70,6 @@ export default {
     emitDateInput() {
       this.date_input_show = false
       this.$emit('input', this.date_input)
-      window.console.log(this.date_input)
       this.date = `${this.date_input.substr(6, 4)}-${this.date_input.substr(3, 2)}-${this.date_input.substr(0, 2)}`
     },
     clearDate() {

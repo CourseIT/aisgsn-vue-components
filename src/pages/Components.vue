@@ -290,8 +290,12 @@
 <!-------------------------------- filter-input -------------------------------->
 
 <!-------------------------------- filter-input-switch -------------------------------->
-    <v-filter-input-switch v-model="filter_input_switch" :list="filter_list"/>
+    <v-filter-input-switch class="mb20" v-model="filter_input_switch" :list="filter_list"/>
 <!-------------------------------- filter-input-switch -------------------------------->
+
+<!-------------------------------- time-btn -------------------------------->
+    <v-time-button v-model="time_btn" />
+<!-------------------------------- time-btn -------------------------------->
 
   </div>
 </template>
@@ -325,6 +329,7 @@ const VCategoriesSearch = () => import('@/components/v-categories-search')
 const VCategoriesOption = () => import('@/components/v-categories-option')
 const VFilterInput = () => import('@/components/v-filter-input')
 const VFilterInputSwitch = () => import('@/components/v-filter-input-switch')
+const VTimeButton = () => import('@/components/v-time-button')
 
 export default {
   components: {
@@ -355,7 +360,8 @@ export default {
     VCategoriesSearch,
     VCategoriesOption,
     VFilterInput,
-    VFilterInputSwitch
+    VFilterInputSwitch,
+    VTimeButton
   },
   data: () => ({
     // drag`n`drop
@@ -480,7 +486,9 @@ export default {
       'Материалы проверки №23',
       'Материалы проверки №24',
       'Материалы проверки №25'
-    ]
+    ],
+
+    time_btn: ''
     
 
   }),
