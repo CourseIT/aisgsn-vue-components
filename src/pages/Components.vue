@@ -47,7 +47,15 @@
 
 <!-------------------------------- card-block with draggable -------------------------------->
     <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
-      <v-card-block class="mb20" width="450px" :item="element" :action_minus="test" :action_edit="test" v-for="element in list_card" :key="element.id"/>
+      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :key="item.id">
+        <template #text>
+          <v-card-text :text="item.date" bold="true" class="mb7"/>
+          <v-card-text :text="item.number" />
+          <v-card-text :text="item.method" />
+          <v-card-text :text="item.signature" />
+          <v-card-text :text="item.text" />
+        </template>
+      </v-card-block>
     </draggable>
 <!-------------------------------- card-block with draggable -------------------------------->
 
@@ -330,6 +338,7 @@ const VCategoriesOption = () => import('@/components/v-categories-option')
 const VFilterInput = () => import('@/components/v-filter-input')
 const VFilterInputSwitch = () => import('@/components/v-filter-input-switch')
 const VTimeButton = () => import('@/components/v-time-button')
+const VCardText = () => import('@/components/v-card-text')
 
 export default {
   components: {
@@ -361,7 +370,8 @@ export default {
     VCategoriesOption,
     VFilterInput,
     VFilterInputSwitch,
-    VTimeButton
+    VTimeButton,
+    VCardText
   },
   data: () => ({
     // drag`n`drop

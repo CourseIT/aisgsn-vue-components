@@ -120,6 +120,9 @@ html {
 .mb20 {
   margin-bottom: 20px;
 }
+.mb7 {
+  margin-bottom: 7px !important;
+}
 .mb5 {
   margin-bottom: 5px;
 }

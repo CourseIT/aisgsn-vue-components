@@ -3,11 +3,8 @@
     <div class="df inspection-program-block">
       <slot>
         <div class="w95">
-          <p class="mb7 fwb">{{item.date}}</p>
-          <p class="mb4">{{item.number}}</p>
-          <p class="mb4">{{item.method}}</p>
-          <p class="mb4">{{item.signature}}</p>
-          <p>{{item.text}}</p>
+          <slot name="text">
+          </slot>
         </div>
         <div>
           <div @click="action_edit">
@@ -25,24 +22,13 @@
 <script>
 const VIcon = () => import('@/components/v-icon')
 
+
 export default {
   name: 'v-card-block',
   components: {
     VIcon
   },
   props: {
-    item: {
-      default: function () { 
-        return {
-          date: '20.08.2020 – 28.08.2020',
-          number: 'Номер объекта контроля',
-          method: 'Метод',
-          signature: 'Подпись',
-          text: 'Любая необходимая информация',
-          id: 0
-        }
-      }
-    },
     width: {},
     action_minus: {
       default: function() {
@@ -84,7 +70,7 @@ export default {
   cursor: pointer;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
-.inspection-program-block p {
+/* .inspection-program-block p {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 11px;
@@ -95,7 +81,7 @@ export default {
   text-align: left;
   color: var(--dark);
   margin-bottom: 0;
-}
+} */
 .icon-p {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro-light);
