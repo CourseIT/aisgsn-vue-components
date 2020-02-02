@@ -3,36 +3,10 @@
     <div class="animate" :class="{'lightGamma': light_gamma}">
       <div class="menu-top-bg"></div>
       <div class="menu__container">
+        <slot name="search">
+        </slot>
         <div class="menu__links">
           <slot>
-            <v-submenu title="Главная" :action="test" only_title="true" />
-            <v-submenu title="НАДЗОР" :text_size="text_size">
-              <v-submenu-link :action="test" text="Надзорные дела" />
-              <v-submenu-link text="Программа проверок" />
-              <v-submenu-link text="Проверки" />
-            </v-submenu>
-            <v-submenu title="ТКИ">
-              <v-submenu-link text="План работ" />
-              <v-submenu-link text="Средства контроля" />
-              <v-submenu-link text="Повышение квалификации" />
-              <v-submenu-link text="СМК" />
-            </v-submenu>
-            <v-submenu title="АНАЛИТИКА">
-              <v-submenu-link text="Статистика" />
-              <v-submenu-link text="Нарушения" />
-              <v-submenu-link text="Резонансные нарушения" />
-              <v-submenu-link text="СМК" />
-            </v-submenu>
-            <v-submenu title="НСИ">
-              <v-submenu-link text="Регулирующие документы" />
-              <v-submenu-link text="Журнал ознокомления с документами" />
-              <v-submenu-link text="Реестр организаций" />
-              <v-submenu-link text="Участники ГСН" />
-              <v-submenu-link text="Классификатор нарушений" />
-              <v-submenu-link text="Управление сотрудниками" />
-              <v-submenu-link text="КоАП" />
-            </v-submenu>
-            <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" />
           </slot>
         </div>
       </div>
@@ -60,14 +34,10 @@
 
 <script>
 const VIcon = () => import('@/components/v-icon.vue')
-const VSubmenu = () => import('@/components/v-submenu')
-const VSubmenuLink = () => import('@/components/v-submenu-link')
 
 export default {
   components: {
     VIcon,
-    VSubmenu,
-    VSubmenuLink
   },
   data: () => ({
     light_gamma: false,

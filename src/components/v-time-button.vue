@@ -93,7 +93,6 @@ export default {
   border-radius: 4px;
   transition: all 0.2s ease-out;
   margin: 0px;
-  margin-bottom: 7px;
   outline: none;
 }
 .time-btn__block .time__btn p {

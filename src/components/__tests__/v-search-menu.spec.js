@@ -1,8 +1,8 @@
-import VSearch from '@/components/v-search.vue'
+import VSearchMenu from '@/components/v-search-menu.vue'
 import { shallowMount } from '@vue/test-utils';
 
 describe('Search', () => {
-  const wrapper = shallowMount(VSearch, {
+  const wrapper = shallowMount(VSearchMenu, {
     propsData: {
       width: '300px',
       placeholder: 'placeholder'

@@ -1,7 +1,10 @@
 <template>
   <div>
     <v-header />
-    <v-menu drawer='false'>
+    <v-menu>
+      <template #search>
+        <v-search-menu v-model="search" placeholder="Поиск" />
+      </template>
       <v-submenu title="Главная" :action="test" only_title="true" />
             <v-submenu title="НАДЗОР">
               <v-submenu-link :action="test" text="Надзорные дела" />
@@ -44,6 +47,7 @@ const VMenu = () => import('@/components/v-menu')
 const VHeader = () => import('@/components/v-header')
 const VSubmenu = () => import('@/components/v-submenu')
 const VSubmenuLink = () => import('@/components/v-submenu-link')
+const VSearchMenu = () => import('@/components/v-search-menu')
 
 export default {
   name: 'DocLayout',
@@ -51,10 +55,11 @@ export default {
     VMenu,
     VHeader,
     VSubmenu,
-    VSubmenuLink
+    VSubmenuLink,
+    VSearchMenu
   },
   data: () => ({
-    //
+    search: ''
   }),
   methods: {
     test() {
