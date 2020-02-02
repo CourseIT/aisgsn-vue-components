@@ -59,11 +59,19 @@ export default {
   computed: {
     filterList() {
       const new_list = this.list.filter(word => word.substr(0, this.value.length).toLowerCase() == this.value.toLowerCase());
-      return new_list;
+      if(new_list.length == 0) {
+        return ['Ничего не найдено']
+      } else {
+        return new_list;
+      }
     },
     filterListIncludes() {
       const new_list = this.list.filter(word => word.toLowerCase().includes(this.value.toLowerCase()))
-      return new_list;
+      if(new_list.length == 0) {
+        return ['Ничего не найдено']
+      } else {
+        return new_list;
+      }
     }
   },
   methods: {
@@ -200,6 +208,7 @@ export default {
   background-color: var(--white);
   padding: 9px;
   position: absolute;
+  z-index: 8;
 }
 .filter-input-switch .input-list p {
   font-family: Roboto;
