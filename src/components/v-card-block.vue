@@ -61,8 +61,7 @@ export default {
 }
 .inspection-program-block {
   padding: 6px 10px;
-  
-  height: 100px;
+  min-height: 100px;
   border-radius: 4px;
   background-color: var(--white);
 }

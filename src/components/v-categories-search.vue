@@ -1,7 +1,7 @@
 <template>
   <div class="categories">
     <div class="df">
-      <div class="select w140" :class="{'pos-r': menu_show}" :style="{'width': width}">
+      <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <button class="main-btn" :style="{'width': width}">
           <div class="hover-btn df w100">
             <div @click="menu_show = true" class="w100 df aic jcc pl16">
@@ -148,8 +148,11 @@ export default {
 .select_shadow {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
 }
+.index100{
+  z-index: 109 !important;
+}
 .select {
-  z-index: 109;
+  z-index: 8;
 }
 .no-icon {
   width: 36px;

@@ -117,6 +117,9 @@ html {
 .mt0 {
   margin-top: 0px;
 }
+.mb0 {
+  margin-bottom: 0 !important;
+}
 .mb20 {
   margin-bottom: 20px;
 }

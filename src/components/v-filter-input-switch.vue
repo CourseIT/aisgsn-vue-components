@@ -257,7 +257,7 @@ export default {
 .filter-switch .v-input--switch__thumb {
   width: 13px !important;
   background-color: var(--blue-grey) !important;
-  opacity: 0.7;
+  opacity: 0.8;
   top: 12px !important;
   height: 13px !important;
 }

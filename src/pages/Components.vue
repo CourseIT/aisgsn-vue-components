@@ -53,7 +53,7 @@
           <v-card-text :text="item.number" />
           <v-card-text :text="item.method" />
           <v-card-text :text="item.signature" />
-          <v-card-text :text="item.text" />
+          <v-card-text :text="item.text" class="mb0"/>
         </template>
       </v-card-block>
     </draggable>
@@ -305,6 +305,8 @@
     <v-time-button v-model="time_btn" />
 <!-------------------------------- time-btn -------------------------------->
 
+    <v-switch-button v-model="switch_button" />
+
   </div>
 </template>
 
@@ -339,6 +341,7 @@ const VFilterInput = () => import('@/components/v-filter-input')
 const VFilterInputSwitch = () => import('@/components/v-filter-input-switch')
 const VTimeButton = () => import('@/components/v-time-button')
 const VCardText = () => import('@/components/v-card-text')
+const VSwitchButton = () => import('@/components/v-switch-button')
 
 export default {
   components: {
@@ -371,7 +374,8 @@ export default {
     VFilterInput,
     VFilterInputSwitch,
     VTimeButton,
-    VCardText
+    VCardText,
+    VSwitchButton
   },
   data: () => ({
     // drag`n`drop
@@ -498,7 +502,8 @@ export default {
       'Материалы проверки №25'
     ],
 
-    time_btn: ''
+    time_btn: '',
+    switch_button: ''
     
 
   }),
