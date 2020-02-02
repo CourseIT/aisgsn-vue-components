@@ -78,6 +78,9 @@ export default {
 .time__block button {
   width: 100%;
 }
+.time-btn__block {
+  display: inline-block;
+}
 .time-btn__block:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   width: 263px;
