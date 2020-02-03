@@ -1,5 +1,5 @@
 <template>
-  <div class="categories">
+  <div class="categories" :class="{'mb30': chips}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
 
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="chips">
+    <div v-if="chips" class="chips">
       <div class="chip" @click="pickOption(item)" v-for="(item, index) in search_list" :key="index">
         <v-icon class="icon" width="15" icon="" />
         {{item}}
@@ -45,6 +45,9 @@ const VCategoriesOption = () => import('@/components/v-categories-option')
 
 export default {
   props: {
+    chips: {
+      default: 'true'
+    },
     option: {},
     list: {
       default: () => {
@@ -110,9 +113,6 @@ export default {
 </script>
 
 <style scoped>
-.categories {
-  margin-bottom: 30px;
-}
 .categories-search {
   display: flex;
   transition: all 0.3s ease;

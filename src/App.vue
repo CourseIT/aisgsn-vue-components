@@ -123,6 +123,9 @@ html {
 .mb20 {
   margin-bottom: 20px;
 }
+.mb30 {
+  margin-bottom: 30px;
+}
 .mb7 {
   margin-bottom: 7px !important;
 }
