@@ -45,6 +45,11 @@ export default {
     this.time = `${h}:${m} - ${Number(h)+1}:${m}`
     this.$emit('input', this.time)
   },
+  watch: {
+    time(value) {
+      this.time = value.replace(/[^:-\d\s]/g, '').substr(0,13)
+    }
+  },
   computed: {
     currentTime() {
       var time = new Date();
