@@ -281,11 +281,19 @@
     <v-search class="mb20" v-model="search" width="600px"/>
 <!-------------------------------- search -------------------------------->
 
+  <!-- <v-categories-option v-model="categories_option" :action="test" :option="item" v-for="(item, index) in categories_list" :key="index" /> -->
+
 <!-------------------------------- categories-search -------------------------------->
-    <v-categories-search v-model="categories_search" :option="categories_option" defailt_text="Категории">
-      <v-categories-option v-model="categories_option" :action="test" :option="item" v-for="(item, index) in categories_list" :key="index" />
+    <v-categories-search v-model="categories_search" defailt_text="Категории">
+      <v-select class="media-min-1500" v-model="categories_option" :list="categories_list" defailt_value="Категории" text_center="true" width="140px" />
     </v-categories-search>
 <!-------------------------------- categories-search -------------------------------->
+
+
+
+    <v-multiple-search :submit="test" v-model="multiple_search" :list="categories_list"/>
+
+
 
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->
     <v-select class="media-min-1500" v-model="value1" icon="" icon_size="20px" defailt_value="Сортировка" text_center="true" width="238px">
@@ -306,6 +314,7 @@
 <!-------------------------------- time-btn -------------------------------->
 
     <v-switch-button v-model="switch_button" />
+
 
   </div>
 </template>
@@ -336,12 +345,13 @@ const VSearch = () => import('@/components/v-search')
 const VTemplateBlockWithIcon = () => import('@/components/v-template-block-with-icon')
 const VIconsGroup = () => import('@/components/v-icons-group')
 const VCategoriesSearch = () => import('@/components/v-categories-search')
-const VCategoriesOption = () => import('@/components/v-categories-option')
+// const VCategoriesOption = () => import('@/components/v-categories-option')
 const VFilterInput = () => import('@/components/v-filter-input')
 const VFilterInputSwitch = () => import('@/components/v-filter-input-switch')
 const VTimeButton = () => import('@/components/v-time-button')
 const VCardText = () => import('@/components/v-card-text')
 const VSwitchButton = () => import('@/components/v-switch-button')
+const VMultipleSearch = () => import('@/components/v-multiple-search')
 
 export default {
   components: {
@@ -370,12 +380,13 @@ export default {
     VSearch,
     VTemplateBlockWithIcon,
     VCategoriesSearch,
-    VCategoriesOption,
+    // VCategoriesOption,
     VFilterInput,
     VFilterInputSwitch,
     VTimeButton,
     VCardText,
-    VSwitchButton
+    VSwitchButton,
+    VMultipleSearch
   },
   data: () => ({
     // drag`n`drop
@@ -482,7 +493,7 @@ export default {
     template_show6: false,
 
     categories_search: '',
-    categories_option: 'Все',
+    categories_option: '',
     categories_list: [
       'Все',
       'Категория1',
@@ -503,7 +514,9 @@ export default {
     ],
 
     time_btn: '',
-    switch_button: ''
+    switch_button: '',
+
+    multiple_search: ''
     
 
   }),

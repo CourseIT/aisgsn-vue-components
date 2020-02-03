@@ -1,7 +1,7 @@
 <template>
   <button @click="$emit('input', option)" class="categories-btn">
     <div class="circle-block">
-      <div v-if="value == option" class="circle"></div>
+      <div v-if="value == option || list.includes(option)" class="circle"></div>
     </div>
     <div @click="action" class="df aic w100 hover-btn jcc">
       {{option}}
@@ -13,7 +13,10 @@
 export default {
   props : {
     value: {
-      default: 'Все'
+      default: ''
+    },
+    list: {
+      default: []
     },
     option: {},
     action: {
@@ -49,7 +52,6 @@ export default {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
 }
 .categories-btn:hover {
-  background: var(--pale-lilac);
   color: var(--bright-orange);
 }
 .circle-block {

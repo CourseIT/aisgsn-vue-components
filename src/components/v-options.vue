@@ -1,6 +1,6 @@
 <template>
-    <button class="select-btn select_shadow">
-      <div @click="action" class="df aic w100 hover-btn jcc">
+    <button @click="action" class="select-btn select_shadow">
+      <div class="df aic w100 hover-btn jcc">
         {{option}}
       </div>
     </button>

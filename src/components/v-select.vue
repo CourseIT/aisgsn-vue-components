@@ -6,10 +6,10 @@
           <v-icon icon="" width="16" class="select__icon-colse"/>
         </button>
         <div class="hover-btn df w100">
-          <div @click="menu_show = true" class="w100 df aic jcc"  :class="{'pl16': !value}">
+          <div @click="menu_show = !menu_show" class="w100 df aic jcc"  :class="{'pl16': !value}">
             {{value || defailt_value}}
           </div>
-          <div @click="menu_show = true" class="hover-btn">
+          <div @click="menu_show = !menu_show" class="hover-btn">
             <slot name="main-icon">
               <v-icon :icon="icon" :style="{'font-size': icon_size}" width="16" class="select__icon-dots"/>
             </slot>
