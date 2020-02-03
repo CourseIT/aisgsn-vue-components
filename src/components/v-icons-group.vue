@@ -1,8 +1,10 @@
 <template>
   <div class="icons-block">
-    <slot name="main-icon">
-      <v-icon class="icon1" :hover_shadow="true" :hover_color="true" icon="" />
-    </slot>
+    <div class="icon1">
+      <slot name="main-icon">
+        <v-icon class="icon1" :hover_shadow="true" :hover_color="true" icon="" />
+      </slot>
+    </div>
       <div class="hover-icon">
         <div class="hover-icon__bg">
           <slot>
@@ -17,6 +19,7 @@
 const VIcon = () => import('@/components/v-icon')
 
 export default {
+  props: ['padding_left'],
   components: {
     VIcon
   },

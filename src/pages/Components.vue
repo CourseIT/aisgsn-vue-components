@@ -23,7 +23,7 @@
 <!-------------------------------- icons-group -------------------------------->
     <v-icons-group>
       <template #main-icon>
-        <v-icon class="icon1" :action="test" :hover_shadow="true" :hover_color="true" icon="" />
+        <v-icon padding_left="7px" :action="test" :hover_shadow="true" :hover_color="true" icon="" />
       </template>
       <v-icon font_size="21px" :hover_color="true" :action="test" icon="" />
       <v-icon font_size="21px" :hover_color="true" :action="test2" icon="" />
@@ -60,15 +60,7 @@
 <!-------------------------------- card-block with draggable -------------------------------->
 
 
-    <div class="df">
-      <!-------------------------------- date-button -------------------------------->
-      <v-date-button v-model="date_btn"/>
-      <!-------------------------------- date-button -------------------------------->
-
-      <!-------------------------------- date-range-button -------------------------------->
-      <v-date-range-button class="ml25" v-model="date_range_btn"/>
-      <!-------------------------------- date-range-button -------------------------------->
-    </div>
+    
 
 
 <!-------------------------------- doc-info -------------------------------->
@@ -310,8 +302,18 @@
 <!-------------------------------- filter-input-switch -------------------------------->
 
 <!-------------------------------- time-btn -------------------------------->
-    <v-time-button v-model="time_btn" />
+    <v-time-button class="mb20" v-model="time_btn" />
 <!-------------------------------- time-btn -------------------------------->
+
+    <div class="df">
+      <!-------------------------------- date-button -------------------------------->
+      <v-date-button  v-model="date_btn"/>
+      <!-------------------------------- date-button -------------------------------->
+
+      <!-------------------------------- date-range-button -------------------------------->
+      <v-date-range-button class="ml25" v-model="date_range_btn"/>
+      <!-------------------------------- date-range-button -------------------------------->
+    </div>
 
     <v-switch-button v-model="switch_button" />
 

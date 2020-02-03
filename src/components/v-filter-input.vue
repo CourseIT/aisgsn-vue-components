@@ -2,7 +2,9 @@
   <div class="filter-input">
     <div v-if="filter_input_show">
       <div class="filter-btn-input">
-        <input v-model="value" type="text" autofocus>
+        <form @submit="emitFilterInput">
+          <input v-model="value" type="text" autofocus>
+        </form>
         <v-icon v-if="value.length > 0" :action="emitFilterInput" class="icon-apply" width="15" icon="" />
         <v-icon v-else :action="clearFilter" class="icon-apply" width="15" icon="" />
       </div>
@@ -30,7 +32,9 @@ export default {
     filter_input_show: false
   }),
   methods: {
-    emitFilterInput() {
+    emitFilterInput(e) {
+      e.preventDefault();
+
       this.filter_input_show = false
       this.$emit('input', this.value)
     },

@@ -2,7 +2,9 @@
   <div class="time-btn__block">
     <div v-if="time_input_show">
       <div class="time-btn-input">
-        <input v-model="time" placeholder="чч:мм - чч:мм" type="text" autofocus>
+        <form @submit="pickTime">
+          <input v-model="time" placeholder="чч:мм - чч:мм" type="text" autofocus>
+        </form>
         <v-icon v-if="time.length == 13 || time.length == 5 " :action="pickTime" class="icon-apply" width="15" icon="" />
         <v-icon v-else :action="clearTime" class="icon-apply" width="15" icon="" />
       </div>
@@ -46,8 +48,32 @@ export default {
     this.$emit('input', this.time)
   },
   watch: {
-    time(value) {
-      this.time = value.replace(/[^:-\d\s]/g, '').substr(0,13)
+    time(value, pevValue) {
+      let time1
+      let time2
+      let time3
+
+      if(value.length == 2 && pevValue.length < value.length) {
+        time1 = value.split('')
+        time2 = time1.push(':')
+        time3 = time1.join('')
+        this.time = time3
+        window.console.log(time2)
+      } else if(value.length == 5 && pevValue.length < value.length) {
+        time1 = value.split('')
+        time2 = time1.push(' - ')
+        time3 = time1.join('')
+        this.time = time3
+        window.console.log(time2)
+      } else if(value.length == 10 && pevValue.length < value.length) {
+        time1 = value.split('')
+        time2 = time1.push(':')
+        time3 = time1.join('')
+        this.time = time3
+        window.console.log(time2)
+      } else {
+        this.time = value.replace(/[^:-\d\s]/g, '').substr(0,13)
+      }
     }
   },
   computed: {
@@ -71,7 +97,9 @@ export default {
       this.$emit('input', this.time)
       this.time_input_show = false
     },
-    pickTime() {
+    pickTime(e) {
+      e.preventDefault();
+      
       this.$emit('input', this.time)
       this.time_input_show = false
     },
@@ -85,6 +113,7 @@ export default {
 }
 .time-btn__block {
   display: inline-block;
+  border-radius: 4px;
 }
 .time-btn__block:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);

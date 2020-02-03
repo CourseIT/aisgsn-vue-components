@@ -2,7 +2,9 @@
   <div class="date-btn__block">
     <div v-if="date_input_show">
       <div class="date-btn-input">
-        <input v-model="date_input" type="text" placeholder="дд.мм.гггг" autofocus class="date-input">
+        <form @submit="emitDateInput">
+          <input v-model="date_input" type="text" placeholder="дд.мм.гггг" autofocus class="date-input">
+        </form>
         <v-icon v-if="date_input.length == 10" :action="emitDateInput" class="icon-apply" width="15" icon="" />
         <v-icon v-else :action="clearDate" class="icon-apply" width="15" icon="" />
       </div>
@@ -51,8 +53,26 @@ export default {
       this.$emit('input', `${this.day}.${this.month}.${this.year}`)
       this.date_input = `${this.day}.${this.month}.${this.year}`
     },
-    date_input(value) {
-      this.date_input = value.replace(/[^+.\d]/g, '').substr(0,10)
+    date_input(value, pevValue) {
+      let date1
+      let date2
+      let date3
+
+      if(value.length == 2 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_input = date3
+        window.console.log(date2)
+      } else if(value.length == 5 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_input = date3
+        window.console.log(date2)
+      } else {
+        this.date_input = value.replace(/[^.\d\s]/g, '').substr(0,10)
+      }
     }
   },
   computed: {
@@ -67,7 +87,9 @@ export default {
     }
   },
   methods: {
-    emitDateInput() {
+    emitDateInput(e) {
+      e.preventDefault();
+      
       this.date_input_show = false
       this.$emit('input', this.date_input)
       this.date = `${this.date_input.substr(6, 4)}-${this.date_input.substr(3, 2)}-${this.date_input.substr(0, 2)}`

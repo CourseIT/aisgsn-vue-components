@@ -2,7 +2,9 @@
   <div class="date-range-btn__block">
     <div v-if="date_range_input_show">
       <div class="date-range-btn-input">
-        <input v-model="date_range_input" placeholder="дд.мм.гггг - дд.мм.гггг" type="text" autofocus>
+        <form @submit="emitDateRangeInput">
+          <input v-model="date_range_input" placeholder="дд.мм.гггг - дд.мм.гггг" type="text" autofocus>
+        </form>
         <v-icon v-if="date_range_input.length == 23" :action="emitDateRangeInput" class="icon-apply" width="15" icon="" />
         <v-icon v-else :action="clearDate" class="icon-apply" width="15" icon="" />
       </div>
@@ -61,8 +63,44 @@ export default {
       this.$emit('input', this.dateRangeText)
       this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
     },
-    date_range_input(value) {
-      this.date_range_input = value.replace(/[^+-\s.\d]/g, '').substr(0,23)
+    date_range_input(value, pevValue) {
+      let date1
+      let date2
+      let date3
+
+      if(value.length == 2 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_range_input = date3
+        window.console.log(date2)
+      } else if(value.length == 5 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_range_input = date3
+        window.console.log(date2)
+      } else if(value.length == 10 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push(' - ')
+        date3 = date1.join('')
+        this.date_range_input = date3
+        window.console.log(date2)
+      } else if(value.length == 15 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_range_input = date3
+        window.console.log(date2)
+      } else if(value.length == 18 && pevValue.length < value.length) {
+        date1 = value.split('')
+        date2 = date1.push('.')
+        date3 = date1.join('')
+        this.date_range_input = date3
+        window.console.log(date2)
+      } else {
+        this.date_range_input = value.replace(/[^.-\d\s]/g, '').substr(0,23)
+      }
     }
   },
   computed: {
@@ -75,7 +113,8 @@ export default {
     },
   },
   methods: {
-    emitDateRangeInput() {
+    emitDateRangeInput(e) {
+      e.preventDefault();
       this.date_range_input_show = false
       this.$emit('input', this.date_range_input)
       if(this.date_range_input.length > 13) {
@@ -99,6 +138,9 @@ export default {
 </script>
 
 <style>
+form {
+  width: 100%;
+}
 button {
   outline: none;
 }
