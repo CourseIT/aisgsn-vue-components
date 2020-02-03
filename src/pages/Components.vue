@@ -291,7 +291,7 @@
 
 
 
-    <v-multiple-search :chips="false" v-model="multiple_search" :list="categories_list"/>
+    <v-multiple-search v-model="multiple_search" :list="categories_list"/>
 
 
 
