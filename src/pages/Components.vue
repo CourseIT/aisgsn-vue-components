@@ -130,17 +130,17 @@
     
 
     <!-------------------------------- input -------------------------------->
-    <v-input v-model="input" width="600px" placeholder="№" label="Какой-то label" :list="list_input"/>
+    <v-input v-model="input" width="600px" hint="Какой-то хинт" placeholder="№" label="Какой-то label" :list="list_input"/>
     <!-------------------------------- input -------------------------------->
     
 
     <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input_n" width="600px" placeholder="№" label="Какой-то label" type="number"/>
+    <v-input v-model="input_n" width="600px" hint="Какой-то хинт"  placeholder="№" label="Какой-то label" type="number"/>
     <!-------------------------------- input-number -------------------------------->
 
 
     <!-------------------------------- textarea -------------------------------->
-    <v-input v-model="textarea" width="600px" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
+    <v-input v-model="textarea" width="600px" hint="Какой-то хинт"  placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
     <!-------------------------------- textarea -------------------------------->
 
 
@@ -158,7 +158,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -172,7 +172,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -186,7 +186,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Предмет каждой проверки" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -202,7 +202,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -216,7 +216,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt19">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -231,7 +231,7 @@
         <div class="df">
           <v-input v-model="input" placeholder="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,
 предусмотренных программой проведения проверок, является обязательным" :list="list_input"/>
-          <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" template_text_top="0px" class="mt34">
+          <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt34">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
                 <v-search v-model="search" width="403px"/>
@@ -252,6 +252,7 @@
     <v-radio-buttons v-model="label" radio_color="green" :labels="labels">
       <v-radio v-for="label in labels" :key="label" :value="label" :label="label"></v-radio>
     </v-radio-buttons>
+
     <v-radio-buttons v-model="label2" :labels="labels2">
       <v-radio v-for="label in labels2" :key="label" :value="label" :label="label"></v-radio>
     </v-radio-buttons>
@@ -282,9 +283,9 @@
 <!-------------------------------- categories-search -------------------------------->
 
 
-
+  <!-------------------------------- multiple-search -------------------------------->
     <v-multiple-search v-model="multiple_search" :list="categories_list"/>
-
+  <!-------------------------------- multiple-search -------------------------------->
 
 
 <!-------------------------------- SORT (slect with sort icon) -------------------------------->

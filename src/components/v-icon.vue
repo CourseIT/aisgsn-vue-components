@@ -66,7 +66,6 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  justify-content: center;
   margin-left: -192px;
   margin-top: -34px;
   justify-content: center;

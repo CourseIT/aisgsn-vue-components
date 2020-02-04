@@ -5,7 +5,7 @@
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />
       </template>
-      <v-submenu title="Главная" :action="test" only_title="true" />
+            <v-submenu title="Главная" :action="test" only_title="true" />
             <v-submenu title="НАДЗОР">
               <v-submenu-link :action="test" text="Надзорные дела" />
               <v-submenu-link text="Программа проверок" />
@@ -35,7 +35,7 @@
             <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" />
     </v-menu>
     <main>
-      <div class="content">
+      <div class="content" >
         <router-view></router-view>
       </div>
     </main>

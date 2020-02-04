@@ -21,7 +21,7 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-  props: ['placeholder', 'value', 'icon', 'label', 'template_text_top', 'el_after', 'el_before', 'width'],
+  props: ['placeholder', 'value', 'icon', 'template_text_top', 'el_after', 'el_before', 'width'],
   components: {
     VIcon,
     VTemplateBlock
@@ -49,19 +49,6 @@ export default {
   position: absolute;
   z-index: 10;
   margin-left: 50px;
-}
-.label {
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: left;
-  margin-bottom: 5px;
-  width: 95%;
 }
 .icon {
   cursor: pointer;

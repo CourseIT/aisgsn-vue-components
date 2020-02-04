@@ -1,5 +1,11 @@
 <template>
   <div class="input-block" :style="{'width': width}">
+    <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+      <div class="arrow"></div>
+      <div class="icon__prompt">
+        <span>{{hint}}</span>
+      </div>
+    </div>
     <p v-if="label" class="label">{{label}}</p>
     <div v-if="type == 'textarea'">
       <textarea class="textarea" :placeholder="placeholder" v-model="input_value" cols="10" rows="4"></textarea>
@@ -14,6 +20,7 @@
     </div>
     <div v-else class="df">
       <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
+
       <div v-if="select_block_show" class="select-block">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -24,7 +31,7 @@
 </template>
 <script>
 export default {
-  props: ['placeholder', 'value', 'label', 'type', 'list', 'width'],
+  props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint'],
   data: () => ({
     select_block_show: false,
     input_value: ''
@@ -43,6 +50,46 @@ export default {
 }
 </script>
 <style scoped>
+.input-block:hover .icon__prompt-block {
+  display: flex;
+}
+.icon__prompt-block {
+  display: none;
+  width: 400px;
+  position: absolute;
+  justify-content: center;
+  margin-left: 0px;
+  margin-top: -15px;
+}
+.icon__prompt {
+  position: absolute;
+  z-index: 9;
+  padding: 6px 12px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+.arrow {
+  position: absolute;
+  top: 23px;
+  display: inline-block;
+  color: #fff;
+  z-index: 99;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid #fff;
+  transform: rotate(180deg);
+}
+
+
 .w74{
   width: 74px;
 }

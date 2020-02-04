@@ -91,7 +91,7 @@ html {
   width: 100%;
 }
 .pl305 {
-  padding-left: 305px;
+  padding-left: 320px;
 }
 .pl2 {
   padding-left: 2px;

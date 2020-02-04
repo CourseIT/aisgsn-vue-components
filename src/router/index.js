@@ -80,8 +80,17 @@ const routes = [
     component: () => import('../pages/Checkup_card_list.vue'),
     meta: {
       layout: 'doc-layout'
+    },
+    
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import('../pages/Test.vue'),
+    meta: {
+      layout: 'doc-layout'
     }
-  }
+  },
 ]
 
 const router = new VueRouter({

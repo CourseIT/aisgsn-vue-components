@@ -1,10 +1,10 @@
 <template>
-<div class="w262" :style="{'width': width}">
-  <button @click="action" class="action-btn">
-    <p class="action-btn__title">{{title}}</p>
-    <v-icon class="action-btn__icon" :icon="icon" width="30"/>
-  </button>
-</div>
+  <div class="w262" :style="{'width': width}">
+    <button @click="action" class="action-btn">
+      <p class="action-btn__title">{{title}}</p>
+      <v-icon class="action-btn__icon" :icon="icon" width="30"/>
+    </button>
+  </div>
 </template>
 
 <script>
