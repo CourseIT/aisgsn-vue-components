@@ -5,7 +5,7 @@
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />
       </template>
-            <v-submenu title="Главная" :action="test" only_title="true" />
+            <v-submenu title="Главная" :notifications="notifications" :action="test" only_title="true" />
             <v-submenu title="НАДЗОР">
               <v-submenu-link :action="test" text="Надзорные дела" />
               <v-submenu-link text="Программа проверок" />
@@ -13,7 +13,7 @@
             </v-submenu>
             <v-submenu title="ТКИ">
               <v-submenu-link text="План работ" />
-              <v-submenu-link text="Средства контроля" />
+              <v-submenu-link :notifications="notifications" text="Средства контроля" />
               <v-submenu-link text="Повышение квалификации" />
               <v-submenu-link text="СМК" />
             </v-submenu>
@@ -59,7 +59,12 @@ export default {
     VSearchMenu
   },
   data: () => ({
-    search: ''
+    search: '',
+    notifications: [
+      '1',
+      '2',
+      '3'
+    ]
   }),
   methods: {
     test() {

@@ -175,7 +175,7 @@ export default {
 }
 .menu__container {
   width: 312px;
-  padding: 20px 30px;
+  padding: 20px 40px;
   overflow-y: auto;
   height: 65vh;
 }

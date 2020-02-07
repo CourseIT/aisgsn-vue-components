@@ -39,10 +39,10 @@ describe('VMenu', () => {
         store, localVue
       });
 
-    expect(wrapper.vm.text_size).toBe(15)
-    wrapper.find('.text-plus').trigger('click')
     expect(wrapper.vm.text_size).toBe(16)
+    wrapper.find('.text-plus').trigger('click')
+    expect(wrapper.vm.text_size).toBe(17)
     wrapper.find('.text-minus').trigger('click')
-    expect(wrapper.vm.text_size).toBe(15)
+    expect(wrapper.vm.text_size).toBe(16)
   })
 })

@@ -29,4 +29,13 @@ describe('VSubmenuLink', () => {
     expect(wrapper.props().text_size).toBe('text_size');
     expect(wrapper.find('li').contains('text'))
   })
+  it('render notifications', () => {
+    const wrapper = shallowMount(VSubmenuLink, {
+      store, localVue,
+      propsData: {
+        notifications: ['1', '2', '3']
+      }
+    });
+    expect(wrapper.contains('.link_notifications')).toBe(true)
+  })
 })
