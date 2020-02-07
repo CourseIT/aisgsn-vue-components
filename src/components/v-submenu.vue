@@ -47,8 +47,8 @@ export default {
 <style scoped>
 .link_notifications {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
