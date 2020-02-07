@@ -94,7 +94,7 @@ export default {
   text-align: center;
   margin-bottom: 0;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   padding-left: 22px;
   font-weight: normal;
   font-stretch: normal;

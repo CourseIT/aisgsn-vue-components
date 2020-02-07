@@ -135,7 +135,7 @@ export default {
 .time-btn__block .time__btn p {
   margin-bottom: 0;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -144,7 +144,9 @@ export default {
   color: var(--dark);
   height: 36px;
   width: 220px;
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .time-btn__block .icon-clock {
   font-family: var(--font-awesome-5-pro-light);
@@ -172,7 +174,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  z-index: 9;
+  z-index: 7;
   position: absolute;
   margin-top: -17px;
 }
@@ -195,7 +197,7 @@ export default {
   background-color: #fff;
   width: 100%;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -203,11 +205,12 @@ export default {
   color: var(--dark);
   padding: 4px 23px;
   padding-top: 5px;
+  height: 27px;
   padding-left: 27px;
 }
 .time-btn-input .icon-apply{
   position: absolute;
-  margin-top: -3px;
+  margin-top: -4px;
   margin-left: 230px;
   width: 15px;
   height: 15px;

@@ -128,7 +128,7 @@ export default {
 }
 .filter-input-switch p {
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -156,6 +156,9 @@ export default {
 .icon-colse:hover {
   color: var(--bright-orange);
 }
+.icon-filter {
+  font-size: 18px;
+}
 .icon-filter:hover {
   color: var(--bright-orange);
 }
@@ -174,7 +177,7 @@ export default {
   background-color: #fff;
   width: 100%;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -205,8 +208,9 @@ export default {
 }
 
 .filter-input-switch .input-list {
-  width: 255px;
+  min-width: 255px;
   max-height: 122px;
+  overflow: auto;
   margin: 0px 4px;
   border-radius: 4px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -215,9 +219,18 @@ export default {
   position: absolute;
   z-index: 8;
 }
+.filter-input-switch .input-list::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.filter-input-switch .input-list::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
+}
 .filter-input-switch .input-list p {
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

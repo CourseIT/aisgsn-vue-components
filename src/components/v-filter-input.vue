@@ -75,7 +75,7 @@ export default {
 }
 .filter-input p {
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -122,7 +122,7 @@ export default {
   background-color: #fff;
   width: 100%;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

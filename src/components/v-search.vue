@@ -42,7 +42,7 @@ export default {
 }
 .search input {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

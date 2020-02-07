@@ -274,11 +274,10 @@
     <v-search class="mb20" v-model="search" width="600px"/>
 <!-------------------------------- search -------------------------------->
 
-  <!-- <v-categories-option v-model="categories_option" :action="test" :option="item" v-for="(item, index) in categories_list" :key="index" /> -->
 
 <!-------------------------------- categories-search -------------------------------->
-    <v-categories-search v-model="categories_search" defailt_text="Категории">
-      <v-select class="media-min-1500" v-model="categories_option" :list="categories_list" defailt_value="Категории" text_center="true" width="140px" />
+    <v-categories-search v-model="categories_search" :list="categories_list" defailt_text="Категории">
+      <v-select class="media-min-1500" v-model="categories_option" :list="categories_list" icon_left="true" defailt_value="Категории" text_center="true" width="140px" />
     </v-categories-search>
 <!-------------------------------- categories-search -------------------------------->
 
@@ -452,7 +451,7 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
 
     textarea: '',
-    input: '',
+    input: '123',
     input_n: '',
     list_input: [
       'Объект КС 1',
@@ -513,7 +512,8 @@ export default {
       'Материалы проверки №22',
       'Материалы проверки №23',
       'Материалы проверки №24',
-      'Материалы проверки №25'
+      'Материалы проверки №25',
+      'Материалы проверки проверки проверки №25'
     ],
 
     time_btn: '',

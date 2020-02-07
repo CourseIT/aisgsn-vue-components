@@ -38,11 +38,6 @@ export default {
   data: () => ({
     text: 'Шаблонный текст 1 …'
   }),
-  // methods:{
-  //   selectText() {
-  //     this.$emit('selectText', this.text)
-  //   },
-  // }
 }
 </script>
 
@@ -88,7 +83,7 @@ export default {
 }
 .template-block p {
   font-family: Roboto;
-  font-size: 9px;
+  font-size: 0.600rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

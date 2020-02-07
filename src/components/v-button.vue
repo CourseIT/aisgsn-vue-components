@@ -40,7 +40,7 @@ export default {
 	outline: none;
   border-radius: 4px;
 	font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;

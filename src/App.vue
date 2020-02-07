@@ -33,6 +33,7 @@ export default {
   --marigold: #ffcc00;
   --blue-grey: #8e8e93;
   --purpley: #8d43ff;
+  font-size: 16px;
 }
 .content {
   margin-top: 115px;

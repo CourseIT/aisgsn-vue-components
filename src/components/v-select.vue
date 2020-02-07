@@ -1,7 +1,22 @@
 <template>
   <div>
     <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
-      <button class="main-btn">
+      <button v-if="icon_left" class="main-btn">
+        <div class="hover-btn df w100">
+          <div @click="menu_show = !menu_show" class="hover-btn">
+            <slot name="main-icon">
+              <v-icon :icon="icon" :style="{'font-size': icon_size}" width="16" class="select__icon-dots"/>
+            </slot>
+          </div>
+          <div @click="menu_show = !menu_show" class="w100 df aic jcc"  :class="{'pr16': !value}">
+            {{value || defailt_value}}
+          </div>
+        </div>
+        <button v-if="value" @click="$emit('input', ''), menu_show = false">
+          <v-icon icon="" width="16" class="select__icon-colse"/>
+        </button>
+      </button>
+      <button v-else class="main-btn">
         <button v-if="value" @click="$emit('input', ''), menu_show = false">
           <v-icon icon="" width="16" class="select__icon-colse"/>
         </button>
@@ -54,6 +69,7 @@ export default {
     dark_bg: {
       default: false
     },
+    icon_left: {},
     width: {},
     text_center: {},
     icon_size: {}
@@ -68,6 +84,9 @@ export default {
 </script>
 
 <style scoped>
+.pr16 {
+  padding-right: 16px;
+}
 .pos-r {
   position: relative;
 }
@@ -106,7 +125,7 @@ export default {
   font-family: Roboto;
   outline: none;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -170,7 +189,7 @@ export default {
   font-family: Roboto;
   outline: none;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

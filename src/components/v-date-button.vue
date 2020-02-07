@@ -105,10 +105,6 @@ export default {
 </script>
 
 <style>
-.test {
-  position: relative;
-  z-index: 100;
-}
 .w19 {
   width: 19px !important;
 }
@@ -178,7 +174,7 @@ export default {
 .date-btn__block .date__btn p {
   margin-bottom: 0;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -186,7 +182,8 @@ export default {
   letter-spacing: normal;
   color: var(--dark);
   height: 36px;
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
 }
 .date-btn__block .icon {
   font-family: var(--font-awesome-5-pro-light);
@@ -195,7 +192,6 @@ export default {
   font-stretch: normal;
   font-style: normal;
   width: 19px;
-  line-height: 1.67;
   letter-spacing: normal;
   text-align: center;
   color: var(--dark);
@@ -210,14 +206,14 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  z-index: 9;
+  z-index: 7;
 }
 .date-btn__block .icon-colse:hover .icon{
   color: var(--bright-orange);
 }
 .date-btn__block .icon-colse .icon {
   font-size: 15px !important;
-  z-index: 9;
+  z-index: 7;
 }
 .date-btn__block .date__btn:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -247,8 +243,9 @@ export default {
   border-radius: 4px;
   background-color: #fff;
   width: 100%;
+  height: 27px;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -260,7 +257,7 @@ export default {
 }
 .date-btn-input .icon-apply .icon{
   position: absolute;
-  margin-top: 7px;
+  margin-top: 6.5px;
   margin-left: -20px;
   width: 15px;
   height: 15px;

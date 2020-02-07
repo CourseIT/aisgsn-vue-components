@@ -6,12 +6,12 @@
           <slot name="text">
           </slot>
         </div>
-        <div>
-          <div @click="action_edit">
-            <v-icon icon="" class="icon-p"/>
+        <div class="dg">
+          <div v-if="action_edit" @click="action_edit">
+            <v-icon icon="" class="icon-e"/>
           </div>
-          <div @click="action_minus" class="bottom-icon">
-            <v-icon icon="" class="icon-p"/>
+          <div v-if="action_minus" @click="action_minus" class="bottom-icon">
+            <v-icon icon="" class="icon-m"/>
           </div>
         </div>
       </slot>
@@ -30,21 +30,16 @@ export default {
   },
   props: {
     width: {},
-    action_minus: {
-      default: function() {
-        return () => ({})
-      }
-    },
-    action_edit: {
-      default: function() {
-        return () => ({})
-      }
-    }
+    action_minus: {},
+    action_edit: {}
   }
 }
 </script>
 
 <style scoped>
+.dg {
+  display: grid;
+}
 .mb7 {
   margin-bottom: 6px !important;
 }
@@ -61,7 +56,7 @@ export default {
 }
 .inspection-program-block {
   padding: 6px 10px;
-  min-height: 100px;
+  min-height: 60px;
   border-radius: 4px;
   background-color: var(--white);
 }
@@ -69,19 +64,23 @@ export default {
   cursor: pointer;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
-/* .inspection-program-block p {
+.icon-m {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
+  font-family: var(--font-awesome-5-pro-light);
+  cursor: pointer;
+  font-size: 21px;
+  width: 20px;
+  font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.3;
+  letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  margin-bottom: 0;
-} */
-.icon-p {
+  position: absolute;
+  left: -6px;
+  bottom: 13px;
+}
+.icon-e {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;

@@ -43,22 +43,22 @@ export default {
 }
 .dropdown__user-title {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.25;
+  line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  margin-bottom: 0px !important;
+  margin-bottom: 4px !important;
 }
 .dropdown__user-name {
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.25;
+  line-height: 1;
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 0px;

@@ -213,7 +213,7 @@ button {
 .date-range-btn__block .date__btn p {
   margin-bottom: 0;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -221,7 +221,9 @@ button {
   letter-spacing: normal;
   color: var(--dark);
   height: 36px;
-  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .date-range-btn__block .icon {
   font-family: var(--font-awesome-5-pro-light);
@@ -255,7 +257,7 @@ button {
 }
 .date-range-btn__block .icon-colse .icon {
   font-size: 15px !important;
-  z-index: 9;
+  z-index: 7;
 }
 .date-range-btn__block .date__btn:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -289,8 +291,9 @@ button {
   background-color: #fff;
   width: 100%;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
+  height: 27px;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
@@ -301,7 +304,7 @@ button {
 }
 .date-range-btn-input .icon-apply .icon{
   position: absolute;
-  margin-top: 7px;
+  margin-top: 6px;
   margin-left: -20px;
   width: 15px;
   height: 15px;

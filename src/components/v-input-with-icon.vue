@@ -76,7 +76,7 @@ export default {
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

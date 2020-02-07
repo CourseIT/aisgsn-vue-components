@@ -111,7 +111,7 @@ export default {
 .input-date .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -122,7 +122,6 @@ export default {
   width: 95%;
 }
 .input-date .input-block {
-  margin-bottom: -15px;
   cursor: pointer;
 }
 .input-date .icon-date {

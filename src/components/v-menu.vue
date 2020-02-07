@@ -14,11 +14,11 @@
         <div class="df jcsb">
           <p class="settings__text">Размер шрифта</p>
           <div class="df">
-            <div @click="textSizePlus" class="text-plus">
-              <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 17}" icon="" />
+            <div @click="textSizeMinus" class="text-minus" :class="{'icon-btn__disable': text_size === 14, 'color-black': light_gamma}">
+              A
             </div>
-            <div @click="textSizeMinus" class="text-minus">
-              <v-icon class="icon-btn" :class="{'icon-btn__disable': text_size === 13}" icon="" />
+            <div @click="textSizePlus" class="text-plus" :class="{'icon-btn__disable': text_size === 18, 'color-black': light_gamma}">
+              A
             </div>
           </div>
         </div>
@@ -33,15 +33,14 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon.vue')
 
 export default {
   components: {
-    VIcon,
+ 
   },
   data: () => ({
     light_gamma: false,
-    text_size: 15
+    text_size: 16
   }),
   watch: {
     light_gamma(light_gamma) {
@@ -77,13 +76,13 @@ export default {
       }
     },
     textSizePlus() {
-      if(this.text_size >= 13 && this.text_size < 17){
+      if(this.text_size >= 14 && this.text_size < 18){
         this.text_size++
         this.$store.commit('TEXT_SIZE_PLUS', this.text_size)
       }
     },
     textSizeMinus() {
-      if(this.text_size > 13 && this.text_size <= 17){
+      if(this.text_size > 14 && this.text_size <= 18){
         this.text_size--
         this.$store.commit('TEXT_SIZE_MINUS', this.text_size)
       }
@@ -93,6 +92,34 @@ export default {
 </script>
 
 <style>
+.text-minus{
+  cursor: pointer;
+  opacity: 0.7;
+  user-select: none;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f5f4ed;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+.text-plus{
+  cursor: pointer;
+  opacity: 0.7;
+  user-select: none;
+  font-size: 21px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #f5f4ed;
+}
 .menu .v-input__control {
   position: relative !important;
   bottom: 10px !important;
@@ -120,6 +147,9 @@ export default {
 .lightGamma {
   background-color: #e5e5ea !important;
   color: #000 !important;
+}
+.color-black{
+  color: #000;
 }
 .openMenu {
   margin-left: 0px !important;

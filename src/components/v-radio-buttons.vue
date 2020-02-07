@@ -42,7 +42,7 @@ export default {
   margin-left: 5px;
   padding-top: 5px;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

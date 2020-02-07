@@ -235,10 +235,12 @@ nav {
   color: var(--dark);
   font-family: Roboto;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
+  height: 22px;
   letter-spacing: normal;
   text-align: left;
 }
@@ -246,10 +248,11 @@ nav {
   color: var(--dark);
   font-family: Roboto;
   font-size: 15px;
+  margin: 0;
+  padding: 0;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.4;
   letter-spacing: normal;
   text-align: left;
   margin-right: 5px;
@@ -301,7 +304,7 @@ nav {
 .header-name {
   margin: 0px 18px;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

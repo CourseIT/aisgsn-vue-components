@@ -71,7 +71,7 @@ export default {
 }
 .categories-search input {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -160,7 +160,7 @@ export default {
   font-family: Roboto;
   outline: none;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

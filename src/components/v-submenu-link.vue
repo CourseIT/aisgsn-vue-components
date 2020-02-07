@@ -1,5 +1,5 @@
 <template>
-  <li @click="action" class="submenu__link t03s" :style="`font-size: ${$store.state.text_size}px`">{{text}}</li>
+  <li @click="action" class="submenu__link t03s">{{text}}</li>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
 }
 .submenu__link {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

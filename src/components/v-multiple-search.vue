@@ -2,16 +2,15 @@
   <div class="categories" :class="{'mb30': chips}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
-
         <button class="main-btn" :style="{'width': width}">
           <div class="hover-btn df w100">
-            <div @click="menu_show = !menu_show" class="w100 df aic jcc pl16">
-              {{defailt_text}}
-            </div>
             <div @click="menu_show = !menu_show" class="hover-btn">
               <slot name="main-icon">
                 <v-icon :icon="icon" width="16" class="select__icon-dots"/>
               </slot>
+            </div>
+            <div @click="menu_show = !menu_show" class="w100 df aic jcc pr16">
+              {{defailt_text}}
             </div>
           </div>
         </button>
@@ -20,7 +19,6 @@
             <v-categories-option :option="item" :list="search_list" />
           </div>
         </div>
-
       </div>
       <div class="categories-search">
         <input type="text" v-model="search" placeholder="Поиск">
@@ -113,6 +111,9 @@ export default {
 </script>
 
 <style scoped>
+.pr16{
+  padding-right: 16px;
+}
 .categories-search {
   display: flex;
   transition: all 0.3s ease;
@@ -120,7 +121,7 @@ export default {
 }
 .categories-search input {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -202,7 +203,7 @@ export default {
   font-family: Roboto;
   outline: none;
   border-radius: 4px 0px 0px 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -266,7 +267,7 @@ export default {
   font-family: Roboto;
   outline: none;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -308,7 +309,7 @@ export default {
   justify-content: space-between;
   padding: 5px;
   font-family: Roboto;
-  font-size: 9px;
+  font-size: 0.58rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

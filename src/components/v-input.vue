@@ -36,10 +36,15 @@ export default {
     select_block_show: false,
     input_value: ''
   }),
+  mounted() {
+    this.input_value = this.value
+  },
   watch: {
     input_value(value) {
       this.$emit('input', value)
-      this.select_block_show = true
+      if(value != this.$props.value)
+        this.select_block_show = true
+
       setTimeout(() => {
         if(value === this.input_value) {
           this.select_block_show = false
@@ -96,7 +101,7 @@ export default {
 .label {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -177,7 +182,7 @@ export default {
 }
 .select-block ul li {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

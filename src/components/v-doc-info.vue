@@ -29,7 +29,7 @@ export default {
 .doc__title {
   width: 190px;
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -41,7 +41,7 @@ export default {
 }
 .title-value {
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
