@@ -41,6 +41,9 @@ export default {
     date: [new Date().toISOString().substr(0, 10)],
     menu: false
   }),
+  mounted() {
+    this.date = this.value
+  },
   watch: {
     date(date) {
       this.$emit('input', date)

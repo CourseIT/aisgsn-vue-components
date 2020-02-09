@@ -459,7 +459,7 @@ export default {
       '...',
       '...'
     ],
-    input_date: '',
+    input_date: ["2010-01-01", "2010-01-05"],
 
     modal_show: false,
 
