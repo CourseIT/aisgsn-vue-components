@@ -11,7 +11,7 @@
               <v-submenu-link text="Программа проверок" />
               <v-submenu-link text="Проверки" />
             </v-submenu>
-            <v-submenu title="ТКИ">
+            <v-submenu title="ТКИ" :notifications="notifications">
               <v-submenu-link text="План работ" />
               <v-submenu-link :notifications="notifications" text="Средства контроля" />
               <v-submenu-link text="Повышение квалификации" />

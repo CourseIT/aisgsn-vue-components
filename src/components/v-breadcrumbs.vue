@@ -1,13 +1,15 @@
 <template>
+  <div class="breadc-bg">
     <div class="shadow" :class="{'l335' : $store.state.menu_visibility}">
       <div class="breadcrumbs">
-      <v-breadcrumbs :items="items" :large="large">
-        <template v-if="customDiv" v-slot:divider>
-          <span class="breadcrumbs_icon"></span>
-        </template>
-      </v-breadcrumbs>
+        <v-breadcrumbs :items="items" :large="large">
+          <template v-if="customDiv" v-slot:divider>
+            <span class="breadcrumbs_icon"></span>
+          </template>
+        </v-breadcrumbs>
+      </div>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -34,8 +36,17 @@ export default {
 </script>
 
 <style>
+.breadc-bg{
+  z-index: 9;
+  width: 100%;
+  height: 41px;
+  top: 100px;
+  position: fixed;
+  background: var(--pale-grey);
+}
 .l335 {
   left: 335px !important;
+  padding-left: 0px;
 }
 .shadow {
   position: fixed;

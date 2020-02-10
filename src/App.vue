@@ -33,6 +33,11 @@ export default {
   --marigold: #ffcc00;
   --blue-grey: #8e8e93;
   --purpley: #8d43ff;
+  --brown: #8e7053;
+  --brown-dark: #3c240d;
+  --green: #38bd3f;
+  --brown-light: #c5b7ac;
+  
   font-size: 16px;
 }
 .content {

@@ -1,6 +1,9 @@
 <template>
 <div>
-  <div v-if="notifications.length > 0" class="link_notifications">{{notifications.length}}</div>
+  <div v-if="notifications.length > 0" class="link_notifications">
+    <div v-if="notifications.length > 999" class="notifications_plus">+</div>
+    {{notificationsLength}}
+  </div>
   <li @click="action" class="submenu__link t03s">{{text}}</li>
 </div>
 </template>
@@ -20,11 +23,29 @@ export default {
         return () => ({})
       }
     }
-  }
+  },
+  computed: {
+    notificationsLength() {
+      return this.notifications.length > 999 ? 999 : this.notifications.length
+    }
+  },
 }
 </script>
 
 <style scoped>
+.notifications_plus {
+  font-family: Roboto;
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--white);
+  position: absolute;
+  margin-top: -6px;
+  margin-left: 11px;
+}
 .link_notifications {
   position: absolute;
   width: 20px;
@@ -36,7 +57,8 @@ export default {
   left: 27px;
   background-color: #578bc8;
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 10px;
+  padding-bottom: 1px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
