@@ -258,7 +258,7 @@ export default {
 .date-btn-input .icon-apply .icon{
   position: absolute;
   margin-top: 6.5px;
-  margin-left: -20px;
+  margin-left: -25px;
   width: 15px;
   height: 15px;
   font-size: 15px;

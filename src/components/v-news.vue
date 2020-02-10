@@ -1,16 +1,18 @@
 <template>
   <div @click="action" class="news">
-    <img class="img" :src="news.src" alt="">
     <div class="text_block">
       <div class="df">
+        <div class="type" :style="`background: ${bgColor}`">{{type}}</div>
         <p class="date">{{news.date}}</p>
         <p class="time">{{news.time}}</p>
       </div>
       <div class="main-text">
-        <h1 class="title">{{maxTitle}}</h1>
         <p class="text">{{maxText}}</p>
       </div>
-      <p class="provider">{{news.provider}}</p>
+      <div class="df">
+        <p class="author">{{news.author}}</p>
+        <p class="provider">{{news.provider}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -19,7 +21,6 @@
 export default {
   props: {
     news: {},
-    max_title_length: {},
     max_text_length: {},
     action: {
       default: function() {
@@ -28,17 +29,35 @@ export default {
     }
   },
   computed: {
-    maxTitle() {
-      if (this.news.title.length > this.max_title_length) {
-        return `${this.news.title.substr(0, this.max_title_length)}...`
-      }
-      return this.news.title
-    },
     maxText() {
       if (this.news.text.length > this.max_text_length) {
         return `${this.news.text.substr(0, this.max_text_length)}...`
       }
       return this.news.text
+    },
+    bgColor() {
+      switch (this.news.type) {
+        case 'notification':
+          return 'var(--weird-green)'
+        case 'warning':
+          return '#de251d'
+        case 'advertisement':
+          return '#5ac8fa'
+        default:
+          return 'title'
+      }
+    },
+    type() {
+      switch (this.news.type) {
+        case 'notification':
+          return 'УВЕДОМЛЕНИЕ'
+        case 'warning':
+          return 'ПРЕДУПРЕЖДЕНИЕ'
+        case 'advertisement':
+          return 'ОБЪЯВЛЕНИЕ'
+        default:
+          return 'title'
+      }
     }
   }
 }
@@ -48,20 +67,45 @@ export default {
 .news {
   width: 100%;
   height: 86px;
-  margin-bottom: 20px;
-  display: flex;
+  margin-bottom: 22px;
   cursor: pointer;
 }
-.img {
-  width: 110px;
-  height: 86px;
-  object-fit: cover;
-  margin-right: 25px;
+.type {
+  padding: 2px;
+  width: 113px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 4px;
+  height: 15px;
+  margin-right: 15px;
+  font-family: Roboto;
+  font-size: 0.5625rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.56;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--white);
+  text-transform: uppercase;
+}
+.author {
+  font-family: Roboto;
+  font-size: 0.5625rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--brown);
+  margin-bottom: 0;
+  margin-right: 15px;
 }
 .date, .time {
   font-family: Roboto;
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -70,46 +114,35 @@ export default {
   color: var(--brown);
   margin-bottom: 0;
   margin-right: 11px;
-  margin-bottom: 7px;
-}
-.title {
-  font-family: Roboto;
-  font-size: 15px !important;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--brown);
-  margin: 0;
+  margin-bottom: 12px;
 }
 .text {
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
   letter-spacing: normal;
   text-align: left;
+  line-height: 1.27;
   color: var(--brown-dark);
   margin-bottom: 7px;
 }
 .provider {
   font-family: Roboto;
-  font-size: 11px;
-  font-weight: normal;
+  font-size: 0.5625rem;
+  font-weight: 300;
   font-stretch: normal;
   font-style: normal;
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  color: var(--green);
+  color: var(--brown);
   margin-bottom: 0;
-  margin-top: 2px;
 }
 .main-text {
-  height: 55px;
+  height: 42px;
+  margin-bottom: 8px;
   overflow: hidden;
 }
 </style>

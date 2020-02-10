@@ -190,7 +190,7 @@ export default {
 
 .filter-btn-input .icon-apply{
   position: absolute;
-  margin-top: -2px;
+  margin-top: -4px;
   margin-left: 230px;
   width: 15px;
   height: 15px;

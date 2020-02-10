@@ -60,7 +60,6 @@ export default {
         default:
           return 'title'
       }
-
     },
     text() {
       switch (this.type) {
