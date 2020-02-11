@@ -1,6 +1,6 @@
 <template>
   <div class="breadc-bg">
-    <div class="shadow" :class="{'l335' : $store.state.menu_visibility}">
+    <div class="shadow" :class="{'l345' : $store.state.menu_visibility}">
       <div class="breadcrumbs">
         <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
@@ -44,8 +44,8 @@ export default {
   position: fixed;
   background: var(--pale-grey);
 }
-.l335 {
-  left: 335px !important;
+.l345 {
+  left: 345px !important;
   padding-left: 0px;
 }
 .shadow {

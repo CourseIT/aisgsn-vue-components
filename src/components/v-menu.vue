@@ -105,7 +105,7 @@ export default {
   text-align: left;
   color: #f5f4ed;
   margin-top: 8px;
-  margin-right: 10px;
+  margin-right: 25px;
 }
 .text-plus{
   cursor: pointer;

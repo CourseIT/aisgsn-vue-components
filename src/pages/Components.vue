@@ -277,7 +277,7 @@
 
 <!-------------------------------- categories-search -------------------------------->
     <v-categories-search v-model="categories_search" :list="categories_list" defailt_text="Категории">
-      <v-select class="media-min-1500" v-model="categories_option" :list="categories_list" icon_left="true" defailt_value="Категории" text_center="true" width="140px" />
+      <v-select v-model="categories_option" :list="categories_list" icon_left="true" defailt_value="Категории" text_center="true" width="140px" />
     </v-categories-search>
 <!-------------------------------- categories-search -------------------------------->
 
@@ -320,9 +320,36 @@
     <!-------------------------------- switch-button -------------------------------->
 
     <!-------------------------------- news-feed -------------------------------->
-    <v-news-feed>
+    <v-news-feed class="mb20">
       <v-news v-for="(news,index) in news_list" :key="index" :news="news"/>
     </v-news-feed>
+    <!-------------------------------- news-feed -------------------------------->
+
+    <!-------------------------------- news-feed -------------------------------->
+    <v-layout width="670px">
+      <v-input v-model="input" label="Фамилия" class="input_style_2"/>
+      <v-input v-model="input" label="Имя" class="input_style_2" />
+      <v-input v-model="input" label="Отчество (если есть)" class="input_style_2" />
+      <p class="radio_label">Пол</p>
+      <v-radio-buttons class="ml7 mb15" v-model="label" radio_color="green">
+        <v-radio value="Мужской" label="Мужской" />
+        <v-radio value="Женский" label="Женский" />
+      </v-radio-buttons>
+      <v-date-input v-model="input" label="Дата рождения"/>
+      <p class="layout_title">Место рождения</p>
+      <v-input v-model="input" label="Тип места (если известно)" class="input_style_2" />
+      <v-input v-model="input" label="Поселение (если известно)" class="input_style_2" />
+      <v-input v-model="input" label="Район (если известен)" class="input_style_2" />
+      <v-input v-model="input" label="Регион (если известен)" class="input_style_2" />
+      <v-input v-model="input" label="Страна (если известна)" class="input_style_2" />
+      <p class="layout_title">Паспорт рф</p>
+      <div class="df">
+        <v-input v-model="input" label="Серия" type="number" max_length="4" text_align="center" width="72px" class="mr8 input_style_2" />
+        <v-input v-model="input" label="Номер" type="number" max_length="6" text_align="center" width="108px" class="input_style_2" />
+      </div>
+      <v-date-input v-model="input" label="Дата выдачи" class="mt5"/>
+      <v-input v-model="input" label="Кем выдан" class="input_style_2 mt8" />
+    </v-layout>
     <!-------------------------------- news-feed -------------------------------->
 
 
@@ -363,6 +390,8 @@ const VSwitchButton = () => import('@/components/v-switch-button')
 const VMultipleSearch = () => import('@/components/v-multiple-search')
 const VNewsFeed = () => import('@/components/v-news-feed')
 const VNews = () => import('@/components/v-news')
+const VLayout = () => import('@/components/v-layout')
+const VDateInput = () => import('@/components/v-date-input')
 
 export default {
   components: {
@@ -398,7 +427,9 @@ export default {
     VSwitchButton,
     VMultipleSearch,
     VNewsFeed,
-    VNews
+    VNews,
+    VLayout,
+    VDateInput
   },
   data: () => ({
     // drag`n`drop
@@ -461,7 +492,7 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
 
     textarea: '',
-    input: '123',
+    input: '',
     input_n: '',
     list_input: [
       'Объект КС 1',

@@ -109,6 +109,7 @@ export default {
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
+  margin-top: 1px;
   letter-spacing: normal;
   text-align: left;
   color: var(--brown);

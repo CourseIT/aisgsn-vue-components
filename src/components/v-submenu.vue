@@ -101,7 +101,6 @@ export default {
 }
 .notifications-leave-active {
   opacity: 0;
-  left: 0px;
   transition: all 0.5s ease-in-out;
 }
 .submenu-enter-active {

@@ -8,7 +8,7 @@
     </div>
     <p v-if="label" class="label">{{label}}</p>
     <div v-if="type == 'textarea'">
-      <textarea class="textarea" :placeholder="placeholder" v-model="input_value" cols="10" rows="4"></textarea>
+      <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
       <div v-if="select_block_show" class="select-block select-block_textarea">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -16,10 +16,10 @@
       </div>
     </div>
     <div v-else-if="type == 'number'">
-      <input v-model="input_value" :placeholder="placeholder" class="input" type="number">
+      <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
     </div>
     <div v-else class="df">
-      <input v-model="input_value" :placeholder="placeholder" class="input" type="text">
+      <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
 
       <div v-if="select_block_show" class="select-block">
         <ul>
@@ -31,17 +31,22 @@
 </template>
 <script>
 export default {
-  props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint'],
+  props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint', 'max_length', 'text_align'],
   data: () => ({
     select_block_show: false,
     input_value: ''
   }),
   mounted() {
-    this.input_value = this.value
+    if(this.value) {
+      this.input_value = this.value
+    }
   },
   watch: {
     input_value(value) {
       this.$emit('input', value)
+      if(this.max_length) {
+        this.input_value = value.substr(0,this.max_length)
+      }
       if(value != this.$props.value)
         this.select_block_show = true
 
@@ -127,6 +132,11 @@ export default {
   margin-bottom: 30px;
   height: 36px;
   width: 100%;
+}
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance:textfield;
 }
 .textarea {
   width: 100%;

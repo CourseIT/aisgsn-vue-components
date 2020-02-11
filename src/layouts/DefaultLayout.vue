@@ -71,7 +71,7 @@ export default {
 
 <style>
 .ml320 {
-  padding-left: 320px !important;
+  padding-left: 310px !important;
   transition: all 0.3s ease;
 }
 .df {

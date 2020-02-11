@@ -34,6 +34,7 @@ export default {
   --blue-grey: #8e8e93;
   --purpley: #8d43ff;
   --brown: #8e7053;
+  --dark2: #38393b;
   --brown-dark: #3c240d;
   --green: #38bd3f;
   --brown-light: #c5b7ac;
@@ -97,7 +98,7 @@ html {
   width: 100%;
 }
 .pl305 {
-  padding-left: 320px;
+  padding-left: 315px;
 }
 .pl2 {
   padding-left: 2px;
@@ -114,6 +115,12 @@ html {
 .mr5 {
   margin-right: 5px;
 }
+.mr8 {
+  margin-right: 8px;
+}
+.ml7 {
+  margin-left: 7px;
+}
 .ml3 {
   margin-left: 3px;
 }
@@ -126,6 +133,9 @@ html {
 .mb0 {
   margin-bottom: 0 !important;
 }
+.mb15 {
+  margin-bottom: 15px;
+}
 .mb20 {
   margin-bottom: 20px;
 }
@@ -137,6 +147,15 @@ html {
 }
 .mb5 {
   margin-bottom: 5px;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt8 {
+  margin-top: 8px;
+}
+.mt10 {
+  margin-top: 10px;
 }
 .mt19 {
   margin-top: 19px;
@@ -168,6 +187,16 @@ html {
 .icon-template-shadow .hover-shadow:hover {
   box-shadow: none !important;
 }
+.input_style_2 input{
+  padding: 3px 7px !important;
+}
+.input_style_2 .label{
+  opacity: 0.7;
+  font-weight: bold !important;
+  margin-left: 7px;
+  color: var(--dark2) !important;
+  margin-top: 5px;
+}
 .template_block-fix {
   position: absolute;
   margin-left: -10px;
@@ -175,7 +204,40 @@ html {
 .ghost {
   opacity: 0.5;
 }
-
+.radio_label {
+  opacity: 0.7;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark2);
+  margin-bottom: 0 !important;
+  margin-left: 7px;
+}
+.layout_title {
+  opacity: 0.7;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark2);
+  margin-top: 18px;
+  text-transform: uppercase;
+  margin-left: 7px;
+}
+.categories .main-btn {
+  border-radius: 4px 0px 0px 4px !important;
+}
 .el-after::after {
   transform: rotate(-135deg);
   content: ''; 
