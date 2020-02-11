@@ -1,25 +1,49 @@
 <template>
   <div class="input-block" :style="{'width': width}">
-    <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
-      <div class="arrow"></div>
-      <div class="icon__prompt">
-        <span>{{hint}}</span>
-      </div>
-    </div>
     <p v-if="label" class="label">{{label}}</p>
     <div v-if="type == 'textarea'">
-      <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
-      <div v-if="select_block_show" class="select-block select-block_textarea">
-        <ul>
-          <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-        </ul>
+      <div class="df">
+        <div class="w100">
+          <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
+          <div v-if="select_block_show" class="select-block select-block_textarea">
+            <ul>
+              <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+            </ul>
+          </div>
+        </div>
+        <v-icon v-if="hint" icon="" class="hint_icon" />
+        <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+          <div class="arrow"></div>
+          <div class="icon__prompt">
+            <span>{{hint}}</span>
+          </div>
+        </div>
       </div>
     </div>
     <div v-else-if="type == 'number'">
-      <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
+      <div class="df">
+        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
+        <v-icon v-if="hint" icon="" class="hint_icon" />
+
+        <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+          <div class="arrow"></div>
+          <div class="icon__prompt">
+            <span>{{hint}}</span>
+          </div>
+        </div>
+
+      </div>
     </div>
     <div v-else class="df">
       <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
+      <v-icon v-if="hint" icon="" class="hint_icon" />
+
+      <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+        <div class="arrow"></div>
+        <div class="icon__prompt">
+          <span>{{hint}}</span>
+        </div>
+      </div>
 
       <div v-if="select_block_show" class="select-block">
         <ul>
@@ -30,8 +54,13 @@
   </div>
 </template>
 <script>
+const VIcon = () => import('@/components/v-icon')
+
 export default {
   props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint', 'max_length', 'text_align'],
+  components: {
+    VIcon
+  },
   data: () => ({
     select_block_show: false,
     input_value: ''
@@ -60,21 +89,37 @@ export default {
 }
 </script>
 <style scoped>
-.input-block:hover .icon__prompt-block {
+.hint_icon {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  right: 2px;
+  margin-left: -36px;
+  font-size: 20px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark2);
+}
+.hint_icon:hover + .icon__prompt-block {
   display: flex;
 }
 .icon__prompt-block {
   display: none;
   width: 400px;
   position: absolute;
-  justify-content: center;
   margin-left: 0px;
   margin-top: -15px;
 }
 .icon__prompt {
+  bottom: -6px;
   position: absolute;
+  width: 100%;
   z-index: 9;
-  padding: 6px 12px;
+  padding: 12px 15px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
@@ -90,12 +135,14 @@ export default {
 }
 .arrow {
   position: absolute;
-  top: 23px;
+  top: 4px;
+  height: 10px;
+  right: 12px;
   display: inline-block;
   color: #fff;
   z-index: 99;
   border: 8px solid transparent;	
-  border-bottom: 8px solid #fff;
+  border-bottom: 12px solid #fff;
   transform: rotate(180deg);
 }
 
@@ -130,6 +177,7 @@ export default {
   border-radius: 4px;
   border: 1px solid #fff;
   margin-bottom: 30px;
+  padding-right: 35px;
   height: 36px;
   width: 100%;
 }
