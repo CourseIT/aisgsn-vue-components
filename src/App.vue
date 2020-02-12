@@ -27,6 +27,7 @@ export default {
   --bright-orange: #fb6229;
   --dark: #21262c;
   --white: #fff;
+  --light-grey: #e7e5dc;
   --pale-grey: #efeff4;
   --pale-lilac: #e5e5ea;
   --weird-green: #4cd964;
@@ -168,6 +169,9 @@ html {
 }
 .ml25 {
   margin-left: 25px;
+}
+.input-mb0 input {
+  margin-bottom: 0 !important;
 }
 .icon-shadow {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);

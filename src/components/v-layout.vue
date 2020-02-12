@@ -26,9 +26,10 @@ export default {
   width: 11px;
   height: 8px;
   background-color: rgba(0, 0, 0, 0);
+  margin-right: 10px;
 }
 .v-layout::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color:#e7e5dc;
+  background-color:var(--light-grey);
 }
 </style>

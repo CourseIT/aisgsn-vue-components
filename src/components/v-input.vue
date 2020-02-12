@@ -24,27 +24,23 @@
       <div class="df">
         <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
         <v-icon v-if="hint" icon="" class="hint_icon" />
-
         <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
           <div class="arrow"></div>
           <div class="icon__prompt">
             <span>{{hint}}</span>
           </div>
         </div>
-
       </div>
     </div>
     <div v-else class="df">
       <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
       <v-icon v-if="hint" icon="" class="hint_icon" />
-
       <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
         <div class="arrow"></div>
         <div class="icon__prompt">
           <span>{{hint}}</span>
         </div>
       </div>
-
       <div v-if="select_block_show" class="select-block">
         <ul>
           <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
