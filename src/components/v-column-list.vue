@@ -56,6 +56,7 @@ export default {
 	methods: {
 		pickItem(item) {
 			this.item_value = item
+      this.$emit('input', item)
 		}
 	}
 }

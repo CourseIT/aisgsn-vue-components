@@ -354,7 +354,7 @@
 
 
     <!-------------------------------- v-column-list -------------------------------->
-    <v-column-list :list="column_list" :action_minus="test" :action_plus="test2" :action_reset="test2" class="mb20" />
+    <v-column-list v-model="column" :list="column_list" :action_minus="test" :action_plus="test2" :action_reset="test2" class="mb20" />
     <!-------------------------------- v-column-list -------------------------------->
 
 
@@ -725,7 +725,9 @@ export default {
       'Название столбца21',
       'Название столбца22',
       'Название столбца23',
-    ]
+    ],
+
+    column: ''
     
 
   }),
