@@ -49,6 +49,11 @@ export default {
 		VColumnItem,
     draggable
 	},
+  mounted() {
+    if(this.value) {
+      this.item_value = this.value
+    }
+  },
 	data: () => ({
 		item_value: '',
 		show_list: false,
