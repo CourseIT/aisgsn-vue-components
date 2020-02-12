@@ -27,6 +27,7 @@ import draggable from 'vuedraggable'
 
 export default {
 	props: {
+    value: {},
 		list: {},
 		action_minus: {
       default: function() {
@@ -49,19 +50,23 @@ export default {
 		VColumnItem,
     draggable
 	},
+	data: () => ({
+		item_value: '',
+		show_list: false,
+  }),
   mounted() {
     if(this.value) {
       this.item_value = this.value
     }
   },
-	data: () => ({
-		item_value: '',
-		show_list: false,
-	}),
+  watch: {
+    item_value(value) {
+      this.$emit('input', value)
+    }
+  },
 	methods: {
 		pickItem(item) {
 			this.item_value = item
-      this.$emit('input', item)
 		}
 	}
 }
