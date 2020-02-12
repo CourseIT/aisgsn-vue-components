@@ -762,7 +762,7 @@ export default {
   margin-left: 600px;
 }
 .components {
-  padding-bottom: 200px;
+  padding-bottom: 400px;
   transition: all 0.3s ease;
 }
 </style>
