@@ -75,13 +75,13 @@ export default {
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(34, 34, 34, 0.22);
   background-color: var(--white);
-  padding: 20px;
+  padding: 15px 20px;
   margin-top: 10px;
 }
 
 .color__block {
   display: flex;
-  margin-bottom: 10px;
+  margin: 5px;
   align-items: center;
 }
 .color {
