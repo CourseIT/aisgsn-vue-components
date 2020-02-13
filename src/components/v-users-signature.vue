@@ -30,6 +30,6 @@ export default {
   left: 9px; 
   bottom: 5px;
   border: 10px solid transparent;
-  border-bottom: 10px solid #fff;
+  border-bottom: 10px solid var(--white);
 }
 </style>

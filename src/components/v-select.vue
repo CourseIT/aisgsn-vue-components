@@ -181,7 +181,7 @@ export default {
 .select-btn {
   width: 100%;
   height: 36px;
-  background-color: #fff;
+  background-color: var(--white);
   display: flex;
   margin-bottom: 6px;
   text-align: center;

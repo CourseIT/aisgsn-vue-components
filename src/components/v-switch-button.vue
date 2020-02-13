@@ -52,7 +52,7 @@ export default {
   margin: 0px 10px;
 }
 .switch-button .v-input--switch__track {
-  background-color: #fff !important;
+  background-color: var(--white) !important;
   opacity: 1 !important;
   height: 21px !important;
   width: 43px !important;

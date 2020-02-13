@@ -19,13 +19,11 @@ describe('VSubmenu', () => {
       store, localVue,
       propsData: {
         title: 'title',
-        text_size: 'text_size',
         only_title: '',
         notifications: ['1', '2', '3']
       }
     });
     expect(wrapper.props().title).toBe('title');
-    expect(wrapper.props().text_size).toBe('text_size');
     expect(wrapper.props().only_title).toBe('');
     expect(wrapper.find('h1').contains('title'))
   })
@@ -43,7 +41,6 @@ describe('VSubmenu', () => {
       store, localVue,
       propsData: {
         title: 'title',
-        text_size: 'text_size',
         only_title: ''
       }
     });

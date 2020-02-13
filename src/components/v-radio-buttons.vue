@@ -53,7 +53,7 @@ export default {
 }
 .checkup-card-list__radio .mdi-radiobox-blank::before {
   content: "";
-  background: #fff;
+  background: var(--white);
   width: 22px;
   border-radius: 5px;
   height: 22px;

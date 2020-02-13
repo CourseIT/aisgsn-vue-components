@@ -53,7 +53,7 @@ export default {
   outline: none;
   height: 36px;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--white);
   padding: 0px 10px;
   padding-right: 35px;
   width: 100%;
@@ -113,10 +113,10 @@ export default {
   top: 23px;
   margin-left: 55px;
   display: inline-block;
-  color: #fff;
+  color: var(--white);
   z-index: 99;
   border: 8px solid transparent;	
-  border-bottom: 8px solid #fff;
+  border-bottom: 8px solid var(--white);
   transform: rotate(180deg);
 }
 </style>

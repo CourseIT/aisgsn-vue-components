@@ -67,7 +67,7 @@ export default {
   left: 8px; 
   top: -7px;
   border: 10px solid transparent;
-  border-bottom: 10px solid #fff;
+  border-bottom: 10px solid var(--white);
 }
 .icon1:hover + .hover-icon{
   display: block;
@@ -78,7 +78,7 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .hover-icon__bg {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 5px;
   padding: 2px 0px;
   transition: all 0.2s ease-out;

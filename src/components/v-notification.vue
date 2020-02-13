@@ -2,7 +2,7 @@
   <div class="notification">
     <div class="df">
       <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
-        <v-icon class="icon" :icon="icon" color="#fff" />
+        <v-icon class="icon" :icon="icon" color="var(--white)" />
       </v-btn>
       <p class="notification__text"><strong class="mr5">{{title}} </strong> {{text}}</p>
     </div>

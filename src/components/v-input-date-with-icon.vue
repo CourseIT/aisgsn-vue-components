@@ -149,10 +149,10 @@ export default {
   height: 36px;
   outline: none;
   width: 100%;
-  background-color: #fff !important;
+  background-color: var(--white) !important;
   padding: 3px 15px;
   border-radius: 4px;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   margin-bottom: 30px;
   width: 96%;
 }

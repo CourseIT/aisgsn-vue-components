@@ -71,13 +71,13 @@ export default {
 }
 .checkup-card-list__table tbody tr:hover {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: #fff !important;
+  background-color: var(--white) !important;
   cursor: pointer;
 }
 .checkup-card-list__table tbody tr {
   height: 50px;
   border-radius: 4px !important;
-  background-color: #fff;
+  background-color: var(--white);
 }
 .checkup-card-list__table {
   background: none !important;
@@ -86,7 +86,7 @@ export default {
   border-spacing: 0 10px !important;
 }
 .checkup-card-list__table .table__tr {
-  background: #fff;
+  background: var(--white);
 }
 .checkup-card-list__table .table__tr td:first-child {
   border-radius: 4px 0px 0px 4px;

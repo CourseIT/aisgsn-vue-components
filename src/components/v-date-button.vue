@@ -241,7 +241,7 @@ export default {
   outline: none;
   text-align: center;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--white);
   width: 100%;
   height: 27px;
   font-family: Roboto;

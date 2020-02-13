@@ -103,7 +103,7 @@ export default {
   line-height: 1.53;
   letter-spacing: normal;
   text-align: left;
-  color: #f5f4ed;
+  color: var(--pre-light);
   margin-top: 8px;
   margin-right: 25px;
 }
@@ -118,7 +118,7 @@ export default {
   line-height: 1.53;
   letter-spacing: normal;
   text-align: left;
-  color: #f5f4ed;
+  color: var(--pre-light);
 }
 .menu .v-input__control {
   position: relative !important;
@@ -158,7 +158,7 @@ export default {
   margin-left: -308px;
   position: fixed;
   transition: all 0.3s ease;
-  color: #fff;
+  color: var(--white);
   padding: 0px;
   min-width: 312px;
   height: 100vh;

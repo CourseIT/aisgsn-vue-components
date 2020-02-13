@@ -1,14 +1,14 @@
 <template>
   <div class="notifications">
     <v-badge
-        color="#fff"
+        color="var(--white)"
         overlap
     >
       <template v-slot:badge>
         <span v-if="messages.length > 0" style="color: #21262c">{{ messages.length }}</span>
       </template>
       <v-btn class="notifications__btn" text icon>
-        <v-icon class="icon" icon="" color="#fff" />
+        <v-icon class="icon" icon="" color="var(--white)" />
       </v-btn>
     </v-badge>
   </div>

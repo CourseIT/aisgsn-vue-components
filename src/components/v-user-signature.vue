@@ -39,7 +39,7 @@ export default {
   margin-bottom: 5px;
   border-radius: 4px;
   box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.22) !important;
-  background: #fff;
+  background: var(--white);
 }
 .dropdown__user-title {
   font-family: Roboto;
@@ -91,7 +91,7 @@ export default {
   background: #000;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 5px;
-  color: #fff;
+  color: var(--white);
   font-size: 12px;
   font-family: sans-serif;
   white-space: nowrap;
@@ -102,7 +102,7 @@ export default {
   bottom: 25px;
   left: 10px;
   display: inline-block;
-  color: #fff;
+  color: var(--white);
   border: 8px solid transparent;	
   border-bottom: 8px solid #000;
   transform: rotate(180deg);

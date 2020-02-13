@@ -148,7 +148,7 @@ export default {
   line-height: 1.55;
   letter-spacing: normal;
   text-align: left;
-  color: #38393b;
+  color: var(--dark2);
   margin-top: 30px;
 }
 .filter__btn:hover {

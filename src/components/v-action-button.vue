@@ -37,7 +37,7 @@ export default {
   outline: none;
   border-radius: 4px;
   width: 100%;
-  background: #fff;
+  background: var(--white);
   height: 36px !important;
   display: flex;
   align-items: center;

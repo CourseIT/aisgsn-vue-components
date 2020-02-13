@@ -38,7 +38,7 @@ export default {
 <style scoped>
 .dark .icon__prompt{
   background-color: var(--dark) !important;
-  color: #fff;
+  color: var(--white);
 }
 .dark::after {
   border-bottom: 8px solid var(--dark) !important;
@@ -101,10 +101,10 @@ export default {
   position: absolute;
   top: 23px;
   display: inline-block;
-  color: #fff;
+  color: var(--white);
   z-index: 99;
   border: 8px solid transparent;	
-  border-bottom: 8px solid #fff;
+  border-bottom: 8px solid var(--white);
   transform: rotate(180deg);
 }
 </style>

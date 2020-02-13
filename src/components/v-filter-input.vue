@@ -119,7 +119,7 @@ export default {
   outline: none;
   text-align: center;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: var(--white);
   width: 100%;
   font-family: Roboto;
   font-size: 0.6875rem;

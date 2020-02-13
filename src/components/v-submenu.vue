@@ -1,14 +1,16 @@
 <template>
   <div class="mb20">
-    <transition name="notifications">
-      <div v-if="notifications.length > 0 && !open_submenu" class="link_notifications">
-        <div v-if="notifications.length > 999" class="notifications_plus">+</div>
-        {{notificationsLength}}
+    <div class="df">
+      <transition name="notifications">
+        <div v-if="notifications.length > 0 && !open_submenu" class="link_notifications">
+          <div v-if="notifications.length > 999" class="notifications_plus">+</div>
+          {{notificationsLength}}
+        </div>
+      </transition>
+      <div class="df jcsb cp menu__title" @click="openSubmenu">
+        <h1 @click="action">{{title}}</h1>
+        <v-icon v-if="!only_title" font_size="26px" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
       </div>
-    </transition>
-    <div class="df jcsb cp menu__title" @click="openSubmenu">
-      <h1 @click="action">{{title}}</h1>
-      <v-icon v-if="!only_title" font_size="26px" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
     </div>
     <transition name="submenu">
       <div class="submenu" v-if="open_submenu">
@@ -27,7 +29,6 @@ const VIcon = () => import('@/components/v-icon')
 export default {
   props: {
     title: {},
-    text_size: {},
     only_title: {},
     notifications: {
       default: function() {
@@ -76,14 +77,16 @@ export default {
   margin-left: 12px;
 }
 .link_notifications {
-  position: absolute;
+  position: relative;
   width: 22px;
   height: 22px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 10px;
+  right: 30px;
+  bottom: 3px;
+  margin-right: -22px;
   margin-top: 6px;
   background-color: #578bc8;
   font-family: Roboto;
@@ -131,6 +134,9 @@ export default {
   text-align: left;
   transition: all 0.2s ease-out;
 }
+.menu__title {
+  width: 100%;
+}
 .menu__title h1{
   width: 100%;
   font-family: Roboto;
@@ -150,11 +156,11 @@ export default {
   color: var(--bright-orange)
 }
 .submenu {
-  max-height: 350px;
   overflow-y: hidden;
-}
-.submenu-open {
-  max-height: 400px;
+  position: relative;
+  right: 20px;
+  padding-left: 20px;
+  width: 109%;
 }
 .submenu ul {
   padding-left: 15px;

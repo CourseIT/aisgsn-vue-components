@@ -132,7 +132,7 @@ export default {
   outline: none;
   height: 36px;
   border-radius: 0px 4px 4px 0px;
-  background-color: #fff;
+  background-color: var(--white);
   padding: 0px 10px;
   padding-right: 35px;
   width: 340px;
@@ -259,7 +259,7 @@ export default {
 .select-btn {
   width: 100%;
   height: 36px;
-  background-color: #fff;
+  background-color: var(--white);
   display: flex;
   margin-bottom: 6px;
   text-align: center;

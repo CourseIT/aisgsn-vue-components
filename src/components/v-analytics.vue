@@ -96,7 +96,7 @@ li {
   width: 17px;
   height: 17px;
   border: solid 1px #1d1d1b;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 50%;
 }
 .m-d-b {
@@ -200,7 +200,7 @@ li {
   line-height: 1.56;
   letter-spacing: normal;
   text-align: right;
-  color: #fff;
+  color: var(--white);
   border-radius: 50%;
   width: 30px;
   height: 30px;
@@ -225,7 +225,7 @@ li {
   font-style: normal;
   line-height: 1.56;
   letter-spacing: normal;
-  color: #fff;
+  color: var(--white);
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -252,7 +252,7 @@ li {
   letter-spacing: normal;
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: var(--white);
   border-radius: 50%;
   padding: 3px 4px;
   z-index: 1;
@@ -372,7 +372,7 @@ li {
   height: 30px;
   margin-bottom: 20px;
   padding: 5px;
-  color: #fff;
+  color: var(--white);
   background-color: var(--weird-green);
   margin-left: -12px;
   clip-path: polygon(15% 0%, 100% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -390,7 +390,7 @@ li {
   line-height: 1.55;
   letter-spacing: normal;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   position: relative;
   display: inline-block;
   left: 40px;

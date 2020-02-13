@@ -5,7 +5,9 @@
       <div v-if="show_list" class="column__block" :class="{'index11': show_list}">
         <div class="colimn__items" :class="{'pr10': list.length > 9}">
           <draggable ghost-class="ghost">
-            <v-column-item v-for="(item, index) in list" :key="index" :text="item" :action="function(){item_value = item}" :item_value="item_value" :action_minus="action_minus" />
+            <div v-for="(item, index) in list" :key="index">
+              <v-column-item :text="item" :action="pickItem" :item_value="item_value" :action_minus="action_minus" :list="item_list" />
+            </div>
           </draggable>
         </div>
         <div class="icons__block" :class="{'pr20': list.length > 9}">
@@ -51,12 +53,13 @@ export default {
     draggable
 	},
 	data: () => ({
-		item_value: '',
+    item_value: '',
+    item_list: [],
 		show_list: false,
   }),
   mounted() {
     if(this.value) {
-      this.item_value = this.value
+      this.item_list = this.value
     }
   },
   watch: {
@@ -65,8 +68,16 @@ export default {
     }
   },
 	methods: {
-		pickItem(item) {
-			this.item_value = item
+		pickItem(option) {
+      //this.item_value = option
+      if(this.item_list.includes(option)) {
+        const new_list = this.item_list.filter(item => item != option )
+        this.item_list = new_list
+        this.$emit('input', this.item_list)
+      } else {
+        this.item_list.push(option)
+        this.$emit('input', this.item_list)
+      }
 		}
 	}
 }
@@ -131,7 +142,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	border-radius: 4px;
-  background-color: #f5f4ed;
+  background-color: var(--pre-light);
 	width: 75px;
   height: 36px;
 }

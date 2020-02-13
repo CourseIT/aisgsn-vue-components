@@ -135,10 +135,10 @@ export default {
   height: 10px;
   right: 12px;
   display: inline-block;
-  color: #fff;
+  color: var(--white);
   z-index: 99;
   border: 8px solid transparent;	
-  border-bottom: 12px solid #fff;
+  border-bottom: 12px solid var(--white);
   transform: rotate(180deg);
 }
 
@@ -168,10 +168,10 @@ export default {
   height: 36px;
   outline: none;
   width: 100%;
-  background-color: #fff !important;
+  background-color: var(--white) !important;
   padding: 3px 15px;
   border-radius: 4px;
-  border: 1px solid #fff;
+  border: 1px solid var(--white);
   margin-bottom: 30px;
   padding-right: 35px;
   height: 36px;

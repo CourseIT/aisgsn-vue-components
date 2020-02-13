@@ -1,11 +1,11 @@
-import VSubmenuLink from '@/components/v-submenu-link.vue'
+import VLink from '@/components/v-link.vue'
 import { shallowMount, createLocalVue } from '@vue/test-utils';
 
 import Vuex from 'vuex';
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('VSubmenuLink', () => {
+describe('VLink', () => {
 
   let store
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('VSubmenuLink', () => {
   
   it('Props', () => {
 
-    const wrapper = shallowMount(VSubmenuLink, {
+    const wrapper = shallowMount(VLink, {
       store, localVue,
       propsData: {
         text: 'text',
@@ -25,10 +25,10 @@ describe('VSubmenuLink', () => {
     });
 
     expect(wrapper.props().text).toBe('text');
-    expect(wrapper.find('li').contains('text'))
+    expect(wrapper.find('.v-link').contains('text'))
   })
   it('render notifications', () => {
-    const wrapper = shallowMount(VSubmenuLink, {
+    const wrapper = shallowMount(VLink, {
       store, localVue,
       propsData: {
         notifications: ['1', '2', '3']

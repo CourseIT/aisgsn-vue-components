@@ -65,7 +65,7 @@ export default {
   padding-top: 2px;
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: var(--white);
   padding: 4px 10px;
   padding-right: 11px;
   border-radius: 4px;

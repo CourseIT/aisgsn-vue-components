@@ -100,6 +100,6 @@ export default {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  color: #38393b;
+  color: var(--dark2);
 }
 </style>

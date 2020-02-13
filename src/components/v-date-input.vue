@@ -55,7 +55,7 @@ export default {
   font-style: normal;
   line-height: 1.17;
   letter-spacing: normal;
-  color: #38393b;
+  color: var(--dark2);
   padding: 5px;
   margin-bottom: 10px;
 }
@@ -70,7 +70,7 @@ export default {
   line-height: 1.25;
   letter-spacing: normal;
   text-align: left;
-  color: #38393b;
+  color: var(--dark2);
   margin-bottom: 5px;
   margin-left: 7px;
 }

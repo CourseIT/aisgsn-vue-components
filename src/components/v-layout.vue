@@ -18,7 +18,7 @@ export default {
   width: 670px;
   border-radius: 4px;
   border: dashed 1px var(--dark2);
-  background-color: #f5f4ed;
+  background-color: var(--pre-light);
   padding: 15px;
   overflow-y: auto;
 }
