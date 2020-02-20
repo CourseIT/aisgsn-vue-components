@@ -46,6 +46,7 @@ export default {
   font-style: normal;
   letter-spacing: normal;
   text-align: center;
+  cursor: pointer;
   color: var(--dark);
   padding: 5px;
   padding-top: 7px;

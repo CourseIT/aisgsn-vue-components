@@ -7,8 +7,7 @@
     </button>
     <div @click="show_btn = false" class="action-buttons" :style="{'width': width}" v-if="show_btn">
       <slot>
-        <v-action-button title="Подписать документ" icon=""/>
-        <v-action-button title="Вернуть на доработку" icon=""/>
+        test
       </slot>
     </div>
   </div>
@@ -18,13 +17,11 @@
 
 <script>
 const VIcon = () => import('./v-icon')
-const VActionButton = () => import('./v-action-button')
 
 export default {
   props: ['title', 'width'],
   components: {
-    VIcon,
-    VActionButton
+    VIcon
   },
   data: () =>({
     show_btn: false,

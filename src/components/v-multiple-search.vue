@@ -129,6 +129,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  height: 27px;
   outline: none;
   height: 36px;
   border-radius: 0px 4px 4px 0px;
