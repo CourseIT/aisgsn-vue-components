@@ -7,7 +7,6 @@
 }
 body {
   background-color: var(--pale-grey);
-  margin: 0px;
 }
 #app {
   background-color: var(--pale-grey);
