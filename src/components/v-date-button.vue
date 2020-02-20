@@ -223,6 +223,7 @@ export default {
   z-index: 7;
 }
 .date-btn__block .date__btn:hover {
+  cursor: pointer;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .date-btn__block .date__btn:focus {

@@ -24,9 +24,9 @@
           <div v-on="on" @click="clearDate">
             <v-icon v-if="show_close" class="icon-colse" width="15" icon="" />
           </div>
-          <button class="hover" v-on="on">
+          <div class="hover" v-on="on">
             <p @click="date_range_input_show = true" class="pl25">{{dateRangeText}} </p>
-          </button>
+          </div>
           <v-icon class="icon hover" width="19" icon="" />
         </button>
       </template>
@@ -262,6 +262,7 @@ button {
   z-index: 7;
 }
 .date-range-btn__block .date__btn:hover {
+  cursor: pointer;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .date-range-btn__block .date__btn:focus {
