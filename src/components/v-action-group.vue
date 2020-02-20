@@ -1,25 +1,28 @@
 <template>
-<div>
-  <div class="action-group" :style="{'width': width}">
-    <button @click="show_btn = !show_btn" class="action-main-btn">
-      <p class="action__title">{{title}}</p>
-      <v-icon class="action__icon" icon="" width="21"/>
-    </button>
-    <div @click="show_btn = false" class="action-buttons" :style="{'width': width}" v-if="show_btn">
-      <slot>
-        test
-      </slot>
+  <div>
+    <div class="action-group" :style="{'width': width}">
+      <button @click="show_btn = !show_btn" class="action-main-btn">
+        <p class="action__title">{{title}}</p>
+        <v-icon class="action__icon" icon="" width="21"/>
+      </button>
+      <div @click="show_btn = false" class="action-buttons" :style="{'width': width}" v-if="show_btn">
+        <slot>
+          test
+        </slot>
+      </div>
     </div>
+    <div v-if="show_btn" @click="show_btn = false" class="action-bg"></div>
   </div>
-  <div v-if="show_btn" @click="show_btn = false" class="action-bg"></div>
-</div>
 </template>
 
 <script>
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['title', 'width'],
+  props: {
+    title: {},
+    width: {}
+  },
   components: {
     VIcon
   },
