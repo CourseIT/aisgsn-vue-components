@@ -274,9 +274,11 @@ export default {
   width: 37px !important;
   right: 8px;
 }
+
 .filter-switch .v-input--switch {
   margin-left: 20px !important;
 }
+
 .filter-switch .v-input--switch__track {
   background-color: var(--white) !important;
   opacity: 1 !important;
