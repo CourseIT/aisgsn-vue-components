@@ -66,8 +66,8 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
-const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
+const VIcon = () => import('./v-icon')
+const VBreadcrumbs = () => import('./v-breadcrumbs')
 
 export default {
   props: {

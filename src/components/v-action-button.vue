@@ -8,7 +8,7 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   props: {
@@ -75,7 +75,7 @@ export default {
   text-align: center;
   color: var(--dark);
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 .action-btn__icon {
   font-family: var(--font-awesome-5-pro-light);

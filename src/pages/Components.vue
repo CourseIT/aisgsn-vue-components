@@ -362,6 +362,16 @@
     <v-legend />
     <!-------------------------------- v-legend -------------------------------->
 
+    <!-------------------------------- v-modal-layout -------------------------------->
+    <!-- <v-modal-layout>
+      <v-modal-layout-tab name="test1" v-model="show_tabs">
+        111111
+      </v-modal-layout-tab>
+      <v-modal-layout-tab name="test2" v-model="show_tabs">
+        222222
+      </v-modal-layout-tab>
+    </v-modal-layout> -->
+    <!-------------------------------- v-modal-layout -------------------------------->
 
 
   </div>
@@ -405,6 +415,8 @@ const VLayout = () => import('@/components/v-layout')
 const VDateInput = () => import('@/components/v-date-input')
 const VColumnList = () => import('@/components/v-column-list')
 const VLegend = () => import('@/components/v-legend')
+// const VModalLayout = () => import('@/components/v-modal-layout')
+// const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
 
 export default {
   components: {
@@ -444,7 +456,9 @@ export default {
     VLayout,
     VDateInput,
     VColumnList,
-    VLegend
+    VLegend,
+    // VModalLayout,
+    // VModalLayoutTab
   },
   data: () => ({
     // drag`n`drop
@@ -727,7 +741,9 @@ export default {
       'Название столбца23',
     ],
 
-    column: ['Название столбца3']
+    column: ['Название столбца3'],
+
+    show_tabs: 'test1'
     
 
   }),

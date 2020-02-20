@@ -37,10 +37,12 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 export default {
-  components: { VIcon },
+  components: {
+    VIcon
+  },
   data: () => ({
     today: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],
     date: [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)],

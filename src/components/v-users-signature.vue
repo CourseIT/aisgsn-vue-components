@@ -11,7 +11,7 @@
 </template>
 
 <script>
-const VUserSignature = () => import('@/components/v-user-signature')
+const VUserSignature = () => import('./v-user-signature')
 
 export default {
   components: {

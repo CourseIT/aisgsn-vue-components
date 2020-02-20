@@ -20,7 +20,7 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 
 export default {
@@ -94,5 +94,6 @@ export default {
   color: var(--dark);
   position: relative;
   left: -6px;
+  bottom: 4px;
 }
 </style>

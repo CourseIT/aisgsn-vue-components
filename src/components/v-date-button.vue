@@ -34,10 +34,12 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 export default {
-  components: { VIcon },
+  components: {
+    VIcon
+  },
   data: () => ({
     date: new Date().toISOString().substr(0, 10),
     date_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
@@ -104,7 +106,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .w19 {
   width: 19px !important;
 }
@@ -196,6 +198,11 @@ export default {
   text-align: center;
   color: var(--dark);
   transition: all 0.2s ease-out;
+}
+.date-btn__block .icon-apply{
+  position: absolute;
+  margin-left: 100px;
+  margin-top: -4px;
 }
 .date-btn__block .icon-colse {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);

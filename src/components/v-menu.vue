@@ -35,9 +35,6 @@
 <script>
 
 export default {
-  components: {
- 
-  },
   data: () => ({
     light_gamma: false,
     text_size: 16
@@ -78,13 +75,13 @@ export default {
     textSizePlus() {
       if(this.text_size >= 14 && this.text_size < 18){
         this.text_size++
-        this.$store.commit('TEXT_SIZE_PLUS', this.text_size)
+        document.querySelector(':root').style.fontSize = `${this.text_size}px`
       }
     },
     textSizeMinus() {
       if(this.text_size > 14 && this.text_size <= 18){
         this.text_size--
-        this.$store.commit('TEXT_SIZE_MINUS', this.text_size)
+        document.querySelector(':root').style.fontSize = `${this.text_size}px`
       }
     }
   }

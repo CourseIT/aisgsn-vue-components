@@ -32,8 +32,8 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
-const VButton = () => import('@/components/v-button')
+const VIcon = () => import('./v-icon')
+const VButton = () => import('./v-button')
 
 export default {
   props: {

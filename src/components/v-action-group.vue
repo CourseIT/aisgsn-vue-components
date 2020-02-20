@@ -17,8 +17,8 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
-const VActionButton = () => import('@/components/v-action-button')
+const VIcon = () => import('./v-icon')
+const VActionButton = () => import('./v-action-button')
 
 export default {
   props: ['title', 'width'],
@@ -77,7 +77,7 @@ export default {
   text-align: center;
   color: var(--dark);
   width: 100%;
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 .action__icon {
   font-family: var(--font-awesome-5-pro-light);

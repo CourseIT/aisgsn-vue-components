@@ -116,7 +116,8 @@ export default {
 .icons_text-block {
   display: flex;
   margin-top: 20px;
-  margin-left: 289px;
+  justify-content: flex-end;
+  padding-right: 24px;
   z-index: 99;
 }
 .icon-text {
@@ -130,6 +131,6 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  margin-left: 22px;
+  margin-left: 10px;
 }
 </style>

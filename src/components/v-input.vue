@@ -50,7 +50,7 @@
   </div>
 </template>
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint', 'max_length', 'text_align'],
@@ -89,9 +89,9 @@ export default {
   width: 36px;
   height: 36px;
   position: relative;
-  right: 2px;
+  right: 0px;
   margin-left: -36px;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -115,7 +115,7 @@ export default {
   position: absolute;
   width: 100%;
   z-index: 9;
-  padding: 12px 15px;
+  padding: 10px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
@@ -126,7 +126,7 @@ export default {
   font-style: normal;
   line-height: 1;
   letter-spacing: normal;
-  text-align: center;
+  text-align: left;
   color: var(--dark);
 }
 .arrow {

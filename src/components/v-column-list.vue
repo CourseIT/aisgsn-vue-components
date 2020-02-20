@@ -23,8 +23,8 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
-const VColumnItem = () => import('@/components/v-column-item')
+const VIcon = () => import('./v-icon')
+const VColumnItem = () => import('./v-column-item')
 import draggable from 'vuedraggable'
 
 export default {

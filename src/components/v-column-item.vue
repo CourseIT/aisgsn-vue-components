@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
+const VIcon = () => import('./v-icon')
 
 export default {
   props: {

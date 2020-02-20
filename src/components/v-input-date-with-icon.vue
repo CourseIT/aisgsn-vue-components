@@ -60,7 +60,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .input-date .v-menu__content {
   margin-left: 80px !important;
   margin-top: -40px !important;

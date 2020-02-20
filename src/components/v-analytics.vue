@@ -85,10 +85,10 @@ export default {
   color: var(--dark);
   max-width: 470px;
 }
-ul {
+.analytics-block ul {
   padding: 0px;
 }
-li {
+.analytics-block li {
   list-style-type: none;
   margin: 20px 0px;
 }

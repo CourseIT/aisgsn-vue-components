@@ -38,8 +38,8 @@
 </template>
 
 <script>
-const VIcon = () => import('@/components/v-icon')
-const VCategoriesOption = () => import('@/components/v-categories-option')
+const VIcon = () => import('./v-icon')
+const VCategoriesOption = () => import('./v-categories-option')
 
 export default {
   props: {
