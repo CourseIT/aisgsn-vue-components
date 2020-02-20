@@ -183,6 +183,7 @@ export default {
   font-style: normal;
   letter-spacing: normal;
   color: var(--dark);
+  height: 27px;
   padding: 4px 23px;
   padding-top: 5px;
   padding-left: 20px;

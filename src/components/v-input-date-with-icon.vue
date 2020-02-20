@@ -33,6 +33,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  name: 'VInputDateWithIcon',
   props: ['placeholder', 'value', 'icon', 'label', 'width'],
   components: {
     VIcon
