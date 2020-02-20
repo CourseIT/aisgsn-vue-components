@@ -1,23 +1,9 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
-import {
-  VSwitch,
-  VDatePicker,
-  VRadioGroup,
-  VRadio,
-  VMenu,
-} from "vuetify";
+import Vuetify from 'vuetify';
 
 Vue.use(Vuetify);
 
 export default new Vuetify({
-  components: {
-    VSwitch,
-    VDatePicker,
-    VRadioGroup,
-    VRadio,
-    VMenu,
-  },
   lang: {
     current: 'Ru',
   },
