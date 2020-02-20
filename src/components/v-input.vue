@@ -198,6 +198,7 @@ export default {
   resize : none;
   height: 95px;
   margin-bottom: 20px;
+  border: none;
 }
 .textarea::placeholder {
   padding-top: 5px;

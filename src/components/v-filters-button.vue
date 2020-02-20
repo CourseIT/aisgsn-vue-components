@@ -88,6 +88,7 @@ export default {
   margin: 0px;
   margin-bottom: 7px;
   outline: none;
+  cursor: pointer;
 }
 .filter__btn p {
   width: 80%;
@@ -174,7 +175,7 @@ export default {
   padding: 18px 23px;
 }
 .close-block {
-  position: absolute;
+  position: fixed;
   background: none;
   background: rgba(0, 0, 0, 0.4);
   z-index: 99;

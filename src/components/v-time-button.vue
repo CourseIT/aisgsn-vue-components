@@ -9,15 +9,15 @@
         <v-icon v-else :action="clearTime" class="icon-apply" width="15" icon="" />
       </div>
     </div>
-    <button v-else class="df time__btn">
+    <div v-else class="df time__btn">
       <div @click="clearTime">
         <v-icon v-if="time != currentTime" class="icon-colse" width="15" icon="" />
       </div>
-      <button>
+      <div>
         <p @click="time_input_show = true" class="pl25">{{time}} </p>
-      </button>
+      </div>
       <v-icon :action="function(){time_input_show = true}" class="icon-clock" width="19" icon="" />
-    </button>
+    </div>
   </div>
 </template>
 
@@ -131,6 +131,7 @@ export default {
   transition: all 0.2s ease-out;
   margin: 0px;
   outline: none;
+  cursor: pointer;
 }
 .time-btn__block .time__btn p {
   margin-bottom: 0;

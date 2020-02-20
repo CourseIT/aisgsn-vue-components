@@ -123,6 +123,7 @@ export default {
   width: 100%;
   font-family: Roboto;
   font-size: 0.6875rem;
+  height: 27px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;

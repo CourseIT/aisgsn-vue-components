@@ -12,14 +12,14 @@
             {{value || defailt_value}}
           </div>
         </div>
-        <button v-if="value" @click="$emit('input', ''), menu_show = false">
+        <div v-if="value" @click="$emit('input', ''), menu_show = false">
           <v-icon icon="" width="16" class="select__icon-colse"/>
-        </button>
+        </div>
       </button>
       <button v-else class="main-btn">
-        <button v-if="value" @click="$emit('input', ''), menu_show = false">
+        <div v-if="value" @click="$emit('input', ''), menu_show = false">
           <v-icon icon="" width="16" class="select__icon-colse"/>
-        </button>
+        </div>
         <div class="hover-btn df w100">
           <div @click="menu_show = !menu_show" class="w100 df aic jcc"  :class="{'pl16': !value}">
             {{value || defailt_value}}
