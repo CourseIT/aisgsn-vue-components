@@ -1,5 +1,5 @@
 <template>
-  <div class="time-btn__block">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="time-btn__block">
     <div v-if="time_input_show">
       <div class="time-btn-input">
         <form @submit="pickTime">
@@ -25,6 +25,12 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  props: {
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: { VIcon },
   data: () => ({
     time: '',

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="modal">
       <slot>
         Modal
@@ -27,6 +27,10 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    read_only: {},
+    visible: {
+      default: true
+    },
     action_delete: {
       default: function() {
         return () => ({})

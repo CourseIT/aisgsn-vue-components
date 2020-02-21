@@ -1,5 +1,5 @@
 <template>
-  <div class="news_feed">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="news_feed">
     <div class="news_list" :style='{"width": `${news_width}`, "height": `${news_height}`}'>
       <slot></slot>
     </div>
@@ -15,7 +15,11 @@ export default {
       default: 'Новостная лента города Липецка и Липецкой области'
     },
     news_width: {},
-    news_height: {}
+    news_height: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   data: () => ({
     search: '',

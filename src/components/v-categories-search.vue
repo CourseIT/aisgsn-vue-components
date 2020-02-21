@@ -1,5 +1,5 @@
 <template>
-  <div class="categories">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="categories">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <slot>
@@ -42,6 +42,10 @@ export default {
     width: {
       default: '140px'
     },
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   components: {
     VIcon,

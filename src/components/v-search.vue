@@ -1,25 +1,32 @@
 <template>
-<div :style='{width: `${width}`}'>
-  <div class="search">
-    <input type="text" v-model="value" :placeholder="placeholder">
-    <div class="icon__prompt-block">
-      <div class="arrow"></div>
-      <div class="icon__prompt">
-        <span>Фильтрация по тексту</span>
+  <div v-if="visible" :class="{'read-only': read_only == true}" :style='{width: `${width}`}'>
+    <div class="search">
+      <input type="text" v-model="value" :placeholder="placeholder">
+      <div class="icon__prompt-block">
+        <div class="arrow"></div>
+        <div class="icon__prompt">
+          <span>Фильтрация по тексту</span>
+        </div>
+      </div>
+      <div v-if="value != ''" class="icon-btn" @click="value = ''">
+        <v-icon class="icon" width="15" icon="" />
       </div>
     </div>
-    <div v-if="value != ''" class="icon-btn" @click="value = ''">
-      <v-icon class="icon" width="15" icon="" />
-    </div>
   </div>
-</div>
 </template>
 
 <script>
 const VIcon = () => import('./v-icon') 
 
 export default {
-  props: ['width', 'placeholder'],
+  props: {
+    placeholder: {},
+    width: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon
   },

@@ -1,15 +1,19 @@
 <template>
-    <button @click="action" class="select-btn select_shadow">
-      <div class="df aic w100 hover-btn jcc">
-        {{option}}
-      </div>
-    </button>
+  <button v-if="visible" :class="{'read-only': read_only == true}" @click="action" class="select-btn select_shadow">
+    <div class="df aic w100 hover-btn jcc">
+      {{option}}
+    </div>
+  </button>
 </template>
 
 <script>
 export default {
   props : {
     option: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

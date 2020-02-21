@@ -1,5 +1,5 @@
 <template>
-  <div class="notifications">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="notifications">
     <v-badge
         color="var(--white)"
         overlap
@@ -18,6 +18,12 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  props: {
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon
   },

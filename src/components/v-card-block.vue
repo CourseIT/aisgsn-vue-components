@@ -1,5 +1,5 @@
 <template>
-  <div :style='{width: `${width}`}'>
+  <div v-if="visible" :class="{'read-only': read_only == true}" :style='{width: `${width}`}'>
     <div class="df inspection-program-block">
       <slot>
         <div class="w95">
@@ -39,6 +39,10 @@ export default {
     width: {},
     action_minus: {},
     action_edit: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action_select: {
       default: function() {
         return () => ({})

@@ -1,5 +1,5 @@
 <template>
-  <div class="field-block">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="field-block">
     <v-search class="search"/>
     <div class="text-block">
       <v-template-text v-for="(text, index) in texts" padding_right="5px" :key="index" />
@@ -17,6 +17,12 @@ const VSearch = () => import('./v-search')
 const VIcon = () => import('./v-icon')
 
 export default {
+  props: {
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VTemplateText,
     VSearch,

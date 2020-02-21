@@ -10,7 +10,7 @@
 
 
 <!-------------------------------- buttons -------------------------------->
-    <v-button class="mb20" :action="test" text="Принять" />
+    <v-button class="mb20" :action="test" text="Принять"/>
     <v-button class="mb20" :action="test" text="Сбросить" type="reset"/>
 <!-------------------------------- buttons -------------------------------->
 
@@ -307,7 +307,7 @@
 
     <div class="df">
       <!-------------------------------- date-button -------------------------------->
-      <v-date-button  v-model="date_btn"/>
+      <v-date-button  v-model="date_btn" />
       <!-------------------------------- date-button -------------------------------->
 
       <!-------------------------------- date-range-button -------------------------------->
@@ -521,7 +521,7 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
 
     textarea: '',
-    input: '',
+    input: 'text',
     input_n: '',
     list_input: [
       'Объект КС 1',

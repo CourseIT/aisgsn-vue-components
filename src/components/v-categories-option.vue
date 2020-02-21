@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('input', option)" class="categories-btn">
+  <button v-if="visible" :class="{'read-only': read_only == true}" @click="$emit('input', option)" class="categories-btn">
     <div class="circle-block">
       <div v-if="value == option || list.includes(option)" class="circle"></div>
     </div>
@@ -19,6 +19,10 @@ export default {
       default: []
     },
     option: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

@@ -1,5 +1,5 @@
 <template>
-  <div class="textarea-with-icon" :style="{'width': width}">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="textarea-with-icon" :style="{'width': width}">
     <div class="input-block">
       <p class="label">{{label}}</p>
       <div class="df">
@@ -28,7 +28,20 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-	props: ['placeholder', 'value', 'icon', 'label', 'template_text_top', 'el_after', 'el_before', 'width'],
+  props: {
+    placeholder: {},
+    value: {},
+    icon: {},
+    label: {},
+    template_text_top: {},
+    el_after: {},
+    el_before: {},
+    width: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon,
     VTemplateBlock

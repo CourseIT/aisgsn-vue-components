@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="df">
       <div class="icon " :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
         <slot name="icon">
@@ -21,7 +21,19 @@ const VIcon = () => import('./v-icon')
 const VTemplateBlock = () => import('./v-template-block')
 
 export default {
-  props: ['placeholder', 'value', 'icon', 'template_text_top', 'el_after', 'el_before', 'width'],
+  props: {
+    placeholder: {},
+    value: {},
+    icon: {},
+    template_text_top: {},
+    el_after: {},
+    el_before: {},
+    width: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon,
     VTemplateBlock

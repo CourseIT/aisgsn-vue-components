@@ -2,7 +2,7 @@
   <div class="input-date" :style="{'width': width}">
     <div class="input-block">
       <p class="label">{{label}}</p>
-      <div class="df h55" 
+      <div v-if="visible" :class="{'read-only': read_only == true}" class="df h55" 
         @click="menu = true">
         <input v-model="dateRangeText" class="input" type="text">
         <v-menu
@@ -34,7 +34,17 @@ const VIcon = () => import('./v-icon')
 
 export default {
   name: 'VInputDateWithIcon',
-  props: ['placeholder', 'value', 'icon', 'label', 'width'],
+  props: {
+    placeholder: {},
+    value: {},
+    icon: {},
+    label: {},
+    width: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon
   },

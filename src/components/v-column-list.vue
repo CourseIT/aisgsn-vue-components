@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="column__list">
       <v-icon class="icon" icon="" hover_color="true" :action="function(){show_list = !show_list}" :class="{'index11': show_list}" />
       <div v-if="show_list" class="column__block" :class="{'index11': show_list}">
@@ -30,7 +30,11 @@ import draggable from 'vuedraggable'
 export default {
 	props: {
     value: {},
-		list: {},
+    list: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
 		action_minus: {
       default: function() {
         return () => ({})

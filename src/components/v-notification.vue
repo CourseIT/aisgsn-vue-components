@@ -1,5 +1,5 @@
 <template>
-  <div class="notification">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="notification">
     <div class="df">
       <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
         <v-icon class="icon" :icon="icon" color="var(--white)" />
@@ -14,7 +14,13 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['type'],
+  props: {
+    type: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VIcon
   },

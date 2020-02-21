@@ -1,5 +1,5 @@
 <template>
-  <div class="mb20">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="mb20">
     <div class="df">
       <transition name="notifications">
         <div v-if="notifications.length > 0 && !open_submenu" class="link_notifications">
@@ -30,6 +30,10 @@ export default {
   props: {
     title: {},
     only_title: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     notifications: {
       default: function() {
         return () => []

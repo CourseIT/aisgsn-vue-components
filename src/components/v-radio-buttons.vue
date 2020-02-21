@@ -1,5 +1,5 @@
 <template>
-  <div class="checkup-card-list__radio" :class="{'green-radio': radio_color == 'green'}"> 
+  <div v-if="visible" class="checkup-card-list__radio" :class="{'read-only': read_only == true, 'green-radio': radio_color == 'green'}"> 
     <v-radio-group row v-model="radios">
       <slot>
         <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
@@ -11,7 +11,15 @@
 <script>
 
 export default {
-  props: ['labels', 'radio_color', 'value'],
+  props: {
+    labels: {},
+    radio_color: {},
+    value: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   data: () => ({
     radios: ''
   }),

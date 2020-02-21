@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-input">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="filter-input">
     <div v-if="filter_input_show">
       <div class="filter-btn-input">
         <form @submit="emitFilterInput">
@@ -25,6 +25,10 @@ export default {
   props: {
     default_text: {
       default: 'Фильтр'
+    },
+    read_only: {},
+    visible: {
+      default: true
     }
   },
   data: () => ({

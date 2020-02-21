@@ -1,5 +1,5 @@
 <template>
-  <div class="v-layout" :style="{'width': width, 'height': height}">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="v-layout" :style="{'width': width, 'height': height}">
     <slot></slot>
   </div>
 </template>
@@ -8,7 +8,11 @@
 export default {
   props: {
     width: {},
-    height: {}
+    height: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   }
 }
 </script>

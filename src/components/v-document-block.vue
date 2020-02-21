@@ -1,5 +1,5 @@
 <template>
-  <div class="doc__block df">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="doc__block df">
     <div class="mr15">
       <img v-if="src" class="doc__img" :src="src" alt="">
       <div v-else class="doc__img">
@@ -17,7 +17,13 @@
 <script>
 
 export default {
-  props: ['src'],
+  props: {
+    src: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   data: () => ({
   })
 }

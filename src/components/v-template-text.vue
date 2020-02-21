@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="template-block" :class="{'tb-shadow': shadow}">
       <div @click="action" class="w90">
         <p>{{text}}</p>
@@ -21,6 +21,10 @@ const VIcon = () => import('./v-icon')
 export default {
   props: {
     shadow: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

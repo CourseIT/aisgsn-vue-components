@@ -1,5 +1,5 @@
 <template>
-  <div class="switch-button">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="switch-button">
     <v-switch v-model="value"  inset/>
   </div>
 </template>
@@ -7,7 +7,13 @@
 <script>
 
 export default {
-  props: ['default_value'],
+  props: {
+    default_value: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   data: () => ({
     value: false,
   }),

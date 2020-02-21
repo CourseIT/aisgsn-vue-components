@@ -1,5 +1,5 @@
 <template>
-  <div class="layout_tab">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="layout_tab">
     <div class="tab_name" @click="showTab">
       {{name}}
     </div>
@@ -14,7 +14,11 @@
 export default {
   props: {
     name: {},
-    value: {}
+    value: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   methods: {
     showTab() {

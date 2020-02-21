@@ -1,5 +1,5 @@
 <template>
-  <div class="categories" :class="{'mb30': chips}">
+  <div v-if="visible" class="categories" :class="{'read-only': read_only == true, 'mb30': chips}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <button class="main-btn" :style="{'width': width}">
@@ -65,6 +65,10 @@ export default {
     },
     width: {
       default: '140px'
+    },
+    read_only: {},
+    visible: {
+      default: true
     },
     submit: {
       default: function() {

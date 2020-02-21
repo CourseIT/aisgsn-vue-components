@@ -1,28 +1,24 @@
 <template>
-  <div>
-    <div>
-      <div>
-        <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
-          <template v-slot:default>
-            <thead>
-              <tr>
-                <th class="text-left" v-for="(th, index) in thead" :key="index">{{th}}</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr @click="action" v-for="(item, index) in docs" :key="index" class="table__tr">
-                <td class="table__name">{{ item.name }}</td>
-                <td class="table__text">{{ item.author }}</td>
-                <td class="table__text">{{ item.type }}</td>
-                <td class="table__text">{{ item.podpisan }}</td>
-                <td class="table__text">{{ item.status }}</td>
-                <td class="table__text">{{ item.date }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </div>
-    </div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
+    <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
+      <template v-slot:default>
+        <thead>
+          <tr>
+            <th class="text-left" v-for="(th, index) in thead" :key="index">{{th}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr @click="action" v-for="(item, index) in docs" :key="index" class="table__tr">
+            <td class="table__name">{{ item.name }}</td>
+            <td class="table__text">{{ item.author }}</td>
+            <td class="table__text">{{ item.type }}</td>
+            <td class="table__text">{{ item.podpisan }}</td>
+            <td class="table__text">{{ item.status }}</td>
+            <td class="table__text">{{ item.date }}</td>
+          </tr>
+        </tbody>
+      </template>
+    </v-simple-table>
   </div>
 </template>
 
@@ -32,6 +28,10 @@ export default {
     docs: {},
     thead: {},
     height: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

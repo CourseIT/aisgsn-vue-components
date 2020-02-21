@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="modal_layout" :class="{ml312: $store.state.menu_visibility}">
       <slot>
       </slot>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-
+  props: {
+    read_only: {},
+    visible: {
+      default: true
+    }
+  }
 }
 </script>
 

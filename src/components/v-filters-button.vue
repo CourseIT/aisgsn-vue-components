@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
@@ -43,6 +43,10 @@ export default {
     right: {},
     info: {},
     time: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action_reset: {
       default: function() {
         return () => ({})

@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown__users">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="dropdown__users">
     <div>
       <p class="dropdown__user-title">{{title}}</p>
       <p class="dropdown__user-name">{{name}}</p>
@@ -24,7 +24,11 @@ export default {
       }
     },
     title: {},
-    name: {}
+    name: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   }
 }
 </script>

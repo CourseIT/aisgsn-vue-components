@@ -1,5 +1,5 @@
 <template>
-  <div class="df fs">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="df fs">
     <div class="filter-input-switch">
       <div v-if="filter_input_show">
         <div class="filter-btn-input">
@@ -42,6 +42,10 @@ export default {
       default: () => ({
         return: []
       })
+    },
+    read_only: {},
+    visible: {
+      default: true
     }
   },
   data: () => ({

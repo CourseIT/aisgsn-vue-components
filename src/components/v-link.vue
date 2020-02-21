@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div v-if="notifications.length > 0" class="link_notifications">
       <div v-if="notifications.length > 999" class="notifications_plus">+</div>
       {{notificationsLength}}
@@ -14,6 +14,10 @@
 export default {
   props: {
     text: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     notifications: {
       default: function() {
         return () => []

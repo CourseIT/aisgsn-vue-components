@@ -1,7 +1,7 @@
 <template>
   <div class="analytics">
     <h1 class="analytics__title">Государственный строительный надзор на объектах ФЯО</h1>
-    <VAnalytics :analytics="analytics" />
+    <VAnalytics :analytics="analytics"/>
   </div>
 </template>
 

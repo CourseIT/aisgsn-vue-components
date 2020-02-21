@@ -150,6 +150,10 @@ input {
   margin-left: 25px;
 }
 
+.read-only {
+  pointer-events: none;
+  opacity: 0.5;
+}
 .filter-switch .v-input--switch {
   margin-left: 20px !important;
 }

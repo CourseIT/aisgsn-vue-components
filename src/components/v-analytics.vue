@@ -1,5 +1,5 @@
 <template>
-  <div class="analytics-block">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="analytics-block">
     <div class="df">
       <div class="df mr50">
         <div class="block1-title">
@@ -60,7 +60,13 @@
 
 <script>
 export default {
-  props: ['analytics'],
+  props: {
+    analytics: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   data: () => ({
     
   }),

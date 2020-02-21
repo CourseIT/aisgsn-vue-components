@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown__block arrow-icon">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="dropdown__block arrow-icon">
     <slot>
       <v-user-signature title="Утверждено" name="Сотрудник А. А." />
       <v-user-signature title="Согласовано" name="Сотрудник А. А." />
@@ -14,6 +14,12 @@
 const VUserSignature = () => import('./v-user-signature')
 
 export default {
+  props: {
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
   components: {
     VUserSignature
   },

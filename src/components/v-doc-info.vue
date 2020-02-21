@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="df">
       <p class="doc__title">Заявитель (уточняется)</p>
       <p class="title-value">{{doc_info.declarant}}</p>
@@ -21,7 +21,13 @@
 
 <script>
 export default {
-  props: ['doc_info']
+  props: {
+    doc_info: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  },
 }
 </script>
 

@@ -1,9 +1,11 @@
 <template>
-  <div class="w262" :style="{'width': width}">
-    <button @click="action" class="action-btn">
-      <p class="action-btn__title">{{title}}</p>
-      <v-icon class="action-btn__icon" :icon="icon" width="30"/>
-    </button>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
+    <div class="w262" :style="{'width': width}">
+      <button @click="action" class="action-btn">
+        <p class="action-btn__title">{{title}}</p>
+        <v-icon class="action-btn__icon" :icon="icon" width="30"/>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -17,6 +19,10 @@ export default {
     },
     width: {},
     icon: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

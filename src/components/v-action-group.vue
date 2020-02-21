@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="action-group" :style="{'width': width}">
       <div @click="show_btn = !show_btn" class="action-main-btn">
         <p class="action__title">{{title}}</p>
@@ -23,7 +23,11 @@ const VIcon = () => import('./v-icon')
 export default {
   props: {
     title: {},
-    width: {}
+    width: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   components: {
     VIcon

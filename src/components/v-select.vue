@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="visible" :class="{'read-only': read_only == true}">
     <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
       <button v-if="icon_left" class="main-btn">
         <div class="hover-btn df w100">
@@ -71,7 +71,11 @@ export default {
     icon_left: {},
     width: {},
     text_center: {},
-    icon_size: {}
+    icon_size: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   components: {
     VIcon

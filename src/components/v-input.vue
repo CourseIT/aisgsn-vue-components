@@ -4,16 +4,40 @@
       <p v-if="label" class="label">{{label}}</p>
       <v-icon :action="label_icon_action" v-if="label_icon_action" icon="" class="label_icon" hover_color="true" />
     </div>
-    <div v-if="type == 'textarea'">
-      <div class="df">
-        <div class="w100">
-          <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
-          <div v-if="select_block_show" class="select-block select-block_textarea">
-            <ul>
-              <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-            </ul>
+    <div  v-if="visible" :class="{'read-only': read_only == true}">
+      <div v-if="type == 'textarea'">
+        <div class="df">
+          <div class="w100">
+            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
+            <div v-if="select_block_show" class="select-block select-block_textarea">
+              <ul>
+                <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+              </ul>
+            </div>
+          </div>
+          <v-icon v-if="hint" icon="" class="hint_icon" />
+          <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+            <div class="arrow"></div>
+            <div class="icon__prompt">
+              <span>{{hint}}</span>
+            </div>
           </div>
         </div>
+      </div>
+      <div v-else-if="type == 'number'">
+        <div class="df">
+          <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
+          <v-icon v-if="hint" icon="" class="hint_icon" />
+          <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+            <div class="arrow"></div>
+            <div class="icon__prompt">
+              <span>{{hint}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-else class="df">
+        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
         <v-icon v-if="hint" icon="" class="hint_icon" />
         <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
           <div class="arrow"></div>
@@ -21,33 +45,11 @@
             <span>{{hint}}</span>
           </div>
         </div>
-      </div>
-    </div>
-    <div v-else-if="type == 'number'">
-      <div class="df">
-        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
-        <v-icon v-if="hint" icon="" class="hint_icon" />
-        <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
-          <div class="arrow"></div>
-          <div class="icon__prompt">
-            <span>{{hint}}</span>
-          </div>
+        <div v-if="select_block_show" class="select-block">
+          <ul>
+            <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+          </ul>
         </div>
-      </div>
-    </div>
-    <div v-else class="df">
-      <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
-      <v-icon v-if="hint" icon="" class="hint_icon" />
-      <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
-        <div class="arrow"></div>
-        <div class="icon__prompt">
-          <span>{{hint}}</span>
-        </div>
-      </div>
-      <div v-if="select_block_show" class="select-block">
-        <ul>
-          <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -66,7 +68,11 @@ export default {
     width: {},
     hint: {},
     max_length: {},
-    text_align: {}
+    text_align: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   components: {
     VIcon
@@ -145,14 +151,14 @@ export default {
 }
 .arrow {
   position: absolute;
-  top: 4px;
+  top: 6px;
   height: 10px;
-  right: 12px;
+  right: 10px;
   display: inline-block;
   color: var(--white);
   z-index: 99;
   border: 8px solid transparent;	
-  border-bottom: 12px solid var(--white);
+  border-bottom: 8px solid var(--white);
   transform: rotate(180deg);
 }
 

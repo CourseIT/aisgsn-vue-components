@@ -1,5 +1,5 @@
 <template>
-  <div @click="action" class="news">
+  <div v-if="visible" :class="{'read-only': read_only == true}" @click="action" class="news">
     <div class="text_block">
       <div class="df">
         <div class="type" :style="`background: ${bgColor}`">{{type}}</div>
@@ -22,6 +22,10 @@ export default {
   props: {
     news: {},
     max_text_length: {},
+    read_only: {},
+    visible: {
+      default: true
+    },
     action: {
       default: function() {
         return () => ({})

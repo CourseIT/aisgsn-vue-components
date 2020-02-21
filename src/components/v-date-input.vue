@@ -1,5 +1,5 @@
 <template>
-  <div class="date-input">
+  <div v-if="visible" :class="{'read-only': read_only == true}" class="date-input">
     <p v-if="label" class="label">{{label}}</p>
     <input v-model="date" type="text" placeholder="дд.мм.гггг">
   </div>
@@ -8,7 +8,11 @@
 <script>
 export default {
   props: {
-    label: {}
+    label: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   },
   data: () => ({
     date: '',

@@ -1,10 +1,17 @@
 <template>
-  <p :class="{'bold': bold}">{{text}}</p>
+  <p v-if="visible" :class="{'read-only': read_only == true, 'bold': bold}">{{text}}</p>
 </template>
 
 <script>
 export default {
-  props: ['text', 'bold']
+  props: {
+    text: {},
+    bold: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
+  }
 }
 </script>
 
