@@ -37,7 +37,7 @@
         <template #search>
           <v-search v-model="search" class="search" width="403px"/>
         </template>
-        <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+        <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
           <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
         </draggable>
       </v-template-block>
@@ -46,8 +46,8 @@
 
 
 <!-------------------------------- card-block with draggable -------------------------------->
-    <draggable :disabled="!enabled" class=" pr54" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
-      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :key="item.id">
+    <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :action_select="test2" :key="item.id">
         <template #text>
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
@@ -130,12 +130,12 @@
     
 
     <!-------------------------------- input -------------------------------->
-    <v-input v-model="input" width="600px" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+    <v-input v-model="input" width="600px" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
     <!-------------------------------- input -------------------------------->
     
 
     <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input_n" width="600px" placeholder="№" label="Какой-то label" type="number"/>
+    <v-input v-model="input_n" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
     <!-------------------------------- input-number -------------------------------->
 
 
@@ -535,7 +535,7 @@ export default {
 
     labels: ['Список','Хронология'],
     labels2: ['На месяц', 'На 1-е февраля', 'На 1-е апреля', 'На 1-е июля', 'На 1-е октября', 'На 1-е января'],
-    label: '',
+    label: 'Список',
     label2: '',
 
     search: '',

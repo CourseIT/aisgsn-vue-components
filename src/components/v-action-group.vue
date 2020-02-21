@@ -1,14 +1,16 @@
 <template>
   <div>
     <div class="action-group" :style="{'width': width}">
-      <button @click="show_btn = !show_btn" class="action-main-btn">
+      <div @click="show_btn = !show_btn" class="action-main-btn">
         <p class="action__title">{{title}}</p>
         <v-icon class="action__icon" icon="" width="21"/>
-      </button>
+      </div>
       <div @click="show_btn = false" class="action-buttons" :style="{'width': width}" v-if="show_btn">
-        <slot>
-          test
-        </slot>
+        <div>
+          <slot>
+            test
+          </slot>
+        </div>
       </div>
     </div>
     <div v-if="show_btn" @click="show_btn = false" class="action-bg"></div>
@@ -26,14 +28,9 @@ export default {
   components: {
     VIcon
   },
-  data: () =>({
+  data: () => ({
     show_btn: false,
-  }),
-  methods: {
-    test() {
-      window.console.log('test')
-    }
-  }
+  })
 }
 </script>
 
@@ -50,6 +47,7 @@ export default {
   height: 36px !important;
   display: flex;
   align-items: center;
+  cursor: pointer;
   padding-right: 12px;
   margin-bottom: 6px;
   z-index: 8;

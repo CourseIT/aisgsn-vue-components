@@ -11,10 +11,15 @@
 <script>
 
 export default {
-  props: ['labels', 'radio_color'],
+  props: ['labels', 'radio_color', 'value'],
   data: () => ({
     radios: ''
   }),
+  mounted() {
+    if(this.value) {
+      this.radios = this.value
+    }
+  },
   watch: {
     radios(radios) {
       this.$emit('input', radios)

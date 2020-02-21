@@ -7,8 +7,15 @@
           </slot>
         </div>
         <div class="dg">
-          <div v-if="action_edit" @click="action_edit">
-            <v-icon icon="" class="icon-e"/>
+          <div class="df">
+            <div v-if="action_edit" @click="action_edit">
+              <v-icon icon="" class="icon-e"/>
+            </div>
+            <div @click="action_select">
+              <div @click="select = !select" class="card_circle" :class="{'select_card' : select}">
+                <div class="circle"></div>
+              </div>
+            </div>
           </div>
           <div v-if="action_minus" @click="action_minus" class="bottom-icon">
             <v-icon icon="" class="icon-m"/>
@@ -31,8 +38,16 @@ export default {
   props: {
     width: {},
     action_minus: {},
-    action_edit: {}
-  }
+    action_edit: {},
+    action_select: {
+      default: function() {
+        return () => ({})
+      }
+    }
+  },
+  data: () => ({
+    select: false
+  })
 }
 </script>
 
@@ -76,9 +91,10 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  position: absolute;
-  left: -6px;
-  bottom: 13px;
+  position: relative;
+  left: 37px;
+  bottom: 5px;
+  
 }
 .icon-e {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
@@ -95,5 +111,26 @@ export default {
   position: relative;
   left: -6px;
   bottom: 4px;
+}
+.card_circle {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  border: 1px solid var(--dark);
+  margin-top: 4px;
+  margin-left: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_circle .circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+.select_card {
+  border: 1px solid var(--weird-green);
+  background: var(--weird-green);
 }
 </style>

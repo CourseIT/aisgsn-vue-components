@@ -45,7 +45,6 @@
     </div>
     <div v-if="menu_show" @click="menu_show = false" class="colse-bg" :class="{'dark_bg': dark_bg}"></div>
   </div>
-  
 </template>
 
 <script>

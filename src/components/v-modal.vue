@@ -17,7 +17,7 @@
         </div>
     </div>
     <transition name="modal">
-      <div @click="closeModal"  class="modal__bg" :class="{pl305: $store.state.menu_visibility}"></div>
+      <div @click="closeModal"  class="modal__bg"></div>
     </transition>
   </div>
 </template>

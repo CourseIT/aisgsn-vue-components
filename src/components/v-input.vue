@@ -1,6 +1,9 @@
 <template>
   <div class="input-block" :style="{'width': width}">
-    <p v-if="label" class="label">{{label}}</p>
+    <div class="df">
+      <p v-if="label" class="label">{{label}}</p>
+      <v-icon :action="label_icon_action" v-if="label_icon_action" icon="" class="label_icon" hover_color="true" />
+    </div>
     <div v-if="type == 'textarea'">
       <div class="df">
         <div class="w100">
@@ -53,7 +56,18 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  props: ['placeholder', 'value', 'label', 'type', 'list', 'width', 'hint', 'max_length', 'text_align'],
+  props:{
+    label_icon_action: {},
+    placeholder:{},
+    value: {},
+    label: {},
+    type: {},
+    list: {},
+    width: {},
+    hint: {},
+    max_length: {},
+    text_align: {}
+  },
   components: {
     VIcon
   },
@@ -157,7 +171,20 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
-  width: 100%;
+}
+.label_icon {
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.53;
+  letter-spacing: normal;
+  text-align: left;
+  color: #38393b;
+  width: 13px;
+  height: 15px;
+  position: relative;
+  bottom: 10px;
 }
 .input-block {
   width: 100%;

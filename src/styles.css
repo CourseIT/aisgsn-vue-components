@@ -149,6 +149,11 @@ input {
 .ml25 {
   margin-left: 25px;
 }
+
+.filter-switch .v-input--switch {
+  margin-left: 20px !important;
+}
+
 .input-mb0 input {
   margin-bottom: 0 !important;
 }
