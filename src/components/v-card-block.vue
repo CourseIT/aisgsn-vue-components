@@ -11,14 +11,14 @@
             <div v-if="action_edit" @click="action_edit">
               <v-icon icon="" class="icon-e"/>
             </div>
-            <div @click="action_select">
+            <div v-if="action_select" @click="action_select">
               <div @click="select = !select" class="card_circle" :class="{'select_card' : select}">
                 <div class="circle"></div>
               </div>
             </div>
           </div>
           <div v-if="action_minus" @click="action_minus" class="bottom-icon">
-            <v-icon icon="" class="icon-m"/>
+            <v-icon icon="" class="icon-m" :class="{'l-6': !action_select}"/>
           </div>
         </div>
       </slot>
@@ -43,11 +43,7 @@ export default {
     visible: {
       default: true
     },
-    action_select: {
-      default: function() {
-        return () => ({})
-      }
-    }
+    action_select: {}
   },
   data: () => ({
     select: false
@@ -136,5 +132,8 @@ export default {
 .select_card {
   border: 1px solid var(--weird-green);
   background: var(--weird-green);
+}
+.l-6 {
+  left: -6px;
 }
 </style>
