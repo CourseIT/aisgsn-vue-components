@@ -47,7 +47,7 @@
 
 <!-------------------------------- card-block with draggable -------------------------------->
     <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
-      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :action_select="test2" :key="item.id">
+      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :key="item.id">
         <template #text>
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />

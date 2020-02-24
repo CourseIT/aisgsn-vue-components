@@ -118,7 +118,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  margin-top: 46px;
+  margin-top: 31px;
 }
 .icon-modal {
   cursor: pointer;
