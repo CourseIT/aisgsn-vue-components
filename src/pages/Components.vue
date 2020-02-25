@@ -144,7 +144,7 @@
     <!-------------------------------- textarea -------------------------------->
 
 
-    <v-input-date-with-icon v-model="input_date" width="655px" icon="" label="Срок проведения работ"/>
+    <v-input-date-with-icon v-model="input_date" :no_range="true" button="true" width="655px" icon="" label="Срок проведения работ"/>
     <!-------------------------------- input-date -------------------------------->
 
 <!-------------------------------- icon open modal -------------------------------->
@@ -198,7 +198,7 @@
           </v-template-block-with-icon>
         </div>
 
-        <v-input-date-with-icon v-model="input_date" icon="" label="Примерная дата проведения каждой проверки"/>
+        <v-input-date-with-icon v-model="input_date" :no_range="true" icon="" label="Примерная дата проведения каждой проверки"/>
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input"/>
@@ -529,7 +529,7 @@ export default {
       '...',
       '...'
     ],
-    input_date: ["2010-01-01", "2010-01-05"],
+    input_date: "",
 
     modal_show: false,
 
