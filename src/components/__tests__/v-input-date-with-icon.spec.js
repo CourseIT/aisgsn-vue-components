@@ -12,10 +12,7 @@ describe('VInputDateWithIcon', () => {
       date: ['2020-10-10']
     }
   });
-  it('action', () => {
-    wrapper.setData({ date: ['2020-10-10'] })
-    expect(wrapper.vm.menu).toBe(false)
-    wrapper.find('.df').trigger('click')
-    expect(wrapper.vm.menu).toBe(true)
+  it('отрендерить div', () => {
+    expect(wrapper.contains('div')).toBe(true)
   })
 })

@@ -14,7 +14,7 @@ describe('VActionGroup', () => {
   })
   it('Action', () => {
     expect(wrapper.vm.show_btn).toBe(false)
-    wrapper.find('button').trigger('click')
+    wrapper.find('.action-main-btn').trigger('click')
     expect(wrapper.vm.show_btn).toBe(true)
   })
 })

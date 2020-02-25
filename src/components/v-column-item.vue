@@ -1,10 +1,13 @@
 <template>
   <div v-if="visible" :class="{'read-only': read_only == true}" class="column__item">
-    <div @click="action(text)" class="circle__block">
-        <div v-if="text == item_value || list.includes(text)" class="circle"></div>
+    <div v-if="!only_one" @click="action(text)" class="circle__block">
+        <div v-if="text == list || list.includes(text)" class="circle"></div>
     </div>
-      <p @click="action(text)" class="column__text">{{text}}</p>
-    <v-icon :action="action_minus" class="icon" icon="" hover_color="true" />
+    <div v-else @click="action(text)" class="circle__block">
+        <div v-if="text == list" class="circle"></div>
+    </div>
+    <p @click="action(text)" class="column__text">{{text}}</p>
+    <v-icon v-if="!only_one" :action="action_minus" class="icon" icon="" hover_color="true" />
   </div>
 </template>
 
@@ -16,6 +19,7 @@ export default {
     item_value: {
       default: ''
     },
+    only_one:{},
     list: {
       default: function() {
         return () => []

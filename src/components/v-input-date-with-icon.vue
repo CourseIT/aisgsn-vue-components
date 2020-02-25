@@ -63,9 +63,6 @@ export default {
     menu: false
   }),
   mounted() {
-    if(this.value) {
-      this.date = this.value
-    }
     if(!this.no_range && !this.value) {
       this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
       this.$emit('input', this.date_range_input)

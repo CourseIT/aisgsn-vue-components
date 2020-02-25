@@ -202,7 +202,7 @@ export default {
   outline: none;
   width: 100%;
   background-color: var(--white) !important;
-  padding: 3px 15px;
+  padding: 3px 10px;
   border-radius: 4px;
   border: 1px solid var(--white);
   margin-bottom: 30px;
@@ -218,7 +218,7 @@ export default {
 .textarea {
   width: 100%;
   outline: none;
-  padding: 9px 15px;
+  padding: 9px 10px;
   border-radius: 4px;
   background-color: var(--white);
   font-family: Roboto;

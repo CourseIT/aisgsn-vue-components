@@ -144,7 +144,7 @@
     <!-------------------------------- textarea -------------------------------->
 
 
-    <v-input-date-with-icon v-model="input_date" :no_range="true" button="true" width="655px" icon="" label="Срок проведения работ"/>
+    <v-input-date-with-icon v-model="input_date" :no_range="true" width="655px" icon="" label="Срок проведения работ"/>
     <!-------------------------------- input-date -------------------------------->
 
 <!-------------------------------- icon open modal -------------------------------->
@@ -198,7 +198,7 @@
           </v-template-block-with-icon>
         </div>
 
-        <v-input-date-with-icon v-model="input_date" :no_range="true" icon="" label="Примерная дата проведения каждой проверки"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки"/>
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input"/>
@@ -357,10 +357,28 @@
     <v-column-list v-model="column" :list="column_list" :action_minus="test" :action_plus="test2" :action_reset="test2" class="mb20" />
     <!-------------------------------- v-column-list -------------------------------->
 
+    <!-------------------------------- v-column-list only_one -------------------------------->
+    <v-column-list v-model="column2" :only_one="true" :list="column_list" :action_minus="test" :action_plus="test2" :action_reset="test2" class="mb20" />
+    <!-------------------------------- v-column-list -------------------------------->
+
 
     <!-------------------------------- v-legend -------------------------------->
     <v-legend />
     <!-------------------------------- v-legend -------------------------------->
+
+    <v-tool-icons top="97px" left="350px" :row="true">
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+    </v-tool-icons>
 
     <!-------------------------------- v-modal-layout -------------------------------->
     <!-- <v-modal-layout>
@@ -417,6 +435,7 @@ const VColumnList = () => import('@/components/v-column-list')
 const VLegend = () => import('@/components/v-legend')
 // const VModalLayout = () => import('@/components/v-modal-layout')
 // const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
+const VToolIcons = () => import('@/components/v-tool-icons')
 
 export default {
   components: {
@@ -458,7 +477,8 @@ export default {
     VColumnList,
     VLegend,
     // VModalLayout,
-    // VModalLayoutTab
+    // VModalLayoutTab,
+    VToolIcons
   },
   data: () => ({
     // drag`n`drop
@@ -530,6 +550,7 @@ export default {
       '...'
     ],
     input_date: "",
+    input_date2: '',
 
     modal_show: false,
 
@@ -742,6 +763,7 @@ export default {
     ],
 
     column: ['Название столбца3'],
+    column2: 'Название столбца3',
 
     show_tabs: 'test1'
     
