@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="tool-icons" :class="{'read-only': read_only == true, 'df': row}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
+  <div v-if="visible" class="tool-icons" :class="{'read-only': read_only == true, 'dg': row == false}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
     <slot></slot>
   </div>
 </template>
@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style scoped>
+.dg {
+  display: grid;
+}
 .tool-icons {
   position: fixed;
   z-index: 99;

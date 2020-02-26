@@ -368,7 +368,7 @@
     <v-legend />
     <!-------------------------------- v-legend -------------------------------->
 
-    <v-tool-icons top="97px" left="350px" :row="true">
+    <v-tool-icons top="97px" left="350px">
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -382,7 +382,7 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
     </v-tool-icons>
 
-    <v-tool-icons top="97px" right="0px">
+    <v-tool-icons top="97px" right="0px" :row="false">
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
