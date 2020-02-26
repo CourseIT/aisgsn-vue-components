@@ -1,6 +1,9 @@
 <template>
   <div v-if="visible" :class="{'read-only': read_only == true}" class="date-input">
-    <p v-if="label" class="label">{{label}}</p>
+    <div class="df">
+      <span v-if="obligatory" class="obligatory">*</span>
+      <p v-if="label" class="label">{{label}}</p>
+    </div>
     <input v-model="date" type="text" placeholder="дд.мм.гггг">
   </div>
 </template>
@@ -9,6 +12,9 @@
 export default {
   props: {
     label: {},
+    obligatory: {
+      default: false
+    },
     read_only: {},
     visible: {
       default: true
@@ -76,6 +82,5 @@ export default {
   text-align: left;
   color: var(--dark2);
   margin-bottom: 5px;
-  margin-left: 7px;
 }
 </style>

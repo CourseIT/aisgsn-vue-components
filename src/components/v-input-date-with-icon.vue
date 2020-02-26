@@ -1,7 +1,10 @@
 <template>
   <div class="input-date" :style="{'width': width}">
     <div class="input-block">
-      <p class="label">{{label}}</p>
+      <div class="df">
+        <span v-if="obligatory" class="obligatory mb-4px">*</span>
+        <p class="label">{{label}}</p>
+      </div>
       <div v-if="visible" :class="{'read-only': read_only == true}" class="df h55" >
         <input v-if="no_range == true" v-model="date_input" class="input" type="text">
         <input v-else  v-model="date_range_input" class="input" type="text">
@@ -49,6 +52,9 @@ export default {
     read_only: {},
     no_range: {},
     button: {},
+    obligatory: {
+      default: false
+    },
     visible: {
       default: true
     }
@@ -181,6 +187,9 @@ export default {
 </script>
 
 <style scoped>
+.mb-4px {
+  margin-bottom: -4px;
+}
 .input-date .v-menu__content {
   margin-left: 80px !important;
   margin-top: -40px !important;

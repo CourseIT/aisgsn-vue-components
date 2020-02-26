@@ -140,6 +140,9 @@ input {
 .mt19 {
   margin-top: 19px;
 }
+.mt20 {
+  margin-top: 20px;
+}
 .mt34 {
   margin-top: 34px;
 }
@@ -157,7 +160,14 @@ input {
 .filter-switch .v-input--switch {
   margin-left: 20px !important;
 }
-
+.dotted {
+  border: dashed 0.5px var(--dark);
+}
+.obligatory {
+  position: relative;
+  bottom: 3px;
+  margin-right: 5px;
+}
 .input-mb0 input {
   margin-bottom: 0 !important;
 }
@@ -171,7 +181,7 @@ input {
 }
 .icon-template-shadow {
   position: relative;
-  width: 40px;
+  width: 36px;
   z-index: 100;
   box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.10);
   border-radius: 4px 0px 0px 4px;
@@ -188,6 +198,10 @@ input {
   margin-left: 7px;
   color: var(--dark2) !important;
   margin-top: 5px;
+}
+.input_style_2 .obligatory {
+  bottom: 0;
+  margin-right: -2px;
 }
 .template_block-fix {
   position: absolute;
@@ -234,7 +248,7 @@ input {
   transform: rotate(-135deg);
   content: ''; 
   position: absolute;
-  left: 37px; 
+  left: 33px; 
   bottom: -4px;
   border: 5px solid transparent;
   border-top: 5px solid var(--pale-grey);
@@ -243,7 +257,7 @@ input {
   transform: rotate(-45deg);
   content: ''; 
   position: absolute;
-  left: 37px; 
+  left: 33px; 
   bottom: 30px;
   border: 5px solid transparent;
   border-top: 5px solid var(--pale-grey);

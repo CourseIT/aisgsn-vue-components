@@ -1,8 +1,9 @@
 <template>
   <div class="components" :class="{pl305: $store.state.menu_visibility}">
 
+    <hr class="dotted">
 <!-------------------------------- action-group & action-button -------------------------------->
-    <v-action-group width="200px" title="Выбор действия">
+    <v-action-group width="200px" title="Выбор действия" class="mt20">
       <v-action-button width="200px" :action="test" title="Подписать документ" icon=""/>
       <v-action-button width="200px" :action="test2" title="Вернуть на доработку" icon=""/>
     </v-action-group>
@@ -33,7 +34,7 @@
 
 
 <!-------------------------------- template-block-with-icon -------------------------------->
-    <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="ml600 mb20" template_text_top="207px">
+    <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="ml600 mb20" template_text_top="307px">
       <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
         <template #search>
           <v-search v-model="search" class="search" width="403px"/>
@@ -136,7 +137,7 @@
     
 
     <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input_n" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+    <v-input v-model="input_n" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
     <!-------------------------------- input-number -------------------------------->
 
 
@@ -145,7 +146,7 @@
     <!-------------------------------- textarea -------------------------------->
 
 
-    <v-input-date-with-icon v-model="input_date" :no_range="true" width="655px" icon="" label="Срок проведения работ"/>
+    <v-input-date-with-icon v-model="input_date" :obligatory="true" :no_range="true" width="655px" icon="" label="Срок проведения работ"/>
     <!-------------------------------- input-date -------------------------------->
 
 <!-------------------------------- icon open modal -------------------------------->
@@ -326,7 +327,7 @@
     </v-news-feed>
     <!-------------------------------- news-feed -------------------------------->
 
-    <!-------------------------------- news-feed -------------------------------->
+    <!-------------------------------- v-layout -------------------------------->
     <v-layout width="670px" class="mb20">
       <v-input v-model="input" label="Фамилия" class="input_style_2"/>
       <v-input v-model="input" label="Имя" class="input_style_2" />
@@ -338,20 +339,20 @@
       </v-radio-buttons>
       <v-date-input v-model="input" label="Дата рождения"/>
       <p class="layout_title">Место рождения</p>
-      <v-input v-model="input" label="Тип места (если известно)" class="input_style_2" />
-      <v-input v-model="input" label="Поселение (если известно)" class="input_style_2" />
+      <v-input :obligatory="true" v-model="input" label="Тип места (если известно)" class="input_style_2" />
+      <v-input :obligatory="true" v-model="input" label="Поселение (если известно)" class="input_style_2" />
       <v-input v-model="input" label="Район (если известен)" class="input_style_2" />
       <v-input v-model="input" label="Регион (если известен)" class="input_style_2" />
       <v-input v-model="input" label="Страна (если известна)" class="input_style_2" />
       <p class="layout_title">Паспорт рф</p>
       <div class="df">
-        <v-input v-model="input" label="Серия" type="number" max_length="4" text_align="center" width="72px" class="mr8 input_style_2" />
-        <v-input v-model="input" label="Номер" type="number" max_length="6" text_align="center" width="108px" class="input_style_2" />
+        <v-input :obligatory="true" v-model="input" label="Серия" type="number" max_length="4" text_align="center" width="72px" class="mr8 input_style_2" />
+        <v-input :obligatory="true" v-model="input" label="Номер" type="number" max_length="6" text_align="center" width="108px" class="input_style_2" />
       </div>
-      <v-date-input v-model="input" label="Дата выдачи" class="mt5"/>
+      <v-date-input :obligatory="true" v-model="input" label="Дата выдачи" class="input_style_2 mt5"/>
       <v-input v-model="input" label="Кем выдан" class="input_style_2 mt8" />
     </v-layout>
-    <!-------------------------------- news-feed -------------------------------->
+    <!-------------------------------- v-layout -------------------------------->
 
 
     <!-------------------------------- v-column-list -------------------------------->

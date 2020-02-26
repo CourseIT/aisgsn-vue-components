@@ -1,6 +1,7 @@
 <template>
   <div class="input-block" :style="{'width': width}">
     <div class="df">
+      <span v-if="obligatory" class="obligatory">*</span>
       <p v-if="label" class="label">{{label}}</p>
       <v-icon :action="label_icon_action" v-if="label_icon_action" icon="" class="label_icon" hover_color="true" />
     </div>
@@ -69,6 +70,9 @@ export default {
     hint: {},
     max_length: {},
     text_align: {},
+    obligatory: {
+      default: false
+    },
     read_only: {},
     visible: {
       default: true

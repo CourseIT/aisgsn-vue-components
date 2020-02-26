@@ -60,7 +60,7 @@ export default {
 .block-fix {
   position: absolute;
   z-index: 10;
-  margin-left: 50px;
+  margin-left: 46px;
 }
 .icon {
   cursor: pointer;

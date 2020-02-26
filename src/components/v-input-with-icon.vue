@@ -1,6 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': read_only == true}" class="textarea-with-icon" :style="{'width': width}">
     <div class="input-block">
+      <span v-if="obligatory" class="obligatory">*</span>
       <p class="label">{{label}}</p>
       <div class="df">
         <input :placeholder="placeholder" v-model="text" >
@@ -37,6 +38,9 @@ export default {
     el_after: {},
     el_before: {},
     width: {},
+    obligatory: {
+      default: false
+    },
     read_only: {},
     visible: {
       default: true
