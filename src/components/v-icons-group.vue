@@ -83,13 +83,16 @@ export default {
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
-.hover-icon__bg {
-  background-color: var(--white);
+.hover-icon__bg div {
+  background: var(--white);
   border-radius: 5px;
-  padding: 2px 0px;
-  transition: all 0.2s ease-out;
+  margin-bottom: 5px;
 }
-.hover-icon__bg:hover {
+.hover-icon__bg div:hover {
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+.hover-icon__bg {
+  border-radius: 5px;
+  transition: all 0.2s ease-out;
 }
 </style>

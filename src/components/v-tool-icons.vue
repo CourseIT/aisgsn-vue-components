@@ -1,5 +1,5 @@
 <template>
-  <div class="tool-icons" :class="{'df': row}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
+  <div v-if="visible" class="tool-icons" :class="{'read-only': read_only == true, 'df': row}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
     <slot></slot>
   </div>
 </template>
@@ -11,7 +11,11 @@ export default {
     left: {},
     right: {},
     bottom: {},
-    row: {}
+    row: {},
+    read_only: {},
+    visible: {
+      default: true
+    }
   }
 }
 </script>

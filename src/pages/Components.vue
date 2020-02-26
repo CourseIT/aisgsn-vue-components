@@ -10,6 +10,7 @@
 
 
 <!-------------------------------- buttons -------------------------------->
+    <v-button class="mb20" :action="test" :read_only="true" text="Принять"/>
     <v-button class="mb20" :action="test" text="Принять"/>
     <v-button class="mb20" :action="test" text="Сбросить" type="reset"/>
 <!-------------------------------- buttons -------------------------------->
@@ -21,7 +22,7 @@
 
 
 <!-------------------------------- icons-group -------------------------------->
-    <v-icons-group>
+    <v-icons-group class="mb20">
       <template #main-icon>
         <v-icon padding_left="7px" :action="test" :hover_shadow="true" :hover_color="true" icon="" />
       </template>
@@ -32,7 +33,7 @@
 
 
 <!-------------------------------- template-block-with-icon -------------------------------->
-    <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="ml600" template_text_top="207px">
+    <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="ml600 mb20" template_text_top="207px">
       <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
         <template #search>
           <v-search v-model="search" class="search" width="403px"/>
@@ -367,6 +368,20 @@
     <!-------------------------------- v-legend -------------------------------->
 
     <v-tool-icons top="97px" left="350px" :row="true">
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" icon=""/>
+    </v-tool-icons>
+
+    <v-tool-icons top="97px" right="0px">
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>

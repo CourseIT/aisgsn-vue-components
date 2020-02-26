@@ -34,6 +34,7 @@ export { default as VLayout } from './components/v-layout'
 export { default as VDateInput } from './components/v-date-input'
 export { default as VColumnList } from './components/v-column-list'
 export { default as VLegend } from './components/v-legend'
+export { default as VToolIcons } from './components/v-tool-icons'
 
 import draggable from 'vuedraggable'
 export default draggable
