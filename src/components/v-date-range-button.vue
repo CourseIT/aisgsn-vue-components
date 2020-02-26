@@ -77,35 +77,73 @@ export default {
       let date3
 
       if(value.length == 2 && pevValue.length < value.length) {
-        date1 = value.split('')
-        date2 = date1.push('.')
-        date3 = date1.join('')
-        this.date_range_input = date3
+        if(Number(value) > 31) {
+          const today = new Date().getDate()
+          this.date_range_input = `${today}.`
+        } else {
+          date1 = value.split('')
+          date2 = date1.push('.')
+          date3 = date1.join('')
+          this.date_range_input = date3
+        }
         window.console.log(date2)
+
+
       } else if(value.length == 5 && pevValue.length < value.length) {
-        date1 = value.split('')
-        date2 = date1.push('.')
-        date3 = date1.join('')
-        this.date_range_input = date3
+        if(Number(value.substr(3,5)) > 12) {
+          var month = `${new Date().getMonth()+1}`
+          if(month < 10){
+            this.date_range_input = `${value.substr(0,3)}0${month}.`
+          } else {
+            this.date_range_input = `${value.substr(0,3)}${month}.`
+          }
+        } else {
+          date1 = value.split('')
+          date2 = date1.push('.')
+          date3 = date1.join('')
+          this.date_range_input = date3
+        }
         window.console.log(date2)
+
+
       } else if(value.length == 10 && pevValue.length < value.length) {
         date1 = value.split('')
         date2 = date1.push(' - ')
         date3 = date1.join('')
         this.date_range_input = date3
         window.console.log(date2)
+
+
       } else if(value.length == 15 && pevValue.length < value.length) {
-        date1 = value.split('')
-        date2 = date1.push('.')
-        date3 = date1.join('')
-        this.date_range_input = date3
+        if(Number(value.substr(13,15)) > 31) {
+          const today = new Date().getDate()
+          this.date_range_input = `${value.substr(0,13)}${today}.`
+        } else {
+          date1 = value.split('')
+          date2 = date1.push('.')
+          date3 = date1.join('')
+          this.date_range_input = date3
+        }
         window.console.log(date2)
+
+
       } else if(value.length == 18 && pevValue.length < value.length) {
-        date1 = value.split('')
-        date2 = date1.push('.')
-        date3 = date1.join('')
-        this.date_range_input = date3
+        if(Number(value.substr(16,18)) > 12) {
+          var month2 = `${new Date().getMonth()+1}`
+          if(month2 < 10){
+            this.date_range_input = `${value.substr(0,16)}0${month2}.`
+          } else {
+            this.date_range_input = `${value.substr(0,16)}${month2}.`
+          }
+        } else {
+          date1 = value.split('')
+          date2 = date1.push('.')
+          date3 = date1.join('')
+          this.date_range_input = date3
+        }
         window.console.log(date2)
+
+
       } else {
         this.date_range_input = value.replace(/[^.-\d\s]/g, '').substr(0,23)
       }

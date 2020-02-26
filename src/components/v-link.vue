@@ -53,6 +53,7 @@ export default {
   margin: 5px 0px;
   cursor: pointer;
   animation: submenu-link 1s ease;
+  margin-left: 5px;
 }
 @keyframes submenu-link {
   0% {
