@@ -27,5 +27,6 @@ export default {
 }
 .tool-icons div {
   margin: 5px;
+  display: inline-block;
 }
 </style>
