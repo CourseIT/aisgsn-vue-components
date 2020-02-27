@@ -114,6 +114,7 @@ export default {
   height: 36px;
   position: relative;
   right: 0px;
+  top: 1px;
   margin-left: -36px;
   font-size: 15px;
   font-weight: 300;
