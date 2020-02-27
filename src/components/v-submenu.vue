@@ -9,7 +9,7 @@
       </transition>
       <div class="df jcsb cp menu__title" @click="openSubmenu">
         <h1 @click="action">{{title}}</h1>
-        <v-icon v-if="!only_title" font_size="21px" class="icon__dots" :icon="!open_submenu ? '' : ''" :class="{'color-orange': open_submenu}" />
+        <v-icon v-if="!only_title" font_size="21px" class="icon__dots" :icon="!open_submenu ? '' : ''" :class="{'color-orange': open_submenu}" />
       </div>
     </div>
     <transition name="submenu">
@@ -135,6 +135,8 @@ export default {
   font-size: 15px;
   font-weight: normal;
   font-stretch: normal;
+  position: relative;
+  left: 1px;
   font-style: normal;
   line-height: 1.47;
   letter-spacing: normal;

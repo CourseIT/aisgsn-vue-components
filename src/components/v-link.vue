@@ -1,9 +1,11 @@
 <template>
   <div v-if="visible" :class="{'read-only': read_only == true}">
-    <div v-if="notifications.length > 0" class="link_notifications">
-      <div v-if="notifications.length > 999" class="notifications_plus">+</div>
-      {{notificationsLength}}
-    </div>
+    <transition name="notifications">
+      <div v-if="notifications.length > 0" class="link_notifications">
+        <div v-if="notifications.length > 999" class="notifications_plus">+</div>
+        {{notificationsLength}}
+      </div>
+    </transition>
     <li @click="action" class="v-link">
       {{text}}
     </li>
@@ -55,6 +57,14 @@ export default {
   animation: submenu-link 1s ease;
   margin-left: 5px;
 }
+.notifications-enter-active {
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+.notifications-leave-active {
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
 @keyframes submenu-link {
   0% {
     opacity: 0;
@@ -102,7 +112,6 @@ export default {
   letter-spacing: normal;
   text-align: center;
   color: var(--white);
-  animation: submenu-notifications 1s ease;
 }
 @keyframes submenu-notifications {
   0% {

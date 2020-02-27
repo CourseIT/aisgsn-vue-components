@@ -368,7 +368,7 @@
     <v-legend />
     <!-------------------------------- v-legend -------------------------------->
 
-    <v-tool-icons top="97px" left="350px">
+    <v-tool-icons class="transition" top="97px" left="350px" :class="{pl305: $store.state.menu_visibility}">
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -819,6 +819,9 @@ export default {
 }
 .components {
   padding-bottom: 400px;
+  transition: all 0.3s ease;
+}
+.transition {
   transition: all 0.3s ease;
 }
 </style>

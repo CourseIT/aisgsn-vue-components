@@ -115,6 +115,7 @@ export default {
   font-style: normal;
   line-height: 1.81;
   margin: 10px;
+  margin-left: 5px;
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);

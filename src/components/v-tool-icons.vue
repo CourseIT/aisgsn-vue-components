@@ -31,5 +31,6 @@ export default {
 .tool-icons div {
   margin: 5px;
   display: inline-block;
+  transition: all 0.3s ease;
 }
 </style>
