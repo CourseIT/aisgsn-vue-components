@@ -95,6 +95,9 @@ input {
 .mr5 {
   margin-right: 5px;
 }
+.mr25 {
+  margin-right: 25px;
+}
 .mr8 {
   margin-right: 8px;
 }
@@ -122,6 +125,12 @@ input {
 .mb30 {
   margin-bottom: 30px;
 }
+.mb80 {
+  margin-bottom: 80px !important;
+}
+.mb200 {
+  margin-bottom: 200px;
+}
 .mb7 {
   margin-bottom: 7px !important;
 }
@@ -142,6 +151,9 @@ input {
 }
 .mt20 {
   margin-top: 20px;
+}
+.mt25 {
+  margin-top: 25px;
 }
 .mt34 {
   margin-top: 34px;

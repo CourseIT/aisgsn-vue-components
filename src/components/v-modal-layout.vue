@@ -1,48 +1,69 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
-    <div class="modal_layout" :class="{ml312: $store.state.menu_visibility}">
-      <slot>
-      </slot>
+  <transition name="modal_layout">
+    <div v-if="visible" :class="{'read-only': read_only == true}">
+      <div class="modal_layout">
+        <slot>
+        </slot>
+      </div>
+      <div class="close_icon">
+        <v-icon icon="" :action="closeModal" class="icon" />
+      </div>
     </div>
-    <transition name="modal">
-      <div class="modal__bg" :class="{ml312: $store.state.menu_visibility}"></div>
-    </transition>
-  </div>
+  </transition>
 </template>
 
 <script>
+const VIcon = () => import('./v-icon')
+
 export default {
   props: {
     read_only: {},
     visible: {
       default: true
     }
+  },
+  components: { VIcon },
+  methods: {
+    closeModal() {
+      this.$emit('input', false)
+    }
   }
 }
 </script>
 
 <style>
-
+.modal_layout-enter-active, .modal_layout-leave-active{
+  transition: all 0.5s ease;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 999;
+}
+.modal_layout-enter, .modal_layout-leave-to{
+  opacity: 0;
+}
 .modal_layout {
   position: fixed;
   z-index: 101;
+  padding-top: 10vh;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  opacity: 0.8;
-  background-color: rgba(0, 0, 0, 1);
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px)
 }
-.modal_layout__bg {
+.close_icon {
   position: fixed;
-  z-index: 101;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.8;
-  background-color: rgba(0, 0, 0, 1);
-  backdrop-filter: blur(10px)
+  right: 10%;
+  top: 5vh;
+  color: #fff;
+  font-size: 35px;
+  z-index: 110;
+}
+.close_icon:hover {
+  color: #c58b4a;
 }
 </style>

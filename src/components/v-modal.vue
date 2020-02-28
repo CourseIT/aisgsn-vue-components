@@ -49,7 +49,7 @@ export default {
   }),
   methods: {
     closeModal() {
-      this.$emit('toggleModal', false)
+      this.$emit('input', false)
     }
   }
 }

@@ -100,7 +100,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  left: 23px;
+  left: 30px;
   margin-top: -2px; 
   background-color: #578bc8;
   font-family: Roboto;

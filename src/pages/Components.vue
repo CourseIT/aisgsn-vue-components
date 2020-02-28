@@ -156,7 +156,7 @@
 
 <!-------------------------------- modal -------------------------------->
     <transition name="modal">
-      <v-modal v-if="modal_show" @toggleModal="toggleModal" :action_delete="test" :action_apply="test2">
+      <v-modal v-if="modal_show" v-model="modal_show" :action_delete="test" :action_apply="test2">
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input"/>
@@ -396,16 +396,185 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
     </v-tool-icons>
 
+    <v-icon font_size="21px" :hover_color="true" :action="function() {modal_layout = true}"  icon="" prompt="Активатор модального окна" class="ml600"/>
+
+
+    <transition name="modal">
     <!-------------------------------- v-modal-layout -------------------------------->
-    <!-- <v-modal-layout>
-      <v-modal-layout-tab name="test1" v-model="show_tabs">
-        111111
+    <v-modal-layout v-if="modal_layout" v-model="modal_layout">
+      
+      <v-modal-layout-tab name="Общая информация" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
       </v-modal-layout-tab>
-      <v-modal-layout-tab name="test2" v-model="show_tabs">
-        222222
+
+      <v-modal-layout-tab name="Начисление" v-model="show_tabs">
+        <template #icons>
+          <v-tool-icons :row="false">
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon="" class="mb80"/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+            <v-icon font_size="21px" color="#e7e5dc" :hover_color="true" icon=""/>
+          </v-tool-icons>
+        </template>
+        <!-------------------------------- v-layout -------------------------------->
+        <v-layout width="100%" class="mb20" :border="false">
+
+          <div class="df">
+            <v-input v-model="input" label="Шаблон" class="input_style_2"/>
+            <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+              <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                <template #search>
+                  <v-search v-model="search" class="search" width="403px"/>
+                </template>
+                <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                  <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                </draggable>
+              </v-template-block>
+            </v-template-block-with-icon>
+          </div>
+
+          <v-input v-model="input" label="Наименование" :obligatory="true" class="input_style_2" />
+
+          <div class="df">
+            <v-input :obligatory="true" v-model="input" label="Сумма (руб.)" type="number" text_align="center" width="106px" class="mr25 input_style_2" />
+            <v-input v-model="input" label="Оплачено (руб.)" type="number" text_align="center" width="106px" class="mr25 input_style_2" />
+            <v-input v-model="input" label="Остаток (руб.)" type="number" text_align="center" width="106px" class="input_style_2" />
+          </div>
+
+          <div class="df">
+            <v-input v-model="input" label="Тип налогоплательщика" :obligatory="true" width="237px" class="input_style_2"/>
+            <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+              <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                <template #search>
+                  <v-search v-model="search" class="search" width="403px"/>
+                </template>
+                <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                  <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                </draggable>
+              </v-template-block>
+            </v-template-block-with-icon>
+          </div>
+
+          <div class="df">
+            <v-input v-model="input" label="Плательщик" :obligatory="true" class="input_style_2"/>
+            <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+              <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                <template #search>
+                  <v-search v-model="search" class="search" width="403px"/>
+                </template>
+                <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                  <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                </draggable>
+              </v-template-block>
+            </v-template-block-with-icon>
+          </div>
+
+          <div class="df">
+            <v-input v-model="input" label="Удостоверяющий документ" :obligatory="true" width="237px" class="input_style_2"/>
+            <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+              <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                <template #search>
+                  <v-search v-model="search" class="search" width="403px"/>
+                </template>
+                <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                  <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                </draggable>
+              </v-template-block>
+            </v-template-block-with-icon>
+          </div>
+
+          <div class="df mb200">
+            <div class="df mr25">
+              <v-input v-model="input" label="Номер" :obligatory="true" type="number" width="237px" class="input_style_2"/>
+              <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+                <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                  <template #search>
+                    <v-search v-model="search" class="search" width="403px"/>
+                  </template>
+                  <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                    <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                  </draggable>
+                </v-template-block>
+              </v-template-block-with-icon>
+            </div>
+            <div class="df w100">
+              <v-input v-model="input" label="Страна" :obligatory="true" class="input_style_2"/>
+              <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">
+                <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+                  <template #search>
+                    <v-search v-model="search" class="search" width="403px"/>
+                  </template>
+                  <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                    <v-template-text :action="test2" :action_minus="test" v-for="(text) in texts" :key="text.id" @start="dragging = true" @end="dragging = false" />
+                  </draggable>
+                </v-template-block>
+              </v-template-block-with-icon>
+            </div>
+          </div>
+
+        </v-layout>
+        <!-------------------------------- v-layout -------------------------------->
       </v-modal-layout-tab>
-    </v-modal-layout> -->
+
+      <v-modal-layout-tab name="Дополнительно" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Организация" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Служебная информация" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Платежи" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Пакеты" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Статусы" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="Интеграция" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+      <v-modal-layout-tab name="История" v-model="show_tabs">
+        <v-layout width="100%" class="mb20" :border="false">
+          test
+        </v-layout>
+      </v-modal-layout-tab>
+
+    </v-modal-layout>
     <!-------------------------------- v-modal-layout -------------------------------->
+    </transition>
 
 
   </div>
@@ -449,8 +618,8 @@ const VLayout = () => import('@/components/v-layout')
 const VDateInput = () => import('@/components/v-date-input')
 const VColumnList = () => import('@/components/v-column-list')
 const VLegend = () => import('@/components/v-legend')
-// const VModalLayout = () => import('@/components/v-modal-layout')
-// const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
+const VModalLayout = () => import('@/components/v-modal-layout')
+const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
 const VToolIcons = () => import('@/components/v-tool-icons')
 
 export default {
@@ -492,8 +661,8 @@ export default {
     VDateInput,
     VColumnList,
     VLegend,
-    // VModalLayout,
-    // VModalLayoutTab,
+    VModalLayout,
+    VModalLayoutTab,
     VToolIcons
   },
   data: () => ({
@@ -569,6 +738,7 @@ export default {
     input_date2: '',
 
     modal_show: false,
+    modal_layout: false,
 
     labels: ['Список','Хронология'],
     labels2: ['На месяц', 'На 1-е февраля', 'На 1-е апреля', 'На 1-е июля', 'На 1-е октября', 'На 1-е января'],
@@ -781,7 +951,7 @@ export default {
     column: ['Название столбца3'],
     column2: 'Название столбца3',
 
-    show_tabs: 'test1'
+    show_tabs: 'Начисление'
     
 
   }),
@@ -805,9 +975,6 @@ export default {
       this.value10 = '',
       this.value11 = '',
       this.value12 = ''
-    },
-    toggleModal(show) {
-      this.modal_show = show
     },
   }
 }

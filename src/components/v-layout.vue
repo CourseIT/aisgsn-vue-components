@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="v-layout" :style="{'width': width, 'height': height}">
+  <div v-if="visible" :class="{'read-only': read_only == true, 'border-dashed': border}" class="v-layout" :style="{'width': width, 'height': height}">
     <slot></slot>
   </div>
 </template>
@@ -9,6 +9,7 @@ export default {
   props: {
     width: {},
     height: {},
+    border: {},
     read_only: {},
     visible: {
       default: true
@@ -18,10 +19,12 @@ export default {
 </script>
 
 <style>
+.border-dashed {
+  border: dashed 1px var(--dark2);
+}
 .v-layout {
   width: 670px;
   border-radius: 4px;
-  border: dashed 1px var(--dark2);
   background-color: var(--pre-light);
   padding: 15px;
   overflow-y: auto;
