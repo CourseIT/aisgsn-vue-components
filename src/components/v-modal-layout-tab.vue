@@ -3,7 +3,7 @@
     <div class="tab_name" :class="{'active': value == name}" @click="showTab">
       {{name}}
     </div>
-    <div v-if="value == name" class="tab_clontent">
+    <div v-if="value == name" class="tab_content">
       <slot>
       </slot>
     </div>
@@ -46,12 +46,19 @@ export default {
 .tab_name:hover {
   color: var(--light-grey);
 }
-.tab_clontent {
+.tab_content {
   position: fixed;
+  border-radius: 4px;
+  max-height: 80vh;
   left: 30%;
   width: 40%;
   z-index: 220;
   top: 10vh;
+  overflow-y: auto;
+}
+.tab_content::-webkit-scrollbar {
+  width: 0px;
+  background: rgba(255, 255, 255, 0.0);
 }
 .active {
   color: #c58b4a;
