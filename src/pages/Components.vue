@@ -491,7 +491,7 @@
             </v-template-block-with-icon>
           </div>
 
-          <div class="df mb200">
+          <div class="df mb150">
             <div class="df mr25">
               <v-input v-model="input" label="Номер" :obligatory="true" type="number" width="237px" class="input_style_2"/>
               <v-template-block-with-icon icon="" el_after="true" el_before="true" label="Кому" class="mt25" template_text_top="0px">

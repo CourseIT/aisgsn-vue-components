@@ -49,7 +49,7 @@ export default {
 .tab_content {
   position: fixed;
   border-radius: 4px;
-  max-height: 80vh;
+  height: 80vh;
   left: 30%;
   width: 40%;
   z-index: 220;
