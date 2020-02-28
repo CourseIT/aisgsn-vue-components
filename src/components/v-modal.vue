@@ -47,6 +47,13 @@ export default {
   },
   data: () =>({
   }),
+  mounted() {
+    document.addEventListener("keydown", (e) => {
+      if (e.keyCode == 27) {
+        this.closeModal()
+      }
+    });
+  },
   methods: {
     closeModal() {
       this.$emit('input', false)

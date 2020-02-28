@@ -401,7 +401,7 @@
 
     <transition name="modal">
     <!-------------------------------- v-modal-layout -------------------------------->
-    <v-modal-layout v-if="modal_layout" v-model="modal_layout">
+    <v-modal-layout v-if="modal_layout" v-model="modal_layout" @keydown.esc="modal_layout == false">
       
       <v-modal-layout-tab name="Общая информация" v-model="show_tabs">
         <v-layout width="100%" class="mb20" :border="false">

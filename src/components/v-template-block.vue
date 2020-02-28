@@ -89,7 +89,6 @@ export default {
   width: 435px;
 }
 .search {
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22) !important;
   border-radius: 4px;
 }
 .templates-block {

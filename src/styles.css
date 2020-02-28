@@ -180,6 +180,7 @@ input {
 }
 .obligatory {
   position: relative;
+  color: var(--red);
   bottom: 3px;
   margin-right: 5px;
 }

@@ -37,7 +37,7 @@ export default {
   z-index: 120;
 }
 .tab_name {
-  color: #c5b7ac;
+  color: var(--gray);
   margin-left: 15%;
   width: 14%;
   transition: all 0.2s ease;
@@ -45,6 +45,9 @@ export default {
 }
 .tab_name:hover {
   color: var(--light-grey);
+}
+.tab_name:active {
+  color: var(--gray-orange);
 }
 .tab_content {
   position: fixed;
@@ -54,14 +57,16 @@ export default {
   width: 40%;
   z-index: 220;
   top: 10vh;
-  overflow-y: auto;
+}
+.tab_content .v-layout {
+  max-height: 80vh;
 }
 .tab_content::-webkit-scrollbar {
   width: 0px;
   background: rgba(255, 255, 255, 0.0);
 }
 .active {
-  color: #c58b4a;
+  color: var(--gray-orange);
 }
 .icons {
   position: absolute;
