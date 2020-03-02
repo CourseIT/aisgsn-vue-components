@@ -151,6 +151,7 @@
 
 
     <v-input-date-with-icon v-model="input_date" :obligatory="true" :no_range="true" width="655px" icon="" label="Срок проведения работ"/>
+
     <!-------------------------------- input-date -------------------------------->
 
 <!-------------------------------- icon open modal -------------------------------->

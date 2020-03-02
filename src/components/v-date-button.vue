@@ -68,8 +68,12 @@ export default {
 
       if(value.length == 2 && pevValue.length < value.length) {
         if(Number(value) > 31) {
-          const today = new Date().getDate()
-          this.date_input = `${today}.`
+          var day = `${new Date().getDay()+1}`
+          if(day < 10){
+            this.date_input = `0${day}.`
+          } else {
+            this.date_input = `${value.substr(0,3)}.`
+          }
         } else {
           date1 = value.split('')
           date2 = date1.push('.')

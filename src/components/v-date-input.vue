@@ -31,8 +31,12 @@ export default {
 
       if(value.length == 2 && pevValue.length < value.length) {
         if(Number(value) > 31) {
-          const today = new Date().getDate()
-          this.date = `${today}.`
+          var day = `${new Date().getDay()+1}`
+          if(day < 10){
+            this.date = `0${day}.`
+          } else {
+            this.date = `${day}.`
+          }
         } else {
           date1 = value.split('')
           date2 = date1.push('.')

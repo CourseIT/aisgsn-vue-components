@@ -98,8 +98,14 @@ export default {
 
       if(value.length == 2 && pevValue.length < value.length) {
         if(Number(value) > 31) {
-          const today = new Date().getDate()
-          this.date_input = `${today}.`
+
+          var day = `${new Date().getDay()+1}`
+          if(day < 10){
+            this.date_input = `0${day}.`
+          } else {
+            this.date_input = `${value.substr(0,3)}.`
+          }
+
         } else {
           date1 = value.split('')
           date2 = date1.push('.')
@@ -131,11 +137,15 @@ export default {
       let date1
       let date2
       let date3
+      var day = `${new Date().getDay()+1}`
 
       if(value.length == 2 && pevValue.length < value.length) {
         if(Number(value) > 31) {
-          const today = new Date().getDate()
-          this.date_range_input = `${today}.`
+          if(day < 10){
+            this.date_range_input = `0${day}.`
+          } else {
+            this.date_range_input = `${value.substr(0,3)}.`
+          }
         } else {
           date1 = value.split('')
           date2 = date1.push('.')
@@ -172,8 +182,9 @@ export default {
 
       } else if(value.length == 15 && pevValue.length < value.length) {
         if(Number(value.substr(13,15)) > 31) {
-          const today = new Date().getDate()
-          this.date_range_input = `${value.substr(0,13)}${today}.`
+          if(day < 10){
+            this.date_range_input = `${value.substr(0,13)}0${day}.`
+          }
         } else {
           date1 = value.split('')
           date2 = date1.push('.')
