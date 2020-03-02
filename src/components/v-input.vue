@@ -104,6 +104,11 @@ export default {
           this.select_block_show = false
         }
       }, 2000)
+    },
+    value(value) {
+      if(this.type != 'number') {
+        this.input_value = value
+      }
     }
   }
 }
