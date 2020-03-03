@@ -27,7 +27,7 @@
       </div>
       <div v-else-if="type == 'number'">
         <div class="df">
-          <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
           <v-icon v-if="hint" icon="" class="hint_icon" />
           <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
             <div class="arrow"></div>
@@ -68,7 +68,9 @@ export default {
     list: {},
     width: {},
     hint: {},
-    max_length: {},
+    max_length: {
+      default: false
+    },
     text_align: {},
     obligatory: {
       default: false
@@ -83,18 +85,40 @@ export default {
   },
   data: () => ({
     select_block_show: false,
-    input_value: ''
+    input_value: '',
+    number_value: ''
   }),
   mounted() {
     if(this.value) {
-      this.input_value = this.value
+      if(this.type == 'number') {
+        this.number_value = this.value
+      } else {
+        this.input_value = this.value
+      }
     }
   },
   watch: {
-    input_value(value) {
+    number_value(value) {
       this.$emit('input', value)
+      
       if(this.max_length) {
-        this.input_value = value.substr(0,this.max_length)
+        var number1 = String(value).substr(0,this.max_length)
+        this.input_value = Number(number1)
+      }
+       if(value != this.$props.value)
+        this.select_block_show = true
+
+      setTimeout(() => {
+        if(value === this.input_value) {
+          this.select_block_show = false
+        }
+      }, 2000)
+    },
+    input_value(value) {
+      if(this.type == 'number') {
+        this.$emit('input', value)
+      } else {
+        this.$emit('input', String(value))
       }
       if(value != this.$props.value)
         this.select_block_show = true
@@ -106,7 +130,9 @@ export default {
       }, 2000)
     },
     value(value) {
-      if(this.type != 'number') {
+      if(this.type == 'number') {
+        this.number_value = value
+      } else {
         this.input_value = value
       }
     }

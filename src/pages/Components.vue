@@ -138,15 +138,17 @@
     <!-------------------------------- input -------------------------------->
     <v-input v-model="input" width="600px" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
     <!-------------------------------- input -------------------------------->
-    
 
     <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label"/>
+    <v-input v-model="input_n" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+    <!-------------------------------- input-number -------------------------------->
+    <!-------------------------------- input-number -------------------------------->
+    <v-input v-model="input_n" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
     <!-------------------------------- input-number -------------------------------->
 
 
     <!-------------------------------- textarea -------------------------------->
-    <v-input v-model="input" width="600px" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
+    <v-input v-model="textarea" width="600px" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
     <!-------------------------------- textarea -------------------------------->
 
 
@@ -675,6 +677,10 @@ export default {
     dragging: false,
     enabled: true,
     button1: false,
+    obj: {
+      1: '',
+      2: ''
+    },
 
     list_card: [
       { 
