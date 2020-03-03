@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="switch-button">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="switch-button">
     <v-switch v-model="value"  inset/>
   </div>
 </template>
@@ -29,7 +29,18 @@ export default {
     value(value) {
       this.$emit('input', value)
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

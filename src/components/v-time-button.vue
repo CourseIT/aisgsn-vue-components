@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="time-btn__block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="time-btn__block">
     <div v-if="time_input_show">
       <div class="time-btn-input">
         <form @submit="pickTime">
@@ -83,6 +83,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     currentTime() {
       var time = new Date();
       var h = time.getHours().toString();

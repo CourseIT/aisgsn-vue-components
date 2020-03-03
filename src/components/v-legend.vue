@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="legend">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="legend">
     <v-icon class="icon" icon="" hover_color="true" />
     <div class="legend__block">
       <slot>
@@ -49,6 +49,17 @@ export default {
       },
     ],
 	}),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" :style='{width: `${width}`}'>
+  <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
     <div class="df inspection-program-block">
       <slot>
         <div class="w95">
@@ -47,7 +47,18 @@ export default {
   },
   data: () => ({
     select: false
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 

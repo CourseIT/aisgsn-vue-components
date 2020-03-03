@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="news_feed">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="news_feed">
     <div class="news_list" :style='{"width": `${news_width}`, "height": `${news_height}`}'>
       <slot></slot>
     </div>
@@ -23,8 +23,18 @@ export default {
   },
   data: () => ({
     search: '',
-    
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="textarea-with-icon">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="textarea-with-icon">
     <div class="input-block">
       <p class="label">{{label}}</p>
       <div class="df">
@@ -68,6 +68,17 @@ export default {
         document.getElementsByTagName('html')[0].style.overflow = "hidden";
       } else {
         document.getElementsByTagName('html')[0].removeAttribute("style")
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   },

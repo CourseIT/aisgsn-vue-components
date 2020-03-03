@@ -5,7 +5,7 @@
       <p v-if="label" class="label">{{label}}</p>
       <v-icon :action="label_icon_action" v-if="label_icon_action" icon="" class="label_icon" hover_color="true" />
     </div>
-    <div  v-if="visible" :class="{'read-only': read_only == true}">
+    <div  v-if="visible" :class="{'read-only': readOnly == true}">
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
@@ -94,6 +94,17 @@ export default {
         this.number_value = this.value
       } else {
         this.input_value = this.value
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   },

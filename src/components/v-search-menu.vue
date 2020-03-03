@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" :style='{width: `${width}`}'>
+  <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
     <div class="search">
       <input type="text" v-model="value" :placeholder="placeholder">
       <div v-if="value != ''" class="icon-btn" @click="value = ''">
@@ -31,7 +31,18 @@ export default {
   },
   data: () => ({
     value: '',
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

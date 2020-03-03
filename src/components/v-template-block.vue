@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="templates__block-bg">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="templates__block-bg">
     <div class="search-block" :style='{width: `${width}`}'>
       <slot name="search">
         <v-search class="search" width="403px"/>
@@ -69,7 +69,18 @@ export default {
       {id: 12},
       {id: 13},
     ]
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

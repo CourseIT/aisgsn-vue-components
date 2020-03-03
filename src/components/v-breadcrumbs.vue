@@ -1,7 +1,7 @@
 <template>
   <div class="breadc-bg">
     <div class="shadow" :class="{'l345' : $store.state.menu_visibility}">
-      <div v-if="visible" :class="{'read-only': read_only == true}" class="breadcrumbs">
+      <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
         <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
@@ -38,6 +38,17 @@ export default {
     large: false,
     customDiv: true,
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 

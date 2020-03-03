@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" @click="action" class="news">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="news">
     <div class="text_block">
       <div class="df">
         <div class="type" :style="`background: ${bgColor}`">{{type}}</div>
@@ -32,7 +32,17 @@ export default {
       }
     }
   },
+  
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     maxText() {
       if (this.news.text.length > this.max_text_length) {
         return `${this.news.text.substr(0, this.max_text_length)}...`

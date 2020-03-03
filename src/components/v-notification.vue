@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="notification">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="notification">
     <div class="df">
       <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
         <v-icon class="icon" :icon="icon" color="var(--white)" />
@@ -25,6 +25,15 @@ export default {
     VIcon
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     color() {
       switch (this.type) {
         case 'error':

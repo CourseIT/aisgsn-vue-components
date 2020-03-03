@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="dropdown__users">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="dropdown__users">
     <div>
       <p class="dropdown__user-title">{{title}}</p>
       <p class="dropdown__user-name">{{name}}</p>
@@ -29,7 +29,18 @@ export default {
     visible: {
       default: true
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

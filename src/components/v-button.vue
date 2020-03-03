@@ -1,5 +1,5 @@
 <template class="db">
-	<button v-if="visible" @click="action" class="btn" :class="{'read-only': read_only == true, 'border': !background_color, 'clear-btn': type == 'reset'}" :style='{background: `${background_color}`, color: `${color}`}'>
+	<button v-if="visible" @click="action" class="btn" :class="{'read-only': readOnly == true, 'border': !background_color, 'clear-btn': type == 'reset'}" :style='{background: `${background_color}`, color: `${color}`}'>
     <slot>
       {{text}}
     </slot>
@@ -23,6 +23,17 @@ export default {
     action: {
       default: function() {
         return () => ({})
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   }

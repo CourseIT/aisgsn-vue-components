@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="column__list">
       <v-icon class="icon" icon="" hover_color="true" :action="function(){show_list = !show_list}" :class="{'index11': show_list}" />
       <div v-if="show_list" class="column__block" :class="{'index11': show_list}">
@@ -72,6 +72,17 @@ export default {
   watch: {
     item_value(value) {
       this.$emit('input', value)
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   },
 	methods: {

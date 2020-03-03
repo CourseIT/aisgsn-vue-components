@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="tool-icons" :class="{'read-only': read_only == true, 'dg': row == false}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
+  <div v-if="visible" class="tool-icons" :class="{'read-only': readOnly == true, 'dg': row == false}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
     <slot></slot>
   </div>
 </template>
@@ -16,7 +16,18 @@ export default {
     visible: {
       default: true
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

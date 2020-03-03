@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="date-btn__block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="date-btn__block">
     <div v-if="date_input_show">
       <div class="date-btn-input">
         <form @submit="emitDateInput">
@@ -110,6 +110,15 @@ export default {
     },
     day() {
       return this.date.substr(8, 2)
+    },
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="date-range-btn__block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="date-range-btn__block">
     <div v-if="date_range_input_show">
       <div class="date-range-btn-input">
         <form @submit="emitDateRangeInput">
@@ -155,6 +155,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     dateRangeText () {
       if(this.date.length > 1) {
         return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`

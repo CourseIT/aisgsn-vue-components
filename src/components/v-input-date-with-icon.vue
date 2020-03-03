@@ -5,7 +5,7 @@
         <span v-if="obligatory" class="obligatory mb-4px">*</span>
         <p class="label">{{label}}</p>
       </div>
-      <div v-if="visible" :class="{'read-only': read_only == true}" class="df h55" >
+      <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
         <input v-if="no_range == true" v-model="date_input" class="input" type="text">
         <input v-else  v-model="date_range_input" class="input" type="text">
         <v-menu
@@ -219,6 +219,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     dateNoRange() {
       return `${this.date.substr(8, 2)}.${this.date.substr(5, 2)}.${this.date.substr(0, 4)}`
     },

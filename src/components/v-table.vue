@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
       <template v-slot:default>
         <thead>
@@ -39,7 +39,18 @@ export default {
     }
   },
   data: () => ({
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

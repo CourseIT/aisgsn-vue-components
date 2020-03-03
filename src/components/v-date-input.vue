@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="date-input">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="date-input">
     <div class="df">
       <span v-if="obligatory" class="obligatory">*</span>
       <p v-if="label" class="label">{{label}}</p>
@@ -23,6 +23,17 @@ export default {
   data: () => ({
     date: '',
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
   watch: {
     date(value, pevValue) {
       let date1

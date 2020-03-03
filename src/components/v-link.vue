@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <transition name="notifications">
       <div v-if="notifications.length > 0" class="link_notifications">
         <div v-if="notifications.length > 999" class="notifications_plus">+</div>
@@ -32,6 +32,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     notificationsLength() {
       return this.notifications.length > 999 ? 999 : this.notifications.length
     }

@@ -1,5 +1,5 @@
 <template>
-  <button v-if="visible" :class="{'read-only': read_only == true}" @click="action" class="select-btn select_shadow">
+  <button v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="select-btn select_shadow">
     <div class="df aic w100 hover-btn jcc">
       {{option}}
     </div>
@@ -19,7 +19,18 @@ export default {
         return () => ({})
       }
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="categories">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="categories">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <slot>
@@ -60,6 +60,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     title() {
       return this.option == 'Все' ? 'Категории' : this.option
     }

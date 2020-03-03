@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
@@ -64,7 +64,18 @@ export default {
   },
   data: () => ({
     filters__show: false,
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

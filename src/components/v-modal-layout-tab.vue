@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="layout_tab">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="layout_tab">
     <div class="tab_name" :class="{'active': value == name}" @click="showTab">
       {{name}}
     </div>
@@ -22,6 +22,17 @@ export default {
     read_only: {},
     visible: {
       default: true
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   },
   methods: {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="filter-input">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="filter-input">
     <div v-if="filter_input_show">
       <div class="filter-btn-input">
         <form @submit="emitFilterInput">
@@ -35,6 +35,17 @@ export default {
     value: '',
     filter_input_show: false
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
   methods: {
     emitFilterInput(e) {
       e.preventDefault();

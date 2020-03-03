@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="df">
       <div class="icon " :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
         <slot name="icon">
@@ -47,6 +47,17 @@ export default {
         document.getElementsByTagName('html')[0].style.overflow = "hidden";
       } else {
         document.getElementsByTagName('html')[0].removeAttribute("style")
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   },

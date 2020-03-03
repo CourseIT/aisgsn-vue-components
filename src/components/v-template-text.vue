@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="template-block" :class="{'tb-shadow': shadow}">
       <div @click="action" class="w90">
         <p>{{text}}</p>
@@ -42,6 +42,17 @@ export default {
   data: () => ({
     text: 'Шаблонный текст 1 …'
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

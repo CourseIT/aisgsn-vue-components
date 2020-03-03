@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="textarea-with-icon" :style="{'width': width}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="textarea-with-icon" :style="{'width': width}">
     <div class="input-block">
       <span v-if="obligatory" class="obligatory">*</span>
       <p class="label">{{label}}</p>
@@ -61,6 +61,17 @@ export default {
       '...'
     ]
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
   watch: {
     text(value){
       this.$emit('input', value)

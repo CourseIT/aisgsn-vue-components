@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="column__item">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="column__item">
     <div v-if="!only_one" @click="action(text)" class="circle__block">
         <div v-if="text == list || list.includes(text)" class="circle"></div>
     </div>
@@ -39,6 +39,17 @@ export default {
   },
   components: {
     VIcon
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true, 'border-dashed': border}" class="v-layout" :style="{'width': width, 'height': height}">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'border-dashed': border}" class="v-layout" :style="{'width': width, 'height': height}">
     <slot></slot>
   </div>
 </template>
@@ -14,7 +14,18 @@ export default {
     visible: {
       default: true
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

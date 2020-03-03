@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="dropdown__block arrow-icon">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="dropdown__block arrow-icon">
     <slot>
       <v-user-signature title="Утверждено" name="Сотрудник А. А." />
       <v-user-signature title="Согласовано" name="Сотрудник А. А." />
@@ -22,6 +22,17 @@ export default {
   },
   components: {
     VUserSignature
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   },
 }
 </script>

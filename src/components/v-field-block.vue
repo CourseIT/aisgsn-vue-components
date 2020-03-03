@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="field-block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="field-block">
     <v-search class="search"/>
     <div class="text-block">
       <v-template-text v-for="(text, index) in texts" padding_right="5px" :key="index" />
@@ -30,7 +30,18 @@ export default {
   },
   data: () =>({
     texts:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

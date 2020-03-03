@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="analytics-block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="analytics-block">
     <div class="df">
       <div class="df mr50">
         <div class="block1-title">
@@ -70,6 +70,17 @@ export default {
   data: () => ({
     
   }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 

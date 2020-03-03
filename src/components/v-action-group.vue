@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="action-group" :style="{'width': width}">
       <div @click="show_btn = !show_btn" class="action-main-btn">
         <p class="action__title">{{title}}</p>
@@ -34,7 +34,18 @@ export default {
   },
   data: () => ({
     show_btn: false,
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  }
 }
 </script>
 

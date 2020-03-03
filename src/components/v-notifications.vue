@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="notifications">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="notifications">
     <v-badge
         color="var(--white)"
         overlap
@@ -29,7 +29,18 @@ export default {
   },
   data: () => ({
     messages: [{},{},{}],
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

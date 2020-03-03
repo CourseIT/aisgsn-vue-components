@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="checkup-card-list__radio" :class="{'read-only': read_only == true, 'green-radio': radio_color == 'green'}"> 
+  <div v-if="visible" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green'}"> 
     <v-radio-group row v-model="radios">
       <slot>
         <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
@@ -32,7 +32,18 @@ export default {
     radios(radios) {
       this.$emit('input', radios)
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

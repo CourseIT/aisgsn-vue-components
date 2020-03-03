@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="icons-block">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="icons-block">
     <div class="icon1">
       <slot name="main-icon">
         <v-icon class="icon1" :hover_shadow="true" :hover_color="true" icon="" />
@@ -28,6 +28,17 @@ export default {
   },
   components: {
     VIcon
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   },
 }
 </script>

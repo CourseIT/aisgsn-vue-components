@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="df fs">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="df fs">
     <div class="filter-input-switch">
       <div v-if="filter_input_show">
         <div class="filter-btn-input">
@@ -77,6 +77,15 @@ export default {
         return ['Ничего не найдено']
       } else {
         return new_list;
+      }
+    },
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   },

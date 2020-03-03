@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="categories" :class="{'read-only': read_only == true, 'mb30': chips}">
+  <div v-if="visible" class="categories" :class="{'read-only': readOnly == true, 'mb30': chips}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <button class="main-btn" :style="{'width': width}">
@@ -91,6 +91,17 @@ export default {
         search: search,
         search_list: this.search_list
       })
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   },
   methods: {

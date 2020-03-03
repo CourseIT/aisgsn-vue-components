@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="w262" :style="{'width': width}">
       <button @click="action" class="action-btn">
         <p class="action-btn__title">{{title}}</p>
@@ -31,6 +31,17 @@ export default {
   },
   components: {
     VIcon
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

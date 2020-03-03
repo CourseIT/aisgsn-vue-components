@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}" class="doc__block df">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
       <img v-if="src" class="doc__img" :src="src" alt="">
       <div v-else class="doc__img">
@@ -25,7 +25,18 @@ export default {
     }
   },
   data: () => ({
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 

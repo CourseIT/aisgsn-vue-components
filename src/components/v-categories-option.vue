@@ -1,5 +1,5 @@
 <template>
-  <button v-if="visible" :class="{'read-only': read_only == true}" @click="$emit('input', option)" class="categories-btn">
+  <button v-if="visible" :class="{'read-only': readOnly == true}" @click="$emit('input', option)" class="categories-btn">
     <div class="circle-block">
       <div v-if="value == option || list.includes(option)" class="circle"></div>
     </div>
@@ -26,6 +26,17 @@ export default {
     action: {
       default: function() {
         return () => ({})
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   }

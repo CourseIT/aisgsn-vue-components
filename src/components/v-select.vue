@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': read_only == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
       <button v-if="icon_left" class="main-btn">
         <div class="hover-btn df w100">
@@ -82,7 +82,18 @@ export default {
   },
   data: () => ({
     menu_show: false
-  })
+  }),
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 
