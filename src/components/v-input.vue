@@ -115,11 +115,7 @@ export default {
       }, 2000)
     },
     input_value(value) {
-      if(this.type == 'number') {
-        this.$emit('input', value)
-      } else {
-        this.$emit('input', String(value))
-      }
+      this.$emit('input', value)
       if(value != this.$props.value)
         this.select_block_show = true
 
@@ -131,9 +127,9 @@ export default {
     },
     value(value) {
       if(this.type == 'number') {
-        this.number_value = value
+        this.number_value = Number(value)
       } else {
-        this.input_value = value
+        this.input_value = String(value)
       }
     }
   }

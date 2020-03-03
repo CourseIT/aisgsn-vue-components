@@ -353,8 +353,8 @@
       <v-input v-model="input" label="Страна (если известна)" class="input_style_2" />
       <p class="layout_title">Паспорт рф</p>
       <div class="df">
-        <v-input :obligatory="true" v-model="input" label="Серия" type="number" max_length="4" text_align="center" width="72px" class="mr8 input_style_2" />
-        <v-input :obligatory="true" v-model="input" label="Номер" type="number" max_length="6" text_align="center" width="108px" class="input_style_2" />
+        <v-input :obligatory="true" v-model="input_n" label="Серия" type="number" max_length="4" text_align="center" width="72px" class="mr8 input_style_2" />
+        <v-input :obligatory="true" v-model="input_n" label="Номер" type="number" max_length="6" text_align="center" width="108px" class="input_style_2" />
       </div>
       <v-date-input :obligatory="true" v-model="input" label="Дата выдачи" class="input_style_2 mt5"/>
       <v-input v-model="input" label="Кем выдан" class="input_style_2 mt8" />
@@ -738,7 +738,7 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
 
     textarea: 'texteria',
-    input: 'text',
+    input: '',
     input_n: '23',
     list_input: [
       'Объект КС 1',
