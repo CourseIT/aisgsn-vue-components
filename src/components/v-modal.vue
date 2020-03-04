@@ -5,13 +5,13 @@
         Modal
       </slot>
         <div class="fr">
-          <div @click="action_delete">
+          <div v-if="action_delete" @click="action_delete">
             <v-icon icon="" class="icon" />
           </div>
           <div @click="closeModal">
             <v-icon icon="" class="icon" />
           </div>
-          <div @click="action_apply">
+          <div v-if="action_apply" @click="action_apply">
             <v-icon icon="" class="icon" />
           </div>
         </div>
@@ -31,16 +31,8 @@ export default {
     visible: {
       default: true
     },
-    action_delete: {
-      default: function() {
-        return () => ({})
-      }
-    },
-    action_apply: {
-      default: function() {
-        return () => ({})
-      }
-    },
+    action_delete: {},
+    action_apply: {},
   },
   components: {
     VIcon,

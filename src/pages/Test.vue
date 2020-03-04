@@ -32,7 +32,7 @@
       <!-------------------------------- icon open modal -------------------------------->
       <!-------------------------------- modal -------------------------------->
     <transition name="modal">
-      <v-modal v-if="modal_show" @toggleModal="toggleModal" :action_delete="test" :action_apply="test2">
+      <v-modal v-if="modal_show" v-model="modal_show" :action_delete="test" :action_apply="test2">
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input"/>
@@ -243,9 +243,6 @@ export default {
     },
     test2() {
       window.console.log('test2')
-    },
-    toggleModal(show) {
-      this.modal_show = show
     },
   }
 }
