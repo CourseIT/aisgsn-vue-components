@@ -56,6 +56,9 @@ input {
 .h55 {
   height: 55px;
 }
+.w600 {
+  width: 600px;
+}
 .w140 {
   width: 140px;
 }
@@ -172,6 +175,7 @@ input {
   pointer-events: none;
   opacity: 0.5;
 }
+
 .filter-switch .v-input--switch {
   margin-left: 20px !important;
 }
@@ -278,8 +282,28 @@ input {
   border: 5px solid transparent;
   border-top: 5px solid var(--pale-grey);
 }
+.title {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 12px;
+  max-width: 720px;
+}
+.hr {
+  border: dashed 0.5px #000;
+  margin-bottom: 12px;
+}
 button {
   outline: none;
+}
+.modal-button:focus {
+  outline: auto;
 }
 .cp {
   cursor: pointer;

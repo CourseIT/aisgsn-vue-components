@@ -22,6 +22,11 @@ export default {
   props: {
     shadow: {},
     read_only: {},
+    text: {
+      default: function() {
+        return 'Шаблонный текст'
+      }
+    },
     visible: {
       default: true
     },
@@ -40,7 +45,6 @@ export default {
     VIcon
   },
   data: () => ({
-    text: 'Шаблонный текст 1 …'
   }),
   computed: {
     readOnly() {

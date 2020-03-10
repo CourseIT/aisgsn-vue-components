@@ -130,31 +130,49 @@
       <!-------------------------------- filter-button -------------------------------->
     </div>
     
+    <div class="w600">
+      <!-------------------------------- input -------------------------------->
+      <v-input v-model="input_1" :label_icon_action="test" hint="hint" placeholder="№" label="Какой-то label" :list="list_input">
+        <template #icon>
+          <v-template-block-with-icon icon="" el_after="true" el_before="true">
+            <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
+              <template #search>
+                <v-search v-model="search" width="403px"/>
+              </template>
+              <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
+                <v-template-text :action="function(){input_1 = text.text}" :action_minus="test" v-for="(text) in texts" :key="text.id" :text="text.text" @start="dragging = true" @end="dragging = false" />
+              </draggable>
+            </v-template-block>
+          </v-template-block-with-icon>
+        </template>
+      </v-input>
+      <!-------------------------------- input -------------------------------->
+      <!-------------------------------- input -------------------------------->
+      <v-input :no_icon="true" v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+      <!-------------------------------- input -------------------------------->
 
-    <!-------------------------------- input -------------------------------->
-    <v-input v-model="input" width="600px" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
-    <!-------------------------------- input -------------------------------->
+      <!-------------------------------- input -------------------------------->
+      <v-input v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+      <!-------------------------------- input -------------------------------->
 
-    <!-------------------------------- input -------------------------------->
-    <v-input v-model="input" width="600px" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
-    <!-------------------------------- input -------------------------------->
-
-    <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input_n" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
-    <!-------------------------------- input-number -------------------------------->
-    <!-------------------------------- input-number -------------------------------->
-    <v-input v-model="input_n" :obligatory="true" width="600px" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
-    <!-------------------------------- input-number -------------------------------->
+      <!-------------------------------- input-number -------------------------------->
+      <v-input v-model="input_n" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+      <!-------------------------------- input-number -------------------------------->
+      <!-------------------------------- input-number -------------------------------->
+      <v-input v-model="input_n" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+      <!-------------------------------- input-number -------------------------------->
 
 
-    <!-------------------------------- textarea -------------------------------->
-    <v-input v-model="textarea" width="600px" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
-    <!-------------------------------- textarea -------------------------------->
+      <!-------------------------------- textarea -------------------------------->
+      <v-input v-model="textarea" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
+      <!-------------------------------- textarea -------------------------------->
 
 
-    <v-input-date-with-icon v-model="input_date" :obligatory="true" :no_range="true" width="655px" icon="" label="Срок проведения работ"/>
+      <v-input-date-with-icon v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
 
-    <!-------------------------------- input-date -------------------------------->
+      <!-------------------------------- input-date -------------------------------->
+    </div>
+    
 
 <!-------------------------------- icon open modal -------------------------------->
     <v-icon width="20" :action="function() {modal_show = true}" icon="" class="icon-plus"/>
@@ -163,10 +181,10 @@
 
 <!-------------------------------- modal -------------------------------->
     <transition name="modal">
-      <v-modal v-if="modal_show" v-model="modal_show">
-
+      <v-modal v-if="modal_show" v-model="modal_show" :action_apply="test" :action_delete="test2">
+        <form action="">
         <div class="df">
-          <v-input v-model="input" placeholder="" label="п/п" :list="list_input"/>
+          <v-input v-model="input" placeholder="" label="п/п" :list="list_input" tabindex="1"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -180,7 +198,7 @@
         </div>
 
         <div class="df">
-          <v-input v-model="input" placeholder="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" :list="list_input"/>
+          <v-input v-model="input" placeholder="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" :list="list_input" tabindex="2"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -194,7 +212,7 @@
         </div>
 
         <div class="df">
-          <v-input v-model="input" placeholder="" label="Предмет каждой проверки" :list="list_input"/>
+          <v-input v-model="input" placeholder="" label="Предмет каждой проверки" :list="list_input" tabindex="3"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -207,10 +225,10 @@
           </v-template-block-with-icon>
         </div>
 
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
 
         <div class="df">
-          <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input"/>
+          <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input" tabindex="5"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -224,7 +242,7 @@
         </div>
 
         <div class="df">
-          <v-input v-model="input" placeholder="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" :list="list_input"/>
+          <v-input v-model="input" placeholder="" label="Документы, подлежащие представлению при проведении проверок, предусмотренных программой проведения проверок" :list="list_input" tabindex="6"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -239,7 +257,7 @@
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,
-предусмотренных программой проведения проверок, является обязательным" :list="list_input"/>
+предусмотренных программой проведения проверок, является обязательным" :list="list_input" tabindex="7"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt34">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
               <template #search>
@@ -251,7 +269,7 @@
             </v-template-block>
           </v-template-block-with-icon>
         </div>
-
+      </form>
       </v-modal>
     </transition>
 <!-------------------------------- modal -------------------------------->
@@ -738,6 +756,7 @@ export default {
     buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
 
     textarea: 'texteria',
+    input_1: '',
     input: '',
     input_n: '23',
     list_input: [
@@ -761,19 +780,59 @@ export default {
     search123: '',
 
     texts:[
-      {id: 1},
-      {id: 2},
-      {id: 3},
-      {id: 4},
-      {id: 5},
-      {id: 6},
-      {id: 7},
-      {id: 8},
-      {id: 9},
-      {id: 10},
-      {id: 11},
-      {id: 12},
-      {id: 13},
+      {
+        id: 1,
+        text: 'Шаблонный текст1'
+      },
+      {
+        id: 2,
+        text: 'Шаблонный текст2'
+      },
+      {
+        id: 3,
+        text: 'Шаблонный текст3'
+      },
+      
+      {
+        id: 4,
+        text: 'Шаблонный текст4'
+      },
+      {
+        id: 5,
+        text: 'Шаблонный текст5'
+      },
+      {
+        id: 6,
+        text: 'Шаблонный текст6'
+      },
+      {
+        id: 7,
+        text: 'Шаблонный текст7'
+      },
+      {
+        id: 8,
+        text: 'Шаблонный текст8'
+      },
+      {
+        id: 9,
+        text: 'Шаблонный текст9'
+      },
+      {
+        id: 10,
+        text: 'Шаблонный текст10'
+      },
+      {
+        id: 11,
+        text: 'Шаблонный текст11'
+      },
+      {
+        id: 12,
+        text: 'Шаблонный текст12'
+      },
+      {
+        id: 13,
+        text: 'Шаблонный текст13'
+      },
     ],
 
     template_show: false,

@@ -17,11 +17,15 @@
             </div>
           </div>
           <v-icon v-if="hint" icon="" class="hint_icon" />
-          <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
             <div class="arrow"></div>
             <div class="icon__prompt">
               <span>{{hint}}</span>
             </div>
+          </div>
+          <div v-if="!no_icon" class="input_icon-block">
+            <slot name="icon">
+            </slot>
           </div>
         </div>
       </div>
@@ -29,18 +33,22 @@
         <div class="df">
           <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
           <v-icon v-if="hint" icon="" class="hint_icon" />
-          <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
             <div class="arrow"></div>
             <div class="icon__prompt">
               <span>{{hint}}</span>
             </div>
           </div>
+          <div v-if="!no_icon" class="input_icon-block">
+            <slot name="icon">
+            </slot>
+          </div>
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text">
+        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text" ref="input">
         <v-icon v-if="hint" icon="" class="hint_icon" />
-        <div v-if="hint" class="icon__prompt-block" :style="{'width': width}">
+        <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
           <div class="arrow"></div>
           <div class="icon__prompt">
             <span>{{hint}}</span>
@@ -50,6 +58,10 @@
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
           </ul>
+        </div>
+        <div v-if="!no_icon" class="input_icon-block">
+          <slot name="icon">
+          </slot>
         </div>
       </div>
     </div>
@@ -68,6 +80,9 @@ export default {
     list: {},
     width: {},
     hint: {},
+    no_icon: {
+      default: false
+    },
     max_length: {
       default: false
     },
@@ -86,9 +101,13 @@ export default {
   data: () => ({
     select_block_show: false,
     input_value: '',
-    number_value: ''
+    number_value: '',
+    hint_width: ''
   }),
   mounted() {
+    setTimeout(() =>{
+      this.hint_width = `${this.$refs.input.clientWidth}px`
+    }, 1)
     if(this.value) {
       if(this.type == 'number') {
         this.number_value = this.value
@@ -147,6 +166,13 @@ export default {
 }
 </script>
 <style scoped>
+.input_icon-block {
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  height: 36px;
+  align-items: center;
+}
 .hint_icon {
   width: 36px;
   height: 36px;

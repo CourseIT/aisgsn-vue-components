@@ -33,9 +33,9 @@
               <v-icon icon="" class="icon-plus"/>
             </div>
           </div>
-          <hr v-if="add_fields.length">
+          <hr class="hr" v-if="add_fields.length">
           <v-icon v-if="add_fields.length" icon="" class="icon-plus"/>
-        <hr>
+        <hr class="hr">
       </v-form>
       </div>
     </div>

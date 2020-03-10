@@ -14,6 +14,6 @@ describe('VToolIcons', () => {
     expect(wrapper.props().row).toBe(true);
   })
   it("row", () => {
-    expect(wrapper.find(".tool-icons").attributes().class).toBe('tool-icons df');
+    expect(wrapper.find(".tool-icons").attributes().class).toBe('tool-icons');
   });
 })

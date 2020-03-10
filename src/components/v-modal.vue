@@ -5,15 +5,15 @@
         Modal
       </slot>
         <div class="fr">
-          <div v-if="action_delete" @click="action_delete">
+          <button class="modal-button" v-if="action_delete" @click="action_delete">
             <v-icon icon="" class="icon" />
-          </div>
-          <div @click="closeModal">
+          </button>
+          <button class="modal-button" @click="closeModal">
             <v-icon icon="" class="icon" />
-          </div>
-          <div v-if="action_apply" @click="action_apply">
+          </button>
+          <button class="modal-button" v-if="action_apply" @click="action_apply">
             <v-icon icon="" class="icon" />
-          </div>
+          </button>
         </div>
     </div>
     <transition name="modal">
@@ -66,6 +66,13 @@ export default {
 </script>
 
 <style scoped>
+.modal-button {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  
+  margin-top: 31px;
+}
 .fr {
   display: flex;
   float: right;
@@ -124,22 +131,8 @@ export default {
   font-stretch: normal;
   font-style: normal;
   line-height: 1.81;
-  margin: 10px;
-  margin-left: 5px;
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  margin-top: 31px;
-}
-.icon-modal {
-  cursor: pointer;
-  height: 36px;
-  font-family: var(--font-awesome-5-pro-light);
-  font-size: 33px;
-  margin: 0px 10px;
-  text-align: center;
-  position: relative;
-  bottom: 0px;
-  margin-top: 20px;
 }
 </style>
