@@ -6,7 +6,7 @@
     <div v-else @click="action(text)" class="circle__block">
         <div v-if="text == list" class="circle"></div>
     </div>
-    <p @click="action(text)" class="column__text">{{text}}</p>
+    <p @click="action(text)" class="column__text" :class="{'one__column': only_one }">{{text}}</p>
     <v-icon v-if="!only_one" :action="action_minus" class="icon" icon="" hover_color="true" />
   </div>
 </template>
@@ -94,10 +94,14 @@ export default {
   text-align: center;
   color: var(--dark2);
   margin-bottom: 0;
-  width: 180px;
+  width: 100%;
   position: relative;
   padding-top: 10px;
   bottom: 10px;
+}
+.one__column {
+  right: 10px;
+  padding: 10px 12px;
 }
 .icon {
     font-size: 15px;
