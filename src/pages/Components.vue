@@ -96,7 +96,7 @@
 <!-------------------------------- media classes -------------------------------->
     <div class="df jcsb">
       <!-------------------------------- select -------------------------------->
-      <v-select class="media-min-1500" v-model="value1" defailt_value="Выбор1" text_center="true" width="438px">
+      <v-select :close_icon="false" class="media-min-1500" v-model="value1" defailt_value="Выбор1" text_center="true" width="438px">
         <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
       </v-select>
       <!-------------------------------- select -------------------------------->
@@ -132,7 +132,7 @@
     
     <div class="w600">
       <!-------------------------------- input -------------------------------->
-      <v-input v-model="input_1" :label_icon_action="test" hint="hint" placeholder="№" label="Какой-то label" :list="list_input">
+      <v-input v-model="input_1" :icon_block="true" :label_icon_action="test" hint="hint" placeholder="№" label="Какой-то label" :list="list_input">
         <template #icon>
           <v-template-block-with-icon icon="" el_after="true" el_before="true">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
@@ -148,23 +148,26 @@
       </v-input>
       <!-------------------------------- input -------------------------------->
       <!-------------------------------- input -------------------------------->
-      <v-input :no_icon="true" v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+      <v-input :icon_block="true" v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
       <!-------------------------------- input -------------------------------->
 
       <!-------------------------------- input -------------------------------->
-      <v-input v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+      <v-input v-model="input" :icon_block="true" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
       <!-------------------------------- input -------------------------------->
 
       <!-------------------------------- input-number -------------------------------->
-      <v-input v-model="input_n" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+      <v-input v-model="input_n" :icon_block="true" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
       <!-------------------------------- input-number -------------------------------->
       <!-------------------------------- input-number -------------------------------->
-      <v-input v-model="input_n" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
+      <v-input v-model="input_n" :icon_block="true" :obligatory="true" placeholder="№" :label_icon_action="test" label="Какой-то label" type="number"/>
       <!-------------------------------- input-number -------------------------------->
+      <!-------------------------------- search -------------------------------->
+        <v-search class="mb20 pr56" v-model="search" width="600px"/>
+      <!-------------------------------- search -------------------------------->
 
 
       <!-------------------------------- textarea -------------------------------->
-      <v-input v-model="textarea" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
+      <v-input v-model="textarea" :icon_block="true" placeholder="placeholder" label="Какой-то label" type="textarea" :list="list_input"/>
       <!-------------------------------- textarea -------------------------------->
 
 
@@ -753,7 +756,7 @@ export default {
     value10: '',
     value11: '',
     value12: '',
-    buttons: ['Выбор', 'Выбор', 'Выбор', 'Выбор'],
+    buttons: ['Выбор 1', 'Выбор 2', 'Выбор 3', 'Выбор 4'],
 
     textarea: 'texteria',
     input_1: '',
@@ -1061,5 +1064,8 @@ export default {
 }
 .transition {
   transition: all 0.3s ease;
+}
+.pr56 {
+  padding-right: 56px;
 }
 </style>

@@ -263,6 +263,9 @@ export default {
 .mb-4px {
   margin-bottom: -4px;
 }
+.input-date {
+  outline: none;
+}
 .input-date .v-menu__content {
   margin-left: 80px !important;
   margin-top: -40px !important;

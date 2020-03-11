@@ -92,6 +92,9 @@ input {
 .pr30 {
   padding-right: 30px;
 }
+.pr56 {
+  padding-right: 56px;
+}
 .ml312 {
   margin-left: 312px;
 }
@@ -294,6 +297,18 @@ input {
   text-align: left;
   margin-bottom: 12px;
   max-width: 720px;
+}
+.title2 {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 5px;
 }
 .hr {
   border: dashed 0.5px #000;

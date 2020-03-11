@@ -12,14 +12,20 @@
             {{value || defailt_value}}
           </div>
         </div>
-        <div v-if="value" @click="$emit('input', ''), menu_show = false">
-          <v-icon icon="" width="16" class="select__icon-colse"/>
+        <div v-if="close_icon">
+          <div v-if="value" @click="$emit('input', ''), menu_show = false">
+            <v-icon icon="" width="16" class="select__icon-colse"/>
+          </div>
         </div>
+        <div v-else :class="{'pr16': value}"></div>
       </button>
       <button v-else class="main-btn">
-        <div v-if="value" @click="$emit('input', ''), menu_show = false">
-          <v-icon icon="" width="16" class="select__icon-colse"/>
+        <div v-if="close_icon">
+          <div v-if="value" @click="$emit('input', ''), menu_show = false">
+            <v-icon icon="" width="16" class="select__icon-colse"/>
+          </div>
         </div>
+        <div v-else :class="{'pl16': value}"></div>
         <div class="hover-btn df w100">
           <div @click="menu_show = !menu_show" class="w100 df aic jcc"  :class="{'pl16': !value}">
             {{value || defailt_value}}
@@ -67,6 +73,9 @@ export default {
     },
     dark_bg: {
       default: false
+    },
+    close_icon: {
+      default: true
     },
     icon_left: {},
     width: {},

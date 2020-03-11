@@ -9,7 +9,7 @@
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
-            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4"></textarea>
+            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4" ref="input"></textarea>
             <div v-if="select_block_show" class="select-block select-block_textarea">
               <ul>
                 <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -23,7 +23,7 @@
               <span>{{hint}}</span>
             </div>
           </div>
-          <div v-if="!no_icon" class="input_icon-block">
+          <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
           </div>
@@ -31,7 +31,7 @@
       </div>
       <div v-else-if="type == 'number'">
         <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number" ref="input">
           <v-icon v-if="hint" icon="" class="hint_icon" />
           <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
             <div class="arrow"></div>
@@ -39,7 +39,7 @@
               <span>{{hint}}</span>
             </div>
           </div>
-          <div v-if="!no_icon" class="input_icon-block">
+          <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
           </div>
@@ -59,7 +59,7 @@
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
           </ul>
         </div>
-        <div v-if="!no_icon" class="input_icon-block">
+        <div v-if="icon_block" class="input_icon-block">
           <slot name="icon">
           </slot>
         </div>
@@ -80,7 +80,7 @@ export default {
     list: {},
     width: {},
     hint: {},
-    no_icon: {
+    icon_block: {
       default: false
     },
     max_length: {
@@ -102,12 +102,13 @@ export default {
     select_block_show: false,
     input_value: '',
     number_value: '',
-    hint_width: ''
+    hint_width: '',
+    textarea_hint_width: ''
   }),
   mounted() {
     setTimeout(() =>{
       this.hint_width = `${this.$refs.input.clientWidth}px`
-    }, 1)
+    }, 1000)
     if(this.value) {
       if(this.type == 'number') {
         this.number_value = this.value
@@ -167,7 +168,8 @@ export default {
 </script>
 <style scoped>
 .input_icon-block {
-  width: 60px;
+  min-width: 56px;
+  max-width: 56px;
   display: flex;
   justify-content: center;
   height: 36px;
@@ -268,6 +270,7 @@ export default {
 .input {
   font-family: Roboto;
   height: 36px;
+  font-weight: 300;
   outline: none;
   width: 100%;
   background-color: var(--white) !important;
