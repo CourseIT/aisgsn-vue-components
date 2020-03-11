@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}">
-    <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}">
+    <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}" ref="select">
       <button v-if="icon_left" class="main-btn">
         <div class="hover-btn df w100">
           <div @click="menu_show = !menu_show" class="hover-btn">
@@ -37,6 +37,12 @@
           </div>
         </div>
       </button>
+      <div v-if="hint" class="icon__prompt-block w132" :style="{'width': hint_width}">
+        <div class="arrow"></div>
+        <div class="icon__prompt">
+          <span>{{hint}}</span>
+        </div>
+      </div>
       <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
         <div @click="menu_show = false">
           <slot>
@@ -79,6 +85,7 @@ export default {
     },
     icon_left: {},
     width: {},
+    hint: {},
     text_center: {},
     icon_size: {},
     read_only: {},
@@ -90,8 +97,14 @@ export default {
     VIcon
   },
   data: () => ({
-    menu_show: false
+    menu_show: false,
+    hint_width: ''
   }),
+  mounted() {
+    setTimeout(() =>{
+      this.hint_width = `${this.$refs.select.clientWidth}px`
+    }, 1000)
+  },
   computed: {
     readOnly() {
       if(typeof (this.read_only) == 'function') {
@@ -107,6 +120,48 @@ export default {
 </script>
 
 <style scoped>
+.main-btn:hover + .icon__prompt-block {
+  display: flex;
+}
+.icon__prompt-block {
+  display: none;
+  width: 400px;
+  position: absolute;
+  justify-content: center;
+  margin-left: 0px;
+  margin-top: -75px;
+}
+.icon__prompt {
+  bottom: -6px;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.arrow {
+  top: 22px;
+  position: relative;
+  height: 10px;
+  display: inline-block;
+  color: var(--white);
+  z-index: 99;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid var(--white);
+  transform: rotate(180deg);
+}
+
 .pr16 {
   padding-right: 16px;
 }
