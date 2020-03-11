@@ -314,6 +314,11 @@ input {
   text-align: left;
   margin-bottom: 5px;
 }
+.sticky-top0 {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
 .hr {
   border: dashed 0.5px #000;
   margin-bottom: 12px;
