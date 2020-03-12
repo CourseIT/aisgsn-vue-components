@@ -6,8 +6,15 @@
         <p class="label">{{label}}</p>
       </div>
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
-        <input v-if="no_range == true" v-model="date_input" class="input" type="text">
-        <input v-else  v-model="date_range_input" class="input" type="text">
+        <input v-if="no_range == true" v-model="date_input" class="input" type="text" ref="input" :class="{'pr25': hint}">
+        <input v-else  v-model="date_range_input" class="input" type="text" ref="input" :class="{'pr25': hint}">
+        <v-icon v-if="hint" icon="" class="hint_icon" />
+          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
+            <div class="arrow"></div>
+            <div class="icon__prompt">
+              <span>{{hint}}</span>
+            </div>
+          </div>
         <v-menu
           ref="menu"
           :nudge-right="56"
@@ -52,6 +59,7 @@ export default {
     read_only: {},
     no_range: {},
     button: {},
+    hint: {},
     obligatory: {
       default: false
     },
@@ -66,9 +74,13 @@ export default {
     date: new Date().toISOString().substr(0, 10),
     date_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)} - ${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
-    menu: false
+    menu: false,
+    hint_width: ''
   }),
   mounted() {
+    setTimeout(() =>{
+      this.hint_width = `${this.$refs.input.clientWidth}px`
+    }, 0)
     if(!this.no_range && !this.value) {
       this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
       this.$emit('input', this.date_range_input)
@@ -260,6 +272,64 @@ export default {
 </script>
 
 <style scoped>
+.hint_icon {
+  width: 36px;
+  height: 36px;
+  position: relative;
+  right: 0px;
+  top: 1px;
+  margin-left: -36px;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark2);
+}
+.hint_icon:hover + .icon__prompt-block {
+  display: flex;
+}
+.icon__prompt-block {
+  display: none;
+  width: 400px;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: -15px;
+}
+.icon__prompt {
+  bottom: -6px;
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--white);
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.arrow {
+  position: absolute;
+  top: 6px;
+  height: 10px;
+  right: 10px;
+  display: inline-block;
+  color: var(--white);
+  z-index: 99;
+  border: 8px solid transparent;	
+  border-bottom: 8px solid var(--white);
+  transform: rotate(180deg);
+}
+
 .mb-4px {
   margin-bottom: -4px;
 }

@@ -49,7 +49,7 @@
 
 <!-------------------------------- card-block with draggable -------------------------------->
     <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
-      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" v-for="item in list_card" :key="item.id">
+      <v-card-block class="mb20" width="450px" :action_minus="index == 2 ? '' : test" :action_edit="test" :action_select="index == 0 ? test : ''" v-for="(item, index) in list_card" :key="item.id" >
         <template #text>
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
@@ -60,6 +60,7 @@
       </v-card-block>
     </draggable>
 <!-------------------------------- card-block with draggable -------------------------------->
+
 
 
     
@@ -174,7 +175,7 @@
       <!-------------------------------- textarea -------------------------------->
 
 
-      <v-input-date-with-icon v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
+      <v-input-date-with-icon hint="test" v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
 
       <!-------------------------------- input-date -------------------------------->
     </div>

@@ -108,7 +108,7 @@ export default {
   mounted() {
     setTimeout(() =>{
       this.hint_width = `${this.$refs.input.clientWidth}px`
-    }, 1000)
+    }, 0)
     if(this.value) {
       if(this.type == 'number') {
         this.number_value = this.value

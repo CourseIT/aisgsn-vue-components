@@ -6,20 +6,27 @@
           <slot name="text">
           </slot>
         </div>
-        <div class="dg">
-          <div class="df">
-            <div v-if="action_edit" @click="action_edit">
-              <v-icon icon="" class="icon-e"/>
-            </div>
+        <div class="">
+          <div class="circle_block">
             <div v-if="action_select" @click="action_select">
               <div @click="select = !select" class="card_circle" :class="{'select_card' : select}">
                 <div class="circle"></div>
               </div>
             </div>
           </div>
-          <div v-if="action_minus" @click="action_minus" class="bottom-icon">
-            <v-icon icon="" class="icon-m" :class="{'l-6': !action_select}"/>
+
+          <div class="edit_block">
+            <div v-if="action_edit" @click="action_edit">
+              <v-icon icon="" class="icon-e"/>
+            </div>
           </div>
+
+          <div class="remove_block">
+            <div v-if="action_minus" @click="action_minus" class="bottom-icon">
+              <v-icon icon="" class="icon-m"/>
+            </div>
+          </div>
+
         </div>
       </slot>
     </div>
@@ -63,6 +70,9 @@ export default {
 </script>
 
 <style scoped>
+.circle_block , .edit_block , .remove_block {
+  height: 26.6px;
+}
 .dg {
   display: grid;
 }
@@ -81,8 +91,8 @@ export default {
   right: 2px;
 }
 .inspection-program-block {
-  padding: 6px 10px;
-  min-height: 60px;
+  padding: 10px;
+  min-height: 100px;
   border-radius: 4px;
   background-color: var(--white);
 }
@@ -94,7 +104,7 @@ export default {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
-  font-size: 21px;
+  font-size: 15px;
   width: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -103,7 +113,6 @@ export default {
   text-align: left;
   color: var(--dark);
   position: relative;
-  left: 37px;
   bottom: 5px;
   
 }
@@ -111,7 +120,7 @@ export default {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
-  font-size: 21px;
+  font-size: 15px;
   width: 20px;
   font-weight: normal;
   font-stretch: normal;
@@ -120,23 +129,22 @@ export default {
   text-align: left;
   color: var(--dark);
   position: relative;
-  left: -6px;
-  bottom: 4px;
+  left: -1px;
 }
 .card_circle {
-  width: 21px;
-  height: 21px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   border: 1px solid var(--dark);
-  margin-top: 4px;
-  margin-left: 23px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  left: 7px;
 }
 .card_circle .circle {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
   background-color: var(--white);
 }

@@ -89,6 +89,9 @@ input {
 .pl25 {
   padding-left: 25px !important;
 }
+.pr25 {
+  padding-right: 25px;
+}
 .pr30 {
   padding-right: 30px;
 }
