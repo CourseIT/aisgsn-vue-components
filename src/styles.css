@@ -303,7 +303,6 @@ input {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 12px;
-  max-width: 720px;
 }
 .h2 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
