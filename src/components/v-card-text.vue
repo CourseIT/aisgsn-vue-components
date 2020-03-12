@@ -40,6 +40,6 @@ p {
   line-height: 1.3;
   text-align: left;
   color: var(--dark);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 </style>

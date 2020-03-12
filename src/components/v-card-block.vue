@@ -71,7 +71,7 @@ export default {
 
 <style scoped>
 .circle_block , .edit_block , .remove_block {
-  height: 26.6px;
+  height: 33.3%;
 }
 .dg {
   display: grid;
@@ -92,7 +92,7 @@ export default {
 }
 .inspection-program-block {
   padding: 10px;
-  min-height: 100px;
+  height: 100px;
   border-radius: 4px;
   background-color: var(--white);
 }
@@ -113,7 +113,7 @@ export default {
   text-align: left;
   color: var(--dark);
   position: relative;
-  bottom: 5px;
+  bottom: 3px;
   
 }
 .icon-e {
