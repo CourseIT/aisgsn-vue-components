@@ -59,6 +59,7 @@
         </template>
       </v-card-block>
     </draggable>
+    
 <!-------------------------------- card-block with draggable -------------------------------->
 
 

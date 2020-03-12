@@ -2,7 +2,7 @@
   <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
     <div class="df inspection-program-block">
       <slot>
-        <div class="w95">
+        <div class="w100">
           <slot name="text">
           </slot>
         </div>
@@ -87,7 +87,7 @@ export default {
 }
 .bottom-icon{
   position: relative;
-  top: 17px;
+  top: 10px;
   right: 2px;
 }
 .inspection-program-block {
@@ -130,6 +130,7 @@ export default {
   color: var(--dark);
   position: relative;
   left: -1px;
+  bottom: 5px;
 }
 .card_circle {
   width: 15px;
