@@ -17,13 +17,13 @@
 
           <div class="edit_block">
             <div v-if="action_edit" @click="action_edit">
-              <v-icon icon="" class="icon-e"/>
+              <v-icon icon="" class="icon-e" :width="15" :height="15"/>
             </div>
           </div>
 
           <div class="remove_block">
             <div v-if="action_minus" @click="action_minus" class="bottom-icon">
-              <v-icon icon="" class="icon-m"/>
+              <v-icon icon="" class="icon-m" :width="15" :height="15"/>
             </div>
           </div>
 
@@ -72,6 +72,16 @@ export default {
 <style scoped>
 .circle_block , .edit_block , .remove_block {
   height: 33.3%;
+  display: flex;
+}
+.circle_block {
+  align-items: flex-start;
+}
+.edit_block {
+  align-items: center;
+}
+.remove_block {
+  align-items: flex-end;
 }
 .dg {
   display: grid;
@@ -87,7 +97,7 @@ export default {
 }
 .bottom-icon{
   position: relative;
-  top: 10px;
+  /* top: 10px; */
   right: 2px;
 }
 .inspection-program-block {
@@ -105,7 +115,8 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
   font-size: 15px;
-  width: 20px;
+  width: 15px;
+  height: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -113,15 +124,20 @@ export default {
   text-align: left;
   color: var(--dark);
   position: relative;
-  bottom: 3px;
+  /* bottom: 3px; */
   
+}
+.icon-m .hover_prompt .icon + .icon-e .icon {
+  width: 15px;
+  height: 15px;
 }
 .icon-e {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: var(--font-awesome-5-pro-light);
   cursor: pointer;
   font-size: 15px;
-  width: 20px;
+  width: 15px;
+  height: 15px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -130,7 +146,7 @@ export default {
   color: var(--dark);
   position: relative;
   left: -1px;
-  bottom: 5px;
+  /* bottom: 5px; */
 }
 .card_circle {
   width: 15px;
@@ -141,7 +157,7 @@ export default {
   justify-content: center;
   align-items: center;
   position: relative;
-  left: 7px;
+  left: -2.5px;
 }
 .card_circle .circle {
   width: 3px;
