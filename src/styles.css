@@ -367,6 +367,74 @@ button {
   margin-bottom: 12px;
 }
 
+
+.save-icon_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+}
+.mb500 {
+  margin-bottom: 500px;
+}
+.jcfe {
+  justify-content: flex-end;
+}
+.pr25 {
+  padding-right: 25px;
+}
+.mb23 {
+  margin-bottom: 23px;
+}
+.label_text {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+}
+.ml10 {
+  margin-left: 10px;
+}
+.card_text {
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.55;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--blue-grey);
+  margin-bottom: 8px;
+}
+.pt11 {
+  padding-top: 11px;
+}
+.mb5 {
+  margin-bottom: 5px;
+}
+.card_text span {
+  color: var(--dark);
+}
+.containiner-pr56 {
+  padding: 0 !important;
+  padding-right: 56px !important;
+}
+.mr0 {
+  margin-right: 0px !important;
+}
+.w56 {
+  width: 56px;
+}
+.mb2 {
+  margin-bottom: 2px;
+}
+
 .modal-enter-active, .modal-leave-active{
   transition: all 0.5s ease;
   position: absolute;
