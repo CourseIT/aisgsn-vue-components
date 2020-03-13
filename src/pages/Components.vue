@@ -402,7 +402,7 @@
     <!-------------------------------- v-legend -------------------------------->
 
     <v-tool-icons class="transition" top="97px" left="350px" :class="{pl305: $store.state.menu_visibility}">
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -415,8 +415,8 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
     </v-tool-icons>
 
-    <v-tool-icons top="97px" right="0px" :row="false">
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
+    <v-tool-icons top="97px" right="100px" :row="false">
+      <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>

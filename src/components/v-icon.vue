@@ -59,7 +59,6 @@ export default {
   border-bottom: 8px solid var(--dark) !important;
 }
 .icon {
-  display: block;
   user-select: none;
   cursor: pointer;
   z-index: 7;
@@ -82,7 +81,6 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  margin-left: -192px;
   margin-top: -34px;
   justify-content: center;
   margin-left: 0px;

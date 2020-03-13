@@ -1,6 +1,6 @@
 <template>
-  <div v-if="visible" class="tool-icons" :class="{'read-only': readOnly == true, 'dg': row == false}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
-    <slot></slot>
+  <div v-if="visible" class="tool-icons" :class="{'read-only': readOnly == true, 'df': row}" :style='{"top": top, "left": left, "right": right, "bottom": bottom}'>
+      <slot></slot>
   </div>
 </template>
 
@@ -11,7 +11,9 @@ export default {
     left: {},
     right: {},
     bottom: {},
-    row: {},
+    row: {
+      default: true
+    },
     read_only: {},
     visible: {
       default: true
@@ -41,7 +43,6 @@ export default {
 }
 .tool-icons div {
   margin: 5px;
-  display: inline-block;
   transition: all 0.3s ease;
 }
 </style>
