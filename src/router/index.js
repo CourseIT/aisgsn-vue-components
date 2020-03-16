@@ -74,6 +74,11 @@ const routes = [
       layout: 'doc-layout'
     }
   },
+  {
+    path: '/my_page',
+    name: 'My_page',
+    component: () => import('../pages/My_page.vue')
+  },
   // {
   //   path: '/checkup_card_list',
   //   name: 'Checkup_card_list',
