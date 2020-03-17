@@ -128,6 +128,9 @@ input {
 .mb0 {
   margin-bottom: 0 !important;
 }
+.mb10 {
+  margin-bottom: 10px;
+}
 .mb15 {
   margin-bottom: 15px;
 }
@@ -433,6 +436,26 @@ button {
 }
 .mb2 {
   margin-bottom: 2px;
+}
+
+.save-icon_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  background-color: var(--pale-grey);
+}
+.pt11 {
+  padding-top: 11px;
+}
+.mr25 {
+  margin-right: 25px;
+}
+.top15 {
+  top: 15px;
+}
+.h36 {
+  height: 36px;
 }
 
 .modal-enter-active, .modal-leave-active{

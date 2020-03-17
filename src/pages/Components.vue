@@ -18,7 +18,7 @@
 
 
 <!-------------------------------- icon with prompt -------------------------------->
-    <v-icon class="icon ml600" font_size="21px" :hover_color="true" icon="" prompt="Создать документ"/>
+    <v-icon :action="test" class="icon ml600" font_size="21px" :hover_color="true" icon="" prompt="Создать документ"/>
 <!-------------------------------- icon with prompt -------------------------------->
 
 
@@ -402,8 +402,8 @@
     <!-------------------------------- v-legend -------------------------------->
 
     <v-tool-icons class="transition" top="97px" left="350px" :class="{pl305: $store.state.menu_visibility}">
-      <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" :action="test" prompt="test" icon=""/>
+      <v-icon font_size="21px" :hover_color="true" :action="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>

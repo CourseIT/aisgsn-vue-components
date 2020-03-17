@@ -70,13 +70,13 @@ export default {
   display: flex;
   align-items: center;
   margin: 10px;
+  margin-top: 5px;
   
   margin-top: 31px;
 }
 .fr {
   display: flex;
   float: right;
-  margin-right: 38px;
 }
 .mt35 {
   margin-top: 35px;
@@ -96,7 +96,6 @@ export default {
   border-radius: 4px;
   padding: 30px;
   padding-bottom: 2px;
-  padding-right: 5px;
   position: fixed;
   width: 50%;
   left: 0;

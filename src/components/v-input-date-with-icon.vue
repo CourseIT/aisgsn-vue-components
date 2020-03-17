@@ -408,7 +408,7 @@ export default {
   font-family: var(--font-awesome-5-pro-light);
   margin-top: 00px;
   font-size: 21px;
-  padding: 0px 10px;
+  padding: 0px 9px;
   text-align: center;
 }
 .input {
