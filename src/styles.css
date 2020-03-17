@@ -457,6 +457,10 @@ button {
 .h36 {
   height: 36px;
 }
+.substrate {
+  background-color: var(--pale-grey);
+  box-shadow: -15px 15px 30px var(--pale-grey);
+}
 
 .modal-enter-active, .modal-leave-active{
   transition: all 0.5s ease;
