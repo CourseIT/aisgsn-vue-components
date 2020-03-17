@@ -18,8 +18,13 @@
 
 
 <!-------------------------------- icon with prompt -------------------------------->
-    <v-icon :action="test" class="icon ml600" font_size="21px" :hover_color="true" icon="" prompt="Создать документ"/>
+    <v-icon :action="test" class="icon ml600 mb10" font_size="21px" :hover_color="true" icon="" prompt="Создать документ"/>
 <!-------------------------------- icon with prompt -------------------------------->
+
+
+<!-------------------------------- icon with unicode -------------------------------->
+    <v-icon :action="test" unicode="&#xf319;" class="icon ml600" font_size="21px" :hover_color="true" prompt="Создать документ"/>
+<!-------------------------------- icon with unicode -------------------------------->
 
 
 <!-------------------------------- icons-group -------------------------------->

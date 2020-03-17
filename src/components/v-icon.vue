@@ -1,7 +1,12 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true, 'icon': prompt}">
     <div class="hover_prompt" @click="action">
-      <div class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"background": background, "font-size": `${font_size}`,"padding-left": `${padding_left}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>{{icon}}</div>
+      <div v-if="unicode" class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"background": background, "font-size": `${font_size}`,"padding-left": `${padding_left}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>
+        <i class="fal" v-html="unicode"></i>
+      </div>
+      <div v-else class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"background": background, "font-size": `${font_size}`,"padding-left": `${padding_left}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>
+        {{icon}}
+      </div>
     </div>
     <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
       <div class="arrow"></div>
@@ -15,6 +20,7 @@
 <script>
 export default {
   props: {
+    unicode: {},
     icon: {},
     color: {},
     prompt: {},
