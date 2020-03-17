@@ -77,6 +77,9 @@ input {
 .w100 {
   width: 100%;
 }
+.pt15{
+  padding-top: 15px;
+}
 .pl305 {
   padding-left: 315px;
 }
@@ -376,6 +379,7 @@ button {
   justify-content: center;
   align-items: center;
   width: 56px;
+  height: 36px;
 }
 .mb500 {
   margin-bottom: 500px;
