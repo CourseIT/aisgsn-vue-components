@@ -22,7 +22,7 @@
         },
         props: {
             model: {
-                defailt: {}
+                default: {}
             }
         },
         data: () => ({}),
