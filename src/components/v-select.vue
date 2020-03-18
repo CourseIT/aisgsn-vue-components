@@ -63,6 +63,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  name: 'VSelect',
   props: {
     value: {
       type: String,
