@@ -1,40 +1,87 @@
-export { default as VActionGroup } from './components/v-action-group'
-export { default as VActionButton } from './components/v-action-button'
-export { default as VButton } from './components/v-button'
-export { default as VCardBlock } from './components/v-card-block'
-export { default as VDateButton } from './components/v-date-button'
-export { default as VDateRangeButton } from './components/v-date-range-button'
-export { default as VDocInfo } from './components/v-doc-info'
-export { default as VDocumentBlock } from './components/v-document-block'
-export { default as VUsersSignature } from './components/v-users-signature'
-export { default as VUserSignature } from './components/v-user-signature'
-export { default as VIcon } from './components/v-icon'
-export { default as VFiltersButton } from './components/v-filters-button'
-export { default as VSelect } from './components/v-select'
-export { default as VOptions } from './components/v-options'
-export { default as VInput } from './components/v-input'
-export { default as VInputDateWithIcon } from './components/v-input-date-with-icon'
-export { default as VModal } from './components/v-modal'
-export { default as VRadioButtons } from './components/v-radio-buttons'
-export { default as VTemplateBlock } from './components/v-template-block'
-export { default as VTemplateText } from './components/v-template-text'
-export { default as VSearch } from './components/v-search'
-export { default as VTemplateBlockWithIcon } from './components/v-template-block-with-icon'
-export { default as VIconsGroup } from './components/v-icons-group'
-export { default as VCategoriesSearch } from './components/v-categories-search'
-export { default as VFilterInput } from './components/v-filter-input'
-export { default as VFilterInputSwitch } from './components/v-filter-input-switch'
-export { default as VTimeButton } from './components/v-time-button'
-export { default as VCardText } from './components/v-card-text'
-export { default as VSwitchButton } from './components/v-switch-button'
-export { default as VMultipleSearch } from './components/v-multiple-search'
-export { default as VNewsFeed } from './components/v-news-feed'
-export { default as VNews } from './components/v-news'
-export { default as VLayout } from './components/v-layout'
-export { default as VDateInput } from './components/v-date-input'
-export { default as VColumnList } from './components/v-column-list'
-export { default as VLegend } from './components/v-legend'
-export { default as VToolIcons } from './components/v-tool-icons'
+import VActionGroup from './components/v-action-group'
+import VActionButton from './components/v-action-button'
+import VButton from './components/v-button'
+import VCardBlock from './components/v-card-block'
+import VDateButton from './components/v-date-button'
+import VDateRangeButton from './components/v-date-range-button'
+import VDocInfo from './components/v-doc-info'
+import VDocumentBlock from './components/v-document-block'
+import VUsersSignature from './components/v-users-signature'
+import VUserSignature from './components/v-user-signature'
+import VIcon from './components/v-icon'
+import VFiltersButton from './components/v-filters-button'
+import VSelect from './components/v-select'
+import VOptions from './components/v-options'
+import VInput from './components/v-input'
+import VInputDateWithIcon from './components/v-input-date-with-icon'
+import VModal from './components/v-modal'
+import VRadioButtons from './components/v-radio-buttons'
+import VTemplateBlock from './components/v-template-block'
+import VTemplateText from './components/v-template-text'
+import VSearch from './components/v-search'
+import VTemplateBlockWithIcon from './components/v-template-block-with-icon'
+import VIconsGroup from './components/v-icons-group'
+import VCategoriesSearch from './components/v-categories-search'
+import VFilterInput from './components/v-filter-input'
+import VFilterInputSwitch from './components/v-filter-input-switch'
+import VTimeButton from './components/v-time-button'
+import VCardText from './components/v-card-text'
+import VSwitchButton from './components/v-switch-button'
+import VMultipleSearch from './components/v-multiple-search'
+import VNewsFeed from './components/v-news-feed'
+import VNews from './components/v-news'
+import VLayout from './components/v-layout'
+import VDateInput from './components/v-date-input'
+import VColumnList from './components/v-column-list'
+import VLegend from './components/v-legend'
+import VToolIcons from './components/v-tool-icons'
 
-import draggable from 'vuedraggable'
-export default draggable
+export { default as draggable } from 'vuedraggable'
+
+import Vue from 'vue'
+
+const Components = {
+  VActionGroup,
+  VActionButton,
+  VButton,
+  VCardBlock,
+  VDateButton,
+  VDateRangeButton,
+  VDocInfo,
+  VDocumentBlock,
+  VUsersSignature,
+  VUserSignature,
+  VIcon,
+  VFiltersButton,
+  VSelect,
+  VOptions,
+  VInput,
+  VInputDateWithIcon,
+  VModal,
+  VRadioButtons,
+  VTemplateBlock,
+  VTemplateText,
+  VSearch,
+  VTemplateBlockWithIcon,
+  VIconsGroup,
+  VCategoriesSearch,
+  VFilterInput,
+  VFilterInputSwitch,
+  VTimeButton,
+  VCardText,
+  VSwitchButton,
+  VMultipleSearch,
+  VNewsFeed,
+  VNews,
+  VLayout,
+  VDateInput,
+  VColumnList,
+  VLegend,
+  VToolIcons
+}
+
+Object.keys(Components).forEach(name => {
+  Vue.component(name, Components[name]);
+})
+
+export default Components
