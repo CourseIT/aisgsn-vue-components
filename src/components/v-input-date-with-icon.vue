@@ -59,7 +59,9 @@ export default {
     read_only: {},
     no_range: {},
     button: {},
-    hint: {},
+    hint: {
+      default: false
+    },
     obligatory: {
       default: false
     },
@@ -79,8 +81,10 @@ export default {
   }),
   mounted() {
     setTimeout(() =>{
-      this.hint_width = `${this.$refs.input.clientWidth}px`
-    }, 0)
+      if(this.hint) {
+        this.hint_width = `${this.$refs.input.clientWidth}px`
+      }
+    }, 100)
     if(!this.no_range && !this.value) {
       this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
       this.$emit('input', this.date_range_input)
