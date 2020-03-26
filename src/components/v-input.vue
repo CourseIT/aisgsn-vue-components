@@ -79,7 +79,9 @@ export default {
     type: {},
     list: {},
     width: {},
-    hint: {},
+    hint: {
+      default: false
+    },
     icon_block: {
       default: false
     },
@@ -107,8 +109,10 @@ export default {
   }),
   mounted() {
     setTimeout(() =>{
-      this.hint_width = `${this.$refs.input.clientWidth}px`
-    }, 0)
+      if(this.hint) {
+        this.hint_width = `${this.$refs.input.clientWidth}px`
+      }
+    }, 100)
     if(this.value) {
       if(this.type == 'number') {
         this.number_value = this.value

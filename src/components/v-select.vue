@@ -86,7 +86,9 @@ export default {
     },
     icon_left: {},
     width: {},
-    hint: {},
+    hint: {
+      default: false
+    },
     text_center: {},
     icon_size: {},
     read_only: {},
@@ -103,8 +105,10 @@ export default {
   }),
   mounted() {
     setTimeout(() =>{
-      this.hint_width = `${this.$refs.select.clientWidth}px`
-    }, 1000)
+      if(this.hint) {
+        this.hint_width = `${this.$refs.select.clientWidth}px`
+      }
+    }, 100)
   },
   computed: {
     readOnly() {
