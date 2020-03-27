@@ -276,7 +276,7 @@ export default {
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.55;
+  line-height: 1.1;
   letter-spacing: normal;
   color: var(--dark);
   cursor: pointer;

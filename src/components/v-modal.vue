@@ -77,6 +77,7 @@ export default {
 .fr {
   display: flex;
   float: right;
+  margin-right: 38px;
 }
 .mt35 {
   margin-top: 35px;
@@ -96,6 +97,7 @@ export default {
   border-radius: 4px;
   padding: 30px;
   padding-bottom: 2px;
+  padding-right: 0;
   position: fixed;
   width: 50%;
   left: 0;

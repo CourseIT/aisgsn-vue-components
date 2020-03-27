@@ -314,7 +314,7 @@ input {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
   font-size: 12px;
-  font-weight: 300;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.25;
@@ -330,6 +330,7 @@ input {
 .hr {
   border: dashed 0.5px #000;
   margin-bottom: 12px;
+  margin-top: 12px;
 }
 button {
   outline: none;
