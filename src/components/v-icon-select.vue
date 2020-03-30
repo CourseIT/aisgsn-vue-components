@@ -46,7 +46,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .select-block {
   width: 262px;
   margin-top: -17px;
