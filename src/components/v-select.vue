@@ -292,16 +292,4 @@ export default {
   background: var(--pale-lilac);
   color: var(--bright-orange);
 }
-.colse-bg {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-.dark_bg {
-  z-index: 101;
-  background: rgba(0, 0, 0, 0.4);
-}
 </style>

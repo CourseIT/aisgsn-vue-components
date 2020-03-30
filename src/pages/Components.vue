@@ -438,6 +438,11 @@
 
     <v-icon font_size="21px" :hover_color="true" :action="function() {modal_layout = true}"  icon="" prompt="Активатор модального окна" class="ml600"/>
 
+    <v-icon-select>
+      <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+    </v-icon-select>
+
+
 
     <transition name="modal">
     <!-------------------------------- v-modal-layout -------------------------------->
@@ -661,6 +666,7 @@ const VLegend = () => import('@/components/v-legend')
 const VModalLayout = () => import('@/components/v-modal-layout')
 const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
 const VToolIcons = () => import('@/components/v-tool-icons')
+const VIconSelect = () => import('@/components/v-icon-select')
 
 export default {
   components: {
@@ -703,7 +709,8 @@ export default {
     VLegend,
     VModalLayout,
     VModalLayoutTab,
-    VToolIcons
+    VToolIcons,
+    VIconSelect
   },
   data: () => ({
     // drag`n`drop
