@@ -20,7 +20,7 @@
           :nudge-right="56"
           :nudge-top="44"
           v-model="menu"
-          :close-on-content-click="false"
+          :close-on-content-click="no_range == true ? true : false"
           transition="scale-transition"
           offset-y
           min-width="290px"
@@ -92,14 +92,25 @@ export default {
     if(this.no_range && !this.value) {
       this.$emit('input', this.date_input)
     }
+    if(this.value) {
+      this.date = this.value
+    }
   },
   watch: {
+    value(value) {
+      if(this.no_range) {
+        this.date_input = value
+      } else {
+        this.date_range_input = value
+      }
+    },
     date() {
       if(this.no_range) {
         this.$emit('input', `${this.day}.${this.month}.${this.year}`)
         this.date_input = `${this.day}.${this.month}.${this.year}`
       } else {
         if(this.date.length > 1) {
+          this.menu = false
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
         } else {
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
@@ -228,7 +239,7 @@ export default {
 
 
       } else {
-        this.date_range_input = value.replace(/[^.-\d\s]/g, '').substr(0,23)
+        this.date_range_input = value.replace(/[^.–-\d\s]/g, '').substr(0,23)
       }
       
       this.$emit('input', this.date_range_input)

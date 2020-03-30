@@ -183,6 +183,8 @@
 
       <v-input-date-with-icon hint="test" v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
 
+      <v-input-date-with-icon hint="test" v-model="input_date2" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
+
       <!-------------------------------- input-date -------------------------------->
     </div>
     
@@ -778,8 +780,8 @@ export default {
       '...',
       '...'
     ],
-    input_date: "",
-    input_date2: '',
+    input_date: "2020-09-10",
+    input_date2: ['2019-09-10', '2019-09-13'],
 
     modal_show: false,
     modal_layout: false,
