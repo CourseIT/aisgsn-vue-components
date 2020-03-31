@@ -138,11 +138,15 @@
     </div>
     
     <div class="w600">
-      <v-select :close_icon="false" hint="test" class="media-min-1500 pr56" v-model="value1" defailt_value="Выбор1" text_center="true" width="100%">
+      <v-select :close_icon="false" hint="test" class="media-min-1500 pr56 mb20" v-model="value1" defailt_value="Выбор1" text_center="true" width="100%">
         <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
       </v-select>
       <!-------------------------------- input -------------------------------->
       <v-input v-model="input_1" :icon_block="true" :label_icon_action="test" hint="hint" placeholder="№" label="Какой-то label" :list="list_input">
+        <template #icons>
+          <v-icon :action="test" icon="" width="15" height="15" hover_color="true" />
+          <v-icon :action="test" icon="" width="15" height="15" hover_color="true" />
+        </template>
         <template #icon>
           <v-template-block-with-icon icon="" el_after="true" el_before="true">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
@@ -158,7 +162,11 @@
       </v-input>
       <!-------------------------------- input -------------------------------->
       <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="true" v-model="input" :label_icon_action="test" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input"/>
+      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input">
+        <template #icons>
+          <v-icon :action="test" prompt="test" icon="" width="15" height="15" hover_color="true" />
+        </template>
+      </v-input>
       <!-------------------------------- input -------------------------------->
 
       <!-------------------------------- input -------------------------------->
@@ -439,7 +447,7 @@
     <v-icon font_size="21px" :hover_color="true" :action="function() {modal_layout = true}"  icon="" prompt="Активатор модального окна" class="ml600"/>
 
     <v-icon-select>
-      <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+      <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" :arrow="index == 0 ? true : false" />
     </v-icon-select>
 
 

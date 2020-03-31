@@ -107,7 +107,7 @@ export default {
   width: 400px;
   position: absolute; 
   margin-left: 0px;
-  margin-top: -35px;
+  margin-top: -32px;
 }
 .icon__prompt {
   position: absolute;
@@ -133,8 +133,8 @@ export default {
   display: inline-block;
   color: var(--white);
   z-index: 99;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid var(--white);
+  border: 6px solid transparent;	
+  border-bottom: 6px solid var(--white);
   transform: rotate(180deg);
 }
 </style>

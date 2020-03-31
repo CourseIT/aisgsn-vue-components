@@ -4,17 +4,16 @@
       <div class="df">
         <span v-if="obligatory" class="obligatory mb-4px">*</span>
         <p class="label">{{label}}</p>
+        <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
+        <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
+          <div class="icon__prompt">
+            <span>{{hint}}</span>
+          </div>
+        </div>
       </div>
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
         <input v-if="no_range == true" v-model="date_input" class="input" type="text" ref="input" :class="{'pr25': hint}">
         <input v-else  v-model="date_range_input" class="input" type="text" ref="input" :class="{'pr25': hint}">
-        <v-icon v-if="hint" icon="" class="hint_icon" />
-          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-            <div class="arrow"></div>
-            <div class="icon__prompt">
-              <span>{{hint}}</span>
-            </div>
-          </div>
         <v-menu
           ref="menu"
           :nudge-right="56"
@@ -288,12 +287,7 @@ export default {
 
 <style scoped>
 .hint_icon {
-  width: 36px;
-  height: 36px;
-  position: relative;
-  right: 0px;
-  top: 1px;
-  margin-left: -36px;
+  margin-left: 10px;
   font-size: 15px;
   font-weight: 300;
   font-stretch: normal;
@@ -305,6 +299,16 @@ export default {
 }
 .hint_icon:hover + .icon__prompt-block {
   display: flex;
+}
+.hint_icon:hover::before{
+  content: '';
+  position: absolute;
+  z-index: 99;
+  margin-top: -9px;
+  margin-left: 1px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid var(--white);
+  transform: rotate(180deg);
 }
 .icon__prompt-block {
   display: none;
@@ -332,19 +336,6 @@ export default {
   text-align: left;
   color: var(--dark);
 }
-.arrow {
-  position: absolute;
-  top: 6px;
-  height: 10px;
-  right: 10px;
-  display: inline-block;
-  color: var(--white);
-  z-index: 99;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid var(--white);
-  transform: rotate(180deg);
-}
-
 .mb-4px {
   margin-bottom: -4px;
 }
@@ -412,7 +403,6 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
-  width: 95%;
 }
 .input-date .input-block {
   cursor: pointer;

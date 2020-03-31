@@ -3,7 +3,17 @@
     <div class="df">
       <span v-if="obligatory" class="obligatory">*</span>
       <p v-if="label" class="label">{{label}}</p>
-      <v-icon :action="label_icon_action" v-if="label_icon_action" icon="" class="label_icon" hover_color="true" />
+      <div class="icons__block df">
+        <slot name="icons">
+        </slot>
+      </div>
+      
+      <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
+      <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
+        <div class="icon__prompt">
+          <span>{{hint}}</span>
+        </div>
+      </div>
     </div>
     <div  v-if="visible" :class="{'read-only': readOnly == true}">
       <div v-if="type == 'textarea'">
@@ -16,13 +26,6 @@
               </ul>
             </div>
           </div>
-          <v-icon v-if="hint" icon="" class="hint_icon" />
-          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-            <div class="arrow"></div>
-            <div class="icon__prompt">
-              <span>{{hint}}</span>
-            </div>
-          </div>
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
@@ -32,13 +35,6 @@
       <div v-else-if="type == 'number'">
         <div class="df">
           <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number" ref="input">
-          <v-icon v-if="hint" icon="" class="hint_icon" />
-          <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-            <div class="arrow"></div>
-            <div class="icon__prompt">
-              <span>{{hint}}</span>
-            </div>
-          </div>
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
@@ -47,13 +43,6 @@
       </div>
       <div v-else class="df">
         <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text" ref="input">
-        <v-icon v-if="hint" icon="" class="hint_icon" />
-        <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-          <div class="arrow"></div>
-          <div class="icon__prompt">
-            <span>{{hint}}</span>
-          </div>
-        </div>
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -72,7 +61,6 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props:{
-    label_icon_action: {},
     placeholder:{},
     value: {},
     label: {},
@@ -180,12 +168,7 @@ export default {
   align-items: center;
 }
 .hint_icon {
-  width: 36px;
-  height: 36px;
-  position: relative;
-  right: 0px;
-  top: 1px;
-  margin-left: -36px;
+  margin-left: 10px;
   font-size: 15px;
   font-weight: 300;
   font-stretch: normal;
@@ -197,6 +180,16 @@ export default {
 }
 .hint_icon:hover + .icon__prompt-block {
   display: flex;
+}
+.hint_icon:hover::before{
+  content: '';
+  position: absolute;
+  z-index: 99;
+  margin-top: -9px;
+  margin-left: 1px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid var(--white);
+  transform: rotate(180deg);
 }
 .icon__prompt-block {
   display: none;
@@ -224,20 +217,6 @@ export default {
   text-align: left;
   color: var(--dark);
 }
-.arrow {
-  position: absolute;
-  top: 6px;
-  height: 10px;
-  right: 10px;
-  display: inline-block;
-  color: var(--white);
-  z-index: 99;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid var(--white);
-  transform: rotate(180deg);
-}
-
-
 .w74{
   width: 74px;
 }
@@ -253,19 +232,12 @@ export default {
   text-align: left;
   margin-bottom: 5px;
 }
-.label_icon {
-  font-size: 15px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.53;
-  letter-spacing: normal;
-  text-align: left;
-  color: #38393b;
-  width: 13px;
+.icons__block div {
+  margin-left: 10px;
+};
+.icons__block .icon {
+  width: 15px;
   height: 15px;
-  position: relative;
-  bottom: 10px;
 }
 .input-block {
   width: 100%;

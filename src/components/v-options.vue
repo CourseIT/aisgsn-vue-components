@@ -1,9 +1,12 @@
 <template>
-  <button v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="select-btn select_shadow">
-    <div class="df aic w100 hover-btn jcc">
-      {{option}}
-    </div>
-  </button>
+  <div>
+    <button v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="select-btn select_shadow">
+      <div class="df aic w100 hover-btn jcc">
+        {{max_l_option}}
+      </div>
+    </button>
+    <div v-if="arrow" class="options-arrow"></div>
+  </div>
 </template>
 
 <script>
@@ -11,6 +14,10 @@ export default {
   props : {
     option: {},
     read_only: {},
+    max_length: {},
+    arrow:{
+      default: false
+    },
     visible: {
       default: true
     },
@@ -21,6 +28,16 @@ export default {
     }
   },
   computed: {
+    max_l_option() {
+      if(this.max_length) {
+        var option = this.option.substr(0,this.max_length)
+        if(this.option.length > option.length) {
+          return `${option}...`
+        }
+        return option
+      }
+      return this.option
+    },
     readOnly() {
       if(typeof (this.read_only) == 'function') {
         return this.read_only()
@@ -68,5 +85,16 @@ export default {
 }
 .select_shadow {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.22);
+}
+.options-arrow::before{
+  content: ''; 
+  position: absolute;
+  left: 12px; 
+  top: -12px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid var(--white);
+}
+.select_shadow:hover~.options-arrow::before{
+  border-bottom: 6px solid var(--pale-lilac);
 }
 </style>

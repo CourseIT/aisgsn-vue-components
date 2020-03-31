@@ -114,12 +114,12 @@ export default {
 [data-title]:hover::after {
   content: '';
   position: absolute;
-  bottom: 23px;
-  left: 8px;
+  bottom: 28px;
+  left: 12px;
   display: inline-block;
   color: var(--white);
-  border: 10px solid transparent;	
-  border-bottom: 8px solid #000;
+  border: 6px solid transparent;	
+  border-bottom: 6px solid #000;
   transform: rotate(180deg);
 }
 </style>

@@ -45,8 +45,8 @@ export default {
   content: ''; 
   position: relative;
   left: 9px; 
-  bottom: 5px;
-  border: 10px solid transparent;
-  border-bottom: 10px solid var(--white);
+  bottom: 3px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid var(--white);
 }
 </style>

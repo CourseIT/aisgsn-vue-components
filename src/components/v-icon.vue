@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'icon': prompt}">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'icon': prompt}" :style='{width: `${width}px`, height: `${height}px`}'>
     <div class="hover_prompt" @click="action">
       <div v-if="unicode" class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"background": background, "font-size": `${font_size}`,"padding-left": `${padding_left}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>
         <i class="fal" v-html="unicode"></i>
@@ -87,7 +87,7 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  margin-top: -34px;
+  margin-top: -28px;
   justify-content: center;
   margin-left: 0px;
 }
@@ -122,8 +122,8 @@ export default {
   display: inline-block;
   color: var(--white);
   z-index: 99;
-  border: 8px solid transparent;	
-  border-bottom: 8px solid var(--white);
+  border: 6px solid transparent;	
+  border-bottom: 6px solid var(--white);
   transform: rotate(180deg);
 }
 </style>
