@@ -35,6 +35,7 @@ export { default as VDateInput } from './components/v-date-input'
 export { default as VColumnList } from './components/v-column-list'
 export { default as VLegend } from './components/v-legend'
 export { default as VToolIcons } from './components/v-tool-icons'
+export { default as VToolIcons } from './components/v-icon-select'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'
