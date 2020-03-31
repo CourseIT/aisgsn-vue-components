@@ -104,12 +104,12 @@ export default {
       }
     },
     date() {
+      this.menu = false
       if(this.no_range) {
         this.$emit('input', `${this.day}.${this.month}.${this.year}`)
         this.date_input = `${this.day}.${this.month}.${this.year}`
       } else {
         if(this.date.length > 1) {
-          this.menu = false
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
         } else {
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
