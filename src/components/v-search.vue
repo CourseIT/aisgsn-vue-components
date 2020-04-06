@@ -2,10 +2,10 @@
   <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
     <div class="search">
       <input type="text" v-model="value" :placeholder="placeholder">
-      <div class="icon__prompt-block">
+      <div v-if="hint" class="icon__prompt-block">
         <div class="arrow"></div>
         <div class="icon__prompt">
-          <span>Фильтрация по тексту</span>
+          <span>{{hint}}</span>
         </div>
       </div>
       <div v-if="value != ''" class="icon-btn" @click="value = ''">
@@ -25,6 +25,9 @@ export default {
     read_only: {},
     visible: {
       default: true
+    },
+    hint: {
+      default: 'Фильтрация по тексту'
     }
   },
   components: {

@@ -52,11 +52,4 @@ export default {
   position: absolute;
   z-index: 103;
 }
-.icon__active {
-  background-color: var(--pale-grey);
-  border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  width: 36px;
-  color: var(--bright-orange);
-}
 </style>

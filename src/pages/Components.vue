@@ -630,6 +630,19 @@
     </transition>
 
 
+
+    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+      <template #search>
+        <v-search v-model="search" :hint="false" placeholder="Поиск"/>
+      </template>
+      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index}">
+        <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
+        <v-card-info-text title="Должность" text="Инспектор" />
+      </v-card-info>
+    </v-card-search>
+    text
+
+
   </div>
 </template>
 
@@ -675,6 +688,9 @@ const VModalLayout = () => import('@/components/v-modal-layout')
 const VModalLayoutTab = () => import('@/components/v-modal-layout-tab') 
 const VToolIcons = () => import('@/components/v-tool-icons')
 const VIconSelect = () => import('@/components/v-icon-select')
+const VCardSearch = () => import('@/components/v-card-search')
+const VCardInfoText = () => import('@/components/v-card-info-text')
+const VCardInfo = () => import('@/components/v-card-info')
 
 export default {
   components: {
@@ -718,13 +734,19 @@ export default {
     VModalLayout,
     VModalLayoutTab,
     VToolIcons,
-    VIconSelect
+    VIconSelect,
+    VCardSearch,
+    VCardInfo,
+    VCardInfoText
   },
   data: () => ({
     // drag`n`drop
     dragging: false,
     enabled: true,
     button1: false,
+    card_search: 'test',
+    
+    array: [0,1,2,3,4,5,6,7,8,111,123,175,12,11],
     obj: {
       1: '',
       2: ''

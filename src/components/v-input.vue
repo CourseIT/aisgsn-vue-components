@@ -42,7 +42,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text" ref="input">
+        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -67,6 +67,10 @@ export default {
     type: {},
     list: {},
     width: {},
+    test: {},
+    disabled: {
+      default: false
+    },
     hint: {
       default: false
     },
@@ -97,6 +101,7 @@ export default {
   }),
   mounted() {
     setTimeout(() =>{
+      this.input_width = `${this.$refs.input.clientWidth}px`
       if(this.hint) {
         this.hint_width = `${this.$refs.input.clientWidth}px`
       }

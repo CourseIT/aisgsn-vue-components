@@ -155,6 +155,9 @@ input {
 .mb7 {
   margin-bottom: 7px !important;
 }
+.mb6 {
+  margin-bottom: 6px;
+}
 .mb5 {
   margin-bottom: 5px;
 }
@@ -196,6 +199,17 @@ input {
 }
 .dotted {
   border: dashed 0.5px var(--dark);
+}
+.search__block .search {
+  margin-bottom: 6px;
+  padding-right: 35px;
+}
+.icon__active {
+  background-color: var(--pale-grey);
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  width: 36px;
+  color: var(--bright-orange);
 }
 .obligatory {
   position: relative;
