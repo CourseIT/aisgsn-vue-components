@@ -640,7 +640,6 @@
         <v-card-info-text title="Должность" text="Инспектор" />
       </v-card-info>
     </v-card-search>
-    text
 
 
   </div>

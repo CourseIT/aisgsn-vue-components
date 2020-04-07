@@ -8,7 +8,7 @@
       </v-input>
       <div v-if="search_block_show" class="search__block" :style="{'width': block_width}">
         <slot name="search">
-          <v-search v-model="search" :hint="false" placeholder="Поиск"/>
+          <v-search v-model="search" :hint="false" placeholder="Поиск" />
         </slot>
         <div class="cards">
           <slot>
@@ -82,6 +82,7 @@ export default {
     box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
     background-color: var(--pale-grey);
     padding: 10px;
+    padding-left: 0px;
     position: absolute;
     width: inherit;
     z-index: 103;
@@ -90,6 +91,7 @@ export default {
     max-height: 640px;
     overflow-y: scroll;
     padding-right: 25px;
+    padding-left: 10px;
   }
   .cards::-webkit-scrollbar {
     width: 11px;

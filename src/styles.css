@@ -92,6 +92,9 @@ input {
 .pl25 {
   padding-left: 25px !important;
 }
+.pl10 {
+  padding-left: 10px;
+}
 .pr25 {
   padding-right: 25px;
 }
@@ -203,6 +206,7 @@ input {
 .search__block .search {
   margin-bottom: 6px;
   padding-right: 35px;
+  padding-left: 10px;
 }
 .icon__active {
   background-color: var(--pale-grey);
