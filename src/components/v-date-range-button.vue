@@ -45,7 +45,12 @@ export default {
     visible: {
       default: true
     },
-    value: {}
+    value: {},
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    }
   },
   components: {
     VIcon
@@ -79,6 +84,7 @@ export default {
       if(date.length == 2) {
         this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
       }
+      this.action()
       
     },
     date_range_input(value, pevValue) {

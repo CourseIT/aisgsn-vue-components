@@ -42,7 +42,12 @@ export default {
     visible: {
       default: true
     },
-    value: {}
+    value: {},
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    }
   },
   components: {
     VIcon
@@ -64,6 +69,7 @@ export default {
     date(date) {
       this.$emit('input', date)
       this.date_input = `${this.day}.${this.month}.${this.year}`
+      this.action()
     },
     date_input(value, pevValue) {
       let date1
@@ -104,7 +110,7 @@ export default {
       } else {
         this.date_input = value.replace(/[^.\d\s]/g, '').substr(0,10)
       }
-      
+
       if(value.length == 10 && pevValue.length < value.length) {
         let arr = value.split('.')
         this.date = `${arr[2]}-${arr[1]}-${arr[0]}`

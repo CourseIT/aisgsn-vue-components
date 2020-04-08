@@ -66,6 +66,11 @@ export default {
     },
     visible: {
       default: true
+    },
+    action: {
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {
@@ -121,6 +126,7 @@ export default {
         }
         this.$emit('input', date)
       }
+      this.action()
     },
     date_input(value, pevValue) {
       let date1
@@ -162,7 +168,7 @@ export default {
       } else {
         this.date_input = value.replace(/[^.\d\s]/g, '').substr(0,10)
       }
-      
+
       if(value.length == 10 && pevValue.length < value.length) {
         let arr = value.split('.')
         this.date = `${arr[2]}-${arr[1]}-${arr[0]}`

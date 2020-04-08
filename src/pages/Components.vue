@@ -357,11 +357,11 @@
 
     <div class="df">
       <!-------------------------------- date-button -------------------------------->
-      <v-date-button  v-model="date_btn" />
+      <v-date-button  v-model="date_btn"  />
       <!-------------------------------- date-button -------------------------------->
 
       <!-------------------------------- date-range-button -------------------------------->
-      <v-date-range-button class="ml25" v-model="date_range_btn"/>
+      <v-date-range-button class="ml25" v-model="date_range_btn" />
       <!-------------------------------- date-range-button -------------------------------->
     </div>
 
