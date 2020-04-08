@@ -41,7 +41,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    value: {}
   },
   components: {
     VIcon
@@ -54,11 +55,14 @@ export default {
     date_input_show: false
   }),
   mounted() {
-    this.$emit('input', this.date_input)
+    if(this.value) {
+      this.date = this.value
+    }
+    this.$emit('input', this.date)
   },
   watch: {
-    date() {
-      this.$emit('input', `${this.day}.${this.month}.${this.year}`)
+    date(date) {
+      this.$emit('input', date)
       this.date_input = `${this.day}.${this.month}.${this.year}`
     },
     date_input(value, pevValue) {
@@ -81,6 +85,7 @@ export default {
           this.date_input = date3
         }
         window.console.log(date2)
+
       } else if(value.length == 5 && pevValue.length < value.length) {
         if(Number(value.substr(3,5)) > 12) {
           var month = `${new Date().getMonth()+1}`
@@ -98,6 +103,11 @@ export default {
         window.console.log(date2)
       } else {
         this.date_input = value.replace(/[^.\d\s]/g, '').substr(0,10)
+      }
+      
+      if(value.length == 10 && pevValue.length < value.length) {
+        let arr = value.split('.')
+        this.date = `${arr[2]}-${arr[1]}-${arr[0]}`
       }
     }
   },

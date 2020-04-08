@@ -72,7 +72,7 @@ export default {
     VIcon
   },
   data: () => ({
-    date: new Date().toISOString().substr(0, 10),
+    date: '',
     date_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)} - ${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
     menu: false,
@@ -86,10 +86,9 @@ export default {
     }, 100)
     if(!this.no_range && !this.value) {
       this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
-      this.$emit('input', this.date_range_input)
     }
     if(this.no_range && !this.value) {
-      this.$emit('input', this.date_input)
+      this.date = `${new Date().toISOString().substr(0, 10)}`
     }
     if(this.value) {
       this.date = this.value
@@ -98,15 +97,21 @@ export default {
   watch: {
     value(value) {
       if(this.no_range) {
-        this.date_input = value
+        this.date = value
       } else {
-        this.date_range_input = value
+        this.date = value
       }
     },
-    date() {
+    date(date) {
+      if(!this.no_range) {
+        if(date.length == 2) {
+          this.menu = false
+        }
+      } else {
       this.menu = false
+      }
       if(this.no_range) {
-        this.$emit('input', `${this.day}.${this.month}.${this.year}`)
+        this.$emit('input', date)
         this.date_input = `${this.day}.${this.month}.${this.year}`
       } else {
         if(this.date.length > 1) {
@@ -114,7 +119,7 @@ export default {
         } else {
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
         }
-        this.$emit('input', this.dateRangeText)
+        this.$emit('input', date)
       }
     },
     date_input(value, pevValue) {
@@ -124,14 +129,12 @@ export default {
 
       if(value.length == 2 && pevValue.length < value.length) {
         if(Number(value) > 31) {
-
           var day = `${new Date().getDay()+1}`
           if(day < 10){
             this.date_input = `0${day}.`
           } else {
             this.date_input = `${value.substr(0,3)}.`
           }
-
         } else {
           date1 = value.split('')
           date2 = date1.push('.')
@@ -139,6 +142,7 @@ export default {
           this.date_input = date3
         }
         window.console.log(date2)
+
       } else if(value.length == 5 && pevValue.length < value.length) {
         if(Number(value.substr(3,5)) > 12) {
           var month = `${new Date().getMonth()+1}`
@@ -154,10 +158,15 @@ export default {
           this.date_input = date3
         }
         window.console.log(date2)
+
       } else {
         this.date_input = value.replace(/[^.\d\s]/g, '').substr(0,10)
       }
-      this.$emit('input', this.date_input)
+      
+      if(value.length == 10 && pevValue.length < value.length) {
+        let arr = value.split('.')
+        this.date = `${arr[2]}-${arr[1]}-${arr[0]}`
+      }
     },
     date_range_input(value, pevValue) {
       let date1
@@ -180,7 +189,6 @@ export default {
         }
         window.console.log(date2)
 
-
       } else if(value.length == 5 && pevValue.length < value.length) {
         if(Number(value.substr(3,5)) > 12) {
           var month = `${new Date().getMonth()+1}`
@@ -197,14 +205,12 @@ export default {
         }
         window.console.log(date2)
 
-
       } else if(value.length == 10 && pevValue.length < value.length) {
         date1 = value.split('')
         date2 = date1.push(' - ')
         date3 = date1.join('')
         this.date_range_input = date3
         window.console.log(date2)
-
 
       } else if(value.length == 15 && pevValue.length < value.length) {
         if(Number(value.substr(13,15)) > 31) {
@@ -218,7 +224,6 @@ export default {
           this.date_range_input = date3
         }
         window.console.log(date2)
-
 
       } else if(value.length == 18 && pevValue.length < value.length) {
         if(Number(value.substr(16,18)) > 12) {
@@ -236,12 +241,16 @@ export default {
         }
         window.console.log(date2)
 
-
       } else {
         this.date_range_input = value.replace(/[^.–-\d\s]/g, '').substr(0,23)
       }
-      
-      this.$emit('input', this.date_range_input)
+
+      if(value.length == 23 && pevValue.length < value.length) {
+        let arr = value.split(' - ')
+        let arr_start = arr[0].split('.')
+        let arr_end = arr[1].split('.')
+        this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
+      }
     }
   },
   computed: {

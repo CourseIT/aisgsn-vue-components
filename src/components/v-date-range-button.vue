@@ -44,7 +44,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    value: {}
   },
   components: {
     VIcon
@@ -59,17 +60,26 @@ export default {
     date_range_input_show: false
   }),
   mounted() {
-    this.$emit('input', this.date_range_input)
+    if(this.value) {
+      this.date = this.value
+    }
+    this.$emit('input', this.date)
   },
   watch: {
-    date(value) {
-      if(value !== this.today) {
+    date(date) {
+      if(date !== this.today) {
         this.show_close = true
       } else {
         this.show_close = false
       }
-      this.$emit('input', this.dateRangeText)
-      this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
+      if(date.length == 2) {
+          this.menu = false
+      }
+      this.$emit('input', date)
+      if(date.length == 2) {
+        this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
+      }
+      
     },
     date_range_input(value, pevValue) {
       let date1
@@ -92,7 +102,6 @@ export default {
         }
         window.console.log(date2)
 
-
       } else if(value.length == 5 && pevValue.length < value.length) {
         if(Number(value.substr(3,5)) > 12) {
           var month = `${new Date().getMonth()+1}`
@@ -109,14 +118,12 @@ export default {
         }
         window.console.log(date2)
 
-
       } else if(value.length == 10 && pevValue.length < value.length) {
         date1 = value.split('')
         date2 = date1.push(' - ')
         date3 = date1.join('')
         this.date_range_input = date3
         window.console.log(date2)
-
 
       } else if(value.length == 15 && pevValue.length < value.length) {
         if(Number(value.substr(13,15)) > 31) {
@@ -130,7 +137,6 @@ export default {
           this.date_range_input = date3
         }
         window.console.log(date2)
-
 
       } else if(value.length == 18 && pevValue.length < value.length) {
         if(Number(value.substr(16,18)) > 12) {
@@ -148,9 +154,14 @@ export default {
         }
         window.console.log(date2)
 
-
       } else {
         this.date_range_input = value.replace(/[^.-\d\s]/g, '').substr(0,23)
+      }
+      if(value.length == 23 && pevValue.length < value.length) {
+        let arr = value.split(' - ')
+        let arr_start = arr[0].split('.')
+        let arr_end = arr[1].split('.')
+        this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
       }
     }
   },

@@ -816,8 +816,8 @@ export default {
       '...',
       '...'
     ],
-    input_date: "2020-09-10",
-    input_date2: ['2019-09-10', '2019-09-13'],
+    input_date: '',
+    input_date2: '',
 
     modal_show: false,
     modal_layout: false,
