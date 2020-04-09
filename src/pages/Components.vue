@@ -641,6 +641,9 @@
       </v-card-info>
     </v-card-search>
 
+    <v-input-date hint="test" v-model="v_input_date" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date-range hint="test" v-model="v_input_date_range" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
+
 
   </div>
 </template>
@@ -690,6 +693,8 @@ const VIconSelect = () => import('@/components/v-icon-select')
 const VCardSearch = () => import('@/components/v-card-search')
 const VCardInfoText = () => import('@/components/v-card-info-text')
 const VCardInfo = () => import('@/components/v-card-info')
+const VInputDate = () => import('@/components/v-input-date')
+const VInputDateRange = () => import('@/components/v-input-date-range')
 
 export default {
   components: {
@@ -736,7 +741,9 @@ export default {
     VIconSelect,
     VCardSearch,
     VCardInfo,
-    VCardInfoText
+    VCardInfoText,
+    VInputDate,
+    VInputDateRange
   },
   data: () => ({
     // drag`n`drop
@@ -744,6 +751,9 @@ export default {
     enabled: true,
     button1: false,
     card_search: 'test',
+
+    v_input_date: '2020-04-05',
+    v_input_date_range: ['2020-04-01', '2020-04-12'],
     
     array: [0,1,2,3,4,5,6,7,8,111,123,175,12,11],
     obj: {

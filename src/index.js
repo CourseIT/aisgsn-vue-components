@@ -39,6 +39,8 @@ export { default as VIconSelect } from './components/v-icon-select'
 export { default as VCardSearch } from './components/v-card-search'
 export { default as VCardInfo } from './components/v-card-info'
 export { default as VCardInfoText } from './components/v-card-info-text'
+export { default as VInputDate } from './components/v-input-date'
+export { default as VInputDateRange } from './components/v-input-date-range'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'
