@@ -123,7 +123,7 @@ export default {
       } else {
         return false
       }
-    }
+    },
   },
   watch: {
     number_value(value) {

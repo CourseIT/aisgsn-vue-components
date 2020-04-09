@@ -6,7 +6,7 @@
           <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
         </template>
       </v-input>
-      <div v-if="search_block_show" class="search__block" :style="{'width': block_width}">
+      <div v-if="search_block_show" class="search__block" :style="{'width': blockWidth}">
         <slot name="search">
           <v-search v-model="search" :hint="false" placeholder="Поиск" />
         </slot>
@@ -50,12 +50,8 @@ export default {
     search_block_show: false,
     input_value: '',
     search: '',
-    block_width: ''
   }),
   mounted() {
-    setTimeout(() =>{
-      this.block_width = this.$refs.input.input_width
-    }, 110)
     if(this.value) {
       this.input_value = this.value
     }
@@ -66,6 +62,11 @@ export default {
     },
     value(value) {
       this.input_value = value
+    }
+  },
+  computed: {
+    blockWidth() {
+      return this.$refs.input.input_width
     }
   },
   methods: {
