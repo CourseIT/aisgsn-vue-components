@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-header />
+    <v-breadcrumbs />
     <v-menu>
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />
@@ -62,6 +63,7 @@ const VSubmenu = () => import('@/components/v-submenu')
 const VSubmenuLink = () => import('@/components/v-submenu-link')
 const VSearchMenu = () => import('@/components/v-search-menu')
 const VLink = () => import('@/components/v-link')
+const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
 
 export default {
   name: 'DocLayout',
@@ -71,7 +73,8 @@ export default {
     VSubmenu,
     VSubmenuLink,
     VSearchMenu,
-    VLink
+    VLink,
+    VBreadcrumbs
   },
   data: () => ({
     search: '',

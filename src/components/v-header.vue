@@ -44,11 +44,6 @@
               <span>{{city}}</span>
             </div>
           </v-toolbar-items>
-          <v-toolbar-items>
-            <i class="fal fa-thunderstorm-sun nav__icon"></i>
-            <p class="nav__degree">{{degree}}</p>
-            <span class="nav__celsius">°C</span>
-          </v-toolbar-items>
           <v-spacer></v-spacer>
           <div class="df aic">
             <v-icon v-if="notifications.length == 0" class="header-icon" icon=""/>
@@ -61,13 +56,11 @@
           </div>
       </nav>
     </header>
-    <v-breadcrumbs />
   </div>
 </template>
 
 <script>
 const VIcon = () => import('./v-icon')
-const VBreadcrumbs = () => import('./v-breadcrumbs')
 
 export default {
   props: {
@@ -105,8 +98,6 @@ export default {
     }
   },
   components: {
-    // VNotifications,
-    VBreadcrumbs,
     VIcon
   },
   data: () => ({
