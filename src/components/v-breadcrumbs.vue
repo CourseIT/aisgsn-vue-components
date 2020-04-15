@@ -18,21 +18,18 @@ export default {
     read_only: {},
     visible: {
       default: true
+    },
+    items: {
+      default: [
+        {
+          text: 'Главная',
+          disabled: false,
+          href: '/',
+        }
+      ]
     }
   },
   data: () => ({
-    items: [
-      {
-        text: 'Главная',
-        disabled: false,
-        href: '/',
-      },
-      {
-        text: 'Название проверки',
-        disabled: true,
-        href: 'breadcrumbs_link_1',
-      }
-    ],
     divider: '>',
     dividers: ['/', '\\', '.', ';', '>', '-'],
     large: false,

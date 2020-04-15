@@ -51,7 +51,7 @@
               <v-icon class="header-icon regular" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
             </div>
-            <p class="header-name">{{user}}</p>
+            <!-- <p class="header-name">{{user}}</p> -->
             <v-icon :action="logout_action" class="header-icon mt3" :hover_color="true" icon=""/>
           </div>
       </nav>

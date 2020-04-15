@@ -28,6 +28,11 @@ export default {
     },
     hint: {
       default: 'Фильтрация по тексту'
+    },
+    action: {
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {
@@ -36,6 +41,7 @@ export default {
   watch:{
     value(value) {
       this.$emit('input', value)
+      this.action()
     }
   },
   data: () => ({

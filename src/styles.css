@@ -319,7 +319,7 @@ input {
 .h1 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -331,7 +331,7 @@ input {
 .h2 {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
   font-family: Roboto;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -342,7 +342,7 @@ input {
 }
 .sticky-top0 {
   position: sticky;
-  top: 0;
+  top: 90px;
   z-index: 9;
 }
 .hr {
