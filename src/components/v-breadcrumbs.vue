@@ -20,13 +20,15 @@ export default {
       default: true
     },
     items: {
-      default: [
-        {
-          text: 'Главная',
-          disabled: false,
-          href: '/',
-        }
-      ]
+      default:function() {
+        return [
+          {
+            text: 'Главная',
+            disabled: false,
+            href: '/',
+          }
+        ]
+      } 
     }
   },
   data: () => ({

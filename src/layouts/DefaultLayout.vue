@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-header />
-    <v-breadcrumbs />
+    <v-breadcrumbs :items="breadcrumbs"/>
     <v-menu drawer='false'>
       <template #search>
         <v-search-menu placeholder="Поиск" />
@@ -62,7 +62,7 @@ export default {
     VBreadcrumbs
   },
   data: () => ({
-    //
+    
   }),
   methods: {
     test() {
