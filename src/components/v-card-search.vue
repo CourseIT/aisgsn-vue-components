@@ -61,6 +61,7 @@ export default {
       this.$emit('input', value)
     },
     value(value) {
+      this.search_block_show = false
       this.input_value = value
     }
   },
@@ -87,6 +88,7 @@ export default {
     position: absolute;
     width: inherit;
     z-index: 103;
+    margin-top: -8px;
   }
   .cards {
     max-height: 640px;

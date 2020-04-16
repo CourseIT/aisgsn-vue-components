@@ -97,15 +97,16 @@ export default {
     input_value: '',
     number_value: '',
     hint_width: '',
+    input_width: '',
+    timer: '',
     textarea_hint_width: ''
   }),
   mounted() {
-    setTimeout(() =>{
-      this.input_width = `${this.$refs.input.clientWidth}px`
-      if(this.hint) {
-        this.hint_width = `${this.$refs.input.clientWidth}px`
-      }
-    }, 100)
+    this.input_width = `${this.$refs.input.clientWidth}px`
+    this.hint_width = `${this.$refs.input.clientWidth}px`
+    this.timer = setInterval(() =>{
+      this.time = this.setWidth()
+    }, 300)
     if(this.value) {
       if(this.type == 'number') {
         this.number_value = this.value
@@ -113,6 +114,9 @@ export default {
         this.input_value = this.value
       }
     }
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
   },
   computed: {
     readOnly() {
@@ -159,6 +163,12 @@ export default {
       } else {
         this.input_value = String(value)
       }
+    }
+  },
+  methods: {
+    setWidth() {
+      this.input_width = `${this.$refs.input.clientWidth}px`
+      this.hint_width = `${this.$refs.input.clientWidth}px`
     }
   }
 }

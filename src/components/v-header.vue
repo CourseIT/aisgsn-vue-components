@@ -37,11 +37,10 @@
             {{time}}
           </v-toolbar-items>
           <v-toolbar-items class="db">
-            <p class="nav__day-week">{{day_week}}</p>
+            <p class="nav__day-week">{{week_day}}</p>
             <div class="nav__date">
               <span>{{date}},</span>
-              <span>{{year}},</span>
-              <span>{{city}}</span>
+              <span>{{year}}</span>
             </div>
           </v-toolbar-items>
           <v-spacer></v-spacer>
@@ -64,24 +63,6 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
-    time: {
-      default: '12:25'
-    },
-    day_week: {
-      default: 'Понедельник'
-    },
-    year: {
-      default: '2020'
-    },
-    date: {
-      default: '24 августа'
-    },
-    city: {
-      default: 'Москва'
-    },
-    degree: {
-      default: '28'
-    },
     user: {
       default: 'Смирнова Светлана Ивановна'
     },
@@ -101,9 +82,82 @@ export default {
     VIcon
   },
   data: () => ({
+    time: ``,
+    timer: '',
+    date: '',
+    year: '',
+    week_day: '',
     show_close: false
   }),
+  mounted() {
+    this.time = this.getTime()
+    this.year = this.getFullYear()
+    this.week_day = this.getWeekDay()
+    this.date = this.getDate()
+    this.timer = setInterval(() =>{
+      this.time = this.getTime()
+    }, 1000 * 3)
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+  },
   methods: {
+    getTime() {
+      let hours = new Date().getHours()
+      let minutes = new Date().getMinutes()
+      if(hours < 10) {
+        hours += '0'
+      }
+      if(minutes < 10) {
+        minutes += '0'
+      }
+      if(this.time == '00:00') {
+        this.getWeekDay()
+        this.getFullYear()
+        this.getDate()
+      }
+      return `${hours}:${minutes}`
+    },
+    getDate() {
+      let date = new Date().getDate()
+      let month = new Date().getMonth()
+      switch (month) {
+        case 0:
+          return `${date} января`
+        case 1:
+          return `${date} февраля`
+        case 2:
+          return `${date} марта`
+        case 3:
+          return `${date} апреля`
+        case 4:
+          return `${date} мая`
+        case 5:
+          return `${date} июня`
+        case 6:
+          return `${date} июля`
+        case 7:
+          return `${date} августа`
+        case 8:
+          return `${date} сентября`
+        case 9:
+          return `${date} октября`
+        case 10:
+          return `${date} ноября`
+        case 11:
+          return `${date} декабря`
+        default:
+          return ''
+      }
+    },
+    getWeekDay() {
+      let days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+      let date = new Date()
+      return days[date.getDay()];
+    },
+    getFullYear() {
+      return `${new Date().getFullYear()}`
+    },
     openMenu() {
       this.$store.commit('SET_MENU_VISIBILITY', true)
       this.show_close = true
@@ -256,19 +310,6 @@ nav {
   line-height: 0.81;
   letter-spacing: normal;
   text-align: left;
-}
-.nav__degree {
-  color: var(--dark);
-  font-family: Roboto;
-  font-size: 48px;
-  font-weight: 300;
-  margin-left: 6px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.13;
-  letter-spacing: normal;
-  text-align: left;
-  margin-bottom: 0 !important;
 }
 .nav__celsius {
   font-family: Roboto;

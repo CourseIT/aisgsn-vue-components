@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-header />
-    <v-breadcrumbs :items="breadcrumbs"/>
+    <v-breadcrumbs />
     <v-menu drawer='false'>
       <template #search>
         <v-search-menu placeholder="Поиск" />
@@ -36,7 +36,7 @@
             <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" />
     </v-menu>
     <main class="df">
-      <div class="content" :class="{ml320 : $store.state.menu_visibility}">
+      <div class="content" :class="{ml330 : $store.state.menu_visibility}">
         <router-view></router-view>
       </div>
     </main>
@@ -73,8 +73,8 @@ export default {
 </script>
 
 <style>
-.ml320 {
-  padding-left: 310px !important;
+.ml330 {
+  padding-left: 330px !important;
   transition: all 0.3s ease;
 }
 .df {

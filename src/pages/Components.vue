@@ -631,7 +631,7 @@
 
 
 
-    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class=" mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>
       </template>
