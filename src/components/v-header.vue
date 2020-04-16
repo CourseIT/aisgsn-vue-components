@@ -103,13 +103,14 @@ export default {
   },
   methods: {
     getTime() {
+      
       let hours = new Date().getHours()
       let minutes = new Date().getMinutes()
       if(hours < 10) {
-        hours += '0'
+        hours = `0${hours}`
       }
       if(minutes < 10) {
-        minutes += '0'
+        minutes = `0${minutes}`
       }
       if(this.time == '00:00') {
         this.getWeekDay()

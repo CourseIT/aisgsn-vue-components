@@ -17,14 +17,14 @@ const routes = [
       layout: 'auth-layout'
     }
   },
-  // {
-  //   path: '/checkup_card_create_document_pdg',
-  //   name: 'Checkup_card_create_document_pdg',
-  //   component: () => import('../pages/Checkup_card_create_document_pdg.vue'),
-  //   meta: {
-  //     layout: 'doc-layout'
-  //   }
-  // },
+  {
+    path: '/checkup_card_create_document_pdg',
+    name: 'Checkup_card_create_document_pdg',
+    component: () => import('../pages/Checkup_card_create_document_pdg.vue'),
+    meta: {
+      layout: 'doc-layout'
+    }
+  },
   // {
   //   path: '/checkup_card_create_document_application',
   //   name: 'Checkup_card_create_document_application',
