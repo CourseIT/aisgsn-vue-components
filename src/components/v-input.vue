@@ -199,11 +199,11 @@ export default {
 .hint_icon:hover::before{
   content: '';
   position: absolute;
-  z-index: 99;
+  z-index: 111;
   margin-top: -9px;
   margin-left: 1px;
   border: 6px solid transparent;
-  border-bottom: 6px solid var(--white);
+  border-bottom: 6px solid var(--dark);
   transform: rotate(180deg);
 }
 .icon__prompt-block {
@@ -217,11 +217,11 @@ export default {
   bottom: -6px;
   position: absolute;
   width: 100%;
-  z-index: 9;
+  z-index: 110;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--white);
+  background-color: var(--dark);
   font-family: Roboto;
   font-size: 11px;
   font-weight: 300;
@@ -230,7 +230,7 @@ export default {
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
-  color: var(--dark);
+  color: var(--white);
 }
 .w74{
   width: 74px;
@@ -267,7 +267,7 @@ export default {
   background-color: var(--white) !important;
   padding: 3px 10px;
   border-radius: 4px;
-  border: 1px solid var(--white);
+  border: 0px solid var(--white);
   margin-bottom: 30px;
   padding-right: 35px;
   height: 36px;

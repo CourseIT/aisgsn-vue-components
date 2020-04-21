@@ -120,11 +120,11 @@ export default {
 }
 .icon__prompt {
   position: absolute;
-  z-index: 9;
+  z-index: 110;
   padding: 6px 12px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--white);
+  background-color: var(--dark);
   font-family: Roboto;
   font-size: 11px;
   font-weight: 300;
@@ -133,17 +133,17 @@ export default {
   line-height: 1;
   letter-spacing: normal;
   text-align: center;
-  color: var(--dark);
+  color: var(--white);
 }
 .arrow {
   position: absolute;
   top: 23px;
   margin-left: 55px;
   display: inline-block;
-  color: var(--white);
-  z-index: 99;
+  color: var(--dark);
+  z-index: 111;
   border: 6px solid transparent;	
-  border-bottom: 6px solid var(--white);
+  border-bottom: 6px solid var(--dark);
   transform: rotate(180deg);
 }
 </style>
