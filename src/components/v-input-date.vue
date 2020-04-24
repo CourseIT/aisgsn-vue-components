@@ -30,8 +30,7 @@
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff">
-            <v-btn v-if="button" text color="primary" @click="clearDate">Отменить</v-btn>
-            <v-btn v-if="button" text color="primary" @click="$refs.menu.save(date)">Принять</v-btn>
+            <v-btn v-if="button" text color="primary" @click="clearDate">Сбросить</v-btn>
           </v-date-picker>
         </v-menu>
       </div>
@@ -72,7 +71,7 @@ export default {
   },
   data: () => ({
     date: '',
-    date_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
+    date_input: '',
     menu: false,
     hint_width: ''
   }),
@@ -87,11 +86,13 @@ export default {
 
     if(this.value) {
       this.date = this.value
+    } else {
+      this.date = null
     }
   },
   watch: {
     value(value) {
-        this.date = value
+      this.date = value
     },
     date(date) {
       this.menu = false
@@ -178,10 +179,8 @@ export default {
   },
   methods: {
     clearDate() {
-      this.date_range_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
-      this.date_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
-      this.$emit('input', this.date_input)
-      this.date = new Date().toISOString().substr(0, 10)
+      this.date = null
+      this.date_input = ''
     }
   }
 }

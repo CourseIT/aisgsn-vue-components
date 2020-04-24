@@ -30,8 +30,7 @@
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
-            <v-btn v-if="button" text color="primary" @click="clearDate">Отменить</v-btn>
-            <v-btn v-if="button" text color="primary" @click="$refs.menu.save(date)">Принять</v-btn>
+            <v-btn v-if="button" text color="primary" @click="clearDate">Сбросить</v-btn>
           </v-date-picker>
         </v-menu>
       </div>
@@ -73,7 +72,7 @@ export default {
   },
   data: () => ({
     date: '',
-    date_range_input: `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)} - ${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`,
+    date_range_input: '',
     menu: false,
     hint_width: ''
   }),
@@ -86,26 +85,37 @@ export default {
 
     this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
 
-    if(this.value) {
+    if(this.value || this.value !== null) {
       this.date = this.value
+    } else {
+      this.date = []
     }
   },
   watch: {
     value(value) {
-      this.date = value
+      if(value == null) {
+        this.date = []
+      } else {
+        this.date = value
+      }
     },
     date(date) {
-      if(date.length == 2) {
-         this.menu = false
-      }
-      if(this.date.length > 1) {
-        this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
-      } else {
-        this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
-      }
-      this.$emit('input', date)
+      if(date.length !== 0) {
+    
+        if(date.length == 2) {
+          this.menu = false
+        }
+        if(this.date.length > 1) {
+          this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} - ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
+        } else {
+          this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
+        }
+        this.$emit('input', date)
+        this.action()
 
-      this.action()
+      } else {
+        this.$emit('input', null)
+      }
     },
     date_range_input(value, pevValue) {
       let date1
@@ -201,30 +211,13 @@ export default {
       } else {
         return false
       }
-    },
-    dateRangeText () {
-      if(this.date.length > 1) {
-        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
-      } else {
-        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
-      }
-    },
-    year() {
-      return this.date.substr(0, 4)
-    },
-    month() {
-      return this.date.substr(5, 2)
-    },
-    day() {
-      return this.date.substr(8, 2)
     }
   },
   methods: {
     clearDate() {
-      this.date_range_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
-      this.date_input = `${new Date().toISOString().substr(8, 2)}.${new Date().toISOString().substr(5, 2)}.${new Date().toISOString().substr(0, 4)}`
-      this.$emit('input', this.date_input)
-      this.date = new Date().toISOString().substr(0, 10)
+      this.date_range_input = ''
+      this.date = []
+      this.menu = false
     }
   }
 }

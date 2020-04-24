@@ -641,8 +641,8 @@
       </v-card-info>
     </v-card-search>
 
-    <v-input-date hint="test" v-model="v_input_date" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
-    <v-input-date-range hint="test" v-model="v_input_date_range" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
 
 
   </div>
@@ -752,8 +752,8 @@ export default {
     button1: false,
     card_search: 'test',
 
-    v_input_date: '2020-04-05',
-    v_input_date_range: ['2020-04-01', '2020-04-12'],
+    v_input_date: null,
+    v_input_date_range: null,
     
     array: [0,1,2,3,4,5,6,7,8,111,123,175,12,11],
     obj: {
