@@ -249,6 +249,11 @@
         </div>
 
         <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input" tabindex="5"/>
@@ -631,7 +636,7 @@
 
 
 
-    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class=" mt20">
+    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>
       </template>

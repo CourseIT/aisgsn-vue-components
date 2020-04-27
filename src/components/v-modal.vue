@@ -1,20 +1,20 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="test">
     <div class="modal">
       <slot>
         Modal
       </slot>
-        <div class="fr">
-          <button class="modal-button" v-if="action_delete" @click="action_delete">
-            <v-icon icon="" class="icon" />
-          </button>
-          <button class="modal-button" @click="closeModal">
-            <v-icon icon="" class="icon" />
-          </button>
-          <button class="modal-button" v-if="action_apply" @click="action_apply">
-            <v-icon icon="" class="icon" />
-          </button>
-        </div>
+      <div class="fr">
+        <button class="modal-button" v-if="action_delete" @click="action_delete">
+          <v-icon icon="" class="icon" />
+        </button>
+        <button class="modal-button" @click="closeModal">
+          <v-icon icon="" class="icon" />
+        </button>
+        <button class="modal-button" v-if="action_apply" @click="action_apply">
+          <v-icon icon="" class="icon" />
+        </button>
+      </div>
     </div>
     <transition name="modal">
       <div @click="closeModal"  class="modal__bg"></div>
@@ -40,11 +40,12 @@ export default {
   data: () =>({
   }),
   mounted() {
-    document.addEventListener("keydown", (e) => {
-      if (e.keyCode == 27) {
-        this.closeModal()
-      }
-    });
+    document.addEventListener("keydown", this.closeModalOnKey());
+    document.getElementsByTagName('html')[0].style.overflow = "hidden";
+    
+  },
+  beforeDestroy() {
+    document.getElementsByTagName('html')[0].removeAttribute("style")
   },
   computed: {
     readOnly() {
@@ -60,6 +61,13 @@ export default {
   methods: {
     closeModal() {
       this.$emit('input', false)
+    },
+    closeModalOnKey() {
+      return (e) => {
+        if (e.keyCode == 27) {
+          this.closeModal()
+        }
+      }
     }
   }
 }
@@ -101,9 +109,20 @@ export default {
   position: fixed;
   width: 50%;
   left: 0;
+  max-height: 70vh;
+  overflow-y: scroll;
   top: 15vh;
   margin-left: 25%;
   z-index: 102;
+}
+.modal::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.modal::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--blue-grey);
 }
 .modal__bg {
   position: fixed;
