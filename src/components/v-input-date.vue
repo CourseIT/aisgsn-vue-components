@@ -95,10 +95,14 @@ export default {
       this.date = value
     },
     date(date) {
-      this.menu = false
-      this.$emit('input', date)
-      this.date_input = `${this.day}.${this.month}.${this.year}`
-      this.action()
+      if(date.length !== 0) {
+        this.menu = false
+        this.$emit('input', date)
+        this.date_input = `${this.date.substr(8, 2)}.${this.date.substr(5, 2)}.${this.date.substr(0, 4)}`
+        this.action()
+      } else {
+        this.$emit('input', null)
+      }
     },
     date_input(value, pevValue) {
       let date1
@@ -157,30 +161,12 @@ export default {
         return false
       }
     },
-    dateNoRange() {
-      return `${this.date.substr(8, 2)}.${this.date.substr(5, 2)}.${this.date.substr(0, 4)}`
-    },
-    dateRangeText () {
-      if(this.date.length > 1) {
-        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)} – ${this.date[1].substr(8, 2)}.${this.date[1].substr(5, 2)}.${this.date[1].substr(0, 4)}`
-      } else {
-        return `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
-      }
-    },
-    year() {
-      return this.date.substr(0, 4)
-    },
-    month() {
-      return this.date.substr(5, 2)
-    },
-    day() {
-      return this.date.substr(8, 2)
-    }
   },
   methods: {
     clearDate() {
       this.date = null
       this.date_input = ''
+      this.action()
     }
   }
 }

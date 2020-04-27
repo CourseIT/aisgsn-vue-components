@@ -218,6 +218,7 @@ export default {
       this.date_range_input = ''
       this.date = []
       this.menu = false
+      this.action()
     }
   }
 }

@@ -19,7 +19,7 @@
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
-            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" rows="4" ref="input"></textarea>
+            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
             <div v-if="select_block_show" class="select-block select-block_textarea">
               <ul>
                 <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -68,6 +68,9 @@ export default {
     list: {},
     width: {},
     test: {},
+    rows: {
+      default: 4
+    },
     disabled: {
       default: false
     },
@@ -292,7 +295,6 @@ export default {
   letter-spacing: normal;
   text-align: left;
   resize : none;
-  height: 95px;
   margin-bottom: 20px;
   border: none;
 }

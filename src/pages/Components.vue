@@ -641,8 +641,8 @@
       </v-card-info>
     </v-card-search>
 
-    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
-    <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true"  :action="test" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test" label="Срок проведения работ" class="w600"/>
 
 
   </div>
