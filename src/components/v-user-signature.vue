@@ -103,7 +103,7 @@ export default {
   display: inline-block;
   padding: 5px 16px;
   border-radius: 2px;
-  background: #000;
+  background: var(--dark);
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   border-radius: 5px;
   color: var(--white);
@@ -119,7 +119,7 @@ export default {
   display: inline-block;
   color: var(--white);
   border: 6px solid transparent;	
-  border-bottom: 6px solid #000;
+  border-bottom: 6px solid var(--dark);
   transform: rotate(180deg);
 }
 </style>

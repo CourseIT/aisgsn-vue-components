@@ -229,7 +229,7 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--dark);
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
