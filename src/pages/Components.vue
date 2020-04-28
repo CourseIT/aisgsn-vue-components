@@ -103,7 +103,7 @@
 <!-------------------------------- media classes -------------------------------->
     <div class="df jcsb">
       <!-------------------------------- select -------------------------------->
-      <v-select :close_icon="false" hint="test" class="media-min-1500" v-model="value1" defailt_value="Выбор1" text_center="true" width="438px">
+      <v-select :close_icon="false" hint="test test tets" class="media-min-1500" v-model="value1" defailt_value="Выбор1" text_center="true" width="438px">
         <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
       </v-select>
       <!-------------------------------- select -------------------------------->
@@ -138,7 +138,7 @@
     </div>
     
     <div class="w600">
-      <v-select :close_icon="false" hint="test" class="media-min-1500 pr56 mb20" v-model="value1" defailt_value="Выбор1" text_center="true" width="100%">
+      <v-select :close_icon="false" hint="test test test" class="media-min-1500 pr56 mb20" v-model="value1" defailt_value="Выбор1" text_center="true" width="100%">
         <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
       </v-select>
       <!-------------------------------- input -------------------------------->
@@ -162,7 +162,7 @@
       </v-input>
       <!-------------------------------- input -------------------------------->
       <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает, что еще до начала измерений экситон синхронизует лазер, однозначно свидетельствуя о неустойчивости процесса в целом. Расслоение, если рассматривать процессы в рамках специальной теории относительности, переворачивает вихревой луч. Примесь вращает квант. Примесь, в согласии с традиционными представлениями, квазипериодично отталкивает квантово-механический атом. Идеальная тепловая машина воспроизводима в лабораторных условиях." placeholder="№" label="Какой-то label" :list="list_input">
+      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает" placeholder="№" label="Какой-то label" :list="list_input">
         <template #icons>
           <v-icon :action="test" prompt="test" icon="" width="15" height="15" hover_color="true" />
         </template>
@@ -189,9 +189,9 @@
       <!-------------------------------- textarea -------------------------------->
 
 
-      <v-input-date-with-icon hint="test" v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
+      <v-input-date hint="test" v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
 
-      <v-input-date-with-icon hint="test" v-model="input_date2" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
+      <v-input-date-range hint="test" v-model="v_input_date_range" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
 
       <!-------------------------------- input-date -------------------------------->
     </div>
@@ -248,12 +248,7 @@
           </v-template-block-with-icon>
         </div>
 
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
-        <v-input-date-with-icon v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
+        <v-input-date v-model="input_date2" icon="" label="Примерная дата проведения каждой проверки" tabindex="4"/>
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Ориентировочные затраты времени должностного Лица органа государственного строительного Надзора на проведение проверки" :list="list_input" tabindex="5"/>
@@ -670,7 +665,7 @@ const VFiltersButton = () => import('@/components/v-filters-button')
 const VSelect = () => import('@/components/v-select')
 const VOptions = () => import('@/components/v-options')
 const VInput = () => import('@/components/v-input')
-const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
+//const VInputDateWithIcon = () => import('@/components/v-input-date-with-icon')
 const VModal = () => import('@/components/v-modal')
 const VRadioButtons = () => import('@/components/v-radio-buttons')
 const VTemplateBlock = () => import('@/components/v-template-block')
@@ -720,7 +715,7 @@ export default {
     VSelect,
     VOptions,
     VInput,
-    VInputDateWithIcon,
+    //VInputDateWithIcon,
     VModal,
     VRadioButtons,
     VTemplateBlock,

@@ -2,11 +2,13 @@
   <div class="input-date" :style="{'width': width}">
     <div class="input-block">
       <div class="df">
-        <span v-if="obligatory" class="obligatory mb-4px">*</span>
-        <p class="label">{{label}}</p>
+        <div class="df" ref="label">
+          <span v-if="obligatory" class="obligatory mb-4px">*</span>
+          <p class="label">{{label}}</p>
+        </div>
         <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
         <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-          <div class="icon__prompt">
+          <div class="icon__prompt" :style="{'min-width': label_width}">
             <span>{{hint}}</span>
           </div>
         </div>
@@ -74,12 +76,26 @@ export default {
     date: '',
     date_range_input: '',
     menu: false,
-    hint_width: ''
+    hint_width: '',
+    label_width: ''
   }),
   mounted() {
     setTimeout(() =>{
       if(this.hint) {
-        this.hint_width = `${this.$refs.input.clientWidth}px`
+        const l_w = this.$refs.label.clientWidth
+        const h_w = this.$refs.input.clientWidth
+
+        this.hint_width = `${h_w}px`
+
+        if(l_w == h_w) {
+          this.label_width = `${l_w}px`
+        }
+        if(l_w > h_w) {
+          this.label_width = `${h_w}px`
+        }
+        if((h_w - l_w) > 40) {
+          this.label_width = `${l_w + 40}px`
+        }
       }
     }, 100)
 
@@ -259,7 +275,6 @@ export default {
 .icon__prompt {
   bottom: -6px;
   position: absolute;
-  width: 100%;
   z-index: 110;
   padding: 10px;
   border-radius: 4px;

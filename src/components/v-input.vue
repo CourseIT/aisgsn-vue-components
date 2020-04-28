@@ -1,16 +1,19 @@
 <template>
   <div class="input-block" :style="{'width': width}">
-    <div class="df">
-      <span v-if="obligatory" class="obligatory">*</span>
-      <p v-if="label" class="label">{{label}}</p>
-      <div class="icons__block df">
-        <slot name="icons">
-        </slot>
+    <div class="df" :style="{'width': hint_width}">
+      <div class="df test" ref="label">
+        <span v-if="obligatory" class="obligatory">*</span>
+        <p v-if="label" class="label">{{label}}</p>
+        <div class="icons__block df">
+          <slot name="icons">
+          </slot>
+        </div>
       </div>
+      
       
       <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
       <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-        <div class="icon__prompt">
+        <div class="icon__prompt" :style="{'min-width': label_width}">
           <span>{{hint}}</span>
         </div>
       </div>
@@ -101,12 +104,28 @@ export default {
     number_value: '',
     hint_width: '',
     input_width: '',
+    label_width: '',
     timer: '',
     textarea_hint_width: ''
   }),
   mounted() {
-    this.input_width = `${this.$refs.input.clientWidth}px`
-    this.hint_width = `${this.$refs.input.clientWidth}px`
+    const l_w = this.$refs.label.clientWidth
+    const i_w = this.$refs.input.clientWidth
+    window.console.log(l_w, i_w)
+
+    this.input_width = `${i_w}px`
+    this.hint_width = `${i_w}px`
+
+    if(l_w == i_w) {
+      this.label_width = `${l_w}px`
+    }
+    if(l_w > i_w) {
+      this.label_width = `${i_w}px`
+    }
+    if((i_w - l_w) > 40) {
+      this.label_width = `${l_w + 40}px`
+    }
+    
     this.timer = setInterval(() =>{
       this.time = this.setWidth()
     }, 300)
@@ -219,7 +238,7 @@ export default {
 .icon__prompt {
   bottom: -6px;
   position: absolute;
-  width: 100%;
+  min-width: 100px;
   z-index: 110;
   padding: 10px;
   border-radius: 4px;

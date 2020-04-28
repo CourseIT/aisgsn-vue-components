@@ -139,7 +139,6 @@ export default {
 .icon__prompt {
   bottom: -10px;
   position: absolute;
-  width: 100%;
   z-index: 110;
   padding: 10px;
   border-radius: 4px;
