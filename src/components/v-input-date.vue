@@ -224,11 +224,11 @@ export default {
   bottom: -6px;
   position: absolute;
   z-index: 110;
-  padding: 10px;
+  padding: 5px 15px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--dark);
-  font-family: Roboto;
+  font-family: sans-serif;
   font-size: 12px;
   font-weight: 300;
   font-stretch: normal;
@@ -236,6 +236,9 @@ export default {
   line-height: 1;
   letter-spacing: normal;
   text-align: left;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
   color: var(--white);
 }
 .mb-4px {

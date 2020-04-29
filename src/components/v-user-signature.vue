@@ -101,7 +101,7 @@ export default {
   bottom: 40px;
   left: -53px;
   display: inline-block;
-  padding: 5px 16px;
+  padding: 5px 15px;
   border-radius: 2px;
   background: var(--dark);
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);

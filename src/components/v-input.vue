@@ -111,7 +111,6 @@ export default {
   mounted() {
     const l_w = this.$refs.label.clientWidth
     const i_w = this.$refs.input.clientWidth
-    window.console.log(l_w, i_w)
 
     this.input_width = `${i_w}px`
     this.hint_width = `${i_w}px`
@@ -240,11 +239,14 @@ export default {
   position: absolute;
   min-width: 100px;
   z-index: 110;
-  padding: 10px;
+  padding: 5px 15px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--dark);
-  font-family: Roboto;
+  font-family: sans-serif;
   font-size: 12px;
   font-weight: 300;
   font-stretch: normal;

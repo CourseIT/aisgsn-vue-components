@@ -87,7 +87,7 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  margin-top: -28px;
+  margin-top: -38px;
   justify-content: center;
   margin-left: 0px;
 }
@@ -102,11 +102,11 @@ export default {
 .icon__prompt {
   position: absolute;
   z-index: 110;
-  padding: 6px 12px;
+  padding: 5px 15px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--dark);
-  font-family: Roboto;
+  font-family: sans-serif;
   font-size: 12px;
   font-weight: 300;
   font-stretch: normal;
@@ -114,11 +114,14 @@ export default {
   line-height: 1;
   letter-spacing: normal;
   text-align: center;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
   color: var(--white);
 }
 .arrow {
   position: absolute;
-  top: 23px;
+  top: 28px;
   display: inline-block;
   color: var(--dark);
   z-index: 111;
