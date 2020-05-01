@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}" ref="select">
-      <button v-if="icon_left" class="main-btn">
+      <button v-if="icon_left" class="main-btn" :class="{'error-status' : error}">
         <div class="hover-btn df w100">
           <div @click="menu_show = !menu_show" class="hover-btn">
             <slot name="main-icon">
@@ -19,7 +19,7 @@
         </div>
         <div v-else :class="{'pr16': value}"></div>
       </button>
-      <button v-else class="main-btn">
+      <button v-else class="main-btn" :class="{'error-status' : error}">
         <div v-if="close_icon">
           <div v-if="value" @click="$emit('input', ''), menu_show = false">
             <v-icon icon="" width="16" class="select__icon-colse"/>
@@ -65,6 +65,7 @@ const VIcon = () => import('./v-icon')
 export default {
   name: 'VSelect',
   props: {
+    error: {},
     value: {
       type: String,
       default: 'Кнопка'

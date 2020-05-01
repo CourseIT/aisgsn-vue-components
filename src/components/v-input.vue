@@ -22,7 +22,7 @@
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
-            <textarea class="textarea" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
+            <textarea class="textarea" :class="{'error-status' : error}" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
             <div v-if="select_block_show" class="select-block select-block_textarea">
               <ul>
                 <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -37,7 +37,7 @@
       </div>
       <div v-else-if="type == 'number'">
         <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="number" ref="input">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error}" type="number" ref="input">
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" type="text" ref="input">
+        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error}" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -71,6 +71,7 @@ export default {
     list: {},
     width: {},
     test: {},
+    error: {},
     rows: {
       default: 4
     },

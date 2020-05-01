@@ -752,8 +752,8 @@ export default {
     button1: false,
     card_search: 'test',
 
-    v_input_date: null,
-    v_input_date_range: null,
+    v_input_date: '',
+    v_input_date_range: '',
     
     array: [0,1,2,3,4,5,6,7,8,111,123,175,12,11],
     obj: {

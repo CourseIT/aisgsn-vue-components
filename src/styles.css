@@ -356,7 +356,9 @@ button {
 .modal-button:focus {
   outline: auto;
 }
-
+.error-status {
+  border: 1px solid var(--red) !important;
+}
 .colse-bg {
   position: fixed;
   z-index: 100;

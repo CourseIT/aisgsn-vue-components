@@ -14,7 +14,7 @@
         </div>
       </div>
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
-        <input v-model="date_range_input" class="input" type="text" ref="input" :class="{'pr25': hint}">
+        <input v-model="date_range_input" class="input" type="text" ref="input" :class="{'pr25': hint, 'error-status' : error}">
         <v-menu
           ref="menu"
           :nudge-right="56"
@@ -54,6 +54,7 @@ export default {
     read_only: {},
     no_range: {},
     button: {},
+    error: {},
     hint: {
       default: false
     },
@@ -101,10 +102,11 @@ export default {
 
     this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
 
-    if(this.value || this.value !== null) {
+    if(this.value) {
       this.date = this.value
     } else {
       this.date = []
+      this.$emit('input', null)
     }
   },
   watch: {
