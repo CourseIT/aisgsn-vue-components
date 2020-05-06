@@ -1,5 +1,16 @@
 <template>
-  <div v-if="visible" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green'}"> 
+  <div v-if="visible" ref="radio" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green'}">
+    <div class="df">
+      <div v-if="label" class="df" ref="label">
+        <p class="label">{{label}}</p>
+      </div>
+      <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
+      <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
+        <div class="icon__prompt" :style="{'min-width': label_width}">
+          <span>{{hint}}</span>
+        </div>
+      </div>
+    </div>
     <v-radio-group row v-model="radios">
       <slot>
         <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
@@ -9,9 +20,11 @@
 </template>
 
 <script>
-
+const VIcon = () => import('./v-icon')
 export default {
   props: {
+    label: {},
+    hint: {},
     labels: {},
     radio_color: {},
     value: {},
@@ -20,10 +33,23 @@ export default {
       default: true
     }
   },
+  components: {
+    VIcon
+  },
   data: () => ({
-    radios: ''
+    radios: '',
+    label_width: '',
+    hint_width: ''
   }),
   mounted() {
+    if(this.hint) {
+      setTimeout(() =>{
+        const l_w = this.$refs.label.clientWidth
+        const r_w = this.$refs.radio.clientWidth
+        this.label_width = `${l_w + 40}px`
+        this.hint_width = `${r_w}px`
+      }, 100)
+    }
     if(this.value) {
       this.radios = this.value
     }
@@ -104,5 +130,69 @@ export default {
 }
 .green-radio .mdi-radiobox-marked::before {
   color: var(--weird-green) !important;
+}
+
+.checkup-card-list__radio .hint_icon {
+  margin-left: 10px;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark2);
+}
+.checkup-card-list__radio .hint_icon:hover + .icon__prompt-block {
+  display: flex;
+}
+.checkup-card-list__radio .hint_icon:hover::before{
+  content: '';
+  position: absolute;
+  z-index: 111;
+  margin-top: -9px;
+  margin-left: 1px;
+  border: 6px solid transparent;
+  border-bottom: 6px solid var(--dark);
+  transform: rotate(180deg);
+}
+.checkup-card-list__radio .icon__prompt-block {
+  display: none;
+  width: 400px;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: -15px;
+}
+.checkup-card-list__radio .icon__prompt {
+  bottom: -6px;
+  position: absolute;
+  z-index: 110;
+  padding: 5px 15px;
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  background-color: var(--dark);
+  font-family: sans-serif;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+}
+.checkup-card-list__radio .label {
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+  font-family: Roboto;
+  font-size: 0.75rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 5px;
 }
 </style>

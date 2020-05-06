@@ -299,7 +299,7 @@
 
 
 <!-------------------------------- radio-buttons -------------------------------->
-    <v-radio-buttons v-model="label" radio_color="green" :labels="labels">
+    <v-radio-buttons v-model="label" radio_color="green" :labels="labels" label="Какой-то лейбл" hint="text" class="w600">
       <v-radio v-for="label in labels" :key="label" :value="label" :label="label"></v-radio>
     </v-radio-buttons>
 
