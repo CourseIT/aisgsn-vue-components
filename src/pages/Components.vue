@@ -641,9 +641,8 @@
       </v-card-info>
     </v-card-search>
 
-    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true"  :action="test" icon="" label="Срок проведения работ" class="w600"/>
-    <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test" label="Срок проведения работ" class="w600"/>
-
+    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" :action="test" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test2" label="Срок проведения работ" class="w600"/>
 
   </div>
 </template>
@@ -746,7 +745,6 @@ export default {
     VInputDateRange
   },
   data: () => ({
-    // drag`n`drop
     dragging: false,
     enabled: true,
     button1: false,
@@ -1087,6 +1085,14 @@ export default {
     
 
   }),
+  watch: {
+    v_input_date(val) {
+      window.console.log(val)
+    },
+    v_input_date_range(val) {
+      window.console.log(val)
+    }
+  },
   methods: {
     test() {
       window.console.log('test')

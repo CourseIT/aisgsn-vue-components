@@ -100,7 +100,7 @@ export default {
       }
     }, 100)
 
-    this.date = [new Date().toISOString().substr(0, 10), new Date().toISOString().substr(0, 10)]
+    this.date = []
 
     if(this.value) {
       this.date = this.value
@@ -129,8 +129,9 @@ export default {
           this.date_range_input = `${this.date[0].substr(8, 2)}.${this.date[0].substr(5, 2)}.${this.date[0].substr(0, 4)}`
         }
         this.$emit('input', date)
-        this.action()
-
+        setTimeout(()=>{
+          this.action()
+        }, 0)
       } else {
         this.$emit('input', null)
       }
@@ -139,6 +140,7 @@ export default {
       let date1
       let date2
       let date3
+
       var day = `${new Date().getDay()+1}`
 
       if(value.length == 2 && pevValue.length < value.length) {
@@ -154,7 +156,6 @@ export default {
           date3 = date1.join('')
           this.date_range_input = date3
         }
-        window.console.log(date2)
 
       } else if(value.length == 5 && pevValue.length < value.length) {
         if(Number(value.substr(3,5)) > 12) {
@@ -170,14 +171,12 @@ export default {
           date3 = date1.join('')
           this.date_range_input = date3
         }
-        window.console.log(date2)
 
       } else if(value.length == 10 && pevValue.length < value.length) {
         date1 = value.split('')
         date2 = date1.push(' - ')
         date3 = date1.join('')
         this.date_range_input = date3
-        window.console.log(date2)
 
       } else if(value.length == 15 && pevValue.length < value.length) {
         if(Number(value.substr(13,15)) > 31) {
@@ -190,7 +189,6 @@ export default {
           date3 = date1.join('')
           this.date_range_input = date3
         }
-        window.console.log(date2)
 
       } else if(value.length == 18 && pevValue.length < value.length) {
         if(Number(value.substr(16,18)) > 12) {
@@ -206,7 +204,6 @@ export default {
           date3 = date1.join('')
           this.date_range_input = date3
         }
-        window.console.log(date2)
 
       } else {
         this.date_range_input = value.replace(/[^.–-\d\s]/g, '').substr(0,23)
@@ -218,6 +215,7 @@ export default {
         let arr_end = arr[1].split('.')
         this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
       }
+      date1 = date2
     }
   },
   computed: {
@@ -236,7 +234,9 @@ export default {
       this.date_range_input = ''
       this.date = []
       this.menu = false
-      this.action()
+      setTimeout(()=>{
+        this.action()
+      }, 0)
     }
   }
 }

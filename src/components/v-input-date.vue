@@ -116,7 +116,9 @@ export default {
         this.menu = false
         this.$emit('input', date)
         this.date_input = `${this.date.substr(8, 2)}.${this.date.substr(5, 2)}.${this.date.substr(0, 4)}`
-        this.action()
+        setTimeout(()=>{
+          this.action()
+        }, 0)
       } else {
         this.$emit('input', null)
       }
@@ -183,7 +185,9 @@ export default {
     clearDate() {
       this.date = null
       this.date_input = ''
-      this.action()
+      setTimeout(()=>{
+        this.action()
+      }, 0)
     }
   }
 }
