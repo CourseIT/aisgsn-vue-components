@@ -13,7 +13,7 @@
     </div>
     <v-radio-group row v-model="radios">
       <slot>
-        <v-radio v-for="label in labels" :key="label" class="radio"  :value="label" :label="label"></v-radio>
+        <v-radio v-for="label in labels" :key="label" class="radio" :value="label" :label="label"></v-radio>
       </slot>
     </v-radio-group>
   </div>
@@ -26,6 +26,11 @@ export default {
     label: {},
     hint: {},
     labels: {},
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    },
     radio_color: {},
     value: {},
     read_only: {},
@@ -57,6 +62,9 @@ export default {
   watch: {
     radios(radios) {
       this.$emit('input', radios)
+      setTimeout(()=>{
+        this.action()
+      }, 0)
     }
   },
   computed: {

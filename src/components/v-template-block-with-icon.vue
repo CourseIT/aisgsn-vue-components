@@ -44,9 +44,9 @@ export default {
   watch: {
     template_show(value) {
       if(value) {
-        document.getElementsByTagName('html')[0].style.overflow = "hidden";
+        //document.getElementsByTagName('html')[0].style.overflow = "hidden";
       } else {
-        document.getElementsByTagName('html')[0].removeAttribute("style")
+        //document.getElementsByTagName('html')[0].removeAttribute("style")
       }
     }
   },

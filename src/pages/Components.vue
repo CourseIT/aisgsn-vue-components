@@ -299,8 +299,9 @@
 
 
 <!-------------------------------- radio-buttons -------------------------------->
-    <v-radio-buttons v-model="label" radio_color="green" :labels="labels" label="Какой-то лейбл" hint="text" class="w600">
-      <v-radio v-for="label in labels" :key="label" :value="label" :label="label"></v-radio>
+    <v-radio-buttons v-model="label" radio_color="green" :action="test" label="Какой-то лейбл" hint="text" class="w600">
+      <v-radio value="label1" label="label1"></v-radio>
+      <v-radio value="label2" label="label2"></v-radio>
     </v-radio-buttons>
 
     <v-radio-buttons v-model="label2" :labels="labels2">
@@ -832,7 +833,7 @@ export default {
 
     labels: ['Список','Хронология'],
     labels2: ['На месяц', 'На 1-е февраля', 'На 1-е апреля', 'На 1-е июля', 'На 1-е октября', 'На 1-е января'],
-    label: 'Список',
+    label: 'label1',
     label2: '',
 
     search: '',
@@ -1086,10 +1087,7 @@ export default {
 
   }),
   watch: {
-    v_input_date(val) {
-      window.console.log(val)
-    },
-    v_input_date_range(val) {
+    label(val) {
       window.console.log(val)
     }
   },

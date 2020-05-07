@@ -116,18 +116,21 @@ export default {
   width: 400px;
   position: absolute; 
   margin-left: 0px;
-  margin-top: -32px;
+  margin-top: -35px;
 }
 .icon__prompt {
   position: absolute;
   z-index: 110;
-  padding: 6px 12px;
+  padding: 5px 15px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--dark);
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 300;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
   font-stretch: normal;
   font-style: normal;
   line-height: 1;
@@ -137,8 +140,8 @@ export default {
 }
 .arrow {
   position: absolute;
-  top: 23px;
-  margin-left: 55px;
+  top: 28px;
+  margin-left: 70px;
   display: inline-block;
   color: var(--dark);
   z-index: 111;

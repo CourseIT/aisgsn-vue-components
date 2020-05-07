@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="test">
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-modal">
     <div class="modal">
       <slot>
         Modal
@@ -79,13 +79,12 @@ export default {
   align-items: center;
   margin: 10px;
   margin-top: 5px;
-  
   margin-top: 31px;
 }
 .fr {
   display: flex;
   float: right;
-  margin-right: 38px;
+  margin-right: 40px;
 }
 .mt35 {
   margin-top: 35px;
@@ -93,11 +92,14 @@ export default {
 .pl305 {
   margin-left: 305px;
 }
-.template_block-fix-modal {
-  position: absolute;
-  top: 0px;
-  margin-left: -10px;
+.v-modal {
   z-index: 100;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
 }
 .modal {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -106,23 +108,22 @@ export default {
   padding: 30px;
   padding-bottom: 2px;
   padding-right: 0;
-  position: fixed;
+  position: absolute;
   width: 50%;
   left: 0;
-  max-height: 70vh;
-  overflow-y: scroll;
-  top: 15vh;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
   margin-left: 25%;
   z-index: 102;
 }
-.modal::-webkit-scrollbar {
+.v-modal::-webkit-scrollbar {
   width: 11px;
   height: 8px;
   background-color: rgba(0, 0, 0, 0);
 }
-.modal::-webkit-scrollbar-thumb {
+.v-modal::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: var(--blue-grey);
+  background-color: var(--pale-lilac);
 }
 .modal__bg {
   position: fixed;
