@@ -645,6 +645,15 @@
     <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" :action="test" icon="" label="Срок проведения работ" class="w600"/>
     <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test2" label="Срок проведения работ" class="w600"/>
 
+
+
+
+    <v-icon width="20" :action="function() {alert_show = true}" icon="" class="icon-plus"/>
+
+    <v-alert v-if="alert_show" v-model="alert_show" :action_apply="test" :action_close="test2">
+      Подтвердите подпись!
+    </v-alert>
+
   </div>
 </template>
 
@@ -695,6 +704,7 @@ const VCardInfoText = () => import('@/components/v-card-info-text')
 const VCardInfo = () => import('@/components/v-card-info')
 const VInputDate = () => import('@/components/v-input-date')
 const VInputDateRange = () => import('@/components/v-input-date-range')
+const VAlert = () => import('@/components/v-alert')
 
 export default {
   components: {
@@ -743,9 +753,11 @@ export default {
     VCardInfo,
     VCardInfoText,
     VInputDate,
-    VInputDateRange
+    VInputDateRange,
+    VAlert
   },
   data: () => ({
+    alert_show: false,
     dragging: false,
     enabled: true,
     button1: false,

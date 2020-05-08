@@ -1,23 +1,22 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-modal">
-    <div class="modal">
-      <slot>
-        Modal
-      </slot>
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-alert">
+    <div class="alert">
+      <div class="alert__text">
+        <slot>
+          alert
+        </slot>
+      </div>
       <div class="fr">
-        <button class="modal-button" v-if="action_delete" @click="action_delete">
-          <v-icon icon="" class="icon" :hover_color="true" />
+        <button class="alert__button" @click="closeAlert">
+          <v-icon icon="" :hover_color="true" width="21" height="21" class="icon" />
         </button>
-        <button class="modal-button" @click="closeModal">
-          <v-icon icon="" :hover_color="true" class="icon" />
-        </button>
-        <button class="modal-button" v-if="action_apply" @click="action_apply">
-          <v-icon icon="" :hover_color="true" class="icon" />
+        <button class="alert__button" v-if="action_apply" @click="ApplyAlert">
+          <v-icon icon="" :hover_color="true" width="21" height="21" class="icon" />
         </button>
       </div>
     </div>
     <transition name="modal">
-      <div @click="closeModal"  class="modal__bg"></div>
+      <div @click="closeAlert"  class="alert__bg"></div>
     </transition>
   </div>
 </template>
@@ -31,7 +30,7 @@ export default {
     visible: {
       default: true
     },
-    action_delete: {},
+    action_close: {},
     action_apply: {},
   },
   components: {
@@ -40,9 +39,7 @@ export default {
   data: () =>({
   }),
   mounted() {
-    document.addEventListener("keydown", this.closeModalOnKey());
     document.getElementsByTagName('html')[0].style.overflow = "hidden";
-    
   },
   beforeDestroy() {
     document.getElementsByTagName('html')[0].removeAttribute("style")
@@ -59,32 +56,36 @@ export default {
     }
   },
   methods: {
-    closeModal() {
+    closeAlert() {
       this.$emit('input', false)
+      setTimeout(()=>{
+        this.action_close()
+      }, 0)
     },
-    closeModalOnKey() {
-      return (e) => {
-        if (e.keyCode == 27) {
-          this.closeModal()
-        }
-      }
+    ApplyAlert() {
+      this.$emit('input', false)
+      setTimeout(()=>{
+        this.action_apply()
+      }, 0)
     }
   }
 }
 </script>
 
 <style scoped>
-.modal-button {
+.alert__button {
   display: flex;
   align-items: center;
-  margin: 10px;
-  margin-top: 5px;
-  margin-top: 31px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 17px;
 }
 .fr {
   display: flex;
-  float: right;
-  margin-right: 40px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 20px;
 }
 .mt35 {
   margin-top: 35px;
@@ -92,7 +93,7 @@ export default {
 .pl305 {
   margin-left: 305px;
 }
-.v-modal {
+.v-alert {
   z-index: 100;
   position: fixed;
   top: 0px;
@@ -100,32 +101,33 @@ export default {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.modal {
+.v-alert::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0);
+}
+.v-alert::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0);
+}
+.alert {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--pale-lilac);
   border-radius: 4px;
-  padding: 30px;
   padding-bottom: 2px;
   padding-right: 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
   position: absolute;
-  width: 50%;
-  left: 0;
-  margin-top: 15vh;
-  margin-bottom: 15vh;
-  margin-left: 25%;
+  width: 30%;
   z-index: 102;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.v-modal::-webkit-scrollbar {
-  width: 11px;
-  height: 8px;
-  background-color: rgba(0, 0, 0, 0);
-}
-.v-modal::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: var(--pale-lilac);
-}
-.modal__bg {
+.alert__bg {
   position: fixed;
   z-index: 101;
   top: 0;
@@ -136,13 +138,24 @@ export default {
   background-color: rgba(0, 0, 0, 1);
   backdrop-filter: blur(10px)
 }
-.close-block {
-  position: fixed;
-  z-index: 90;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+.alert__text{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+.alert__text p {
+  margin-bottom: 0;
+  padding: 0px 20px;
 }
 .icon {
   font-family: var(--font-awesome-5-pro-light);

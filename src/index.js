@@ -44,6 +44,7 @@ export { default as VInputDateRange } from './components/v-input-date-range'
 export { default as VInputTabTable } from './components/v-input-tab-table'
 export { default as VLoadUploadYaml } from './components/v-load-upload-yaml'
 export { default as VButtonMergeModel } from './components/v-button-merge-model'
+export { default as VAlert } from './components/v-alert'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'

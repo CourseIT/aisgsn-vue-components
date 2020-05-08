@@ -72,6 +72,7 @@ export default {
   },
   methods: {
     showBlock() {
+      window.console.log('----')
       this.search_block_show = !this.search_block_show
     }
   }
