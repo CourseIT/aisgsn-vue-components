@@ -60,6 +60,9 @@ export default {
     }
   },
   watch: {
+    value(val) {
+      this.radios = val
+    },
     radios(radios) {
       this.$emit('input', radios)
       setTimeout(()=>{

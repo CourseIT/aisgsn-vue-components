@@ -51,10 +51,9 @@
     </v-template-block-with-icon>
 <!-------------------------------- template-block-with-icon -------------------------------->
 
-
 <!-------------------------------- card-block with draggable -------------------------------->
     <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
-      <v-card-block class="mb20" width="450px" :action_minus="index == 2 ? '' : test" :action_edit="test" :action_select="index == 0 ? test : ''" v-for="(item, index) in list_card" :key="item.id" >
+      <v-card-block class="mb20" width="450px" :action_add="index == 1 ? '' : pushCard" :action_minus="index == 2 ? '' : test" :action_edit="test" :action_select="index == 0 ? test : ''" v-for="(item, index) in list_card" :key="item.id" >
         <template #text>
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
@@ -297,11 +296,10 @@
     </transition>
 <!-------------------------------- modal -------------------------------->
 
-
 <!-------------------------------- radio-buttons -------------------------------->
     <v-radio-buttons v-model="label" radio_color="green" :action="test" label="Какой-то лейбл" hint="text" class="w600">
-      <v-radio value="label1" label="label1"></v-radio>
-      <v-radio value="label2" label="label2"></v-radio>
+      <v-radio value="1" label="label1"></v-radio>
+      <v-radio value="2" label="label2"></v-radio>
     </v-radio-buttons>
 
     <v-radio-buttons v-model="label2" :labels="labels2">
@@ -845,7 +843,7 @@ export default {
 
     labels: ['Список','Хронология'],
     labels2: ['На месяц', 'На 1-е февраля', 'На 1-е апреля', 'На 1-е июля', 'На 1-е октября', 'На 1-е января'],
-    label: 'label1',
+    label: '1',
     label2: '',
 
     search: '',
@@ -1104,6 +1102,17 @@ export default {
     }
   },
   methods: {
+    pushCard() {
+      this.list_card.splice(1, 0, { 
+        date: '20.08.20 – 28.08.20',
+        number: 'Номер объекта контроля 4',
+        method: 'Метод 4',
+        signature: 'Подпись 4',
+        text: 'Любая необходимая информация 4',
+        id: 4
+      });
+      
+    },
     test() {
       window.console.log('test')
     },

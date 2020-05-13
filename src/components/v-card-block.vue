@@ -17,14 +17,17 @@
 
           <div class="edit_block">
             <div v-if="action_edit" @click="action_edit">
-              <v-icon icon="" class="icon-e" :width="15" :height="15"/>
+              <v-icon icon="" :hover_color="true" class="icon-e" :width="15" :height="15"/>
             </div>
           </div>
-
+            
           <div class="remove_block">
             <div v-if="action_minus" @click="action_minus" class="bottom-icon">
-              <v-icon icon="" class="icon-m" :width="15" :height="15"/>
+              <v-icon icon="" :hover_color="true" class="icon-m" :width="15" :height="15"/>
             </div>
+            <div v-if="action_add" @click="action_add" class="add-icon">
+                <v-icon icon="" :hover_color="true" class="icon-m icon-add" :width="15" :height="15"/>
+              </div>
           </div>
 
         </div>
@@ -46,6 +49,7 @@ export default {
     width: {},
     action_minus: {},
     action_edit: {},
+    action_add: {},
     read_only: {},
     visible: {
       default: true
@@ -82,6 +86,11 @@ export default {
 }
 .remove_block {
   align-items: flex-end;
+}
+.add-icon {
+  position: absolute;
+  z-index: 99;
+  margin-left: 30px;
 }
 .dg {
   display: grid;
@@ -158,6 +167,9 @@ export default {
   align-items: center;
   position: relative;
   left: -2.5px;
+}
+.card_circle:hover {
+  border: 1px solid var(--bright-orange);
 }
 .card_circle .circle {
   width: 3px;
