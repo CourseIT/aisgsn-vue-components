@@ -90,7 +90,7 @@ export default {
 .add-icon {
   position: absolute;
   z-index: 99;
-  margin-left: 30px;
+  margin-left: 35px;
 }
 .dg {
   display: grid;
