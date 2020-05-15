@@ -21,6 +21,7 @@
               type="email"
               placeholder="Логин"
               required
+              :class="{'error_input': error}"
             />
             <input
               v-model="password"
@@ -28,9 +29,11 @@
               type="password"
               placeholder="Пароль"
               required
+              :class="{'error_input': error}"
             />
+            <p v-if="error" class="error__text">Информация введена некорректно или отсутствует в системе</p>
             <div class="jcc df">
-              <v-button text="Войти" />
+              <v-button text="Войти" class="login__btn" />
             </div>
             <div class="login__hint">
               <p>
@@ -55,6 +58,7 @@ export default {
     VButton
   },
   data: () => ({
+    error: false,
     name: '',
     password: ''
   })
@@ -66,7 +70,7 @@ export default {
   text-align: center;
 }
 .icon{
-  margin: 10vh 0px;
+  margin: 8vh 0px;
   font-size: 38px;
   font-weight: normal;
   font-stretch: normal;
@@ -83,6 +87,17 @@ export default {
 .login{
   background-color: var(--pale-grey);
   height: 100vh;
+}
+.error__text {
+  position: absolute;
+  font-family: Roboto;
+  font-size: 15px;
+  margin-left: -30px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  text-align: center;
+  color: var(--orangey-red);
 }
 .login__title {
   font-family: Roboto;
@@ -113,6 +128,9 @@ export default {
   transition: all 0.2s ease-out;
   border-bottom: 1px solid #4e4e4e;
 }
+.error_input::placeholder{
+  color: var(--orangey-red);
+}
 .login__input:hover {
   border-bottom: 1px solid #ff62004b;
 }
@@ -123,34 +141,11 @@ export default {
   text-align: center;
 }
 .v-form {
-  width: 350px;
+  width: 370px;
   text-align: center;
 }
 .login__btn {
-  margin-top: 10vh;
-  background: none !important;
-  border: 1px #000 dashed !important;
-  box-shadow: none;
-  color: #000 !important;
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.18;
-  letter-spacing: normal;
-  text-align: center;
-  padding: 11px 50px !important;
-  transition: all 0.1s ease-out;
-}
-.login__btn:hover {
-  background-color: rgb(255, 97, 0) !important;
-  border: none !important;
-  color: var(--white) !important;
-  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
-}
-.login__btn:active {
-  border: none !important;
+  margin-top: 50px;
 }
 .login__hint {
   margin-top: 35px;
