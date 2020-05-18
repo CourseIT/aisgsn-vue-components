@@ -88,6 +88,7 @@ export default {
 }
 .breadcrumbs__arrow1 {
   position: relative;
+  margin-top: 0.1px;
   left: 36px;
   margin-left: 10px;
 }
@@ -103,6 +104,7 @@ export default {
   padding: 5px 0px;
   width: 1px;
   margin-left: 13px;
+  border-radius: 1px;
 }
 .breadcrumbs__shadow {
   position: fixed;
