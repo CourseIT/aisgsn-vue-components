@@ -8,7 +8,9 @@
       </template>
       <v-submenu title="Главная" :action="test" only_title="true" />
             <v-submenu title="НАДЗОР">
-              <v-submenu-link :action="test" text="Надзорные дела" />
+              <v-submenu-link :action="test" text="Надзорные дела" >
+                <v-link text="text" />
+              </v-submenu-link>
               <v-submenu-link text="Программа проверок" />
               <v-submenu-link text="Проверки" />
             </v-submenu>
@@ -50,10 +52,12 @@ const VSubmenu = () => import('@/components/v-submenu')
 const VSubmenuLink = () => import('@/components/v-submenu-link')
 const VSearchMenu = () => import('@/components/v-search-menu')
 const VBreadcrumbs = () => import('@/components/v-breadcrumbs')
+const VLink = () => import('@/components/v-link')
 
 export default {
   name: 'DefaultLayout',
   components: {
+    VLink,
     VMenu,
     VHeader,
     VSubmenu,

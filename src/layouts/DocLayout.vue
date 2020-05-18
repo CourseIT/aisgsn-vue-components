@@ -1,19 +1,19 @@
 <template>
   <div>
     <v-header />
-    <v-breadcrumbs />
+    <v-breadcrumbs :action_right="rigth" :action_left="left" />
     <v-menu>
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />
       </template>
       <div v-if="!search">
-        <v-submenu title="Главная" :notifications="notifications" :action="test" only_title="true" />
+        <v-submenu title="Главная" :notifications="notifications" only_title="true" />
           <v-submenu title="НАДЗОР" :notifications="notifications2">
-            <v-submenu-link :action="test" :notifications="notifications2" text="Надзорные дела">
-              <v-link text="test" :notifications="notifications" />
-              <v-link text="test" :notifications="notifications" />
-              <v-link text="test" />
-              <v-link text="test" />
+            <v-submenu-link :notifications="notifications2" text="Надзорные дела">
+              <v-link text="test" :notifications="notifications" :animation="true" />
+              <v-link text="test" :notifications="notifications" :animation="true" />
+              <v-link text="test" :animation="true" />
+              <v-link text="test" :animation="true" />
             </v-submenu-link>
             <v-submenu-link only_title="true" text="Программа проверок" />
             <v-submenu-link text="Проверки">
@@ -45,7 +45,7 @@
         <v-submenu title="ПОИСК ДОКУМЕНТОВ" only_title="true" />
       </div>
       <div v-else>
-        <v-link v-for="(link, index) in filterList" :key="index" :text="link.text" :notifications="link.notifications" />
+        <v-link v-for="(link, index) in filterList" :key="index" :animation="true" :text="link.text" :notifications="link.notifications" />
       </div>
     </v-menu>
     <main>
@@ -179,8 +179,11 @@ export default {
     ]
   }),
   methods: {
-    test() {
-      window.console.log('test')
+    rigth() {
+      window.console.log('right')
+    },
+    left() {
+      window.console.log('left')
     }
   },
   computed: {

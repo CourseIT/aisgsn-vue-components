@@ -6,9 +6,16 @@
         {{notificationsLength}}
       </div>
     </transition>
-    <li @click="action" class="v-link">
-      {{text}}
-    </li>
+    <a v-if="href" :href="href" :target="target" @click="action" class="v-link" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
+      <slot>
+        {{text}}
+      </slot>
+    </a>
+    <a v-else @click="action" class="v-link" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
+      <slot>
+        {{text}}
+      </slot>
+    </a>
   </div>
 </template>
 
@@ -16,6 +23,10 @@
 export default {
   props: {
     text: {},
+    href: {},
+    target: {},
+    color: {},
+    bold: {},
     read_only: {},
     visible: {
       default: true
@@ -52,8 +63,8 @@ export default {
 <style scoped>
 .v-link {
   font-family: Roboto;
-  font-size: 0.75rem;
-  font-weight: 300;
+  font-size: 0.9375rem;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.2;
@@ -64,7 +75,7 @@ export default {
   margin: 5px 0px;
   cursor: pointer;
   animation: submenu-link 1s ease;
-  margin-left: 5px;
+  text-decoration: none;
 }
 .notifications-enter-active {
   transition: all 0.4s ease;
@@ -85,7 +96,7 @@ export default {
   }
 }
 .v-link:hover {
-  color: var(--bright-orange)
+  color: var(--bright-orange) !important;
 }
 
 .notifications_plus {
@@ -110,7 +121,7 @@ export default {
   justify-content: center;
   align-items: center;
   left: 30px;
-  margin-top: -2px; 
+  margin-top: 4px; 
   background-color: #578bc8;
   font-family: Roboto;
   font-size: 9px;

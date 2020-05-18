@@ -415,19 +415,6 @@
     <v-legend />
     <!-------------------------------- v-legend -------------------------------->
 
-    <v-tool-icons class="transition" top="97px" left="350px" :class="{pl305: $store.state.menu_visibility}">
-      <v-icon font_size="21px" :hover_color="true" :action="test" prompt="test" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" :action="test" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
-    </v-tool-icons>
 
     <v-tool-icons top="97px" right="100px" :row="false">
       <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
@@ -652,6 +639,8 @@
       Подтвердите подпись!
     </v-alert>
 
+    <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
+
   </div>
 </template>
 
@@ -703,6 +692,7 @@ const VCardInfo = () => import('@/components/v-card-info')
 const VInputDate = () => import('@/components/v-input-date')
 const VInputDateRange = () => import('@/components/v-input-date-range')
 const VAlert = () => import('@/components/v-alert')
+const VLink = () => import('@/components/v-link')
 
 export default {
   components: {
@@ -752,7 +742,8 @@ export default {
     VCardInfoText,
     VInputDate,
     VInputDateRange,
-    VAlert
+    VAlert,
+    VLink,
   },
   data: () => ({
     alert_show: false,

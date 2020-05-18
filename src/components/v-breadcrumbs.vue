@@ -1,20 +1,42 @@
 <template>
   <div class="breadc-bg">
-    <div class="shadow" :class="{'l345' : $store.state.menu_visibility}">
+    <div class="breadcrumbs__shadow" :class="{'l345' : $store.state.menu_visibility}">
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
+        <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
+        <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
+        <div class="breadcrumbs__line"></div>
         <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
           </template>
         </v-breadcrumbs>
       </div>
+      <div>
+        <slot>
+        </slot>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+const VIcon = () => import('@/components/v-icon')
+
 export default {
+  components: {
+    VIcon
+  },
   props: {
+    action_left: {
+      default: function() {
+        return () => ({})
+      }
+    },
+    action_right: {
+      default: function() {
+        return () => ({})
+      }
+    },
     read_only: {},
     visible: {
       default: true
@@ -64,8 +86,27 @@ export default {
   left: 345px !important;
   padding-left: 0px;
 }
-.shadow {
+.breadcrumbs__arrow1 {
+  position: relative;
+  left: 36px;
+  margin-left: 10px;
+}
+.breadcrumbs__arrow2 {
+  position: relative;
+  right: 36px;
+  transform: rotate(180deg);
+}
+.breadcrumbs__line {
+  height: 26px;
+  border-radius: 4px;
+  background-color: var(--pale-grey);
+  padding: 5px 0px;
+  width: 1px;
+  margin-left: 13px;
+}
+.breadcrumbs__shadow {
   position: fixed;
+  display: flex;
   width: 100%;
   top: 100px;
   left: 30px;
@@ -75,7 +116,8 @@ export default {
   transition: all 0.3s ease;
 }
 .breadcrumbs {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   background-color: var(--dark);
   border-radius: 4px;
   margin-bottom: 10px;
