@@ -641,7 +641,6 @@
 
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
 
-    <v-chronology :list="chronology" />
 
   </div>
 </template>
@@ -695,7 +694,6 @@ const VInputDate = () => import('@/components/v-input-date')
 const VInputDateRange = () => import('@/components/v-input-date-range')
 const VAlert = () => import('@/components/v-alert')
 const VLink = () => import('@/components/v-link')
-const VChronology = () => import('@/components/v-chronology')
 
 export default {
   components: {
@@ -747,7 +745,6 @@ export default {
     VInputDateRange,
     VAlert,
     VLink,
-    VChronology,
   },
   data: () => ({
     alert_show: false,
