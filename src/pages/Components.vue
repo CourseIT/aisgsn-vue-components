@@ -641,6 +641,8 @@
 
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
 
+    <v-chronology :list="chronology" />
+
   </div>
 </template>
 
@@ -693,6 +695,7 @@ const VInputDate = () => import('@/components/v-input-date')
 const VInputDateRange = () => import('@/components/v-input-date-range')
 const VAlert = () => import('@/components/v-alert')
 const VLink = () => import('@/components/v-link')
+const VChronology = () => import('@/components/v-chronology')
 
 export default {
   components: {
@@ -744,6 +747,7 @@ export default {
     VInputDateRange,
     VAlert,
     VLink,
+    VChronology,
   },
   data: () => ({
     alert_show: false,
@@ -760,7 +764,78 @@ export default {
       1: '',
       2: ''
     },
-
+    chronology: [
+      {
+        date: '01.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: 'active'
+      },
+      {
+        date: '02.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '03.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '04.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '05.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: 'active'
+      },
+      {
+        date: '06.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '07.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: 'error'
+      },
+      {
+        date: '08.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '09.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '10.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: 'active'
+      },
+      {
+        date: '11.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '12.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: 'error'
+      },
+      {
+        date: '13.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+      {
+        date: '14.02.2019',
+        text: 'Извещение о начале строительства (У6)',
+        status: ''
+      },
+    ],
     list_card: [
       { 
         date: '20.08.20 – 28.08.20',
