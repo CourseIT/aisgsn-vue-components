@@ -2,8 +2,8 @@
   <div class="breadc-bg">
     <div class="breadcrumbs__shadow" :class="{'l345' : $store.state.menu_visibility}">
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
-        <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
-        <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
+        <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
+        <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
         <div class="breadcrumbs__line"></div>
         <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
@@ -77,7 +77,6 @@ export default {
 .breadc-bg{
   z-index: 9;
   width: 100%;
-  height: 41px;
   top: 100px;
   position: fixed;
   background: var(--pale-grey);
@@ -87,15 +86,9 @@ export default {
   padding-left: 0px;
 }
 .breadcrumbs__arrow1 {
-  position: relative;
-  margin-top: 0.1px;
-  left: 36px;
   margin-left: 10px;
 }
 .breadcrumbs__arrow2 {
-  position: relative;
-  right: 36px;
-  transform: rotate(180deg);
 }
 .breadcrumbs__line {
   height: 26px;
@@ -123,6 +116,7 @@ export default {
   background-color: var(--dark);
   border-radius: 4px;
   margin-bottom: 10px;
+  height: 36px;
 }
 .breadcrumbs ul {
   padding: 10px 30px;
