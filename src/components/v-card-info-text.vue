@@ -35,6 +35,7 @@ p {
 }
 .text {
   color: var(--dark);
+  font-weight: 400;
 }
 .card__info:hover .text{
   color: var(--bright-orange);

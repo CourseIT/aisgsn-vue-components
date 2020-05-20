@@ -77,7 +77,7 @@ export default {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 17px;
 }
 .fr {

@@ -8,7 +8,7 @@
         <button class="modal-button" v-if="action_delete" @click="action_delete">
           <v-icon icon="" class="icon" :hover_color="true" />
         </button>
-        <button class="modal-button" @click="closeModal">
+        <button class="modal-button mr-ml-0" @click="closeModal">
           <v-icon icon="" :hover_color="true" class="icon" />
         </button>
         <button class="modal-button" v-if="action_apply" @click="action_apply">
@@ -80,6 +80,12 @@ export default {
   margin: 10px;
   margin-top: 5px;
   margin-top: 31px;
+  outline-color: var(--bright-orange);
+  outline-width: 0.5px;
+}
+.mr-ml-0{
+  margin-right: 0px;
+  margin-left: 0px;
 }
 .fr {
   display: flex;

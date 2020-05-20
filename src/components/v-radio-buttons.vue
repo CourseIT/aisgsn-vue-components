@@ -86,7 +86,7 @@ export default {
 
 <style>
 .v-input__control {
-  height: 40px;
+  height: auto;
 }
 .v-input--radio-group--row .v-input--radio-group__input {
   flex-wrap: unset !important;
@@ -100,11 +100,16 @@ export default {
 .checkup-card-list__radio .radio {
   margin-bottom: 20px;
 }
+.checkup-card-list__radio .v-radio {
+  align-items: flex-start !important;
+}
 .checkup-card-list__radio label {
-  margin-left: 5px;
-  padding-top: 5px;
+  margin-left: 0px;
+  padding-top: 2px;
+  margin-right: 2px;
   font-family: Roboto;
   font-size: 0.6875rem;
+  width: 154px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
