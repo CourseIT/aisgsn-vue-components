@@ -284,6 +284,7 @@ export default {
 .filter-switch .v-input__control {
   position: relative !important;
   bottom: 3px !important;
+  height: 40px;
   width: 37px !important;
   right: 8px;
 }

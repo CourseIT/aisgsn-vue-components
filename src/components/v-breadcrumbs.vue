@@ -1,10 +1,10 @@
 <template>
   <div class="breadc-bg">
     <div class="breadcrumbs__shadow" :class="{'l345' : $store.state.menu_visibility}">
-      <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
+      
         <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
         <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
-        <div class="breadcrumbs__line"></div>
+      <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
         <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
@@ -86,18 +86,16 @@ export default {
   padding-left: 0px;
 }
 .breadcrumbs__arrow1 {
-  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--dark);
+  height: 36px;
+  border-radius: 4px;
 }
 .breadcrumbs__arrow2 {
-}
-.breadcrumbs__line {
-  height: 26px;
+  margin-right: 10px;
+  background-color: var(--dark);
+  height: 36px;
   border-radius: 4px;
-  background-color: var(--pale-grey);
-  padding: 5px 0px;
-  width: 1px;
-  margin-left: 13px;
-  border-radius: 1px;
 }
 .breadcrumbs__shadow {
   position: fixed;
