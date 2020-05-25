@@ -55,6 +55,7 @@ export default {
   align-items: center;
   background-color: var(--pale-lilac);
   margin-bottom: 100px;
+  cursor: pointer;
 }
 .circle__mini-circle {
   width: 13px;
@@ -133,9 +134,9 @@ export default {
   position: absolute;
   margin-top: -144px;
   margin-left: 49px;
-  border-right: 1px solid #ff000000;
-  border-top: 1px solid #ff000000;
-  border-bottom: 2px solid;
+  border-right: 1px dashed #ff000000;
+  border-top: 1px dashed #ff000000;
+  border-bottom: 2px dashed;
   border-style: dashed;
   border-radius: 0 0 0px 0;
 }
@@ -147,10 +148,10 @@ export default {
   position: absolute;
   margin-top: 50px;
   margin-left: -41px;
-  border-left: 1px solid #ff000000;
-  border-top: 1px solid #ff000000;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
+  border-left: 1px dashed #ff000000;
+  border-top: 1px dashed #ff000000;
+  border-bottom: 2px dashed;
+  border-right: 2px dashed;
   border-style: dashed;
   border-radius: 0px 0px 100px 0px;
 }
@@ -162,10 +163,10 @@ export default {
   position: absolute;
   margin-top: -143px;
   margin-left: -41px;
-  border-bottom: 1px solid #ff000000;
-  border-left: 1px solid #ff000000;
-  border-top: 2px solid;
-  border-right: 2px solid;
+  border-bottom: 1px dashed #ff000000;
+  border-left: 1px dashed #ff000000;
+  border-top: 2px dashed;
+  border-right: 2px dashed;
   border-style: dashed;
   border-radius: 0px 100px 0px 0px;
 }
@@ -177,10 +178,10 @@ export default {
   position: absolute;
   margin-top: 51px;
   margin-left: 43px;
-  border-top: 1px solid #ff000000;
-  border-right: 1px solid #ff000000;
-  border-bottom: 2px solid;
-  border-left: 2px solid;
+  border-top: 1px dashed #ff000000;
+  border-right: 1px dashed #ff000000;
+  border-bottom: 2px dashed;
+  border-left: 2px dashed;
   border-style: dashed;
   border-radius: 0px 0px 0px 100px;
 }
@@ -192,10 +193,10 @@ export default {
   position: absolute;
   margin-top: -143px;
   margin-left: 43px;
-  border-bottom: 1px solid #ff000000;
-  border-right: 1px solid #ff000000;
-  border-top: 2px solid;
-  border-left: 2px solid;
+  border-bottom: 1px dashed #ff000000;
+  border-right: 1px dashed #ff000000;
+  border-top: 2px dashed;
+  border-left: 2px dashed;
   border-style: dashed;
   border-radius: 100px 0px 0px 0px;
 }

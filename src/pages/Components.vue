@@ -58,6 +58,7 @@
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
           <v-card-text :text="item.method" />
+          <v-img-preview :src="src2" />
           <v-card-text :text="item.signature" />
           <v-card-text :text="item.text" class="mb0"/>
         </template>
@@ -617,7 +618,7 @@
 
 
 
-    <v-card-search v-model="card_search" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+    <v-card-search v-model="card_search" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>
       </template>
@@ -641,6 +642,8 @@
 
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
     <v-chronology :list="chronology" />
+
+    <v-img-preview :src="src2" />
 
   </div>
 </template>
@@ -695,6 +698,7 @@ const VInputDateRange = () => import('@/components/v-input-date-range')
 const VAlert = () => import('@/components/v-alert')
 const VLink = () => import('@/components/v-link')
 const VChronology = () => import('@/components/v-chronology')
+const VImgPreview = () => import('@/components/v-img-preview')
 
 export default {
   components: {
@@ -747,6 +751,7 @@ export default {
     VAlert,
     VLink,
     VChronology,
+    VImgPreview
   },
   data: () => ({
     alert_show: false,
@@ -873,6 +878,7 @@ export default {
     },
 
     src: 'https://static.thenounproject.com/png/4561-200.png',
+    src2: 'https://cdn.zeplin.io/5def462cdcba1f12ab446b90/assets/F6BF244B-0149-4372-B02A-2A4C1A848803.png',
 
     users_signature_show: false,
 
