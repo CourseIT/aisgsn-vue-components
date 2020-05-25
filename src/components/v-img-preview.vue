@@ -33,20 +33,21 @@ export default {
   height: 328px;
   object-fit: cover;
   border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.3);
 }
 .img-main_right {
   display: none;
   margin-left: 45px;
+  z-index: 99;
   position: absolute;
   margin-top: 0px;
-  margin-top: -185px;
+  margin-top: -190px;
 }
 .img-main_right::after {
   content: ''; 
   position: absolute;
   left: -20px; 
-  top: 148px;
+  top: 153px;
   border: 10px solid transparent;
   border-right: 10px solid var( --white);
 }

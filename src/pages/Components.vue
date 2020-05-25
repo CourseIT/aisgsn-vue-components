@@ -643,6 +643,11 @@
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
     <v-chronology :list="chronology" />
 
+    <!-- <v-chronology>
+      <v-chronology-item v-for="(item, index) in chronology" :key="index" :index="index" :text="item.text" :date="item.date" :status="item.status" :action="test2" />
+    </v-chronology> -->
+    
+
     <v-img-preview :src="src2" />
 
   </div>
@@ -698,6 +703,7 @@ const VInputDateRange = () => import('@/components/v-input-date-range')
 const VAlert = () => import('@/components/v-alert')
 const VLink = () => import('@/components/v-link')
 const VChronology = () => import('@/components/v-chronology')
+// const VChronologyItem  = () => import('@/components/v-chronology-item')
 const VImgPreview = () => import('@/components/v-img-preview')
 
 export default {
@@ -751,6 +757,7 @@ export default {
     VAlert,
     VLink,
     VChronology,
+    // VChronologyItem,
     VImgPreview
   },
   data: () => ({
@@ -772,7 +779,10 @@ export default {
       {
         date: '01.02.2019',
         text: 'Извещение о начале строительства (У6)',
-        status: 'active'
+        status: 'active',
+        action: () => {
+          window.console.log('qweqweqwe')
+        }
       },
       {
         date: '02.02.2019',
@@ -878,7 +888,7 @@ export default {
     },
 
     src: 'https://static.thenounproject.com/png/4561-200.png',
-    src2: 'https://cdn.zeplin.io/5def462cdcba1f12ab446b90/assets/F6BF244B-0149-4372-B02A-2A4C1A848803.png',
+    src2: 'https://png.pngtree.com/element_our/png_detail/20181227/businessdocumentfilepaperpresentation-line-icon-png_287089.jpg',
 
     users_signature_show: false,
 

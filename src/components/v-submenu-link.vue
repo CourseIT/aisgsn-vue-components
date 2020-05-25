@@ -7,7 +7,7 @@
       </div>
     </transition>
     <div class="df jcsb cp" @click="openSubmenu">
-      <li @click="action" class="submenu__link t03s">{{text}}</li>
+      <li :class="{'color-orange': active}" @click="action" class="submenu__link t03s">{{text}}</li>
       <v-icon v-if="!only_title" font_size="26px" class="icon__dots" icon="" :class="{'color-orange': open_submenu}" />
     </div>
     <transition name="submenu">
@@ -29,6 +29,7 @@ export default {
     text: {},
     only_title: {},
     read_only: {},
+    active:{},
     visible: {
       default: true
     },
@@ -111,7 +112,7 @@ export default {
   align-items: center;
   left: 7px;
   margin-top: 3px;
-  background-color: #578bc8;
+  background-color: var(--bright-orange);
   font-family: Roboto;
   font-size: 10px;
   padding-bottom: 1px;

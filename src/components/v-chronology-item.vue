@@ -1,33 +1,26 @@
 <template>
-  <div>
-    <div class="chronology">
-      <slot>
-        <div
-          v-for="(item,index) in list" :key="index"
-          class="chronology__circle"
-          :class="{
-              'grid-column-1-5-r': (index + 1) % 6 == 3,
-              'grid-column-1-5-l': (index + 1) % 6 == 0,
-              'grid-column-1-3': (index + 1) % 6 == 5 || (index + 1) % 6 == 1,
-              'grid-column-3-5': (index + 1) % 6 == 2 || (index + 1) % 6 == 4,
-            }"
-        >
-          <div class="circle__big-circle"
-            @click="item.action ? item.action() : ''"
-            :class="{
-              'circle_active': item.status == 'active',
-              'circle_error': item.status == 'error'
-            }"
-          >
-            <p class="circle__date">{{item.date}}</p>
-            <div class="circle__mini-circle" :class="{'mini-circle_error': item.status == 'error'}"></div>
-            <p class="circle__text">{{item.text}}</p>
-          </div>
-          <div>
+  <div
+    @click="action"
+     class="chronology__circle"
+    :class="{
+      'grid-column-1-5-r': (index + 1) % 6 == 3,
+      'grid-column-1-5-l': (index + 1) % 6 == 0,
+      'grid-column-1-3': (index + 1) % 6 == 5 || (index + 1) % 6 == 1,
+      'grid-column-3-5': (index + 1) % 6 == 2 || (index + 1) % 6 == 4,
+    }"
+  >
+     <div class="circle__big-circle"
+      :class="{
+        'circle_active': status == 'active',
+        'circle_error': status == 'error'
+      }"
+    >
+      <p class="circle__date">{{date}}</p>
+      <div class="circle__mini-circle" :class="{'mini-circle_error': status == 'error'}"></div>
+      <p class="circle__text">{{text}}</p>
+    </div>
+    <div>
             
-          </div>
-        </div>
-      </slot>
     </div>
   </div>
 </template>
@@ -35,9 +28,13 @@
 <script>
 export default {
   props: {
-    list: {
+    index: {},
+    status:{},
+    date:{},
+    text:{},
+    action: {
       default: function() {
-        return []
+        return () => ({})
       }
     }
   }
@@ -45,13 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.chronology {
-  width: 900px;
-  padding-right: 140px;
-  display: grid;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(4, 1fr);
-}
 .circle__big-circle {
   width: 86px;
   height: 86px;

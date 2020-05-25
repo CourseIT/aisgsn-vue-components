@@ -6,12 +6,12 @@
         {{notificationsLength}}
       </div>
     </transition>
-    <a v-if="href" :href="href" :target="target" @click="action" class="v-link" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
+    <a v-if="href" :href="href" :target="target" @click="action" class="v-link" :class="{'color-orange': active}" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
       <slot>
         {{text}}
       </slot>
     </a>
-    <a v-else @click="action" class="v-link" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
+    <a v-else @click="action" class="v-link" :class="{'color-orange': active}" :style='{"color": color, "font-weight": bold ? 500 : 300}'>
       <slot>
         {{text}}
       </slot>
@@ -28,6 +28,7 @@ export default {
     color: {},
     bold: {},
     read_only: {},
+    active:{},
     visible: {
       default: true
     },
@@ -122,7 +123,7 @@ export default {
   align-items: center;
   left: 30px;
   margin-top: 4px; 
-  background-color: #578bc8;
+  background-color: var(--bright-orange);
   font-family: Roboto;
   font-size: 9px;
   padding-bottom: 1px;
