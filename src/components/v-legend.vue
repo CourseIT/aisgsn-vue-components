@@ -79,12 +79,14 @@ export default {
   color: #c58b4a;
 	width: 36px;
   height: 36px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
 	border-radius: 4px;
 }
 .icon:hover + .legend__block {
   display: block;
+}
+.icon:hover {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .legend__block {
   display: none;

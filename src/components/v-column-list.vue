@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}">
     <div class="column__list">
-      <v-icon class="icon" icon="" hover_color="true" :action="function(){show_list = !show_list}" :class="{'index11': show_list}" />
+      <v-icon class="icon" icon="" hover_color="true" :action="function(){show_list = !show_list}" :class="{'index11': show_list, 'icon-active': show_list}" />
       <div v-if="show_list" class="column__block" :class="{'index11': show_list}">
         <div class="colimn__items" :class="{'pr10': list.length > 9}">
           <draggable ghost-class="ghost">
@@ -129,9 +129,15 @@ export default {
   color: #c58b4a;
 	width: 36px;
   height: 36px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
 	border-radius: 4px;
+}
+.icon:hover {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+}
+.icon-active {
+  color: var(--bright-orange);
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .column__block {
   position: absolute;

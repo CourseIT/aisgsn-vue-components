@@ -89,7 +89,7 @@ export default {
 .icon1:hover + .hover-icon{
   display: block;
 }
-.hover-icon:hover + .icon1{
+.hover-icon:hover .icon1{
   background-color: var(--pale-grey);
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
