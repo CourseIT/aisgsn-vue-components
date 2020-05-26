@@ -29,13 +29,17 @@ export default {
   display: block;
 }
 .img-preview__img-main {
-  width: 242px;
-  height: 328px;
   object-fit: cover;
-  border-radius: 4px;
-  box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
 }
 .img-main_right {
+  background-color: var( --white);
+  width: 242px;
+  height: 328px;
+  padding: 13px 9px;
+  border-radius: 4px;
+  box-shadow: 0 7px 15px 0 rgba(0, 0, 0, 0.3);
   display: none;
   margin-left: 45px;
   z-index: 99;

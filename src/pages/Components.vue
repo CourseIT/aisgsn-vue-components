@@ -58,7 +58,7 @@
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
           <v-card-text :text="item.method" />
-          <v-img-preview :src="src2" />
+          <v-img-preview />
           <v-card-text :text="item.signature" />
           <v-card-text :text="item.text" class="mb0"/>
         </template>
@@ -420,9 +420,6 @@
     <v-tool-icons top="97px" right="100px" :row="false">
       <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <div>
-        <p>test</p>
-      </div>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -651,8 +648,8 @@
     </v-chronology> -->
     
 
-    <v-img-preview :src="src2" class="mb20" />
-    <v-download-file :src="src2" />
+    <v-img-preview class="mb20" />
+    <v-download-file />
 
   </div>
 </template>

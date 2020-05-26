@@ -2,14 +2,15 @@
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
       <img v-if="src" class="doc__img" :src="src" alt="">
-      <div v-else class="doc__img">
-        <p class="img-preview">DOCS PREVIEW</p>
+      <div v-else class="doc__preview">
+        <v-icon font_size="21px" icon="" class="icon_preview" />
+        <p class="text__preview">Перетащите файл сюда</p>
       </div>
     </div>
     <div class="doc__btns">
       <div>
         <v-icon font_size="21px" prompt="Загрузите файл с устройства" :hover_color="true" class="btns__icon" icon=""  />
-        <v-icon font_size="21px" prompt="Очистить" class="btns__icon mb10" :hover_color="true" icon=""  />
+        <v-icon font_size="21px" prompt="Очистить" class="btns__icon mb10" :hover_color="true" unicode="&#xf51a;"  />
       </div>
     </div>
   </div>
@@ -71,19 +72,29 @@ export default {
   width: 232px;
   height: 328px;
 }
-.img-preview {
-  width: 204px;
-  width: 100%;
-  height: 111px;
-  opacity: 0.28;
+.doc__preview {
+  border-radius: 4px;
+  border: dashed 1px #707070;
+  width: 232px;
+  height: 328px;
+}
+.text__preview {
+  width: 88px;
+  height: 36px;
   font-family: Roboto;
-  font-size: 48px;
-  font-weight: 900;
+  font-size: 15px;
+  font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.13;
+  line-height: 1.2;
   letter-spacing: normal;
   text-align: center;
-  color: var(--dark);
+  color: var(--blue-grey);
+  margin-left: 72px;
+}
+.icon_preview{
+  margin-top: 128px;
+  margin-left: 98px;
+  color: var(--blue-grey);
 }
 </style>
