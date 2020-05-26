@@ -24,6 +24,7 @@ export default {
   border-radius: 4px;
   border: dashed 1px #707070;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 .img-preview__img-mini {
   width: 30px;

@@ -166,7 +166,7 @@ export default {
   content: '';
   position: absolute;
   z-index: 111;
-  margin-top: -9px;
+  margin-top: -12px;
   margin-left: 1px;
   border: 6px solid transparent;
   border-bottom: 6px solid var(--dark);
@@ -177,7 +177,7 @@ export default {
   width: 400px;
   position: absolute;
   margin-left: 0px;
-  margin-top: -15px;
+  margin-top: -18px;
 }
 .checkup-card-list__radio .icon__prompt {
   bottom: -6px;
