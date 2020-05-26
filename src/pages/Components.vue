@@ -648,7 +648,9 @@
     </v-chronology> -->
     
 
+    <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
     <v-img-preview class="mb20" />
+    <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file />
 
   </div>
@@ -891,7 +893,7 @@ export default {
     },
 
     src: 'https://static.thenounproject.com/png/4561-200.png',
-    src2: 'https://png.pngtree.com/element_our/png_detail/20181227/businessdocumentfilepaperpresentation-line-icon-png_287089.jpg',
+    src2: 'https://cdn.zeplin.io/5def462cdcba1f12ab446b90/assets/08D5923B-A880-4E5E-AD77-1DB1CAFAF36A.png',
 
     users_signature_show: false,
 

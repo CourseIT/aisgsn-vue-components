@@ -98,7 +98,7 @@ export default {
 [data-title]:hover::before {
   content: attr(data-title);
   position: absolute;
-  bottom: 40px;
+  bottom: 42px;
   left: -53px;
   display: inline-block;
   padding: 5px 15px;
@@ -114,7 +114,7 @@ export default {
 [data-title]:hover::after {
   content: '';
   position: absolute;
-  bottom: 28px;
+  bottom: 30px;
   left: 12px;
   display: inline-block;
   color: var(--white);

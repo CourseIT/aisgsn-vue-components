@@ -9,7 +9,7 @@
     </div>
     <div class="doc__btns">
       <div>
-        <v-icon font_size="21px" prompt="Загрузите файл с устройства" :hover_color="true" class="btns__icon" icon=""  />
+        <v-icon font_size="21px" prompt="Загрузить" :hover_color="true" class="btns__icon" icon=""  />
         <v-icon font_size="21px" prompt="Очистить" class="btns__icon mb10" :hover_color="true" unicode="&#xf51a;"  />
       </div>
     </div>

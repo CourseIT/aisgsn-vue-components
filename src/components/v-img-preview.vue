@@ -1,6 +1,7 @@
 <template>
   <div class="img-preview">
-    <img :src="src" alt="" class="img-preview__img-mini">
+    <img v-if="src" :src="src" alt="" class="img-preview__img-mini">
+    <div v-else class="img-preview__no-img"></div>
     <div v-if="src" class="img-main_right">
       <img :src="src" alt="" class="img-preview__img-main ">
     </div>
@@ -16,7 +17,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.img-preview__no-img {
+  width: 30px;
+  height: 42px;
+  border-radius: 4px;
+  border: dashed 1px #707070;
+  cursor: pointer;
+}
 .img-preview__img-mini {
   width: 30px;
   height: 42px;
