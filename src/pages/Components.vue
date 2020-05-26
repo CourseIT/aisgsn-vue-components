@@ -420,6 +420,9 @@
     <v-tool-icons top="97px" right="100px" :row="false">
       <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <div>
+        <p>test</p>
+      </div>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -648,7 +651,8 @@
     </v-chronology> -->
     
 
-    <v-img-preview :src="src2" />
+    <v-img-preview :src="src2" class="mb20" />
+    <v-download-file :src="src2" />
 
   </div>
 </template>
@@ -705,6 +709,7 @@ const VLink = () => import('@/components/v-link')
 const VChronology = () => import('@/components/v-chronology')
 // const VChronologyItem  = () => import('@/components/v-chronology-item')
 const VImgPreview = () => import('@/components/v-img-preview')
+const VDownloadFile = () => import('@/components/v-download-file')
 
 export default {
   components: {
@@ -758,7 +763,8 @@ export default {
     VLink,
     VChronology,
     // VChronologyItem,
-    VImgPreview
+    VImgPreview,
+    VDownloadFile
   },
   data: () => ({
     alert_show: false,
