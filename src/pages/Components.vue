@@ -425,7 +425,7 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon font_size="21px" :hover_color="true" icon=""/>
+      <v-icon-save font_size="21px" :on_form_save="test" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -709,6 +709,7 @@ const VChronology = () => import('@/components/v-chronology')
 // const VChronologyItem  = () => import('@/components/v-chronology-item')
 const VImgPreview = () => import('@/components/v-img-preview')
 const VDownloadFile = () => import('@/components/v-download-file')
+const VIconSave = () => import('@/components/v-icon-save')
 
 export default {
   components: {
@@ -763,7 +764,8 @@ export default {
     VChronology,
     // VChronologyItem,
     VImgPreview,
-    VDownloadFile
+    VDownloadFile,
+    VIconSave
   },
   data: () => ({
     alert_show: false,
