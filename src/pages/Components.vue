@@ -425,7 +425,7 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
-      <v-icon-save font_size="21px" :on_form_save="test" :hover_color="true" icon=""/>
+      <v-icon-save font_size="21px" :on_form_save="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -651,7 +651,7 @@
     <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
     <v-img-preview class="mb20" />
     <v-download-file :src="require('@/assets/doc2.png')" />
-    <v-download-file />
+    <v-download-file v-model="d_file" />
 
   </div>
 </template>
@@ -768,6 +768,7 @@ export default {
     VIconSave
   },
   data: () => ({
+    d_file: '',
     alert_show: false,
     dragging: false,
     enabled: true,

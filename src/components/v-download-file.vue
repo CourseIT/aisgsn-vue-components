@@ -1,16 +1,17 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
-      <img v-if="src" class="doc__img" :src="src" alt="">
+      <img v-if="photo" class="doc__img" :src="photo" alt="">
       <div v-else class="doc__preview">
         <v-icon font_size="21px" icon="" class="icon_preview" />
         <p class="text__preview">Перетащите файл сюда</p>
       </div>
     </div>
+    <input @change="getPhoto($event)" ref="inputPhotos" type="file" class="dn" />
     <div class="doc__btns">
       <div>
-        <v-icon font_size="21px" prompt="Загрузить" :hover_color="true" class="btns__icon" icon=""  />
-        <v-icon font_size="21px" prompt="Очистить" class="btns__icon mb10" :hover_color="true" unicode="&#xf51a;"  />
+        <v-icon :action="inputClick" font_size="21px" prompt="Загрузить" :hover_color="true" class="btns__icon" icon=""  />
+        <v-icon :action="removePhoto" font_size="21px" prompt="Очистить" class="btns__icon mb10" :hover_color="true" unicode="&#xf51a;"  />
       </div>
     </div>
   </div>
@@ -31,7 +32,47 @@ export default {
     }
   },
   data: () => ({
+    photo: '',
+    base64: '',
+    name: ''
   }),
+  mounted() {
+    if(this.src) {
+      this.photo = this.src
+    }
+  },
+  methods: {
+    inputClick() {
+      this.$refs.inputPhotos.click()
+    },
+    removePhoto() {
+      this.photo = ''
+      this.base64 = ''
+      this.$emit("input", '')
+    },
+    getPhoto(ev) {
+      const selectFile = URL.createObjectURL(this.$refs.inputPhotos.files[0])
+      window.console.log(this.$refs.inputPhotos.files)
+      this.photo = selectFile
+
+      this.name = this.$refs.inputPhotos.files[0].name
+
+
+
+      const file = ev.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = e => {
+        this.base64 = e.target.result
+        
+        this.$emit("input", {
+          base64: this.base64,
+          name: this.name
+        })
+      }
+      reader.readAsDataURL(file);
+    }
+  },
   computed: {
     readOnly() {
       if(typeof (this.read_only) == 'function') {
