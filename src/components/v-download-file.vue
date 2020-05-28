@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
-      <v-icon v-if="doc_img" font_size="122px" :hover_color="false" class="doc_preview" icon=""  />
+      <v-icon v-if="doc_img" font_size="122px" :hover_color="false" class="doc_preview" icon=""  />
       <img v-if="photo" class="doc__img" :src="photo" alt="">
       <div v-else class="doc__preview" @drop.prevent="addFile" @dragover.prevent>
         <v-icon font_size="21px" icon="" class="icon_preview" />
