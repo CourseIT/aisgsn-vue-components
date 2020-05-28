@@ -1,8 +1,9 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
+      <v-icon v-if="doc_img" font_size="122px" :hover_color="false" class="doc_preview" icon=""  />
       <img v-if="photo" class="doc__img" :src="photo" alt="">
-      <div v-else class="doc__preview">
+      <div v-else class="doc__preview" @drop.prevent="addFile" @dragover.prevent>
         <v-icon font_size="21px" icon="" class="icon_preview" />
         <p class="text__preview">Перетащите файл сюда</p>
       </div>
@@ -34,7 +35,8 @@ export default {
   data: () => ({
     photo: '',
     base64: '',
-    name: ''
+    name: '',
+    doc_img: false
   }),
   mounted() {
     if(this.src) {
@@ -48,7 +50,38 @@ export default {
     removePhoto() {
       this.photo = ''
       this.base64 = ''
+      this.doc_img = false
       this.$emit("input", '')
+    },
+    addFile(e) {
+
+      const selectFile = URL.createObjectURL(e.dataTransfer.files[0])
+      window.console.log(e.dataTransfer.files)
+      this.photo = selectFile
+
+      this.name = e.dataTransfer.files[0].name
+      let type = e.dataTransfer.files[0].type
+
+      if(type !== "image/jpeg") {
+        this.doc_img = true
+      } else {
+        this.doc_img = false
+      }
+
+
+
+      const file = e.dataTransfer.files[0];
+      const reader = new FileReader();
+
+      reader.onload = e => {
+        this.base64 = e.target.result
+        
+        this.$emit("input", {
+          base64: this.base64,
+          name: this.name
+        })
+      }
+      reader.readAsDataURL(file);
     },
     getPhoto(ev) {
       const selectFile = URL.createObjectURL(this.$refs.inputPhotos.files[0])
@@ -56,6 +89,13 @@ export default {
       this.photo = selectFile
 
       this.name = this.$refs.inputPhotos.files[0].name
+      let type = this.$refs.inputPhotos.files[0].type
+
+      if(type !== "image/jpeg") {
+        this.doc_img = true
+      } else {
+        this.doc_img = false
+      }
 
 
 
@@ -101,6 +141,17 @@ export default {
   width: 232px;
   height: 328px;
   margin-bottom: 20px;
+}
+.doc_preview {
+  width: 232px;
+  height: 328px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border: dashed 1px #707070;
+  border-radius: 4px;
 }
 .doc__img {
   border-radius: 4px;

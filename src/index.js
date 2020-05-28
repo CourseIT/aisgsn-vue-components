@@ -49,6 +49,7 @@ export { default as VChronology } from './components/v-chronology'
 export { default as VChronologyItem } from './components/v-chronology-item'
 export { default as VImgPreview } from './components/v-img-preview'
 export { default as VIconSave } from './components/v-icon-save'
+export { default as VDownloadFile } from './components/v-download-file'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'
