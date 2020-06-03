@@ -1,11 +1,17 @@
 <template>
   <div>
     <div class="card__search">
-      <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :placeholder="placeholder" :label="label" ref="input">
-        <template #icon>
-          <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
-        </template>
-      </v-input>
+      <div class="df">
+        <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :placeholder="placeholder" :label="label" ref="input">
+          <template #icon>
+            <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
+          </template>
+        </v-input>
+        <div v-if="input_value != ''" class="icon-btn" @click="input_value = ''">
+          <v-icon class="icon__reset" width="15" :hover_color="true" icon="" />
+        </div>
+      </div>
+      
       <div v-if="search_block_show" class="search__block" :style="{'width': blockWidth}">
         <slot name="search">
           <v-search v-model="search" :hint="false" placeholder="Поиск" />
@@ -90,6 +96,25 @@ export default {
     width: inherit;
     z-index: 103;
     margin-top: -8px;
+  }
+  .icon-btn {
+    width: 15px;
+    height: 36px;
+    position: relative;
+    margin-left: -81px;
+    margin-top: 19px;
+  }
+  .icon__reset {
+    font-family: var(--font-awesome-5-pro-light);
+    font-size: 15px;
+    width: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000;
   }
   .cards {
     max-height: 640px;

@@ -711,6 +711,7 @@ const VImgPreview = () => import('@/components/v-img-preview')
 const VDownloadFile = () => import('@/components/v-download-file')
 const VIconSave = () => import('@/components/v-icon-save')
 
+
 export default {
   components: {
     VActionGroup,
