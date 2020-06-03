@@ -433,7 +433,7 @@
 
     <v-icon font_size="21px" :hover_color="true" :action="function() {modal_layout = true}"  icon="" prompt="Активатор модального окна" class="ml600"/>
 
-    <v-icon-select>
+    <v-icon-select hint="test">
       <v-options :option="option" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" :arrow="index == 0 ? true : false" />
     </v-icon-select>
 
