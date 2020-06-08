@@ -618,7 +618,7 @@
 
 
 
-    <v-card-search v-model="card_search" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+    <v-card-search v-model="card_search" :action="test" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>
       </template>
@@ -641,6 +641,7 @@
     </v-alert>
 
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
+    
     <v-chronology :list="chronology" />
 
     <!-- <v-chronology>
@@ -1189,6 +1190,9 @@ export default {
   watch: {
     label(val) {
       window.console.log(val)
+    },
+    card_search(val) {
+      window.console.log(val, '----')
     }
   },
   methods: {

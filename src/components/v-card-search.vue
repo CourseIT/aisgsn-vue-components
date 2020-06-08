@@ -7,7 +7,7 @@
             <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
           </template>
         </v-input>
-        <div v-if="input_value != ''" class="icon-btn" @click="input_value = ''">
+        <div v-if="input_value != ''" class="icon-btn" @click="resetInput">
           <v-icon class="icon__reset" width="15" :hover_color="true" icon="" />
         </div>
       </div>
@@ -46,6 +46,11 @@ export default {
     label: {
       default: ''
     },
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    }
   },
   components: {
     VInput,
@@ -80,6 +85,12 @@ export default {
     showBlock() {
       window.console.log('----')
       this.search_block_show = !this.search_block_show
+    },
+    resetInput() {
+      this.$emit('input', '')
+      setTimeout(()=>{
+        this.action()
+      },0)
     }
   }
 }

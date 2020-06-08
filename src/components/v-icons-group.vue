@@ -1,17 +1,17 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="icons-block">
-    <div class="icon1">
+    <div class="icon1" :class="{'active_icon1': hover}">
       <slot name="main-icon">
-        <v-icon class="icon1" :hover_shadow="true" :hover_color="true" icon="" />
+        <v-icon class="icon" :hover_shadow="true" :hover_color="true" icon=""  />
       </slot>
     </div>
-      <div class="hover-icon">
-        <div class="hover-icon__bg">
-          <slot>
-            <v-icon font_size="21px" :hover_color="true" icon="" />
-          </slot>
-        </div>
+    <div @mouseover="hover = true" @mouseout="hover = false" class="hover-icon">
+      <div class="hover-icon__bg">
+        <slot>
+          <v-icon font_size="21px" :hover_color="true" icon="" />
+        </slot>
       </div>
+    </div>
     </div>
 </template>
 
@@ -29,6 +29,9 @@ export default {
   components: {
     VIcon
   },
+  data: () => ({
+    hover: false,
+  }),
   computed: {
     readOnly() {
       if(typeof (this.read_only) == 'function') {
@@ -62,6 +65,11 @@ export default {
   margin-top: 15px;
   cursor: pointer;
 }
+.active_icon1 {
+  border-radius: 4px;
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  color: var(--bright-orange);
+}
 .icon1 .icon {
   cursor: pointer;
   z-index: 9;
@@ -88,11 +96,6 @@ export default {
 }
 .icon1:hover + .hover-icon{
   display: block;
-}
-.hover-icon:hover .icon1{
-  background-color: var(--pale-grey);
-  border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
 }
 .hover-icon__bg div {
   background: var(--white);
