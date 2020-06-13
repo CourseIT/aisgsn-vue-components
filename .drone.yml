@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: curs/vue-elements:staging
+
+steps:
+  - name: build-and-push-to-registry
+    image: plugins/docker
+    commands:
+    settings:
+      debug: true
+      username:
+        from_secret: docker_hub_username
+      password:
+        from_secret: docker_hub_password
+      repo: hub.docker.axeta.ru/curs/vue-elements
+      registry: hub.docker.axeta.ru
+      tags: staging
+
+trigger:
+  branch:
+    - drone-ci
