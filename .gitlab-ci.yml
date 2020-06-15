@@ -1,8 +1,0 @@
-build:
-  script:
-    - . /var/opt/gitlab-ci/curs/vue-elements/deploy.sh
-  environment:
-    name: Test Server
-    url: http://vue-elements.axdev.ru/
-  only:
-    - master
