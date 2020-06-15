@@ -15,6 +15,15 @@ steps:
       repo: hub.docker.axeta.ru/curs/vue-elements
       registry: hub.docker.axeta.ru
       tags: staging
+  - name: trigger-deployment
+    image: plugins/webhook
+    commands:
+    settings:
+      urls: http://webhook.axetacloud.ru/hooks/curs.vue-elements.staging
+      username:
+        from_secret: cloud_webhook_username
+      password:
+        from_secret: cloud_webhook_password
 
 trigger:
   branch:
