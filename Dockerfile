@@ -4,6 +4,7 @@ COPY package.json /app
 COPY package-lock.json /app
 RUN npm install
 COPY /src /app/src
+COPY /public /app/public
 COPY babel.config.js /app
 COPY vue.config.js /app
 RUN npm run build
