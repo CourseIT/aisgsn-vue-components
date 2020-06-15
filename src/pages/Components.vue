@@ -50,11 +50,29 @@
       </v-template-block>
     </v-template-block-with-icon>
 <!-------------------------------- template-block-with-icon -------------------------------->
-
+      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" >
+        <template #text>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448"/>
+          <v-card-info-text title="Что-то:" text="458648946684"/>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448"/>
+        </template>
+      </v-card-block>
+      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" >
+        <template #text>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="140px"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="140px"/>
+          <v-card-info-text title="Что-то:" text="458648946684" title_width="140px"/>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="140px"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="140px"/>
+        </template>
+      </v-card-block>
 <!-------------------------------- card-block with draggable -------------------------------->
     <draggable :disabled="!enabled" ghost-class="ghost" @start="dragging = true" @end="dragging = false" >
       <v-card-block class="mb20" width="450px" :action_add="index == 1 ? '' : pushCard" :action_minus="index == 2 ? '' : test" :action_edit="test" :action_select="index == 0 ? test : ''" v-for="(item, index) in list_card" :key="item.id" >
         <template #text>
+          <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" title_width=""/>
           <v-card-text :text="item.date" bold="true" class="mb7"/>
           <v-card-text :text="item.number" />
           <v-card-text :text="item.method" />
@@ -650,7 +668,7 @@
     
 
     <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
-    <v-img-preview class="mb20" />
+    <v-img-preview class="mb20" :src="d_file.base64" />
     <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file v-model="d_file" />
 

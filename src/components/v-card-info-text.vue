@@ -1,6 +1,6 @@
 <template>
   <div class="df carad__info__text">
-    <p class="title_text">{{title}}</p>
+    <p class="title_text" :style='{width: title_width}'>{{title}}</p>
     <p class="text">{{text}}</p>
   </div>
 </template>
@@ -9,7 +9,8 @@
 export default {
   props: {
     title: {},
-    text: {}
+    text: {},
+    title_width: {}
   }
 }
 </script>
@@ -31,6 +32,8 @@ p {
   margin-bottom: 0px;
 }
 .title_text {
+  width: 85px;
+  margin-right: 15px;
   color: var(--blue-grey);
 }
 .text {
