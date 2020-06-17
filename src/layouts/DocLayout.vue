@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header />
+    <v-header user="Петров А.П."/>
     <v-breadcrumbs :action_right="rigth" :action_left="left" />
     <v-menu>
       <template #search>

@@ -50,7 +50,7 @@
               <v-icon class="header-icon regular" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
             </div>
-            <!-- <p class="header-name">{{user}}</p> -->
+            <p v-if="user" class="header-name">{{user}}</p>
             <v-icon :action="logout_action" class="header-icon mt3 ml10" :hover_color="true" icon=""/>
           </div>
       </nav>
@@ -63,9 +63,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
-    user: {
-      default: 'Смирнова Светлана Ивановна'
-    },
+    user: {},
     logout_action: {
       default: function() {
         return () => ({})

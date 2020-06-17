@@ -671,6 +671,7 @@
     <v-img-preview class="mb20" :src="d_file.base64" />
     <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file v-model="d_file" />
+    <!-- <v-calendar /> -->
 
   </div>
 </template>
@@ -729,6 +730,7 @@ const VChronology = () => import('@/components/v-chronology')
 const VImgPreview = () => import('@/components/v-img-preview')
 const VDownloadFile = () => import('@/components/v-download-file')
 const VIconSave = () => import('@/components/v-icon-save')
+// const VCalendar = () => import('@/components/v-calendar')
 
 
 export default {
@@ -785,7 +787,8 @@ export default {
     // VChronologyItem,
     VImgPreview,
     VDownloadFile,
-    VIconSave
+    VIconSave,
+    // VCalendar
   },
   data: () => ({
     d_file: '',
