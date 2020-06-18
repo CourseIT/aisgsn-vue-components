@@ -1,6 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-modal">
-    <div class="modal">
+    <div class="modal" @click="closeModal">
+      <div class="test" @click="noCloseModal">
       <slot>
         Modal
       </slot>
@@ -15,6 +16,7 @@
           <v-icon icon="" :hover_color="true" class="icon" />
         </button>
       </div>
+    </div>
     </div>
     <transition name="modal">
       <div @click="closeModal"  class="modal__bg"></div>
@@ -38,6 +40,8 @@ export default {
     VIcon,
   },
   data: () =>({
+    modal_show: '',
+    no_close: false
   }),
   mounted() {
     document.addEventListener("keydown", this.closeModalOnKey());
@@ -46,6 +50,11 @@ export default {
   },
   beforeDestroy() {
     document.getElementsByTagName('html')[0].removeAttribute("style")
+  },
+  watch: {
+    modal_show(val) {
+      this.$emit('input', val)
+    }
   },
   computed: {
     readOnly() {
@@ -60,7 +69,19 @@ export default {
   },
   methods: {
     closeModal() {
-      this.$emit('input', false)
+      if(this.no_close){
+        this.modal_show = true
+      } else {
+        this.modal_show = false
+      }
+    },
+    noCloseModal() {
+      this.modal_show = true
+      this.no_close = true
+      setTimeout(()=>{
+        this.no_close = false
+      },0)
+      
     },
     closeModalOnKey() {
       return (e) => {
@@ -108,19 +129,23 @@ export default {
   overflow-y: scroll;
 }
 .modal {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 102;
+}
+.test {
+  
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--pale-lilac);
   border-radius: 4px;
   padding: 30px;
   padding-bottom: 2px;
   padding-right: 0;
-  position: absolute;
   width: 50%;
-  left: 0;
   margin-top: 15vh;
   margin-bottom: 15vh;
   margin-left: 25%;
-  z-index: 102;
 }
 .v-modal::-webkit-scrollbar {
   width: 11px;

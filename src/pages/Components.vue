@@ -61,11 +61,11 @@
       </v-card-block>
       <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" >
         <template #text>
-          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="140px"/>
-          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="140px"/>
-          <v-card-info-text title="Что-то:" text="458648946684" title_width="140px"/>
-          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="140px"/>
-          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="140px"/>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="30%"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="30%"/>
+          <v-card-info-text title="Что-то:" text="458648946684" title_width="30%"/>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович" title_width="30%"/>
+          <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448" title_width="30%"/>
         </template>
       </v-card-block>
 <!-------------------------------- card-block with draggable -------------------------------->
@@ -224,7 +224,7 @@
     <transition name="modal">
       <v-modal v-if="modal_show" v-model="modal_show" :action_apply="test" :action_delete="test2">
         <form action="">
-        <div class="df">
+        <div class="df"  style="margin-bottom: 1000px">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input" tabindex="1"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
@@ -668,9 +668,10 @@
     
 
     <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
-    <v-img-preview class="mb20" :src="d_file.base64" />
+    
     <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file v-model="d_file" />
+    <v-img-preview class="mb20" :src="d_file.base64" />
     <!-- <v-calendar /> -->
 
   </div>
@@ -1137,7 +1138,7 @@ export default {
         author: 'Горланов Роман Павлович',
         date: '21.02.2020',
         time: '12:32',
-        text: 'Работоспособность сервиса Росреестр восстановлена! По информации от Росреестра работоспособность сервиса, связанная с техническими работами по переходу сервиса на новый сертификат, восстановлена. Все неотправленные запросы возвращены на статус «Новый» их необходимо подписать и отправить самостоятельно. Запросы, отправленные до 01.01.2020 переведены на «Ожидание ответа», часть из них уже успешно обработаны.',
+        text: 'Работоспособность сервиса Росреестр восстановлена! По информации от Росреестра работоспособность сервиса, связанная с техническими работами по переходу сервиса на новый сертификат, восстановлена. Все неотправленные запросы возвращены на статус «Новый» их необходимо подписать и отпр��вить самостоятельно. Запросы, отправленные до 01.01.2020 переведены на «Ожидание ответа», часть из них уже успешно обработаны.',
         provider: 'ОБУ «Информационно-технический центр»'
       },
       {
