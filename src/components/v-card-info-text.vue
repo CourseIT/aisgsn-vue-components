@@ -1,6 +1,6 @@
 <template>
   <div class="df carad__info__text">
-    <p class="title_text" :style='{width: title_width}'>{{title}}</p>
+    <p class="title_text" :style="{'width': title_width, 'max-width': max_width}">{{title}}</p>
     <p class="text">{{text}}</p>
   </div>
 </template>
@@ -10,7 +10,12 @@ export default {
   props: {
     title: {},
     text: {},
-    title_width: {}
+    title_width: {
+      default: "30%"
+    },
+    max_width: {
+      default: "140px"
+    }
   }
 }
 </script>
