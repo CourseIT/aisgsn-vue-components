@@ -1,7 +1,7 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-modal">
     <div class="modal" @click="closeModal">
-      <div class="test" @click="noCloseModal">
+      <div class="modal__block" @click="noCloseModal">
       <slot>
         Modal
       </slot>
@@ -100,7 +100,7 @@ export default {
   align-items: center;
   margin: 10px;
   margin-top: 5px;
-  margin-top: 31px;
+  margin-top: 25px;
   outline-color: var(--bright-orange);
   outline-width: 0.5px;
 }
@@ -134,14 +134,13 @@ export default {
   left: 0;
   z-index: 102;
 }
-.test {
-  
+.modal__block {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--pale-lilac);
   border-radius: 4px;
   padding: 30px;
-  padding-bottom: 2px;
   padding-right: 0;
+  padding-bottom: 90px;
   width: 50%;
   margin-top: 15vh;
   margin-bottom: 15vh;

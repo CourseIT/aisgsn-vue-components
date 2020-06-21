@@ -224,7 +224,7 @@
     <transition name="modal">
       <v-modal v-if="modal_show" v-model="modal_show" :action_apply="test" :action_delete="test2">
         <form action="">
-        <div class="df"  style="margin-bottom: 1000px">
+        <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input" tabindex="1"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
