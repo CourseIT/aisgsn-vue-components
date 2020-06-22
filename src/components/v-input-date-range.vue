@@ -392,7 +392,7 @@ export default {
   border-radius: 4px;
   border: 0px solid var(--white);
   margin-bottom: 30px;
-  width: 96%;
+  width: 100%;
 }
 .input::placeholder {
   font-family: Roboto;
