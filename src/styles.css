@@ -529,7 +529,7 @@ button {
 }
 .substrate {
   background-color: var(--pale-grey);
-  box-shadow: 0px 15px 30px var(--pale-grey);
+  box-shadow: 0px 10px 20px var(--pale-grey);
 }
 
 .modal-enter-active, .modal-leave-active{

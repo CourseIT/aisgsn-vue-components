@@ -673,6 +673,12 @@
     <v-download-file v-model="d_file" />
     <v-img-preview class="mb20" :src="d_file.base64" />
     <v-calendar />
+    <div class="w600">
+      <v-label-hint class="mt20" label="sadas dsadasdas asdasd " hint="test sadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasd">
+        test
+      </v-label-hint>
+
+    </div>
 
   </div>
 </template>
@@ -732,6 +738,7 @@ const VImgPreview = () => import('@/components/v-img-preview')
 const VDownloadFile = () => import('@/components/v-download-file')
 // const VIconSave = () => import('@/components/v-icon-save')
 const VCalendar = () => import('@/components/v-calendar')
+const VLabelHint = () => import('@/components/v-label-hint')
 
 
 export default {
@@ -789,7 +796,8 @@ export default {
     VImgPreview,
     VDownloadFile,
     // VIconSave,
-    VCalendar
+    VCalendar,
+    VLabelHint
   },
   data: () => ({
     d_file: '',

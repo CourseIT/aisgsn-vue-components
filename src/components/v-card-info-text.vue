@@ -23,7 +23,7 @@ export default {
 <style scoped>
 p {
   font-family: Roboto;
-  font-size: 11px;
+  font-size: 0.75rem;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -31,7 +31,7 @@ p {
   letter-spacing: normal;
   text-align: left;
   margin-right: 7px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 .carad__info__text:last-child p{
   margin-bottom: 0px;
