@@ -1,8 +1,22 @@
 <template>
   <div class="calendar">
 
-
-    <div class="calendar__day day-active">
+    <div class="calendar__days df">
+      <v-calendar-day v-for="(day, index) in days" :day_name="day.day_name" :day_date="day.day_date" :active="day.active" :key="index"/>
+    </div>
+    
+    <div class="df" v-for="(obj, index) in calendars_obj" :key="index">
+      <v-calendar-user  v-if="obj.user.user_name" :user_name="obj.user.user_name" :user_position="obj.user.user_position" />
+      <div class="df calendar__actions-null">
+        
+        <v-calendar-action v-for="(action, index) in 14" :key="index" />
+      </div>
+      <div class="df calendar__actions">
+        <v-calendar-action v-for="(action, index) in obj.actions" :key="index" :action_date="action.action_date" :action_name="action.action_name" :action_desc="action.action_desc" :days="action.days"/>
+      </div>
+      
+    </div>
+    <!-- <div class="calendar__day day-active">
       <div class="day__name day-active">ПН</div>
       <div class="day__date">28</div>
     </div>
@@ -33,10 +47,10 @@
       <p class="action__desc">Название проверки</p>
       <div class="action__bottom"></div>
       <div class="action__bottom"></div>
-    </div>
+    </div> -->
 
 
-    <div class="calendar__clear-day"></div>
+    
 
 
 
@@ -44,169 +58,120 @@
 </template>
 
 <script>
-const VIcon = () => import('./v-icon')
+const VCalendarDay = () => import('./v-calendar-day')
+const VCalendarUser = () => import('./v-calendar-user')
+const VCalendarAction = () => import('./v-calendar-action')
 
 export default {
   components: {
-    VIcon
+    VCalendarDay,
+    VCalendarUser,
+    VCalendarAction
   },
+  data: () => ({
+    days: [
+      {
+        day_name: 'ПН',
+        day_date: '24',
+        active: true
+      },
+      {
+        day_name: 'ВТ',
+        day_date: '25'
+      },
+      {
+        day_name: 'СР',
+        day_date: '26'
+      },
+      {
+        day_name: 'ЧТ',
+        day_date: '27'
+      },
+      {
+        day_name: 'ПТ',
+        day_date: '28'
+      },
+      {
+        day_name: 'СБ',
+        day_date: '29'
+      },
+      {
+        day_name: 'ВС',
+        day_date: '30'
+      },{
+        day_name: 'ПН',
+        day_date: '31'
+      },
+      {
+        day_name: 'ВТ',
+        day_date: '1'
+      },
+      {
+        day_name: 'СР',
+        day_date: '2'
+      },
+      {
+        day_name: 'ЧТ',
+        day_date: '3'
+      },
+      {
+        day_name: 'ПТ',
+        day_date: '4'
+      },
+      {
+        day_name: 'СБ',
+        day_date: '5'
+      },
+      {
+        day_name: 'ВС',
+        day_date: '6'
+      }
+    ],
+    calendars_obj: [
+      {
+      user: {
+        user_name: 'Иванов И. И.',
+        user_position: 'Должность'
+      },
+      actions: [
+        {
+          action_date: '20.08.20 – 28.08.20',
+          action_name: 'ВНИИЭФ',
+          action_desc: 'Название проверки',
+          days: 5
+        },
+        {
+          action_date: '31.08.20 – 02.09.20',
+          action_name: 'НАЗВАНИЕ',
+          action_desc: 'Название проверки',
+          days: 3
+        },
+        {
+          action_date: '02.09.20 – 03.09.20',
+          action_name: 'НАЗВАНИЕ',
+          action_desc: 'Название проверки',
+          days: 2
+        }
+      ]
+      }
+    ]
+  })
 }
 </script>
 
 <style scoped>
-.calendar__day {
-  width: 44px;
-  height: 88px;
-  border-radius: 4px;
-  color: var(--dark);
+.calendar__days {
+  padding-left: 338px;
+  margin-bottom: 40px;
+  padding-right: 20px;
 }
-.day__name, .day__date{
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.calendar__actions-null {
+  position: absolute;
+  margin-left: 325px;
+  z-index: 1;
 }
-.day__name{
-  background-color: var(--pale-lilac);
-}
-.day-active {
-  background-color: var(--purpley);
-  color: var(--white);
-}
-
-
-.calendar__user {
-  width: 278px;
-  height: 80px;
-  border-radius: 4px;
-  display: flex;
-  background-color: var(--white);
-}
-.user__left-border {
-  width: 12px;
-  height: 80px;
-  background-color: #7893b1;
-  margin-right: 18px;
-}
-.user__info {
-  display: flex;
-  align-items: center;
-}
-.info__avatar {
-  width: 42px;
-  height: 42px;
-  border: solid 0.5px var(--blue-grey);
-  border-radius: 50%;
-  margin-right: 15px;
-}
-.info__name {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 6px;
-}
-.info__position {
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 0;
-}
-
-
-
-.calendar__action {
-  width: 538px;
-  height: 80px;
-  border-radius: 4px;
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--white);
-  overflow: hidden;
-}
-.action__top {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 7px;
-  margin-left: 5px;
-}
-.action__icon {
-  width: 19px;
-  height: 19px;
-  background-color: var(--weird-green);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin-right: 5px;
-}
-.action__date {
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.55;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 0px;
-}
-.action__name {
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 900;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 0;
-  margin-left: 13px;
-}
-.action__desc {
-  font-family: Roboto;
-  font-size: 11px;
-  font-weight: 300;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--dark);
-  margin-bottom: 2px;
-  margin-left: 13px;
-  margin-top: -5px;
-}
-.action__bottom {
-  width: 100%;
-  height: 7px;
-  background-color: var(--weird-green);
-}
-.calendar__clear-day {
-  width: 102px;
-  height: 80px;
-  border-radius: 8px;
-  background-color: var(--pale-lilac);
+.calendar__actions {
+  position: relative;
+  z-index: 80;
 }
 </style>

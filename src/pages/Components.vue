@@ -435,7 +435,7 @@
     <!-------------------------------- v-legend -------------------------------->
 
 
-    <v-tool-icons top="97px" right="100px" :row="false">
+    <!-- <v-tool-icons top="97px" right="100px" :row="false">
       <v-icon font_size="21px" :hover_color="true" prompt="test" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
@@ -447,7 +447,7 @@
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
       <v-icon font_size="21px" :hover_color="true" icon=""/>
-    </v-tool-icons>
+    </v-tool-icons> -->
 
     <v-icon font_size="21px" :hover_color="true" :action="function() {modal_layout = true}"  icon="" prompt="Активатор модального окна" class="ml600"/>
 
@@ -672,7 +672,7 @@
     <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file v-model="d_file" />
     <v-img-preview class="mb20" :src="d_file.base64" />
-    <!-- <v-calendar /> -->
+    <v-calendar />
 
   </div>
 </template>
@@ -730,8 +730,8 @@ const VChronology = () => import('@/components/v-chronology')
 // const VChronologyItem  = () => import('@/components/v-chronology-item')
 const VImgPreview = () => import('@/components/v-img-preview')
 const VDownloadFile = () => import('@/components/v-download-file')
-const VIconSave = () => import('@/components/v-icon-save')
-// const VCalendar = () => import('@/components/v-calendar')
+// const VIconSave = () => import('@/components/v-icon-save')
+const VCalendar = () => import('@/components/v-calendar')
 
 
 export default {
@@ -788,8 +788,8 @@ export default {
     // VChronologyItem,
     VImgPreview,
     VDownloadFile,
-    VIconSave,
-    // VCalendar
+    // VIconSave,
+    VCalendar
   },
   data: () => ({
     d_file: '',

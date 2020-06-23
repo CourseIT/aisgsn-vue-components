@@ -1,6 +1,6 @@
 <template>
   <div class="icon-select">
-    <v-icon icon="" :action="showSelects" :hover_color="hover_color" :prompt="hint" :hover_shadow="hover_shadow" :font_size="font_size"  :class="{'icon__active': show_selects}" />
+    <v-icon :icon="icon" :action="showSelects" :hover_color="hover_color" :prompt="hint" :hover_shadow="hover_shadow" :font_size="font_size"  :class="{'icon__active': show_selects}" />
     <div v-if="show_selects" class="select-block">
       <div @click="showSelects">
         <slot>

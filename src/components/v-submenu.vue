@@ -170,6 +170,7 @@ export default {
   align-items: center;  
   text-align: left;
   text-transform: uppercase;
+  margin-bottom: 0px !important;
 }
 .menu__title:hover .icon__dots{
   color: var(--bright-orange)
