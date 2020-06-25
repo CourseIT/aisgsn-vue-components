@@ -32,7 +32,7 @@
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
-            <v-btn v-if="button" text color="primary" @click="clearDate">Сбросить</v-btn>
+            <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
         </v-menu>
       </div>
@@ -406,5 +406,18 @@ export default {
   color: var(--blue-grey);
   position: relative;
   bottom: 2px;
+}
+.clear_btn {
+  height: 36px;
+  min-width: 64px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  outline: 0;
+  color: rgb(141, 67, 255);
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.clear_btn:hover {
+  color: var(--bright-orange);
 }
 </style>

@@ -85,6 +85,9 @@ export default {
 </script>
 
 <style>
+.checkup-card-list__radio .v-messages {
+  display: none !important;
+}
 .v-input__control {
   height: auto;
 }

@@ -501,6 +501,12 @@ button {
 .mr0 {
   margin-right: 0px !important;
 }
+.h40 {
+  height: 40px !important;
+}
+.h45 {
+  height: 45px !important;
+}
 .w56 {
   width: 56px;
 }

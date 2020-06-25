@@ -72,39 +72,95 @@ export default {
     days: [
       {
         day_name: 'ПН',
-        day_date: '24',
+        day_date: '1',
         active: true
       },
       {
         day_name: 'ВТ',
-        day_date: '25'
+        day_date: '2'
       },
       {
         day_name: 'СР',
-        day_date: '26'
+        day_date: '3'
       },
       {
         day_name: 'ЧТ',
-        day_date: '27'
+        day_date: '4'
       },
       {
         day_name: 'ПТ',
-        day_date: '28'
+        day_date: '5'
       },
       {
         day_name: 'СБ',
-        day_date: '29'
+        day_date: '6'
       },
       {
         day_name: 'ВС',
-        day_date: '30'
+        day_date: '7'
       },{
         day_name: 'ПН',
-        day_date: '31'
+        day_date: '8'
       },
       {
         day_name: 'ВТ',
-        day_date: '1'
+        day_date: '9'
+      },
+      {
+        day_name: 'СР',
+        day_date: '2'
+      },
+      {
+        day_name: 'ЧТ',
+        day_date: '3'
+      },
+      {
+        day_name: 'ПТ',
+        day_date: '4'
+      },
+      {
+        day_name: 'СБ',
+        day_date: '5'
+      },
+      {
+        day_name: 'ВС',
+        day_date: '6'
+      },
+      {
+        day_name: 'ПН',
+        day_date: '1',
+        active: true
+      },
+      {
+        day_name: 'ВТ',
+        day_date: '2'
+      },
+      {
+        day_name: 'СР',
+        day_date: '3'
+      },
+      {
+        day_name: 'ЧТ',
+        day_date: '4'
+      },
+      {
+        day_name: 'ПТ',
+        day_date: '5'
+      },
+      {
+        day_name: 'СБ',
+        day_date: '6'
+      },
+      {
+        day_name: 'ВС',
+        day_date: '7'
+      },{
+        day_name: 'ПН',
+        day_date: '8'
+      },
+      {
+        day_name: 'ВТ',
+        day_date: '9'
       },
       {
         day_name: 'СР',

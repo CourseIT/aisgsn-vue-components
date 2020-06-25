@@ -81,7 +81,6 @@ export default {
       const lh_w = this.$refs.labelHint.clientWidth
       this.label_width = `${l_w + 40}px`
       this.hint_width = `${lh_w}px`
-      window.console.log(l_w, lh_w)
     }
   }
 }

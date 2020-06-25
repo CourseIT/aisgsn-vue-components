@@ -207,9 +207,9 @@
       <!-------------------------------- textarea -------------------------------->
 
 
-      <v-input-date hint="test" v-model="input_date" :obligatory="true" :no_range="true" icon="" label="Срок проведения работ"/>
+      <v-input-date hint="test" v-model="input_date" :obligatory="true" :button="true" :no_range="true" icon="" label="Срок проведения работ"/>
 
-      <v-input-date-range hint="test" v-model="v_input_date_range" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
+      <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
 
       <!-------------------------------- input-date -------------------------------->
     </div>
@@ -665,7 +665,11 @@
     <!-- <v-chronology>
       <v-chronology-item v-for="(item, index) in chronology" :key="index" :index="index" :text="item.text" :date="item.date" :status="item.status" :action="test2" />
     </v-chronology> -->
-    
+    <div class="w600">
+      <v-label-hint class="mt20" label="sadas dsadasdas asdasd " hint="test sadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasd">
+        test
+      </v-label-hint>
+    </div>
 
     <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
     
@@ -673,12 +677,7 @@
     <v-download-file v-model="d_file" />
     <v-img-preview class="mb20" :src="d_file.base64" />
     <v-calendar />
-    <div class="w600">
-      <v-label-hint class="mt20" label="sadas dsadasdas asdasd " hint="test sadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasdsadas dsadasdas asdasd">
-        test
-      </v-label-hint>
-
-    </div>
+    
 
   </div>
 </template>

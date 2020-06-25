@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="action_date" class="calendar__action" :style='{width: `${days * 87}px`}'>
+    <div v-if="action_date" class="calendar__action hover_action" :style='{width: `${days * 87}px`}' ref="action">
       <div class="action__top">
         <div class="action__icon">
           <v-icon icon="" font_size="11px"/>
@@ -12,7 +12,20 @@
       <div class="action__bottom"></div>
       <div class="action__bottom"></div>
     </div>
-    <div v-else class="calendar__clear-acion"></div>
+    <div v-if="action_date" class="calendar__action show_on_hover_action">
+      <div class="action__top">
+        <div class="action__icon">
+          <v-icon icon="" font_size="11px"/>
+        </div>
+        <p class="action__date">{{action_date}}</p>
+      </div>
+      <p class="action__name">{{action_name}}</p>
+      <p class="action__desc">{{action_desc}}</p>
+      <div class="action__bottom"></div>
+      <div class="action__bottom action__bottom2"></div>
+      <div class="arrow"></div>
+    </div>
+    <div v-if="!action_date" class="calendar__clear-acion"></div>
   </div>
   
 </template>
@@ -35,11 +48,15 @@ export default {
     days: {
       default: 0
     }
-  }
+  },
+  data: () => ({
+    action_width: '',
+  }),
 }
 </script>
 
 <style scoped>
+
 .calendar__action {
   width: 80px;
   height: 80px;
@@ -48,6 +65,8 @@ export default {
   background-color: var(--white);
   overflow: hidden;
   margin-right: 7px;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 .action__top {
   display: flex;
@@ -77,6 +96,7 @@ export default {
   text-align: left;
   color: var(--dark);
   margin-bottom: 0px;
+  margin-right: 5px;
 }
 .action__name {
   font-family: Roboto;
@@ -108,12 +128,37 @@ export default {
   height: 7px;
   background-color: var(--weird-green);
 }
-
+.action__bottom2 {
+  border-radius: 0px 0px 4px 4px;
+}
 .calendar__clear-acion {
   width: 80px;
   height: 80px;
   margin-right: 7px;
   border-radius: 8px;
   background-color: var(--pale-lilac);
+}
+
+.show_on_hover_action {
+  display: none;
+  position: relative;
+  bottom: 90px;
+  width: auto;
+  overflow: unset;
+}
+.hover_action:hover + .show_on_hover_action {
+  display: block;
+  position: absolute;
+}
+.arrow {
+  position: absolute;
+  top: 80px;
+  left: 7px;
+  display: inline-block;
+  color: var(--dark);
+  z-index: 111;
+  border: 7px solid transparent;	
+  border-bottom: 8px solid var(--weird-green);
+  transform: rotate(180deg);
 }
 </style>
