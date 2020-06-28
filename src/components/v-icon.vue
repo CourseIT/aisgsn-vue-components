@@ -69,6 +69,7 @@ export default {
   cursor: pointer;
   z-index: 7;
   width: 36px;
+  font-weight: 300;
   height: 36px;
   justify-content: center;
   display: flex;
