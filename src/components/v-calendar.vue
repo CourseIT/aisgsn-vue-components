@@ -1,18 +1,24 @@
 <template>
   <div class="calendar">
 
-    <div class="calendar__days df">
-      <v-calendar-day v-for="(day, index) in days" :day_name="day.day_name" :day_date="day.day_date" :active="day.active" :key="index"/>
+    <div class="calendar__days df jcsb">
+      <v-calendar-day v-for="(day, index) in all_days" :day_name="day.day_name" :day_date="day.day_date" :active="day.active" :key="index"/>
     </div>
     
     <div class="df" v-for="(obj, index) in calendars_obj" :key="index">
       <v-calendar-user  v-if="obj.user.user_name" :user_name="obj.user.user_name" :user_position="obj.user.user_position" />
-      <div class="df calendar__actions-null">
+      <!-- <div class="df calendar__actions-null jcsb">
         
-        <v-calendar-action v-for="(action, index) in 14" :key="index" />
-      </div>
-      <div class="df calendar__actions">
-        <v-calendar-action v-for="(action, index) in obj.actions" :key="index" :action_date="action.action_date" :action_name="action.action_name" :action_desc="action.action_desc" :days="action.days"/>
+        <v-calendar-action v-for="(action, index) in all_days.length" :key="index" />
+      </div> -->
+      <div class="df calendar__actions jcsb w100 pr20">
+        <v-calendar-action v-for="(action, index) in obj.actions" :key="index"
+          :action_date="action.action_date"
+          :action_name="action.action_name"
+          :action_desc="action.action_desc"
+          :days="action.days"
+          :days_ago="action.days_ago"
+        />
       </div>
       
     </div>
@@ -51,8 +57,8 @@
 
 
     
-
-
+    <VCalendarMonthBtn text="test" width="100px"/>
+    <VCalendarMonthBtn text="test" width="100px" :active="true"/>
 
   </div>
 </template>
@@ -61,163 +67,86 @@
 const VCalendarDay = () => import('./v-calendar-day')
 const VCalendarUser = () => import('./v-calendar-user')
 const VCalendarAction = () => import('./v-calendar-action')
+const VCalendarMonthBtn = () => import('./v-calendar-month-btn')
 
 export default {
   components: {
     VCalendarDay,
     VCalendarUser,
-    VCalendarAction
+    VCalendarAction,
+    VCalendarMonthBtn
   },
   data: () => ({
-    days: [
-      {
-        day_name: 'ПН',
-        day_date: '1',
-        active: true
-      },
-      {
-        day_name: 'ВТ',
-        day_date: '2'
-      },
-      {
-        day_name: 'СР',
-        day_date: '3'
-      },
-      {
-        day_name: 'ЧТ',
-        day_date: '4'
-      },
-      {
-        day_name: 'ПТ',
-        day_date: '5'
-      },
-      {
-        day_name: 'СБ',
-        day_date: '6'
-      },
-      {
-        day_name: 'ВС',
-        day_date: '7'
-      },{
-        day_name: 'ПН',
-        day_date: '8'
-      },
-      {
-        day_name: 'ВТ',
-        day_date: '9'
-      },
-      {
-        day_name: 'СР',
-        day_date: '2'
-      },
-      {
-        day_name: 'ЧТ',
-        day_date: '3'
-      },
-      {
-        day_name: 'ПТ',
-        day_date: '4'
-      },
-      {
-        day_name: 'СБ',
-        day_date: '5'
-      },
-      {
-        day_name: 'ВС',
-        day_date: '6'
-      },
-      {
-        day_name: 'ПН',
-        day_date: '1',
-        active: true
-      },
-      {
-        day_name: 'ВТ',
-        day_date: '2'
-      },
-      {
-        day_name: 'СР',
-        day_date: '3'
-      },
-      {
-        day_name: 'ЧТ',
-        day_date: '4'
-      },
-      {
-        day_name: 'ПТ',
-        day_date: '5'
-      },
-      {
-        day_name: 'СБ',
-        day_date: '6'
-      },
-      {
-        day_name: 'ВС',
-        day_date: '7'
-      },{
-        day_name: 'ПН',
-        day_date: '8'
-      },
-      {
-        day_name: 'ВТ',
-        day_date: '9'
-      },
-      {
-        day_name: 'СР',
-        day_date: '2'
-      },
-      {
-        day_name: 'ЧТ',
-        day_date: '3'
-      },
-      {
-        day_name: 'ПТ',
-        day_date: '4'
-      },
-      {
-        day_name: 'СБ',
-        day_date: '5'
-      },
-      {
-        day_name: 'ВС',
-        day_date: '6'
-      }
-    ],
     calendars_obj: [
       {
-      user: {
-        user_name: 'Иванов И. И.',
-        user_position: 'Должность'
-      },
-      actions: [
-        {
-          action_date: '20.08.20 – 28.08.20',
-          action_name: 'ВНИИЭФ',
-          action_desc: 'Название проверки',
-          days: 5
+        user: {
+          user_name: 'Иванов И. И.',
+          user_position: 'Должность'
         },
-        {
-          action_date: '31.08.20 – 02.09.20',
-          action_name: 'НАЗВАНИЕ',
-          action_desc: 'Название проверки',
-          days: 3
-        },
-        {
-          action_date: '02.09.20 – 03.09.20',
-          action_name: 'НАЗВАНИЕ',
-          action_desc: 'Название проверки',
-          days: 2
-        }
-      ]
+        actions: [
+          {
+            action_date: '01.06.20 – 05.06.20',
+            action_name: 'ВНИИЭФ',
+            action_desc: 'Название проверки',
+            days: 5,
+            days_ago: 0
+          },
+          {},{},
+          {
+            action_date: '08.06.20 – 10.06.20',
+            action_name: 'НАЗВАНИЕ',
+            action_desc: 'Название проверки',
+            days: 3,
+            days_ago: 8
+          },{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+          {
+            action_date: '28.09.20',
+            action_name: 'НАЗВАНИЕ',
+            action_desc: 'Название проверки',
+            days: 1,
+            days_ago: 28
+          },{},{},
+        ]
       }
-    ]
-  })
+    ],
+    week_day: '',
+    last_day_of_month: '',
+    all_days: []
+  }),
+  mounted() {
+    let date = new Date();
+    let year = date.getFullYear()
+    let month = date.getMonth()
+    let max_day_in_month = this.getLastDayOfMonth(year, month)
+    let today = date.getDate()
+
+    this.week_day = this.getWeekDay(date)
+    this.last_day_of_month = this.getLastDayOfMonth(year, month)
+
+    for (let i = 0; i < max_day_in_month; i++) {
+      this.all_days[i] = {
+        day_date: i+1,
+        day_name: this.getWeekDay(new Date(year, month, i+1)),
+        active: today == (i+1) ? true : false
+      }
+    }
+  },
+  methods: {
+    getLastDayOfMonth(year, month) {
+      let date = new Date(year, month + 1, 0);
+      return date.getDate();
+    },
+    getWeekDay(date) {
+      let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+      return days[date.getDay()];
+    }
+  }
 }
 </script>
 
 <style scoped>
 .calendar__days {
-  padding-left: 338px;
+  padding-left: 285px;
   margin-bottom: 40px;
   padding-right: 20px;
 }
@@ -229,5 +158,8 @@ export default {
 .calendar__actions {
   position: relative;
   z-index: 80;
+}
+.pr20{
+  padding-right: 15px;
 }
 </style>

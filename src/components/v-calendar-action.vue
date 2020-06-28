@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-if="action_date" class="calendar__action hover_action" :style='{width: `${days * 87}px`}' ref="action">
+  <div :style='{width: `${(days * 3.333333)}%`}'>
+    <div v-if="action_date" class="calendar__action hover_action"  ref="action">
       <div class="action__top">
         <div class="action__icon">
           <v-icon icon="" font_size="11px"/>
@@ -58,7 +58,6 @@ export default {
 <style scoped>
 
 .calendar__action {
-  width: 80px;
   height: 80px;
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
@@ -109,6 +108,8 @@ export default {
   color: var(--dark);
   margin-bottom: 0;
   margin-left: 13px;
+  white-space: nowrap;
+  margin-right: 13px;
 }
 .action__desc {
   font-family: Roboto;
@@ -122,6 +123,8 @@ export default {
   margin-bottom: 2px;
   margin-left: 13px;
   margin-top: -5px;
+  white-space: nowrap;
+  margin-right: 13px;
 }
 .action__bottom {
   width: 100%;
@@ -132,9 +135,9 @@ export default {
   border-radius: 0px 0px 4px 4px;
 }
 .calendar__clear-acion {
-  width: 80px;
+  position: none;
+  width: 28px;
   height: 80px;
-  margin-right: 7px;
   border-radius: 8px;
   background-color: var(--pale-lilac);
 }

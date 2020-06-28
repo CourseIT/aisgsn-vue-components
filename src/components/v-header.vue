@@ -45,13 +45,13 @@
           </v-toolbar-items>
           <v-spacer></v-spacer>
           <div class="df aic">
-            <v-icon v-if="notifications.length == 0" class="header-icon" icon=""/>
+            <v-icon v-if="notifications.length == 0" class="header-icon mr5" icon=""/>
             <div v-else>
-              <v-icon class="header-icon regular" icon=""/>
+              <v-icon class="header-icon regular mr5" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
             </div>
             <p v-if="user" class="header-name">{{user}}</p>
-            <v-icon :action="logout_action" class="header-icon mt3 ml10" :hover_color="true" icon=""/>
+            <v-icon :action="logout_action" class="header-icon mt3 ml10" :hover_color="true" icon="" prompt="Выход"/>
           </div>
       </nav>
     </header>
@@ -170,6 +170,9 @@ export default {
 </script>
 
 <style scoped>
+.mr {
+  margin-right: 5px;
+}
 .db {
   display: block;
 }
@@ -343,6 +346,7 @@ nav {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark2);
+  margin-top: 5px;
 }
 .regular {
   font-family: var(--font-awesome-5-pro) !important;

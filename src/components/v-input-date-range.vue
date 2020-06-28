@@ -340,6 +340,7 @@ export default {
 .v-btn--icon.v-size--default .v-icon, .v-btn--fab.v-size--default .v-icon{
   width: 22px !important;
   border-radius: 0px;
+  content: '1';
   padding: 0px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   margin: 0px 10px;

@@ -1,5 +1,8 @@
 <template>
-  <div class="calendar__day" :class="{'day-active': active}">
+  <div class="calendar__day" :class="{
+                                        'day-active': active,
+                                        'day-off': day_name == 'СБ' || day_name == 'ВС'
+                                      }">
     <div class="day__name" :class="{'day-active': active}">{{day_name}}</div>
     <div class="day__date">{{day_date}}</div>
   </div>
@@ -8,22 +11,24 @@
 <script>
 export default {
   props:{
-    day_name: {
-      default: 'ПН'
-    },
-    day_date: {
-      default: '28'
-    },
+    day_name: {},
+    day_date: {},
     active: {}
+  },
+  data: () => ({
+    actual_date: '',
+  }),
+  mounted() {
+    let date = new Date();
+    this.actual_date = date.getDate()
   }
 }
 </script>
 
 <style scoped>
 .calendar__day {
-  width: 44px;
+  width: 28px;
   height: 88px;
-  margin-right: 43px;
   border-radius: 4px;
   color: var(--dark);
 }
@@ -36,7 +41,7 @@ export default {
   line-height: 1.2;
   letter-spacing: normal;
   text-align: center;
-  width: 44px;
+  width: 28px;
   height: 44px;
   border-radius: 4px;
   display: flex;
@@ -49,5 +54,8 @@ export default {
 .day-active {
   background-color: var(--purpley);
   color: var(--white);
+}
+.day-off {
+  opacity: 0.5;
 }
 </style>
