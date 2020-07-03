@@ -1,21 +1,23 @@
 <template>
-  <div :style='{width: `${(days * 3.333333)}%`}'>
-    <div v-if="action_date" class="calendar__action hover_action"  ref="action">
-      <div class="action__top">
+  <div :style='{width: `${(days * 50) - 22}px`, left: `${(days_ago * 50)}px`}' class="test123">
+    <div v-if="action_date" class="calendar__action hover_action" ref="action">
+      <div class="action__top absolute__top" ref="date">
         <div class="action__icon">
-          <v-icon icon="" font_size="11px"/>
+          <v-icon icon="" font_size="11px"/>
         </div>
-        <p class="action__date">{{action_date}}</p>
+        <p v-if="show_text" class="action__date">{{action_date}}</p>
       </div>
-      <p class="action__name">{{action_name}}</p>
-      <p class="action__desc">{{action_desc}}</p>
-      <div class="action__bottom"></div>
-      <div class="action__bottom"></div>
+      <p v-if="show_text" class="action__name absolute_name" ref="name">{{action_name}}</p>
+      <p v-if="show_text" class="action__desc absolute_desc" ref="desc">{{action_desc}}</p>
+      <div class="absolute_bottom">
+        <div class="action__bottom absolute_bottom1"></div>
+        <div class="action__bottom absolute_bottom2"></div>
+      </div>
     </div>
-    <div v-if="action_date" class="calendar__action show_on_hover_action">
+    <div v-if="!show_text" class="calendar__action show_on_hover_action">
       <div class="action__top">
         <div class="action__icon">
-          <v-icon icon="" font_size="11px"/>
+          <v-icon icon="" font_size="11px"/>
         </div>
         <p class="action__date">{{action_date}}</p>
       </div>
@@ -47,15 +49,74 @@ export default {
     },
     days: {
       default: 0
+    },
+    days_ago: {
+      default: 0
     }
   },
   data: () => ({
     action_width: '',
+    date_width: '',
+    name_width: '',
+    desc_width: '',
+    show_text: true
   }),
+  mounted() {
+    if(this.$refs.action) {
+      this.setActionWidth()
+
+      setInterval(()=>{
+        this.setActionWidth()
+      },200)
+
+      this.date_width = this.$refs.date.clientWidth
+      this.name_width = this.$refs.name.clientWidth
+      this.desc_width = this.$refs.desc.clientWidth
+      
+      this.setShowText()
+    }
+  },
+  watch: {
+    action_width() {
+      this.setShowText()
+    }
+  },
+  methods: {
+    setActionWidth() {
+      this.action_width = this.$refs.action.clientWidth
+    },
+    setShowText() {
+      if(this.action_width <= this.date_width || this.action_width <= this.name_width || this.action_width <= this.desc_width) {
+        this.show_text = false
+      } else {
+        this.show_text = true
+      }
+    }
+  }
 }
 </script>
 
 <style scoped>
+.test123 {
+  position: absolute;
+}
+.pu {
+  position: unset;
+}
+.absolute__top {
+  position: absolute;
+}
+.absolute_name {
+  position: absolute;
+  top: 33px;
+}
+.absolute_desc {
+  position: absolute;
+  top: 55px;
+}
+.absolute_bottom {
+  margin-top: 66px;
+}
 
 .calendar__action {
   height: 80px;
@@ -63,7 +124,6 @@ export default {
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
   overflow: hidden;
-  margin-right: 7px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
@@ -96,6 +156,7 @@ export default {
   color: var(--dark);
   margin-bottom: 0px;
   margin-right: 5px;
+  white-space: nowrap;
 }
 .action__name {
   font-family: Roboto;
@@ -110,6 +171,7 @@ export default {
   margin-left: 13px;
   white-space: nowrap;
   margin-right: 13px;
+  white-space: nowrap;
 }
 .action__desc {
   font-family: Roboto;
@@ -125,6 +187,7 @@ export default {
   margin-top: -5px;
   white-space: nowrap;
   margin-right: 13px;
+  white-space: nowrap;
 }
 .action__bottom {
   width: 100%;

@@ -675,8 +675,16 @@
     
     <v-download-file :src="require('@/assets/doc2.png')" />
     <v-download-file v-model="d_file" />
+
     <v-img-preview class="mb20" :src="d_file.base64" />
-    <v-calendar />
+
+    <v-calendar class="mb20" />
+
+    <v-message text="Какой-то текст" status="error"/>
+
+    <v-message status="success">
+      Какой-то текст
+    </v-message>
     
 
   </div>
@@ -738,6 +746,7 @@ const VDownloadFile = () => import('@/components/v-download-file')
 // const VIconSave = () => import('@/components/v-icon-save')
 const VCalendar = () => import('@/components/v-calendar')
 const VLabelHint = () => import('@/components/v-label-hint')
+const VMessage = () => import('@/components/v-message')
 
 
 export default {
@@ -796,7 +805,8 @@ export default {
     VDownloadFile,
     // VIconSave,
     VCalendar,
-    VLabelHint
+    VLabelHint,
+    VMessage
   },
   data: () => ({
     d_file: '',

@@ -31,6 +31,7 @@ export default {
   height: 88px;
   border-radius: 4px;
   color: var(--dark);
+  margin-right: 22px;
 }
 .day__name, .day__date{
   font-family: Roboto;

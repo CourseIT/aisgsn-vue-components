@@ -1,7 +1,7 @@
 <template>
   <div class="calendar">
 
-    <div class="calendar__days df jcsb">
+    <div class="calendar__days df">
       <v-calendar-day v-for="(day, index) in all_days" :day_name="day.day_name" :day_date="day.day_date" :active="day.active" :key="index"/>
     </div>
     
@@ -11,7 +11,7 @@
         
         <v-calendar-action v-for="(action, index) in all_days.length" :key="index" />
       </div> -->
-      <div class="df calendar__actions jcsb w100 pr20">
+      <div class="df calendar__actions w100 pr20">
         <v-calendar-action v-for="(action, index) in obj.actions" :key="index"
           :action_date="action.action_date"
           :action_name="action.action_name"
@@ -91,21 +91,20 @@ export default {
             days: 5,
             days_ago: 0
           },
-          {},{},
           {
             action_date: '08.06.20 – 10.06.20',
             action_name: 'НАЗВАНИЕ',
             action_desc: 'Название проверки',
             days: 3,
-            days_ago: 8
-          },{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            days_ago: 7
+          },
           {
             action_date: '28.09.20',
             action_name: 'НАЗВАНИЕ',
             action_desc: 'Название проверки',
             days: 1,
-            days_ago: 28
-          },{},{},
+            days_ago: 27
+          },
         ]
       }
     ],
