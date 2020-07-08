@@ -27,11 +27,11 @@ export default {
 
 <style scoped>
 .calendar__day {
-  width: 28px;
+  width: 2.5%;
   height: 88px;
   border-radius: 4px;
   color: var(--dark);
-  margin-right: 22px;
+  margin-right: 0.5%;
 }
 .day__name, .day__date{
   font-family: Roboto;
@@ -42,7 +42,7 @@ export default {
   line-height: 1.2;
   letter-spacing: normal;
   text-align: center;
-  width: 28px;
+  width: 100%;
   height: 44px;
   border-radius: 4px;
   display: flex;

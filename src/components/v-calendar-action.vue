@@ -1,5 +1,5 @@
 <template>
-  <div :style='{width: `${(days * 50) - 22}px`, left: `${(days_ago * 50)}px`}' class="test123">
+  <div :style='{width: `${(days * 3) - 0.5}%`, left: `${(days_ago * 3)}%`}' class="test123">
     <div v-if="action_date" class="calendar__action hover_action" ref="action">
       <div class="action__top absolute__top" ref="date">
         <div class="action__icon">
@@ -27,7 +27,6 @@
       <div class="action__bottom action__bottom2"></div>
       <div class="arrow"></div>
     </div>
-    <div v-if="!action_date" class="calendar__clear-acion"></div>
   </div>
   
 </template>
@@ -83,7 +82,9 @@ export default {
   },
   methods: {
     setActionWidth() {
-      this.action_width = this.$refs.action.clientWidth
+      if(this.$refs.action) {
+        this.action_width = this.$refs.action.clientWidth
+      }
     },
     setShowText() {
       if(this.action_width <= this.date_width || this.action_width <= this.name_width || this.action_width <= this.desc_width) {
@@ -197,13 +198,6 @@ export default {
 .action__bottom2 {
   border-radius: 0px 0px 4px 4px;
 }
-.calendar__clear-acion {
-  position: none;
-  width: 28px;
-  height: 80px;
-  border-radius: 8px;
-  background-color: var(--pale-lilac);
-}
 
 .show_on_hover_action {
   display: none;
@@ -211,10 +205,12 @@ export default {
   bottom: 90px;
   width: auto;
   overflow: unset;
+  z-index: 100;
 }
 .hover_action:hover + .show_on_hover_action {
   display: block;
   position: absolute;
+  z-index: 110;
 }
 .arrow {
   position: absolute;
