@@ -108,7 +108,7 @@ export default {
 }
 .checkup-card-list__radio label {
   margin-left: 0px;
-  padding-top: 7px;
+  padding-top: 6px;
   margin-right: 2px;
   font-family: Roboto;
   font-size: 0.6875rem;
