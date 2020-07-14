@@ -12,7 +12,7 @@
               <v-icon class="menu-icon" :class="{'closeMenuIcon': show_close || $store.state.menu_visibility }" icon=""/>
             </div>
           </v-toolbar-items>
-          <v-toolbar-title class="nav__logo" >
+          <v-toolbar-title class="nav__logo df aic" >
             <slot>
               <svg
                 @click="$router.push({name: 'Home'})"
