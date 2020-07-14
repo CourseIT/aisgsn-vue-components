@@ -27,15 +27,14 @@ export default {
   text-align: center;
   color: var(--dark);
   text-transform: uppercase;
-  padding: 5px 12px;
+  padding: 5px 0px;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
   border-radius: 4px;
 }
 .v-calendar-btn:hover{
-  background-color: var(--purpley);
-  color: var(--white);
+  color: var(--bright-orange);
 }
 .btn-disabled:hover {
   background-color: transparent;

@@ -44,7 +44,8 @@ export default {
   margin-right: 3px;
 }
 .calendar__user {
-  width: 278px;
+  min-width: 270px;
+  max-width: 271px;
   height: 80px;
   border-radius: 4px;
   display: flex;

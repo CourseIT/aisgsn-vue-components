@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-header user="Петров А.П."/>
+    <v-header user="Петров А.П.">
+    </v-header>
     <v-breadcrumbs />
     <v-menu drawer='false'>
       <template #search>

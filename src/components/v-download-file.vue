@@ -97,8 +97,6 @@ export default {
         this.doc_img = false
       }
 
-
-
       const file = ev.target.files[0];
       const reader = new FileReader();
 

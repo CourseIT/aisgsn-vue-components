@@ -1,5 +1,5 @@
 <template>
-  <div :style='{width: `${(days * 3) - 0.5}%`, left: `${(days_ago * 3)}%`}' class="test123">
+  <div :style='{width: `${(days * 3) - 0.5}%`, left: `${(days_ago * 3)}%`}' class="pa">
     <div v-if="action_date" class="calendar__action hover_action" ref="action">
       <div class="action__top absolute__top" ref="date">
         <div class="action__icon">
@@ -98,7 +98,7 @@ export default {
 </script>
 
 <style scoped>
-.test123 {
+.pa {
   position: absolute;
 }
 .pu {
@@ -127,6 +127,7 @@ export default {
   overflow: hidden;
   transition: all 0.2s ease;
   cursor: pointer;
+  z-index: 10;
 }
 .action__top {
   display: flex;
@@ -210,7 +211,6 @@ export default {
 .hover_action:hover + .show_on_hover_action {
   display: block;
   position: absolute;
-  z-index: 110;
 }
 .arrow {
   position: absolute;

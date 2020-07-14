@@ -79,6 +79,11 @@ const routes = [
     name: 'My_page',
     component: () => import('../pages/My_page.vue')
   },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import('../pages/Calendar.vue')
+  },
   // {
   //   path: '/checkup_card_list',
   //   name: 'Checkup_card_list',

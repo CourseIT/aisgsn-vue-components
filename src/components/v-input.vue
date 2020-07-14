@@ -9,8 +9,6 @@
           </slot>
         </div>
       </div>
-      
-      
       <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
       <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
         <div class="icon__prompt" :style="{'min-width': label_width}">
