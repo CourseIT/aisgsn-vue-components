@@ -8,9 +8,31 @@
 export default {
   props: {
     width: {},
-    active: {},
-    text: {}
+    text: {},
+    month: {}
   },
+  data: () => ({
+    active: false,
+  }),
+  mounted() {
+    let date = new Date();
+    let month = date.getMonth()
+    this.checkActive(month)
+  },
+  watch: {
+    month(month) {
+      this.checkActive(month)
+    }
+  },
+  methods: {
+    checkActive(month) {
+      if(this.month == month) {
+        this.active = true
+      } else {
+        this.active = false
+      }
+    }
+  }
 }
 </script>
 
@@ -34,23 +56,11 @@ export default {
   outline: none;
   transition: all 0.1s ease;
 }
-.calendar__month-btn:hover {
-  background-color: #a86eff;
-}
-.calendar__month-btn:active {
-  background-color: #7038c5;
-}
 .calendar__month-btn p {
   margin-bottom: 0;
 }
 .no-active {
   background-color: var(--pale-lilac);
   color: var(--dark);
-}
-.no-active:hover {
-  background-color: #dfdfec;
-}
-.no-active:active {
-  background-color: #d1d1d1;
 }
 </style>

@@ -155,7 +155,7 @@ export default {
   border-radius: 4px;
   display: flex;
   align-items: center;
-  object-fit: cover;
+  object-fit: contain;
   border: dashed 1px #707070;
   width: 100%;
   height: auto;

@@ -1,7 +1,6 @@
 <template>
   <div class="breadc-bg">
     <div class="breadcrumbs__shadow" :class="{'l345' : $store.state.menu_visibility}">
-      
         <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
         <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
@@ -82,7 +81,7 @@ export default {
   background: var(--pale-grey);
 }
 .l345 {
-  left: 345px !important;
+  padding-left: 345px !important;
   padding-left: 0px;
 }
 .breadcrumbs__arrow1 {
@@ -102,7 +101,7 @@ export default {
   display: flex;
   width: 100%;
   top: 100px;
-  left: 30px;
+  padding-left: 95px;
   background-color: var(--pale-grey);
   box-shadow: -15px 15px 30px var(--pale-grey);
   z-index: 9;

@@ -152,14 +152,15 @@ export default {
   width: 105px;
   height: 181px;
   position: absolute;
-  margin-top: 50px;
-  margin-left: -41px;
+  /* margin-top: 50px;
+  margin-left: -41px; */
   border-left: 1px dashed #ff000000;
   border-top: 1px dashed #ff000000;
   border-bottom: 2px dashed;
   border-right: 2px dashed;
   border-style: dashed;
   border-radius: 0px 0px 100px 0px;
+  margin: 50px 41px 0px 0px;
 }
 .grid-column-1-5-r::before {
   display: block;
@@ -167,14 +168,15 @@ export default {
   width: 105px;
   height: 181px;
   position: absolute;
-  margin-top: -143px;
-  margin-left: -41px;
+  /* margin-top: -143px;
+  margin-left: -41px; */
   border-bottom: 1px dashed #ff000000;
   border-left: 1px dashed #ff000000;
   border-top: 2px dashed;
   border-right: 2px dashed;
   border-style: dashed;
   border-radius: 0px 100px 0px 0px;
+  margin: -143px 41px 0px 0px;
 }
 .grid-column-1-5-l:after {
   display: block;

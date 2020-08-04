@@ -88,9 +88,9 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  margin-top: -36px;
+  margin-top: -60px;
   justify-content: center;
-  margin-left: 0px;
+  margin-left: 12px;
 }
 .icon__prompt-block {
   display: none;

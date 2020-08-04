@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-header user="Петров А.П."/>
-    <v-breadcrumbs :action_right="rigth" :action_left="left" />
+    <v-breadcrumbs class="breadcrumbs-pos" :action_right="rigth" :action_left="left" />
     <v-menu>
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />

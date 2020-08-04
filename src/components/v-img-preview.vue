@@ -38,7 +38,7 @@ export default {
   display: block;
 }
 .img-preview__img-main {
-  object-fit: cover;
+  object-fit: contain;
   width: 100%;
   height: 100%;
 }
