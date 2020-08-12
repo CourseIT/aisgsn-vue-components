@@ -587,7 +587,7 @@ export default {
       },
       {
         id: 3,
-        name: 'ВНИИЭФ',
+        name: 'ФГУП «РФЯЦ-ВНИИТФ»',
         head: "",
         date_from: '2020-08-20',
         date_to: '2020-08-28',
@@ -598,25 +598,25 @@ export default {
       },
       {
         id: 4,
-        name: 'ВНИИА',
+        name: 'ФГУП «НИТИ им. А. П. Александрова»',
         head: "",
         date_from: '2020-08-31',
         date_to: '2020-08-31',
         user_id: 1,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#ff3b30'
+        color: '#4cd964'
       },
       {
         id: 4,
-        name: 'ВНИИЭФ',
+        name: 'ФГУП «РФЯЦ-ВНИИТФ»',
         head: "",
         date_from: '2020-08-01',
         date_to: '2020-08-13',
         user_id: 2,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#ff3b30'
+        color: '#4cd964'
       },
       {
         id: 4,
@@ -638,18 +638,18 @@ export default {
         user_id: 2,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#007aff'
+        color: '#4cd964'
       },
       {
         id: 2,
-        name: 'ВНИИА',
+        name: 'ФГУП «НИТИ им. А. П. Александрова»',
         head: "",
         date_from: '2020-08-12',
         date_to: '2020-08-29',
         user_id: 3,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#ff3b30'
+        color: '#4cd964'
       },
       {
         id: 4,
@@ -686,14 +686,14 @@ export default {
       },
       {
         id: 6,
-        name: 'ВНИИА',
+        name: 'ФГУП «НИТИ им. А. П. Александрова»',
         head: "",
         date_from: '2020-08-25',
         date_to: '2020-08-31',
         user_id: 5,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#ff3b30'
+        color: '#4cd964'
       },
       {
         id: 9,
@@ -704,7 +704,7 @@ export default {
         user_id: 5,
         show_range_as: '',
         details: 'Название проверки',
-        color: '#007aff'
+        color: '#4cd964'
       },
       {
         id: 7,
@@ -719,14 +719,14 @@ export default {
       },
       {
         id: 7,
-        name: 'ВНИИЭФ',
+        name: 'ФГУП «РФЯЦ-ВНИИТФ»',
         head: "",
         date_from: '2020-08-24',
         date_to: '2020-08-28',
         user_id: 6,
         show_range_as: '',
         details: 'Дополнительное поле',
-        color: '#ff3b30'
+        color: '#4cd964'
       }
     ],
     users: [
@@ -734,37 +734,37 @@ export default {
         id: 1,
         name: 'Куликов Б. Ю.',
         department: 1,
-        department_name: 'Отдел государственного строительного надзора'
+        department_name: 'Название подразделения'
       },
       {
         id: 2,
         name: 'Сидельников А. Г.',
         department: 1,
-        department_name: 'Отдел государственного строительного надзора'
+        department_name: 'Название подразделения'
       },
       {
         id: 3,
         name: 'Морозов М. А.',
         department: 1,
-        department_name: 'Отдел государственного строительного надзора'
+        department_name: 'Название подразделения'
       },
       {
         id: 4,
         name: 'Куприянов В. Ю.',
         department: 1,
-        department_name: 'Отдел государственного строительного надзора'
+        department_name: 'Название подразделения'
       },
       {
         id: 5,
         name: 'Бегларян В. В.',
         department: 2,
-        department_name: 'Отдел технического контроля и испытаний'
+        department_name: 'Название подразделения'
       },
       {
         id: 6,
         name: 'Сотрудник А. А.',
         department: 2,
-        department_name: 'Отдел технического контроля и испытаний'
+        department_name: 'Название подразделения'
       },
     ],
     test_arr: [],

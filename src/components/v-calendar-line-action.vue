@@ -1,5 +1,5 @@
 <template>
-  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, top: `${5 + index * 5}px`}'>
+  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${70 + index * 5}px`}'>
     <div v-if="date_from" class="hover_action" ref="action">
 			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`}'></div>
     </div>
@@ -176,6 +176,7 @@ export default {
 }
 .absolute_bottom1 {
   border-radius: 4px;
+  cursor: pointer;
 }
 .left0 {
   left: 0px !important;

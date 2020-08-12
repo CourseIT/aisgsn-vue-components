@@ -171,7 +171,7 @@ export default {
 .text__preview {
   width: 88px;
   height: 36px;
-  font-family: Roboto;
+  font-family: 'Roboto';
   font-size: 15px;
   font-weight: 500;
   font-stretch: normal;

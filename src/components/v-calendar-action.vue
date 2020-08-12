@@ -31,7 +31,7 @@
         <div class="action__bottom absolute_bottom2" :style='{background: `${color}`, "z-index": 1000 - index}'></div> -->
       </div>
     </div>
-    <div v-if="!show_text" class="calendar__action show_on_hover_action">
+    <div v-if="!show_text" class="calendar__action show_on_hover_action" :style='{marginLeft: date_from_ === "2020-08-31" ? "-257px" : "0"}'>
       <div class="action__top">
         <div class="action__icon" :style='{background: `${color}`}'>
           <v-icon :icon="icon" font_size="11px" color="#ffffff"/>
@@ -45,7 +45,7 @@
       <div class="action__bottom" :style='{background: `${color}`}'></div>
       <div class="action__bottom" :style='{background: `${color}`}'></div>
       <div class="action__bottom action__bottom2" :style='{background: `${color}`}'></div>
-      <div class="arrow" :class="{'left0': !show_icon}" :style="{'border-bottom': `8px solid ${color}`}"></div>
+      <div class="arrow" :class="{'left0': !show_icon}" :style="{'border-bottom': `8px solid ${color}`, 'marginLeft': date_from_ === `2020-08-31` ? `257px` : `0`}"></div>
     </div>
   </div>
   

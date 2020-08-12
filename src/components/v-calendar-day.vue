@@ -5,9 +5,9 @@
                                       }">
     <div class="day__name" :class="{'day-active': active}">{{day_name}}</div>
     <div class="day__date">{{day_date}}</div>
-    <div class="day__actions" v-if="actions !== 0">
+    <!-- <div class="day__actions" v-if="actions !== 0">
       {{actions}}
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -23,23 +23,23 @@ export default {
     actions: 0
   }),
   mounted() {
-    let date = new Date();
-    this.actual_date = date.getDate()
-    if(this.day_date == 13){
-      this.actions = 3
-    }
-    if(this.day_date == 5){
-      this.actions = 5
-    }
-    if(this.day_date == 14){
-      this.actions = 1
-    }
-    if(this.day_date == 20){
-      this.actions = 5
-    }
-    if(this.day_date == 24){
-      this.actions = 4
-    }
+    // let date = new Date();
+    // this.actual_date = date.getDate()
+    // if(this.day_date == 13){
+    //   this.actions = 3
+    // }
+    // if(this.day_date == 5){
+    //   this.actions = 5
+    // }
+    // if(this.day_date == 14){
+    //   this.actions = 1
+    // }
+    // if(this.day_date == 20){
+    //   this.actions = 5
+    // }
+    // if(this.day_date == 24){
+    //   this.actions = 4
+    // }
   }
 }
 </script>
