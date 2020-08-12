@@ -89,7 +89,7 @@ export default {
 }
 .add-icon {
   position: absolute;
-  z-index: 99;
+  z-index: 8;
   margin-left: 35px;
 }
 .dg {
