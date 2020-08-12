@@ -1,47 +1,17 @@
 <template>
-  <div :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`}' class="pa">
-    <div v-if="date_from" class="calendar__action hover_action" ref="action">
-      <div class="action__top absolute__top" ref="date">
-        <div v-if="show_icon" class="action__icon" :style='{background: `${color}`}'>
-          <v-icon :icon="icon" font_size="11px" color="#ffffff"/>
-        </div>
-        <p v-if="show_text" class="action__date">{{date_from.substr(8, 2)}}.{{date_from.substr(5, 2)}}.{{date_from.substr(0, 4)}} – {{date_to.substr(8, 2)}}.{{date_to.substr(5, 2)}}.{{date_to.substr(0, 4)}}</p>
-      </div>
-      <p v-if="show_text" class="action__name absolute_name" ref="name">{{name}}</p>
-      <!-- <p v-if="show_text" class="action__desc absolute_desc" ref="desc">{{details}}</p> -->
-      <div class="absolute_bottom" :style='{background: `${color}`}'>
-        <!-- <div v-for="(action, index) in actions" :key="index">
-          <v-calendar-line-action 
-              :date_from="action.date_from"
-              :date_to="action.date_to"
-              :details="action.details"
-              :head="action.head"
-              :id="action.id"
-              :name="action.name"
-              :show_range_as="action.show_range_as"
-              :color="action.color"
-              :pick_date="pick_date"
-              :index="index"
-          />
-        </div> -->
-        <!-- <div class="action__bottom absolute_bottom1" :style='{background: `${color}`, "z-index": index + 1}'></div>
-        <div class="action__bottom absolute_bottom1" :style='{background: `${color}`, "z-index": index}'></div>
-        <div class="action__bottom absolute_bottom1" :style='{background: `${color}`,}'></div>
-        <div class="action__bottom absolute_bottom1" :style='{background: `${color}`, "z-index": 1000 - index}'></div>
-        <div class="action__bottom absolute_bottom2" :style='{background: `${color}`, "z-index": 1000 - index}'></div> -->
-      </div>
+  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, top: `${5 + index * 5}px`}'>
+    <div v-if="date_from" class="hover_action" ref="action">
+			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`}'></div>
     </div>
-    <div v-if="!show_text" class="calendar__action show_on_hover_action">
+    <div class="calendar__action show_on_hover_action">
       <div class="action__top">
         <div class="action__icon" :style='{background: `${color}`}'>
-          <v-icon :icon="icon" font_size="11px" color="#ffffff"/>
+          <v-icon icon="" font_size="11px" color="#ffffff"/>
         </div>
         <p class="action__date">{{date_from.substr(8, 2)}}.{{date_from.substr(5, 2)}}.{{date_from.substr(0, 4)}} – {{date_to.substr(8, 2)}}.{{date_to.substr(5, 2)}}.{{date_to.substr(0, 4)}}</p>
       </div>
       <p class="action__name">{{name}}</p>
       <p class="action__desc">{{details}}</p>
-      <div class="action__bottom" :style='{background: `${color}`}'></div>
-      <div class="action__bottom" :style='{background: `${color}`}'></div>
       <div class="action__bottom" :style='{background: `${color}`}'></div>
       <div class="action__bottom" :style='{background: `${color}`}'></div>
       <div class="action__bottom action__bottom2" :style='{background: `${color}`}'></div>
@@ -53,12 +23,10 @@
 
 <script>
 const VIcon = () => import('./v-icon')
-// const VCalendarLineAction = () => import('./v-calendar-line-action')
 
 export default {
   components: {
-    VIcon,
-    // VCalendarLineAction
+    VIcon
   },
   props: {
     id: null,
@@ -79,24 +47,7 @@ export default {
     details: {
       default: ''
     },
-    actions: {
-      default: []
-    },
-    month: {},
     index: {},
-    // action_date: {},
-    // action_name: {
-    //   default: 'ВНИИЭФ'
-    // },
-    // action_desc:{
-    //   default: 'Название проверки'
-    // },
-    // days: {
-    //   default: 0
-    // },
-    // month_days_ago: {
-    //   default: 0
-    // },
     pick_date: {
       default: 0
     }
@@ -133,22 +84,13 @@ export default {
     // }
 
     if(this.pick_date === 1) {
-      //window.console.log(Number(date_from_month), this.month, Number(date_to_month))
+      
       if( Number(date_from_month) < Number(date_to_month)) {
         this.days_ago = 0
         this.days = date_to_days
-      }
-      if( Number(date_from_month) == Number(date_to_month)) {
+      } else {
         this.days_ago = Number(date_from_days - 1)
         this.days = Number(date_to_days) - Number(date_from_days) + 1
-      }
-      if(Number(date_from_month) < this.month && this.month < Number(date_to_month)) {
-        //window.console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-        
-        let date = new Date();
-        this.days_ago = 0
-        this.days = this.getLastDayOfMonth(date.getFullYear(), this.month - 1)
-        //window.console.log(this.getLastDayOfMonth(date.getFullYear(), this.month - 1))
       }
     }
 
@@ -157,20 +99,17 @@ export default {
 
       this.date_width = this.$refs.date.clientWidth
       this.name_width = this.$refs.name.clientWidth
-      //this.desc_width = this.$refs.desc.clientWidth
+      this.desc_width = this.$refs.desc.clientWidth
 
 
       setTimeout(()=> {
         if(this.$refs.action) {
-        this.setActionWidth()
+					this.setActionWidth()
 
-        setInterval(()=>{
-          this.setActionWidth()
-        },200)
-
-        
-        this.setShowText()
-      }
+					setInterval(()=>{
+						this.setActionWidth()
+					},200)
+				}
       }, 0)
     
 
@@ -182,18 +121,6 @@ export default {
     }
   },
   computed: {
-    icon() {
-      switch (this.name.toLowerCase()) {
-        case 'отпуск':
-          return ''
-        case 'обучение':
-          return ''
-        case 'больничный':
-          return ''
-        default:
-          return ''
-      }
-    },
     width() {
       switch (this.pick_date) {
         case 1:
@@ -224,18 +151,6 @@ export default {
       if(this.$refs.action) {
         this.action_width = this.$refs.action.clientWidth
       }
-    },
-    setShowText() {
-      if(this.action_width <= this.date_width || this.action_width <= this.name_width) {
-        this.show_text = false
-      } else {
-        this.show_text = true
-      }
-      if(this.action_width <= 35) {
-        this.show_icon = false
-      } else {
-        this.show_icon = true
-      }
     }
   }
 }
@@ -259,17 +174,18 @@ export default {
   position: absolute;
   top: 55px;
 }
-.absolute_bottom {
-  margin-top: 65px;
-  height: 15px;
+.absolute_bottom1 {
+  border-radius: 4px;
 }
 .left0 {
   left: 0px !important;
   top: 78px !important;
 }
-
-.calendar__action {
+.line_action{
   height: 80px;
+  padding-top: 65px;
+}
+.calendar__action {
   border-radius: 4px;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
   background-color: var(--white);
@@ -342,7 +258,7 @@ export default {
 }
 .action__bottom {
   width: 100%;
-  height: 2.8px;
+  height: 5px;
   background-color: var(--weird-green);
   position: relative;
 }
@@ -358,7 +274,7 @@ export default {
   bottom: 90px;
   width: auto;
   overflow: unset;
-  z-index: 100;
+  z-index: 1000;
 }
 .hover_action:hover + .show_on_hover_action {
   display: block;

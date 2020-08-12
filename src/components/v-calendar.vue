@@ -3,7 +3,7 @@
 
 
     <div class="pl315 df jcsb w91 aic mb20">
-      <v-radio-buttons v-model="pick_date">
+      <v-radio-buttons>
         <v-radio :value="1" label="1 месяц"></v-radio>
         <v-radio :value="3" label="Квартал"></v-radio>
         <v-radio :value="6" label="Полгода"></v-radio>
@@ -25,7 +25,7 @@
         <v-icon v-if="month !== 11" icon="" class="ml18" width="5" font_size="13px"/>
       </v-calendar-btn>
     </div>
-    <div v-if="pick_date === 3" class="pl315 df jcsb w91 mb20">
+    <!-- <div v-if="pick_date === 3" class="pl315 df jcsb w91 mb20">
       <v-calendar-btn  @click="decrementQuarter">
         <v-icon v-if="month !== 0" icon="" class="mr18" width="5" font_size="13px"/>
         {{getQuarterName(month - 3)}}
@@ -37,7 +37,7 @@
         {{getQuarterName(month + 3)}}
         <v-icon icon="" class="ml18" width="5" font_size="13px"/>
       </v-calendar-btn>
-    </div>
+    </div> -->
 
     <div v-if="pick_date === 1" class="calendar__days pl315 df">
       <v-calendar-day v-for="(day, index) in all_days" :day_name="day.day_name" :day_date="day.day_date" :active="day.active" :key="index"/>
@@ -114,22 +114,44 @@
 
     <!-- ----- -->
     <div class="calendar__objs">
-      <div v-for="(obj, index) in test_arr" :key="index" class="mb20">
-        <div class="df">
+      <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
+        <p class="calendar__departament">{{arr[0].user.department_name}}</p>
+        <div v-for="(obj, index) in arr" :key="index" class="calendar__user-actions">
+          <div class="df">
           <v-calendar-user  v-if="obj.user.name" :user_name="obj.user.name"  />
           <div class="df calendar__actions w100">
-            <v-calendar-action v-for="(action, index) in obj.actions" :key="action.id"
-              :date_from="action.date_from"
-              :date_to="action.date_to"
-              :details="action.details"
-              :head="action.head"
-              :id="action.id"
-              :name="action.name"
-              :show_range_as="action.show_range_as"
-              :color="action.color"
-              :pick_date="pick_date"
-              :index="index"
-            />
+            <div v-for="(action, index) in obj.actions" :key="action.id">
+              <v-calendar-action
+                :date_from="action.date_from"
+                :date_to="action.date_to"
+                :details="action.details"
+                :head="action.head"
+                :id="action.id"
+                :name="action.name"
+                :show_range_as="action.show_range_as"
+                :color="action.color"
+                :pick_date="pick_date"
+                :actions="action.actions"
+                :index="index"
+                :month="month + 1"
+              />
+              <div v-for="(action, index2) in action.actions" :key="index2">
+                <v-calendar-line-action 
+                  :date_from="action.date_from"
+                  :date_to="action.date_to"
+                  :details="action.details"
+                  :head="action.head"
+                  :id="action.id"
+                  :name="action.name"
+                  :show_range_as="action.show_range_as"
+                  :color="action.color"
+                  :pick_date="pick_date"
+                  :index="index"
+              />
+              </div>
+            
+            </div>  
+            
           </div>
         </div>
         <div v-if="pick_date == 1" class="calendar__clear-actions pl315">
@@ -138,6 +160,8 @@
         <div v-else class="calendar__clear-actions pl315">
           <div class="gray_blok"></div>
         </div>
+        </div>
+        
       </div>
     </div>
     <!-- ----- -->
@@ -177,6 +201,8 @@ const VCalendarClearAction = () => import('./v-calendar-clear-action')
 const VCalendarMonthBtn = () => import('./v-calendar-month-btn')
 const VCalendarBtn = () => import('./v-calendar-btn')
 const VRadioButtons = () => import('@/components/v-radio-buttons')
+const VCalendarLineAction = () => import('./v-calendar-line-action')
+
 
 export default {
   components: {
@@ -187,7 +213,8 @@ export default {
     VCalendarMonthBtn,
     VCalendarBtn,
     VIcon,
-    VRadioButtons
+    VRadioButtons,
+    VCalendarLineAction
   },
   data: () => ({
     calendars_obj: [
@@ -537,155 +564,293 @@ export default {
     ],
     actions: [
       {
-        id: 9,
-        name: '9',
-        head: "",
-        date_from: '2020-07-01',
-        date_to: '',
-        user_id: 1,
-        show_range_as: '',
-        details: 'details',
-        color: 'red'
-      },
-      {
-        id: 99,
-        name: '99',
-        head: "",
-        date_from: '2020-07-01',
-        date_to: '',
-        user_id: 1,
-        show_range_as: '',
-        details: 'details',
-        color: 'blue'
-      },
-      {
-        id: 0,
-        name: '0',
-        head: "",
-        date_from: '2020-07-01',
-        date_to: '2020-07-05',
-        user_id: 1,
-        show_range_as: '',
-        details: 'details'
-      },
-      {
         id: 1,
-        name: '1',
+        name: 'ФГУП «ПСЗ»',
         head: "",
-        date_from: '2020-07-08',
-        date_to: '2020-07-10',
+        date_from: '2020-08-03',
+        date_to: '2020-08-10',
         user_id: 1,
         show_range_as: '',
-        details: 'details'
-      },
-      {
-        id: 10,
-        name: '10',
-        head: "",
-        date_from: '2020-07-13',
-        date_to: '2020-07-15',
-        user_id: 1,
-        show_range_as: '',
-        details: 'details'
+        details: 'Название проверки',
+        color: '#007aff'
       },
       {
         id: 2,
-        name: '2',
+        name: 'ФГУП «ПО «Маяк»',
         head: "",
-        date_from: '2020-07-15',
-        date_to: '',
+        date_from: '2020-08-07',
+        date_to: '2020-08-17',
         user_id: 1,
         show_range_as: '',
-        color: 'yellow',
-        details: 'details'
+        details: 'Название проверки',
+        color: '#ff3b30'
       },
       {
         id: 3,
-        name: '3',
+        name: 'ВНИИЭФ',
         head: "",
-        date_from: '2020-07-07',
-        date_to: '',
-        user_id: 2,
+        date_from: '2020-08-20',
+        date_to: '2020-08-28',
+        user_id: 1,
         show_range_as: '',
-        details: 'details'
+        details: 'Название проверки',
+        color: '#4cd964'
       },
       {
         id: 4,
-        name: '4',
+        name: 'ВНИИА',
         head: "",
-        date_from: '2020-07-15',
-        date_to: '2020-07-16',
+        date_from: '2020-08-31',
+        date_to: '2020-08-31',
+        user_id: 1,
+        show_range_as: '',
+        details: 'Название проверки',
+        color: '#ff3b30'
+      },
+      {
+        id: 4,
+        name: 'ВНИИЭФ',
+        head: "",
+        date_from: '2020-08-01',
+        date_to: '2020-08-13',
         user_id: 2,
         show_range_as: '',
-        details: 'details'
+        details: 'Название проверки',
+        color: '#ff3b30'
+      },
+      {
+        id: 4,
+        name: 'ФГУП «НИТИ им. А. П. Александрова»',
+        head: "",
+        date_from: '2020-08-14',
+        date_to: '2020-08-17',
+        user_id: 2,
+        show_range_as: '',
+        details: 'Название проверки',
+        color: '#4cd964'
+      },
+      {
+        id: 2,
+        name: 'ФГУП «ПСЗ»',
+        head: "",
+        date_from: '2020-08-19',
+        date_to: '2020-08-28',
+        user_id: 2,
+        show_range_as: '',
+        details: 'Название проверки',
+        color: '#007aff'
+      },
+      {
+        id: 2,
+        name: 'ВНИИА',
+        head: "",
+        date_from: '2020-08-12',
+        date_to: '2020-08-29',
+        user_id: 3,
+        show_range_as: '',
+        details: 'Название проверки',
+        color: '#ff3b30'
+      },
+      {
+        id: 4,
+        name: 'Отпуск',
+        head: "",
+        date_from: '2020-07-16',
+        date_to: '2020-08-10',
+        user_id: 3,
+        show_range_as: '',
+        details: 'Дополнительное поле',
+        color: '#8e8e93'
+      },
+      {
+        id: 4,
+        name: 'Отпуск',
+        head: "",
+        date_from: '2020-07-16',
+        date_to: '2020-08-10',
+        user_id: 3,
+        show_range_as: '',
+        details: 'Дополнительное поле',
+        color: '#8e8e93'
       },
       {
         id: 5,
-        name: '5',
+        name: 'Обучение',
         head: "",
-        date_from: '2020-07-20',
-        date_to: '2020-07-26',
-        user_id: 1,
+        date_from: '2020-07-07',
+        date_to: '2020-09-01',
+        user_id: 4,
         show_range_as: '',
-        details: 'details'
+        details: 'Дополнительное поле',
+        color: '#8e8e93'
       },
       {
         id: 6,
-        name: '6',
+        name: 'ВНИИА',
         head: "",
-        date_from: '2020-07-15',
-        date_to: '2020-07-25',
-        color: 'red',
-        user_id: 3,
+        date_from: '2020-08-25',
+        date_to: '2020-08-31',
+        user_id: 5,
         show_range_as: '',
-        details: 'details'
+        details: 'Название проверки',
+        color: '#ff3b30'
+      },
+      {
+        id: 9,
+        name: 'ФГУП «Атомфлот»',
+        head: "",
+        date_from: '2020-08-03',
+        date_to: '2020-08-21',
+        user_id: 5,
+        show_range_as: '',
+        details: 'Название проверки',
+        color: '#007aff'
       },
       {
         id: 7,
-        name: '7',
+        name: 'Больничный',
         head: "",
         date_from: '2020-07-20',
-        date_to: '2020-07-25',
-        user_id: 3,
+        date_to: '2020-08-21',
+        user_id: 6,
         show_range_as: '',
-        details: 'details'
+        details: 'Дополнительное поле',
+        color: '#8e8e93'
       },
       {
-        id: 8,
-        name: '8',
+        id: 7,
+        name: 'ВНИИЭФ',
         head: "",
-        date_from: '2020-07-28',
-        date_to: '2020-07-29',
-        user_id: 1,
+        date_from: '2020-08-24',
+        date_to: '2020-08-28',
+        user_id: 6,
         show_range_as: '',
-        details: 'details'
-      },
+        details: 'Дополнительное поле',
+        color: '#ff3b30'
+      }
     ],
     users: [
       {
         id: 1,
-        name: 'User 1'
+        name: 'Куликов Б. Ю.',
+        department: 1,
+        department_name: 'Отдел государственного строительного надзора'
       },
       {
         id: 2,
-        name: 'User 2'
+        name: 'Сидельников А. Г.',
+        department: 1,
+        department_name: 'Отдел государственного строительного надзора'
       },
       {
         id: 3,
-        name: 'User 3'
-      }
+        name: 'Морозов М. А.',
+        department: 1,
+        department_name: 'Отдел государственного строительного надзора'
+      },
+      {
+        id: 4,
+        name: 'Куприянов В. Ю.',
+        department: 1,
+        department_name: 'Отдел государственного строительного надзора'
+      },
+      {
+        id: 5,
+        name: 'Бегларян В. В.',
+        department: 2,
+        department_name: 'Отдел технического контроля и испытаний'
+      },
+      {
+        id: 6,
+        name: 'Сотрудник А. А.',
+        department: 2,
+        department_name: 'Отдел технического контроля и испытаний'
+      },
     ],
     test_arr: [],
+    test_actions: [],
     month: '',
     week_day: '',
     last_day_of_month: '',
     all_days: [],
-    pick_date: 1
+    pick_date: 1,
+    departments: [],
+    dep_arr: []
   }),
   created() {
+    let departments_id = []
     this.users.forEach((user) => {
-      let user_actions = this.actions.filter((action) => {return action.user_id == user.id})
-      window.console.log(user_actions)
+      departments_id.push(user.department)
+    })
+    let uniqueArray = departments_id.filter(function(item, pos) {
+      return departments_id.indexOf(item) == pos;
+    }) 
+
+    uniqueArray.forEach((id) => {
+      let user_by_dep = this.users.filter((user) => {return user.department == id})
+      this.departments.push({
+        users: user_by_dep,
+        users_department: user_by_dep[0].department_name
+      })
+    })
+
+
+    this.departments.forEach((dep)=>{
+      let dep_obj = []
+      dep.users.forEach((user) => {
+        let user_actions = this.actions.filter((action_) => {return action_.user_id == user.id})
+        //window.console.log(user_actions)
+
+        user_actions.forEach((action) => {
+          let date_from_month = action.date_from.substr(5, 2)
+          let date_from_days = action.date_from.substr(8, 2)
+
+          //let date_to_month = action.date_to_.substr(5, 2)
+          let date_to_days = action.date_to.substr(8, 2)
+
+          let actions_by_month = user_actions.filter((action_) => {return action_.date_from.substr(5, 2) === date_from_month})
+
+          let actions_by_days = actions_by_month.filter((action_) => {
+            if( action_.date_from.substr(8, 2) >= date_from_days && action_.date_from.substr(8, 2) <= date_to_days && action_.id !== action.id) {
+              return action_
+            } else if (action_.date_to.substr(8, 2) >= date_from_days && action_.date_to.substr(8, 2) <= date_to_days && action_.id !== action.id) {
+              return action_
+            }
+          })
+          action.actions = actions_by_days
+        })
+        
+        dep_obj.push({
+          actions: user_actions,
+          user: user
+        })
+      })
+      this.dep_arr.push(dep_obj)
+    })
+
+    this.users.forEach((user) => {
+      let user_actions = this.actions.filter((action_) => {return action_.user_id == user.id})
+      //window.console.log(user_actions)
+
+      user_actions.forEach((action) => {
+        let date_from_month = action.date_from.substr(5, 2)
+        let date_from_days = action.date_from.substr(8, 2)
+
+        //let date_to_month = action.date_to_.substr(5, 2)
+        let date_to_days = action.date_to.substr(8, 2)
+
+        let actions_by_month = user_actions.filter((action_) => {return action_.date_from.substr(5, 2) === date_from_month})
+
+        let actions_by_days = actions_by_month.filter((action_) => {
+          if( action_.date_from.substr(8, 2) >= date_from_days && action_.date_from.substr(8, 2) <= date_to_days && action_.id !== action.id) {
+            return action_
+          } else if (action_.date_to.substr(8, 2) >= date_from_days && action_.date_to.substr(8, 2) <= date_to_days && action_.id !== action.id) {
+            return action_
+          }
+        })
+        action.actions = actions_by_days
+      })
+
       this.test_arr.push({
         actions: user_actions,
         user: user
@@ -703,6 +868,10 @@ export default {
     this.week_day = this.getWeekDay(date)
     this.last_day_of_month = this.getLastDayOfMonth(year, month)
 
+    //let actions_arr = new Array(max_day_in_month)
+    
+    
+
     for (let i = 0; i < max_day_in_month; i++) {
       this.all_days[i] = {
         day_date: i+1,
@@ -710,6 +879,17 @@ export default {
         active: today == (i+1) ? true : false
       }
     }
+
+    // this.all_days.forEach((day)=>{
+    //   window.console.log(day)
+    // })
+    this.test_arr.forEach((test_obj)=> {
+      test_obj.actions.forEach((action)=> {
+        action.actions.forEach((action) => {
+          window.console.log(action)
+        })
+      })
+    })
   },
   methods: {
     getAllDays() {
@@ -812,6 +992,9 @@ export default {
 .pl315{
   padding-left: 315px;
 }
+.mb40 {
+  margin-bottom: 40px;
+}
 .w91 {
   width: 91%;
 }
@@ -838,6 +1021,22 @@ export default {
   margin-bottom: -80px;
 }
 .calendar__objs {
+}
+.calendar__user-actions {
+  margin-bottom: 7px;
+}
+.calendar__departament {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--dark);
+  margin-bottom: 25px;
+  max-width: 270px;
 }
 .calendar__objs::-webkit-scrollbar {
   width: 11px;

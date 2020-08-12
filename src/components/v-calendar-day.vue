@@ -5,6 +5,9 @@
                                       }">
     <div class="day__name" :class="{'day-active': active}">{{day_name}}</div>
     <div class="day__date">{{day_date}}</div>
+    <div class="day__actions" v-if="actions !== 0">
+      {{actions}}
+    </div>
   </div>
 </template>
 
@@ -17,10 +20,26 @@ export default {
   },
   data: () => ({
     actual_date: '',
+    actions: 0
   }),
   mounted() {
     let date = new Date();
     this.actual_date = date.getDate()
+    if(this.day_date == 13){
+      this.actions = 3
+    }
+    if(this.day_date == 5){
+      this.actions = 5
+    }
+    if(this.day_date == 14){
+      this.actions = 1
+    }
+    if(this.day_date == 20){
+      this.actions = 5
+    }
+    if(this.day_date == 24){
+      this.actions = 4
+    }
   }
 }
 </script>
@@ -58,5 +77,21 @@ export default {
 }
 .day-off {
   opacity: 0.5;
+}
+.day__actions {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  float: right;
+  position: relative;
+  bottom: 97px;
+  left: 7px;
+  color: var(--dark);
+  background-color: var(--white);
+  font-family: Roboto;
 }
 </style>
