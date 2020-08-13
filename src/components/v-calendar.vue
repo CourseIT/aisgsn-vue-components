@@ -200,7 +200,7 @@ const VCalendarAction = () => import('./v-calendar-action')
 const VCalendarClearAction = () => import('./v-calendar-clear-action')
 const VCalendarMonthBtn = () => import('./v-calendar-month-btn')
 const VCalendarBtn = () => import('./v-calendar-btn')
-const VRadioButtons = () => import('@/components/v-radio-buttons')
+const VRadioButtons = () => import('./components/v-radio-buttons')
 const VCalendarLineAction = () => import('./v-calendar-line-action')
 
 
