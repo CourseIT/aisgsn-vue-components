@@ -191,7 +191,7 @@ export default {
         case 'больничный':
           return ''
         default:
-          return ''
+          return ''
       }
     },
     width() {
