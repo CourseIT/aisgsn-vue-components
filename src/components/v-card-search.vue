@@ -85,6 +85,7 @@ export default {
     showBlock() {
       window.console.log('----')
       this.search_block_show = !this.search_block_show
+      this.action()
     },
     resetInput() {
       this.$emit('input', '')

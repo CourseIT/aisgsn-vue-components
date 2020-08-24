@@ -1,7 +1,7 @@
 <template>
-  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${70 + index * 5}px`}'>
+  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${65 + index * 5}px`}'>
     <div v-if="date_from" class="hover_action" ref="action">
-			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`}'></div>
+			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`, zIndex: `${999 - index}`}'></div>
     </div>
     <div class="calendar__action show_on_hover_action">
       <div class="action__top">
@@ -71,32 +71,11 @@ export default {
     } else {
       this.date_to_ = this.date_from
     }
-    let date_from_year = this.date_from.substr(0, 4)
-    let date_from_month = this.date_from.substr(5, 2)
-    let date_from_days = this.date_from.substr(8, 2)
 
-    let date_to_year = this.date_to_.substr(0, 4)
-    let date_to_month = this.date_to_.substr(5, 2)
-    let date_to_days = this.date_to_.substr(8, 2)
+    this.setDaysAgo()
 
-    // if(this.date_to.length <= 0) {
-    //   this.date_to_ = this.date_from
-    // }
 
-    if(this.pick_date === 1) {
-      
-      if( Number(date_from_month) < Number(date_to_month)) {
-        this.days_ago = 0
-        this.days = date_to_days
-      } else {
-        this.days_ago = Number(date_from_days - 1)
-        this.days = Number(date_to_days) - Number(date_from_days) + 1
-      }
-    }
-
-    
-    window.console.log(date_from_year, date_from_month, date_from_days, '|', date_to_year, date_to_month, date_to_days)
-
+    this.$nextTick(function () {
       this.date_width = this.$refs.date.clientWidth
       this.name_width = this.$refs.name.clientWidth
       this.desc_width = this.$refs.desc.clientWidth
@@ -111,6 +90,7 @@ export default {
 					},200)
 				}
       }, 0)
+    })
     
 
     
@@ -118,6 +98,9 @@ export default {
   watch: {
     action_width() {
       this.setShowText()
+    },
+    pick_date() {
+      this.setDaysAgo()
     }
   },
   computed: {
@@ -127,6 +110,10 @@ export default {
           return 3
         case 3:
           return 1
+        case 6:
+          return 0.6
+        case 12:
+          return 0.3
         default:
           return 0
       }
@@ -150,6 +137,109 @@ export default {
     setActionWidth() {
       if(this.$refs.action) {
         this.action_width = this.$refs.action.clientWidth
+      }
+    },
+    setDaysAgo() {
+      let date = new Date();
+      let date_from_year = this.date_from.substr(0, 4)
+      let date_from_month = this.date_from.substr(5, 2)
+      let date_from_days = this.date_from.substr(8, 2)
+
+      let date_to_year = this.date_to_.substr(0, 4)
+      let date_to_month = this.date_to_.substr(5, 2)
+      let date_to_days = this.date_to_.substr(8, 2)
+      window.console.log(date_from_year, date_from_month, date_from_days, '|', date_to_year, date_to_month, date_to_days)
+
+      if(this.pick_date === 1) {
+        if( Number(date_from_month) < Number(date_to_month)) {
+          this.days_ago = 0
+          this.days = date_to_days
+        }
+        if( Number(date_from_month) == Number(date_to_month)) {
+          this.days_ago = Number(date_from_days - 1)
+          this.days = Number(date_to_days) - Number(date_from_days) + 1
+        }
+        if(Number(date_from_month) < this.month && this.month < Number(date_to_month)) {
+          this.days_ago = 0
+          this.days = this.getLastDayOfMonth(date.getFullYear(), this.month - 1)
+        }
+      }
+
+      if(this.pick_date === 3) {
+        let days_ago = 0
+        let days = 0
+
+        this.days_ago = Number(date_from_days - 1)
+        if(date_from_month == 1 || date_from_month == 4 || date_from_month == 7 || date_from_month == 10) {
+          for(let month = Number(date_from_month); month < Number(date_to_month) && month < (Number(date_from_month) + 3); month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+          }
+          //days_ago = this.getLastDayOfMonth(date.getFullYear(), date_from_month - 2)
+        }
+        // for(let month = Number(date_from_month); month < Number(date_to_month) && month < (Number(date_form_month) + 3); month++) {
+        //   days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+        //   window.console.log(days)
+        // }
+        //this.days = (days - Number(date_from_days) + 1 + Number(date_to_days))
+
+        if(date_from_month == 2 || date_from_month == 5 || date_from_month == 8 || date_from_month == 11) {
+          for(let month = Number(date_from_month); month < Number(date_to_month) && month < (Number(date_from_month) + 2); month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+          }
+          days_ago = this.getLastDayOfMonth(date.getFullYear(), date_from_month - 2)
+        }
+
+        if(date_from_month == 3 || date_from_month == 6 || date_from_month == 9 || date_from_month == 12) {
+          for(let month = Number(date_from_month); month < Number(date_to_month) && month < (Number(date_from_month) + 1); month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+          }
+          days_ago = this.getLastDayOfMonth(date.getFullYear(), date_from_month - 3)
+        }
+
+        this.days = (days - Number(date_from_days) + 1 + Number(date_to_days))
+        this.days_ago += days_ago
+      }
+
+      if(this.pick_date === 6) {
+        let days_ago = 0
+        let days = 0
+
+        if(date_from_month == 1 || date_from_month == 2 || date_from_month == 3 || date_from_month == 4 || date_from_month == 5 || date_from_month == 6) {
+          for(let month = Number(date_from_month); month < Number(date_to_month) && month < 6; month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+          }
+          for(let month = 0; month < Number(date_from_month); month++) {
+            days_ago += this.getLastDayOfMonth(date.getFullYear(), month)
+          }
+          days_ago += Number(date_from_days)
+        }
+
+        if(date_from_month == 7 || date_from_month == 8 || date_from_month == 9 || date_from_month == 10 || date_from_month == 11 || date_from_month == 12) {
+          for(let month = Number(date_from_month); month < Number(date_to_month) && month < 12; month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+          }
+          for(let month = 7; month < Number(date_from_month); month++) {
+            days_ago += this.getLastDayOfMonth(date.getFullYear(), month)
+          }
+          days_ago += (Number(date_from_days) - 1)
+        }
+
+        this.days = (days - Number(date_from_days) + 1 + Number(date_to_days))
+        this.days_ago += days_ago
+      }
+
+      if(this.pick_date == 12) {
+        let days_ago = 0
+        let days = 0
+        for(let month = Number(date_from_month); month < Number(date_to_month) && month < 13; month++) {
+            days += this.getLastDayOfMonth(date.getFullYear(), month - 1)
+        }
+        for(let month = 0; month < Number(date_from_month); month++) {
+          days_ago += this.getLastDayOfMonth(date.getFullYear(), month)
+        }
+        days_ago += (Number(date_from_days) - 1)
+        this.days = (days - Number(date_from_days) + 1 + Number(date_to_days))
+        this.days_ago += days_ago
       }
     }
   }
@@ -175,7 +265,6 @@ export default {
   top: 55px;
 }
 .absolute_bottom1 {
-  border-radius: 4px;
   cursor: pointer;
 }
 .left0 {

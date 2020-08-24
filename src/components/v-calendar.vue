@@ -3,7 +3,7 @@
 
 
     <div class="pl315 df jcsb w91 aic mb20">
-      <v-radio-buttons>
+      <v-radio-buttons v-model="pick_date">
         <v-radio :value="1" label="1 месяц"></v-radio>
         <v-radio :value="3" label="Квартал"></v-radio>
         <v-radio :value="6" label="Полгода"></v-radio>
@@ -116,11 +116,11 @@
     <div class="calendar__objs">
       <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
         <p class="calendar__departament">{{arr[0].user.department_name}}</p>
-        <div v-for="(obj, index) in arr" :key="index" class="calendar__user-actions">
+        <div v-for="(obj, index2) in arr" :key="index2 + index" class="calendar__user-actions">
           <div class="df">
           <v-calendar-user  v-if="obj.user.name" :user_name="obj.user.name"  />
           <div class="df calendar__actions w100">
-            <div v-for="(action, index) in obj.actions" :key="action.id">
+            <div v-for="(action, index) in obj.actions" :key="action.id + pick_date">
               <v-calendar-action
                 :date_from="action.date_from"
                 :date_to="action.date_to"
@@ -135,7 +135,7 @@
                 :index="index"
                 :month="month + 1"
               />
-              <div v-for="(action, index2) in action.actions" :key="index2">
+              <div v-for="(action, index2) in action.actions" :key="index2 + action.id + pick_date">
                 <v-calendar-line-action 
                   :date_from="action.date_from"
                   :date_to="action.date_to"
@@ -146,7 +146,7 @@
                   :show_range_as="action.show_range_as"
                   :color="action.color"
                   :pick_date="pick_date"
-                  :index="index"
+                  :index="index2"
               />
               </div>
             
@@ -678,7 +678,7 @@ export default {
         name: 'Обучение',
         head: "",
         date_from: '2020-07-07',
-        date_to: '2020-09-01',
+        date_to: '2020-11-01',
         user_id: 4,
         show_range_as: '',
         details: 'Дополнительное поле',
