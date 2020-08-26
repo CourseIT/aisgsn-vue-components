@@ -113,7 +113,7 @@
     </div> -->
 
     <!-- ----- -->
-    <div class="calendar__objs">
+    <div class="calendar__objs" v-if="pick_date == 1">
       <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
         <p class="calendar__departament">{{arr[0].user.department_name}}</p>
         <div v-for="(obj, index2) in arr" :key="index2 + index" class="calendar__user-actions">
@@ -158,6 +158,159 @@
           <v-calendar-clear-action v-for="(day, index) in all_days" :key="index"/>
         </div>
         <div v-else class="calendar__clear-actions pl315">
+          <div class="gray_blok"></div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+    <!-- ----- -->
+
+    <!-- ----- -->
+    <div class="calendar__objs" v-if="pick_date == 3">
+      <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
+        <p class="calendar__departament">{{arr[0].user.department_name}}</p>
+        <div v-for="(obj, index2) in arr" :key="index2 + index" class="calendar__user-actions">
+          <div class="df">
+          <v-calendar-user  v-if="obj.user.name" :user_name="obj.user.name"  />
+          <div class="df calendar__actions w100">
+            <div v-for="(action, index) in obj.actions" :key="action.id + 3">
+              <v-calendar-action
+                :date_from="action.date_from"
+                :date_to="action.date_to"
+                :details="action.details"
+                :head="action.head"
+                :id="action.id"
+                :name="action.name"
+                :show_range_as="action.show_range_as"
+                :color="action.color"
+                :pick_date="3"
+                :actions="action.actions"
+                :index="index"
+                :month="month + 1"
+              />
+              <div v-for="(action, index2) in action.actions" :key="index2 + action.id + 3">
+                <v-calendar-line-action 
+                  :date_from="action.date_from"
+                  :date_to="action.date_to"
+                  :details="action.details"
+                  :head="action.head"
+                  :id="action.id"
+                  :name="action.name"
+                  :show_range_as="action.show_range_as"
+                  :color="action.color"
+                  :pick_date="3"
+                  :index="index2"
+              />
+              </div>
+            
+            </div>  
+            
+          </div>
+        </div>
+        <div class="calendar__clear-actions pl315">
+          <div class="gray_blok"></div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+    <!-- ----- -->
+
+    <!-- ----- -->
+    <div class="calendar__objs" v-if="pick_date == 6">
+      <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
+        <p class="calendar__departament">{{arr[0].user.department_name}}</p>
+        <div v-for="(obj, index2) in arr" :key="index2 + index" class="calendar__user-actions">
+          <div class="df">
+          <v-calendar-user  v-if="obj.user.name" :user_name="obj.user.name"  />
+          <div class="df calendar__actions w100">
+            <div v-for="(action, index) in obj.actions" :key="action.id + 6">
+              <v-calendar-action
+                :date_from="action.date_from"
+                :date_to="action.date_to"
+                :details="action.details"
+                :head="action.head"
+                :id="action.id"
+                :name="action.name"
+                :show_range_as="action.show_range_as"
+                :color="action.color"
+                :pick_date="6"
+                :actions="action.actions"
+                :index="index"
+                :month="month + 1"
+              />
+              <div v-for="(action, index2) in action.actions" :key="index2 + action.id + 6">
+                <v-calendar-line-action 
+                  :date_from="action.date_from"
+                  :date_to="action.date_to"
+                  :details="action.details"
+                  :head="action.head"
+                  :id="action.id"
+                  :name="action.name"
+                  :show_range_as="action.show_range_as"
+                  :color="action.color"
+                  :pick_date="6"
+                  :index="index2"
+              />
+              </div>
+            
+            </div>  
+            
+          </div>
+        </div>
+        <div class="calendar__clear-actions pl315">
+          <div class="gray_blok"></div>
+        </div>
+        </div>
+        
+      </div>
+    </div>
+    <!-- ----- -->
+
+    <!-- ----- -->
+    <div class="calendar__objs" v-if="pick_date == 12">
+      <div v-for="(arr, index) in dep_arr" :key="index" class="mb40">
+        <p class="calendar__departament">{{arr[0].user.department_name}}</p>
+        <div v-for="(obj, index2) in arr" :key="index2 + index" class="calendar__user-actions">
+          <div class="df">
+          <v-calendar-user  v-if="obj.user.name" :user_name="obj.user.name"  />
+          <div class="df calendar__actions w100">
+            <div v-for="(action, index) in obj.actions" :key="action.id + 12">
+              <v-calendar-action
+                :date_from="action.date_from"
+                :date_to="action.date_to"
+                :details="action.details"
+                :head="action.head"
+                :id="action.id"
+                :name="action.name"
+                :show_range_as="action.show_range_as"
+                :color="action.color"
+                :pick_date="12"
+                :actions="action.actions"
+                :index="index"
+                :month="month + 1"
+              />
+              <div v-for="(action, index2) in action.actions" :key="index2 + action.id + 12">
+                <v-calendar-line-action 
+                  :date_from="action.date_from"
+                  :date_to="action.date_to"
+                  :details="action.details"
+                  :head="action.head"
+                  :id="action.id"
+                  :name="action.name"
+                  :show_range_as="action.show_range_as"
+                  :color="action.color"
+                  :pick_date="12"
+                  :index="index2"
+              />
+              </div>
+            
+            </div>  
+            
+          </div>
+        </div>
+        <div class="calendar__clear-actions pl315">
           <div class="gray_blok"></div>
         </div>
         </div>
