@@ -46,7 +46,12 @@ export default {
     label: {
       default: ''
     },
-    action: {
+    action_show: {
+      default: function() {
+        return () => ({})
+      }
+    },
+    action_reset: {
       default: function() {
         return () => ({})
       }
@@ -83,14 +88,13 @@ export default {
   },
   methods: {
     showBlock() {
-      window.console.log('----')
       this.search_block_show = !this.search_block_show
-      this.action()
+      this.action_show()
     },
     resetInput() {
       this.$emit('input', '')
       setTimeout(()=>{
-        this.action()
+        this.action_reset()
       },0)
     }
   }
