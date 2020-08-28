@@ -58,6 +58,7 @@ export { default as VCalendarDay } from './components/v-calendar-day'
 export { default as VCalendarLineAction } from './components/v-calendar-line-action'
 export { default as VCalendarMonthBtn } from './components/v-calendar-month-btn'
 export { default as VCalendarUser } from './components/v-calendar-user'
+export { default as VGroupCollapse } from './components/v-group-collapse'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'

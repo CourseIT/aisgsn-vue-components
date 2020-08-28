@@ -685,6 +685,10 @@
     <v-message status="success">
       Какой-то текст
     </v-message>
+
+    <v-group-collapse v-model="group_collapse" :show_block="group_collapse" class="mt20" title="Какой-то заголовок">
+      test
+    </v-group-collapse>
     
 
   </div>
@@ -747,6 +751,7 @@ const VDownloadFile = () => import('@/components/v-download-file')
 const VCalendar = () => import('@/components/v-calendar')
 const VLabelHint = () => import('@/components/v-label-hint')
 const VMessage = () => import('@/components/v-message')
+const VGroupCollapse = () => import('@/components/v-group-collapse')
 
 
 export default {
@@ -806,9 +811,11 @@ export default {
     // VIconSave,
     VCalendar,
     VLabelHint,
-    VMessage
+    VMessage,
+    VGroupCollapse
   },
   data: () => ({
+    group_collapse: true,
     d_file: '',
     alert_show: false,
     dragging: false,
