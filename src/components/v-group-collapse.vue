@@ -6,7 +6,7 @@
     </div>
     <transition name="groupCollapse">
       <div class="v-group-collapse__show-block" v-if="showBlock">
-        <div class="mb300 mt10">
+        <div class=" mt10">
           <slot>
           </slot>
         </div>
@@ -57,9 +57,6 @@ export default {
 </script>
 
 <style scoped>
-.mb300 {
-  margin-bottom: 300px;
-}
 .v-group-collapse {
   padding: 20px 15px;
   border-radius: 4px;

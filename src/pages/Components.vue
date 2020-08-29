@@ -687,7 +687,7 @@
     </v-message>
 
     <v-group-collapse v-model="group_collapse" :show_block="group_collapse" class="mt20" title="Какой-то заголовок">
-      test
+      <p class="mb300">test</p>
     </v-group-collapse>
     
 
@@ -815,7 +815,7 @@ export default {
     VGroupCollapse
   },
   data: () => ({
-    group_collapse: true,
+    group_collapse: false,
     d_file: '',
     alert_show: false,
     dragging: false,
@@ -1280,6 +1280,9 @@ export default {
 <style scoped>
 .ml600 {
   margin-left: 600px;
+}
+.mb300 {
+  margin-bottom: 300px;
 }
 .components {
   padding-bottom: 400px;
