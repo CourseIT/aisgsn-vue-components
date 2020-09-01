@@ -23,7 +23,7 @@ export default {
     title: {
       default: ''
     },
-    show_block: {
+    collapsed: {
       default: false
     }
   },
@@ -34,7 +34,7 @@ export default {
     showBlock: false
   }),
   mounted() {
-    if(this.show_block == true) {
+    if(this.collapsed == true) {
       this.showBlock = true
       this.$emit('input', true)
     } else {
