@@ -35,22 +35,22 @@ export default {
   }),
   mounted() {
     if(this.collapsed == true) {
-      this.showBlock = true
+      this.showBlock = false
       this.$emit('input', true)
     } else {
-      this.showBlock = false
+      this.showBlock = true
       this.$emit('input', false)
     }
   },
-  watch: {
+  collapsed: {
     show_block(val) {
-      this.showBlock = val
+      this.showBlock = !val
     }
   },
   methods: {
     toggleShow() {
       this.showBlock = !this.showBlock
-      this.$emit('input', this.showBlock)
+      this.$emit('input', !this.showBlock)
     }
   }
 }
