@@ -686,7 +686,7 @@
       Какой-то текст
     </v-message>
 
-    <v-group-collapse v-model="group_collapse" :collapsed="group_collapse" class="mt20" title="Какой-то заголовок">
+    <v-group-collapse v-model="group_collapse" class="mt20" title="Какой-то заголовок">
       <p class="mb300">test</p>
     </v-group-collapse>
     

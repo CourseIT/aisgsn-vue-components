@@ -1,5 +1,5 @@
 <template>
-  <div class="v-group-collapse">
+  <div class="v-group-collapse" :class="{'read-only': readOnly == true}">
     <div class="v-group-collapse__header">
       <p>{{title}}</p>
        <v-icon class="v-group-collapse__icon" :class="{'v-group-collapse__icon--active': showBlock, 'v-group-collapse__icon--no-titile': !title}" font_size="21px" :hover_color="true" icon="" :action="toggleShow"/>
@@ -23,9 +23,10 @@ export default {
     title: {
       default: ''
     },
-    collapsed: {
+    value: {},
+    only_one: {
       default: false
-    }
+    },
   },
   components: {
     VIcon,
@@ -34,16 +35,14 @@ export default {
     showBlock: false
   }),
   mounted() {
-    if(this.collapsed == true) {
+    if(this.value == true) {
       this.showBlock = false
-      this.$emit('input', true)
     } else {
       this.showBlock = true
-      this.$emit('input', false)
     }
   },
-  collapsed: {
-    show_block(val) {
+  watch: {
+    value(val) {
       this.showBlock = !val
     }
   },
@@ -52,7 +51,18 @@ export default {
       this.showBlock = !this.showBlock
       this.$emit('input', !this.showBlock)
     }
-  }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
 }
 </script>
 
