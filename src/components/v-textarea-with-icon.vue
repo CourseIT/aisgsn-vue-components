@@ -6,7 +6,7 @@
         <textarea :placeholder="placeholder" v-model="text" cols="10" rows="4"></textarea>
         <div class="icon" :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
           <slot name="icon">
-            <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " class="icon-block"/>
+            <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? 'var(--bright-orange)' : '#21262c' " class="icon-block"/>
           </slot>
         </div>
         <div v-if="template_show">

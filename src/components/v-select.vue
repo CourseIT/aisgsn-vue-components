@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}">
-    <div class="select w132" :class="{'pos-r': menu_show}" :style="{'width': width}" ref="select">
+    <div class="select w132" :class="{'pos-r': menu_show, 'select-style2': style_type == 'style2'}" :style="{'width': width}" ref="select">
       <button v-if="icon_left" class="main-btn" :class="{'error-status' : error}">
         <div class="hover-btn df w100">
           <div @click="menu_show = !menu_show" class="hover-btn">
@@ -66,6 +66,7 @@ export default {
   name: 'VSelect',
   props: {
     error: {},
+    style_type: {},
     value: {
       type: String,
       default: 'Кнопка'

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="date-range-btn__block">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'date-range-btn__block': style_type != 'style2', 'date-range-btn__block-style2': style_type == 'style2'}">
     <div v-if="date_range_input_show">
       <div class="date-range-btn-input">
         <form @submit="emitDateRangeInput">
@@ -41,6 +41,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     read_only: {},
     visible: {
       default: true

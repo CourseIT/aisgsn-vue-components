@@ -1,6 +1,6 @@
 <template>
   <div class="menu" :class="{openMenu: $store.state.menu_visibility}">
-    <div class="animate" :class="{'lightGamma': light_gamma}">
+    <div class="animate" :class="{'lightGamma': light_gamma && style != 'style2', 'menu-style2': style == 'style2', 'lightGamma2': light_gamma && style == 'style2'}">
       <div class="menu-top-bg"></div>
       <div class="menu__container">
         <slot name="search">
@@ -35,6 +35,11 @@
 <script>
 
 export default {
+  props: {
+    style_type: {
+      default: 'style1'
+    },
+  },
   data: () => ({
     light_gamma: false,
     text_size: 16
@@ -142,7 +147,7 @@ export default {
   display: none;
 }
 .lightGamma {
-  background-color: #e5e5ea !important;
+  background-color: var(--pale-lilac) !important;
   color: #000 !important;
 }
 .color-black{

@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-select">
+  <div :class="{'icon-select': style_type != 'style2', 'icon-select-style2': style_type == 'style2'}">
     <v-icon :icon="icon" :action="showSelects" :hover_color="hover_color" :prompt="hint" :hover_shadow="hover_shadow" :font_size="font_size"  :class="{'icon__active': show_selects}" />
     <div v-if="show_selects" class="select-block">
       <div @click="showSelects">
@@ -16,6 +16,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     icon:{
       default: ''
     },

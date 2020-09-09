@@ -2,13 +2,18 @@
   --font-awesome-5-pro: "Font Awesome 5 Pro";
   --font-awesome-5-pro-light: "Font Awesome 5 Pro";
   --font-awesome-5-pro-regular: "Font Awesome 5 Pro Regular";
-  --bright-orange: #fb6229;
+  --bright-orange: #fb6229;       /* стили для аисгсн */
+  --pale-grey: #efeff4;
+  --pale-lilac: #e5e5ea;
+
+  /* --bright-orange: #c58b4a;       стили для липетска
+  --pale-lilac: #e7e5dc;
+  --pale-grey: #f5f4ed; */
+
   --dark: #21262c;
   --white: #fff;
   --red: #de251d;
   --light-grey: #e7e5dc;
-  --pale-grey: #efeff4;
-  --pale-lilac: #e5e5ea;
   --pre-light: #f5f4ed;
   --weird-green: #4cd964;
   --marigold: #ffcc00;

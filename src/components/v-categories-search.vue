@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="categories">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'categories': style_type != 'style2', 'categories-style2': style_type == 'style2'}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <slot>
@@ -23,6 +23,7 @@ const VIcon = () => import('./v-icon')
 export default {
   props: {
     option: {},
+    style_type: {},
     list: {
       default: () => {
         return [

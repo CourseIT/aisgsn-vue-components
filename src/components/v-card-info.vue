@@ -1,5 +1,5 @@
 <template>
-  <div class="card__info" @click="action">
+  <div :class="{'card__info': style_type != 'style2', 'card__info-style2': style_type == 'style2'}" @click="action">
     <slot>
     </slot>
   </div>
@@ -8,6 +8,7 @@
 <script>
 export default {
   props: {
+    style_type: {},
     action: {
       default: function() {
         return () => ({})

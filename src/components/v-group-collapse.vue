@@ -1,5 +1,5 @@
 <template>
-  <div class="v-group-collapse" :class="{'read-only': readOnly == true}">
+  <div :class="{'read-only': readOnly == true, 'v-group-collapse': style_type != 'style2', 'v-group-collapse-style2': style_type == 'style2'}">
     <div class="v-group-collapse__header">
       <p>{{title}}</p>
        <v-icon class="v-group-collapse__icon" :class="{'v-group-collapse__icon--active': showBlock, 'v-group-collapse__icon--no-titile': !title}" font_size="21px" :hover_color="true" icon="" :action="toggleShow"/>
@@ -20,6 +20,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     title: {
       default: ''
     },

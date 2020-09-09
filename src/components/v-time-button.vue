@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="time-btn__block">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'time-btn__block': style_type != 'style2', 'time-btn__block-style2': style_type == 'style2'}">
     <div v-if="time_input_show">
       <div class="time-btn-input">
         <form @submit="pickTime">
@@ -26,6 +26,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     read_only: {},
     visible: {
       default: true
@@ -202,9 +203,11 @@ export default {
   width: 263px;
   border-radius: 4px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: var(--pale-lilac);
   padding: 4px;
   height: 36px;
+}
+.time-btn__block .time-btn-input {
+  background-color: var(--pale-lilac);
 }
 .time-btn-input input {
   outline: none;

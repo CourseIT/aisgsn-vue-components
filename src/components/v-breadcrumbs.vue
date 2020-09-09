@@ -26,6 +26,9 @@ export default {
     VIcon
   },
   props: {
+    style: {
+      default: String
+    },
     action_left: {
       default: function() {
         return () => ({})

@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}">
-    <div class="action-group" :style="{'width': width}">
+    <div class="action-group" :style="{'width': width}" :class="{'action_group-style2': style_type == 'style2'}">
       <div @click="show_btn = !show_btn" class="action-main-btn">
         <p class="action__title">{{title}}</p>
         <v-icon class="action__icon" icon="" width="21"/>
@@ -22,6 +22,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     title: {},
     width: {},
     read_only: {},

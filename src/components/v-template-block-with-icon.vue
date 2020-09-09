@@ -1,9 +1,9 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'icon-template-style2': style_type == 'style2'}">
     <div class="df">
       <div class="icon " :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
         <slot name="icon">
-          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? '#fb6229' : '#21262c' " :class="{'icon-block': template_show}"/>
+          <v-icon :icon="icon" :hover_shadow="true" :hover_color="true" :color="template_show ? 'var(--bright-orange)' : '#21262c' " :class="{'icon-block': template_show}"/>
         </slot>
       </div>
       <div v-if="template_show" class="block-fix" :style='{top: `${template_text_top}`}'>
@@ -22,6 +22,7 @@ const VTemplateBlock = () => import('./v-template-block')
 
 export default {
   props: {
+    style_type: {},
     placeholder: {},
     value: {},
     icon: {},

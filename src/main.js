@@ -9,10 +9,12 @@ Vue.config.productionTip = false
 import DefaultLayout from './layouts/DefaultLayout.vue'
 import DocLayout from './layouts/DocLayout.vue'
 import AuthLayout from './layouts/AuthLayout.vue'
+import StyleLayout from './layouts/StyleLayout.vue'
 
 Vue.component('default-layout', DefaultLayout)
 Vue.component('doc-layout', DocLayout)
 Vue.component('auth-layout', AuthLayout)
+Vue.component('style-layout', StyleLayout)
 
 new Vue({
   router,

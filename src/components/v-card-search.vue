@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card__search">
+    <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
         <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :placeholder="placeholder" :label="label" ref="input">
           <template #icon>
@@ -33,6 +33,7 @@ const VSearch = () => import('./v-search')
 
 export default {
   props: {
+    style_type: {},
     value: {},
     disabled: {
       default: false
@@ -102,10 +103,12 @@ export default {
 </script>
 
 <style scoped>
+  .card__search .search__block {
+    background-color: var(--pale-grey);
+  }
   .search__block {
     border-radius: 4px;
     box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-    background-color: var(--pale-grey);
     padding: 10px;
     padding-left: 0px;
     position: absolute;
@@ -138,12 +141,12 @@ export default {
     padding-right: 25px;
     padding-left: 10px;
   }
-  .cards::-webkit-scrollbar {
+  .card__search .cards::-webkit-scrollbar {
     width: 11px;
     height: 8px;
     background-color: rgba(0, 0, 0, 0);
   }
-  .cards::-webkit-scrollbar-thumb {
+  .card__search .cards::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background-color: var(--pale-lilac);
   }

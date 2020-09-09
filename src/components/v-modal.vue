@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-modal">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'v-modal': style_type != 'style2', 'v-modal-style2': style_type == 'style2'}">
     <div class="modal" @click="closeModal">
       <div class="modal__block" @click="noCloseModal">
       <slot>
@@ -30,6 +30,7 @@ const VIcon = () => import('./v-icon')
 export default {
   props: {
     read_only: {},
+    style_type: {},
     visible: {
       default: true
     },
@@ -128,24 +129,6 @@ export default {
   height: 100vh;
   overflow-y: scroll;
 }
-.modal {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  z-index: 102;
-}
-.modal__block {
-  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
-  background-color: var(--pale-lilac);
-  border-radius: 4px;
-  padding: 30px;
-  padding-right: 0;
-  padding-bottom: 90px;
-  width: 50%;
-  margin-top: 15vh;
-  margin-bottom: 15vh;
-  margin-left: 25%;
-}
 .v-modal::-webkit-scrollbar {
   width: 11px;
   height: 8px;
@@ -154,6 +137,26 @@ export default {
 .v-modal::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: var(--pale-lilac);
+}
+.modal {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 102;
+}
+.v-modal .modal__block {
+  background-color: var(--pale-lilac);
+}
+.modal__block {
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.22);
+  border-radius: 4px;
+  padding: 30px;
+  padding-right: 0;
+  padding-bottom: 90px;
+  width: 50%;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  margin-left: 25%;
 }
 .modal__bg {
   position: fixed;

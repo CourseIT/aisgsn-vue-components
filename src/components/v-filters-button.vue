@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'filter-btn-style2': style_type == 'style2'}">
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
@@ -37,6 +37,7 @@ const VButton = () => import('./v-button')
 
 export default {
   props: {
+    style_type: {},
     top: {},
     left: {},
     bottom: {},

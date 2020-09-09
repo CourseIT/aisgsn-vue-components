@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="templates__block-bg">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'templates__block-bg': style_type != 'style2', 'templates__block-bg-style2': style_type == 'style2'}">
     <div class="search-block" :style='{width: `${width}`}'>
       <slot name="search">
         <v-search class="search" width="403px"/>
@@ -30,6 +30,7 @@ import draggable from 'vuedraggable'
 export default {
   props: {
     width: {},
+    style_type: {},
     read_only: {},
     visible: {
       default: true

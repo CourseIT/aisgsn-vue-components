@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="filter-input">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'filter-input': style_type != 'style2' ,'filter-input-style2': style_type == 'style2'}">
     <div v-if="filter_input_show">
       <div class="filter-btn-input">
         <form @submit="emitFilterInput">
@@ -23,6 +23,7 @@ const VIcon = () => import('./v-icon')
 export default {
   components: { VIcon },
   props: {
+    style_type: {},
     default_text: {
       default: 'Фильтр'
     },
@@ -121,12 +122,14 @@ export default {
 .icon-filter:hover {
   color: var(--bright-orange);
 }
+.filter-input .filter-btn-input {
+  background-color: var(--pale-lilac);
+}
 .filter-btn-input {
   display: flex;
   width: 263px;
   border-radius: 4px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: var(--pale-lilac);
   padding: 4px;
   height: 36px;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="icons-block">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'icons-block': style_type != 'style2', 'icons-block-style2': style_type == 'style2' }" class="">
     <div class="icon1" :class="{'active_icon1': hover}">
       <slot name="main-icon">
         <v-icon class="icon" :hover_shadow="true" :hover_color="true" icon=""  />
@@ -21,6 +21,7 @@ const VIcon = () => import('./v-icon')
 export default {
   props: {
     padding_left: {},
+    style_type: {},
     read_only: {},
     visible: {
       default: true

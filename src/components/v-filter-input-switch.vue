@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="df fs">
-    <div class="filter-input-switch">
+    <div :class="{'filter-input-switch': style_type != 'style2', 'filter-input-switch-style2': style_type == 'style2'}">
       <div v-if="filter_input_show">
         <div class="filter-btn-input">
           <form @submit="emitFilterInput">
@@ -20,7 +20,7 @@
       </div>
     </div>
     
-    <div class="filter-switch">
+    <div :class="{'filter-switch': style_type != 'style2', 'filter-switch-style2': style_type == 'style2'}">
       <p>Начинается с</p>
       <v-switch v-model="includes" inset/>
       <p>Содержит</p>
@@ -35,6 +35,7 @@ const VIcon = () => import('./v-icon')
 export default {
   components: { VIcon },
   props: {
+    style_type: {},
     default_text: {
       default: 'Материалы проверки'
     },

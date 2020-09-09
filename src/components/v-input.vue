@@ -1,5 +1,5 @@
 <template>
-  <div class="input-block" :style="{'width': width}">
+  <div :style="{'width': width}" :class="{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2' }">
     <div class="df" :style="{'width': hint_width}">
       <div class="df test" ref="label">
         <span v-if="obligatory" class="obligatory">*</span>
@@ -62,6 +62,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props:{
+    style_type: {},
     placeholder:{},
     value: {},
     label: {},

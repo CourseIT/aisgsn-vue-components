@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" class="categories" :class="{'read-only': readOnly == true, 'mb30': chips}">
+  <div v-if="visible" :class="{'read-only': readOnly == true, 'mb30': chips, 'categories-style2': style_type == 'style2', 'categories': style_type != 'style2'}">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <button class="main-btn" :style="{'width': width}">
@@ -16,7 +16,7 @@
         </button>
         <div v-if="menu_show" class="select__menu w132" :style="{'width': width}">
           <div @click="pickOption(item), menu_show = false"  v-for="(item, index) in list" :key="index">
-            <v-categories-option :option="item" :list="search_list" />
+            <v-categories-option :style_type="style_type" :option="item" :list="search_list" />
           </div>
         </div>
       </div>
@@ -46,6 +46,7 @@ export default {
     chips: {
       default: 'true'
     },
+    style_type: {},
     option: {},
     list: {
       default: () => {
@@ -207,11 +208,13 @@ export default {
   width: 36px;
   height: 36px;
 }
+.categories .main-btn {
+  background-color: var(--pale-lilac);
+}
 .main-btn {
   width: 100%;
   height: 36px;
   padding: 0px 10px;
-  background-color: var(--pale-lilac);
   display: flex;
   margin-bottom: 6px;
   text-align: center;

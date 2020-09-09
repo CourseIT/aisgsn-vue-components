@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-alert">
-    <div class="alert">
+    <div :class="{'alert': style_type != 'style2', 'alert-style2': style_type == 'style2'}">
       <div class="alert__text">
         <slot>
           alert
@@ -26,6 +26,7 @@ const VIcon = () => import('./v-icon')
 
 export default {
   props: {
+    style_type: {},
     read_only: {},
     visible: {
       default: true

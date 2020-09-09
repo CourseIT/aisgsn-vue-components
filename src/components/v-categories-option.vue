@@ -1,5 +1,5 @@
 <template>
-  <button v-if="visible" :class="{'read-only': readOnly == true}" @click="$emit('input', option)" class="categories-btn">
+  <button v-if="visible" :class="{'read-only': readOnly == true, 'categories-btn': style_type != 'style2', 'categories-btn-style2': style_type == 'style2'}" @click="$emit('input', option)">
     <div class="circle-block">
       <div v-if="value == option || list.includes(option)" class="circle"></div>
     </div>
@@ -12,6 +12,7 @@
 <script>
 export default {
   props : {
+    style_type: {},
     value: {
       default: ''
     },
@@ -69,21 +70,26 @@ export default {
 .categories-btn:hover {
   color: var(--bright-orange);
 }
+.categories-btn .circle-block {
+  background-color: var(--pale-lilac);
+}
 .circle-block {
   position: absolute;
   left: 10px;
   width: 22px;
   height: 22px;
   border-radius: 4px;
-  background-color: var(--pale-lilac);
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.categories-btn .circle-block .circle{
+  background-color: var(--bright-orange);
+}
 .circle {
   width: 10px;
-  height: 10px;
   background-color: var(--bright-orange);
+  height: 10px;
   border-radius: 50%;
 }
 </style>

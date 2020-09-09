@@ -1,5 +1,5 @@
 <template>
-  <div class="input-date" :style="{'width': width}">
+  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }">
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -28,7 +28,7 @@
         >
           <template v-slot:activator="{ on }">
             <div class="icon-date" hint="MM/DD/YYYY format" v-on="on">
-              <v-icon :icon="icon" :class="{'icon-shadow': menu, 'icon-block': menu}" :hover_shadow="true" :hover_color="true" :color="menu ? '#fb6229' : 'black' " />
+              <v-icon :icon="icon" :class="{'icon-shadow': menu, 'icon-block': menu}" :hover_shadow="true" :hover_color="true" :color="menu ? 'var(--bright-orange)' : 'black' " />
             </div>
           </template>
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff">
@@ -47,6 +47,7 @@ export default {
   name: 'VInputDateWithIcon',
   props: {
     placeholder: {},
+    style_type: {},
     value: {},
     icon: {},
     label: {},

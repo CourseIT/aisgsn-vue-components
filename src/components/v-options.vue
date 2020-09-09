@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <button v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="select-btn select_shadow">
+  <div :class="{'select-btn-style2': style_type == 'style2'}">
+    <button v-if="visible" :class="{'read-only': readOnly == true, 'select-btn': style_type != 'style2', 'select-btn-style2': style_type == 'style2'}" @click="action" class="select_shadow">
       <div class="df aic w100 hover-btn jcc">
         {{max_l_option}}
       </div>
@@ -12,6 +12,7 @@
 <script>
 export default {
   props : {
+    style_type: {},
     option: {},
     read_only: {},
     max_length: {},
