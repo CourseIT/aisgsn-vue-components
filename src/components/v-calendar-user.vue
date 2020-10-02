@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar__user">
+  <div class="calendar__user" :class="{'read-only': readOnly == true}">
     <div class="user__left-border"></div>
     <div class="user__info">
       <div class="info__avatar">
@@ -24,6 +24,7 @@ export default {
     VIcon
   },
   props: {
+    read_only: {},
     user_image: {},
     user_name: {
       default: 'Куликов Б. Ю.'
@@ -33,6 +34,17 @@ export default {
     },
     action_delete: {
       default: false
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   }
 }

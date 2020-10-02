@@ -1,5 +1,5 @@
 <template>
-  <div class="v-icon-save">
+  <div class="v-icon-save" :class="{'read-only': readOnly == true}">
     <v-icon v-if="on_form_save" icon="" :font_size="font_size" :hover_color="hover_color" :hover_shadow="hover_shadow" :action="on_form_save" />
   </div>
 </template>
@@ -12,6 +12,7 @@ export default {
     VIcon
   },
   props: {
+    read_only: {},
     icon: {
       default: ""
     },
@@ -23,6 +24,17 @@ export default {
     },
     font_size: {},
     on_form_save: {}
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

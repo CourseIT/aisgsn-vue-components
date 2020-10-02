@@ -1,5 +1,5 @@
 <template>
-  <div class="line_action pa" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${65 + index * 5}px`}'>
+  <div class="line_action pa" :class="{'read-only': readOnly == true}" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${65 + index * 5}px`}'>
     <div v-if="date_from" class="hover_action" ref="action">
 			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`, zIndex: `${999 - index}`}'></div>
     </div>
@@ -29,6 +29,7 @@ export default {
     VIcon
   },
   props: {
+    read_only: {},
     id: null,
     name: {
       default: ''
@@ -104,6 +105,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     width() {
       switch (this.pick_date) {
         case 1:

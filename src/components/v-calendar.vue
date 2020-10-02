@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar">
+  <div class="calendar" :class="{'read-only': readOnly == true}">
 
 
     <div class="pl315 df jcsb w91 aic mb20">
@@ -368,6 +368,9 @@ export default {
     VIcon,
     VRadioButtons,
     VCalendarLineAction
+  },
+  props: {
+    read_only: {},
   },
   data: () => ({
     calendars_obj: [
@@ -1135,6 +1138,17 @@ export default {
       }
       if(this.month >= 9 && this.month <=11) {
         this.month = 7
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   }

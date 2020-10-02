@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'card__info': style_type != 'style2', 'card__info-style2': style_type == 'style2'}" @click="action">
+  <div :class="{'card__info': style_type != 'style2', 'card__info-style2': style_type == 'style2', 'read-only': readOnly == true}" @click="action">
     <slot>
     </slot>
   </div>
@@ -8,10 +8,22 @@
 <script>
 export default {
   props: {
+    read_only: {},
     style_type: {},
     action: {
       default: function() {
         return () => ({})
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   }

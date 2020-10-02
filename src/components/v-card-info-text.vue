@@ -1,5 +1,5 @@
 <template>
-  <div class="df carad__info__text">
+  <div class="df carad__info__text" :class="{'read-only': readOnly == true}">
     <p class="title_text" :style="{'width': title_width, 'min-width': min_width}">{{title}}</p>
     <p class="text">{{text}}</p>
   </div>
@@ -8,6 +8,7 @@
 <script>
 export default {
   props: {
+    read_only: {},
     title: {},
     text: {},
     title_width: {
@@ -15,6 +16,17 @@ export default {
     },
     min_width: {
       default: "140px"
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   }
 }

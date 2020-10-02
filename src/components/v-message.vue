@@ -1,5 +1,5 @@
 <template>
-  <div class="message">
+  <div class="message" :class="{'read-only': readOnly == true}">
     <div class="message__line" :style="`background: ${color}`"></div>
     <div class="message__text">
       <slot>
@@ -13,6 +13,7 @@
 <script>
 export default {
   props: {
+    read_only: {},
     text: {},
     status: {}
   },
@@ -31,6 +32,15 @@ export default {
           return '#7893b1'
       }
     },
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   },
 }
 </script>

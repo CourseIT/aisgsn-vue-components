@@ -1,5 +1,5 @@
 <template>
-  <button class="calendar__month-btn" :class="{'no-active': !active}" :style='{width: `${width}`}'>
+  <button class="calendar__month-btn" :class="{'no-active': !active, 'read-only': readOnly == true}" :style='{width: `${width}`}'>
     <slot>Test</slot>
   </button>
 </template>
@@ -7,6 +7,7 @@
 <script>
 export default {
   props: {
+    read_only: {},
     width: {},
     text: {},
     month: {}
@@ -18,6 +19,17 @@ export default {
     let date = new Date();
     let month = date.getMonth()
     this.checkActive(month)
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   },
   watch: {
     month(month) {

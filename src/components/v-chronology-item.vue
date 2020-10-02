@@ -7,6 +7,7 @@
       'grid-column-1-5-l': (index + 1) % 6 == 0,
       'grid-column-1-3': (index + 1) % 6 == 5 || (index + 1) % 6 == 1,
       'grid-column-3-5': (index + 1) % 6 == 2 || (index + 1) % 6 == 4,
+      'read-only': readOnly == true
     }"
   >
      <div class="circle__big-circle"
@@ -28,6 +29,7 @@
 <script>
 export default {
   props: {
+    read_only: {},
     index: {},
     status:{},
     date:{},
@@ -35,6 +37,17 @@ export default {
     action: {
       default: function() {
         return () => ({})
+      }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
       }
     }
   }

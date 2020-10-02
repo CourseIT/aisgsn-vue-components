@@ -1,5 +1,5 @@
 <template>
-  <div :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`}' class="pa">
+  <div :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`}' class="pa" :class="{'read-only': readOnly == true}">
     <div v-if="date_from" class="calendar__action hover_action" ref="action">
       <div class="action__top absolute__top" ref="date">
         <div v-if="show_icon" class="action__icon" :style='{background: `${color}`}'>
@@ -61,6 +61,7 @@ export default {
     // VCalendarLineAction
   },
   props: {
+    read_only: {},
     id: null,
     name: {
       default: ''
@@ -191,6 +192,15 @@ export default {
     }
   },
   computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    },
     icon() {
       switch (this.name.toLowerCase()) {
         case 'отпуск':

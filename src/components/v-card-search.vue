@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="{'read-only': readOnly == true}">
     <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
         <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :placeholder="placeholder" :label="label" ref="input">
@@ -33,6 +33,7 @@ const VSearch = () => import('./v-search')
 
 export default {
   props: {
+    read_only: {},
     style_type: {},
     value: {},
     disabled: {
@@ -85,6 +86,15 @@ export default {
   computed: {
     blockWidth() {
       return this.$refs.input.input_width
+    },
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   },
   methods: {

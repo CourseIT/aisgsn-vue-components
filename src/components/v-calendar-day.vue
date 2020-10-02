@@ -1,7 +1,8 @@
 <template>
   <div class="calendar__day" :class="{
                                         'day-active': active,
-                                        'day-off': day_name == 'СБ' || day_name == 'ВС'
+                                        'day-off': day_name == 'СБ' || day_name == 'ВС',
+                                        'read-only': readOnly == true
                                       }">
     <div class="day__name" :class="{'day-active': active}">{{day_name}}</div>
     <div class="day__date">{{day_date}}</div>
@@ -14,6 +15,7 @@
 <script>
 export default {
   props:{
+    read_only: {},
     day_name: {},
     day_date: {},
     active: {}
@@ -40,6 +42,17 @@ export default {
     // if(this.day_date == 24){
     //   this.actions = 4
     // }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

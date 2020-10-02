@@ -1,12 +1,24 @@
 <template>
-  <div class="calendar__clear-acion" :class="{'w1': pick_date == 3}"></div>
+  <div class="calendar__clear-acion" :class="{'w1': pick_date == 3, 'read-only': readOnly == true}"></div>
 </template>
 
 <script>
 export default {
   props: {
+    read_only: {},
     pick_date: {
       default: 0
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
     }
   }
 }

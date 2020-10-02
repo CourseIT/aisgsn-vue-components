@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" class="v-calendar-btn" :disabled="disabled" :class="{'btn-disabled': disabled}">
+  <button @click="$emit('click')" class="v-calendar-btn" :disabled="disabled" :class="{'btn-disabled': disabled, 'read-only': readOnly == true}">
     <slot>
     </slot>
   </button>
@@ -8,7 +8,19 @@
 <script>
 export default {
   props:{
+    read_only: {},
     disabled:{}
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
   }
 }
 </script>

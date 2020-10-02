@@ -1,5 +1,5 @@
 <template>
-  <div class="img-preview">
+  <div class="img-preview" :class="{'read-only': readOnly == true}">
     <img v-if="src" :src="src" alt="" class="img-preview__img-mini">
     <div v-else class="img-preview__no-img"></div>
     <div v-if="src" class="img-main_right">
@@ -11,8 +11,20 @@
 <script>
 export default {
   props:{
+    read_only: {},
     src: {}
   },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  }
 
 }
 </script>
