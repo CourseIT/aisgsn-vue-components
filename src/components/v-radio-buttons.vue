@@ -1,6 +1,7 @@
 <template>
-  <div v-if="visible" ref="radio" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green'}">
+  <div v-if="visible" ref="radio" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green', 'checkup-card-list__radio-error': error}">
     <div class="df">
+      <span v-if="obligatory" class="obligatory">*</span>
       <div v-if="label" class="df" ref="label">
         <p class="label">{{label}}</p>
       </div>
@@ -36,7 +37,11 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    error: {},
+    obligatory: {
+      default: false
+    },
   },
   components: {
     VIcon
@@ -120,6 +125,7 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+  white-space: nowrap;
 }
 .checkup-card-list__radio .mdi-radiobox-blank::before {
   content: "";
@@ -213,5 +219,9 @@ export default {
   letter-spacing: normal;
   text-align: left;
   margin-bottom: 5px;
+  white-space: nowrap;
+}
+.checkup-card-list__radio-error label {
+  color: red !important;
 }
 </style>

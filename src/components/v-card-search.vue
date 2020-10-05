@@ -2,7 +2,7 @@
   <div :class="{'read-only': readOnly == true}">
     <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
-        <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :placeholder="placeholder" :label="label" ref="input">
+        <v-input v-model="input_value" :disabled="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
           <template #icon>
             <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
           </template>
@@ -57,7 +57,11 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    error: {},
+    obligatory: {
+      default: false
+    },
   },
   components: {
     VInput,
@@ -131,7 +135,7 @@ export default {
     height: 36px;
     position: relative;
     margin-left: -81px;
-    margin-top: 19px;
+    margin-top: 20px;
   }
   .icon__reset {
     font-family: var(--font-awesome-5-pro-light);

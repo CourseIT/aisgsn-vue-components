@@ -316,6 +316,7 @@
 <!-------------------------------- modal -------------------------------->
 
 <!-------------------------------- radio-buttons -------------------------------->
+v-radio-buttons
     <v-radio-buttons v-model="label" radio_color="green" :action="test" label="Какой-то лейбл" hint="text" class="w600">
       <v-radio value="1" label="label1"></v-radio>
       <v-radio value="2" label="label2"></v-radio>
@@ -635,7 +636,7 @@
     </transition>
 
 
-
+    v-card-search
     <v-card-search v-model="card_search" :action="test" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>

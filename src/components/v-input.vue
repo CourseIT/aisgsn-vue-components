@@ -2,7 +2,7 @@
   <div :style="{'width': width}" :class="{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2' }">
     <div class="df" :style="{'width': hint_width}">
       <div class="df test" ref="label">
-        <span v-if="obligatory" class="obligatory">*</span>
+        <span v-if="obligatory" class="obligatory" style="margin-bottom: -4px;">*</span>
         <p v-if="label" class="label">{{label}}</p>
         <div class="icons__block df">
           <slot name="icons">
