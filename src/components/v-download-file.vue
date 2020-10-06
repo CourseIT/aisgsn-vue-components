@@ -24,7 +24,7 @@
 
 <script>
 const VIcon = () => import ('./v-icon')
-const VRadioButtons = () => import('@/components/v-radio-buttons')
+const VRadioButtons = () => import('./v-radio-buttons')
 
 export default {
   components: {
