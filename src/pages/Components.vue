@@ -674,8 +674,8 @@ v-radio-buttons
 
     <v-img-preview :src="require('@/assets/doc2.png')" class="mb20" />
     
-    <v-download-file :src="require('@/assets/doc2.png')" />
-    <v-download-file v-model="d_file" />
+    <v-download-img :src="require('@/assets/doc2.png')" />
+    <v-download-img v-model="d_file" />
 
     <v-img-preview class="mb20" :src="d_file.base64" />
 
@@ -690,6 +690,9 @@ v-radio-buttons
     <v-group-collapse v-model="group_collapse" class="mt20" title="Какой-то заголовок">
       <p class="mb300">test</p>
     </v-group-collapse>
+
+    <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" v-model="download_file"/>
+    <v-file-preview :src="require('@/assets/doc2.png')" class="mt20" />
     
 
   </div>
@@ -747,12 +750,15 @@ const VLink = () => import('@/components/v-link')
 const VChronology = () => import('@/components/v-chronology')
 // const VChronologyItem  = () => import('@/components/v-chronology-item')
 const VImgPreview = () => import('@/components/v-img-preview')
-const VDownloadFile = () => import('@/components/v-download-file')
+const VDownloadImg = () => import('@/components/v-download-img')
 // const VIconSave = () => import('@/components/v-icon-save')
 const VCalendar = () => import('@/components/v-calendar')
 const VLabelHint = () => import('@/components/v-label-hint')
 const VMessage = () => import('@/components/v-message')
 const VGroupCollapse = () => import('@/components/v-group-collapse')
+const VDownloadFile = () => import('@/components/v-download-file')
+const VFilePreview = () => import('@/components/v-file-preview')
+
 
 
 export default {
@@ -808,14 +814,18 @@ export default {
     VChronology,
     // VChronologyItem,
     VImgPreview,
-    VDownloadFile,
+    VDownloadImg,
     // VIconSave,
     VCalendar,
     VLabelHint,
     VMessage,
-    VGroupCollapse
+    VGroupCollapse,
+    VDownloadFile,
+    VFilePreview
   },
   data: () => ({
+    ext: '',
+    download_file: '',
     group_collapse: false,
     d_file: '',
     alert_show: false,
