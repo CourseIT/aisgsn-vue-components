@@ -2,8 +2,8 @@
 <div>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
-      <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="doc_img" v-html="file_svg" />
-      <img v-if="photo" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="photo" alt="">
+      <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="file_svg" v-html="file_svg" />
+      <img v-if="file_svg" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="photo" alt="">
       <div v-else class="doc__preview" :class="{'doc__preview-1': size === 1, 'doc__preview-2': size === 2}" @drop.prevent="addFile" @dragover.prevent>
         <v-icon font_size="21px" icon="" class="icon_preview" :class="{'icon_preview-1': size === 1, 'icon_preview-2': size === 2}" />
         <p class="text__preview" :class="{'text__preview-1': size === 1, 'text__preview-2': size === 2}">Перетащите файл сюда</p>
@@ -44,9 +44,8 @@ export default {
       default: ''
     },
     file_extension: {
-      default: 'default'
+      default: ''
     },
-    src: {},
     read_only: {},
     visible: {
       default: true
@@ -63,21 +62,11 @@ export default {
     name: '',
     doc_img: false,
     size: 1,
-    file_svg: 
-    `<svg xmlns="http://www.w3.org/2000/svg" width="73.474" height="83.966" style="margin-left: -5px" viewBox="0 0 73.474 83.966">
-      <g id="Сгруппировать_1791" data-name="Сгруппировать 1791" transform="translate(-610 -511)">
-        <g id="Сгруппировать_1769" data-name="Сгруппировать 1769" transform="translate(-269)">
-          <path id="Контур_2753" data-name="Контур 2753" d="M133,93.732a4.665,4.665,0,0,0-4.664,4.665v74.637A4.664,4.664,0,0,0,133,177.7h53.646a4.664,4.664,0,0,0,4.664-4.664v-57.7l-22.485-21.6Z" transform="translate(761.162 417.268)" fill="#d42f3b"/>
-          <path id="Контур_2754" data-name="Контур 2754" d="M289.486,115.336H271.665A4.664,4.664,0,0,1,267,110.672V93.732Z" transform="translate(662.988 417.268)" fill="#a1b13a"/>
-          <path id="Контур_2755" data-name="Контур 2755" d="M142.438,218.69a5.383,5.383,0,0,1-5.382,5.383H97.761a5.382,5.382,0,0,1-5.382-5.383V202.245a5.381,5.381,0,0,1,5.382-5.382h39.295a5.382,5.382,0,0,1,5.382,5.382Z" transform="translate(786.621 344.252)" fill="#82469a"/>
-          <path id="Контур_2756" data-name="Контур 2756" d="M-11.774.073c.623,0,.974-.388.974-1.069V-3.977h3.311a.773.773,0,0,0,.842-.8.77.77,0,0,0-.842-.8H-10.8V-8.364h3.684a.785.785,0,0,0,.842-.813A.794.794,0,0,0-7.115-10h-4.343c-.886,0-1.318.425-1.318,1.267V-1A.951.951,0,0,0-11.774.073Zm7.822,0A.939.939,0,0,0-2.97-1V-9a.944.944,0,0,0-.989-1.069A.94.94,0,0,0-4.948-9V-1A.946.946,0,0,0-3.951.073ZM5.49-.842A.827.827,0,0,0,4.6-1.685H1.132V-9a.944.944,0,0,0-.989-1.069A.94.94,0,0,0-.846-9v7.734C-.846-.417-.414,0,.472,0H4.6A.823.823,0,0,0,5.49-.842Zm1.157-.425C6.647-.417,7.079,0,7.965,0h4.4a.78.78,0,0,0,.857-.806.785.785,0,0,0-.857-.813H8.61V-4.3h3.574a.723.723,0,0,0,.784-.754.729.729,0,0,0-.784-.762H8.61V-8.379h3.779a.777.777,0,0,0,.835-.806A.783.783,0,0,0,12.389-10H7.965c-.886,0-1.318.425-1.318,1.267Z" transform="translate(904.205 559.682)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-width="1"/>
-        </g>
-      </g>
-    </svg>`
+    file_svg: ''
   }),
   mounted() {
-    if(this.src) {
-      this.photo = this.src
+    if(this.file_extension) {
+      this.setFileExtension(this.file_extension)
     }
   },
   methods: {
@@ -88,6 +77,7 @@ export default {
       this.photo = ''
       this.base64 = ''
       this.doc_img = false
+      this.file_svg = ''
       this.$emit("input", '')
     },
     addFile(e) {
@@ -135,21 +125,8 @@ export default {
         })
       }
       reader.readAsDataURL(file);
-    }
-  },
-  computed: {
-    readOnly() {
-      if(typeof (this.read_only) == 'function') {
-        return this.read_only()
-      } else if (this.read_only) {
-        return this.read_only
-      } else {
-        return false
-      }
-    }
-  },
-  watch: {
-    file_extension(val) {
+    },
+    setFileExtension(val) {
       switch(val) {
         case 'pdf':
           this.file_svg = 
@@ -464,6 +441,22 @@ export default {
             </g>
           </svg>`
       }
+    }
+  },
+  computed: {
+    readOnly() {
+      if(typeof (this.read_only) == 'function') {
+        return this.read_only()
+      } else if (this.read_only) {
+        return this.read_only
+      } else {
+        return false
+      }
+    }
+  },
+  watch: {
+    file_extension(val) {
+      this.setFileExtension(val)
     }
   }
 }

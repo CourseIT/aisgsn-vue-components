@@ -692,7 +692,7 @@ v-radio-buttons
     </v-group-collapse>
 
     <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" v-model="download_file"/>
-    <v-file-preview :src="require('@/assets/doc2.png')" class="mt20" />
+    <v-file-preview :downloadFile="test" :file_extension="ext" class="mt20" />
     
 
   </div>
@@ -824,8 +824,11 @@ export default {
     VFilePreview
   },
   data: () => ({
-    ext: '',
-    download_file: '',
+    ext: 'jpg',
+    download_file: {
+      base64: 'asd',
+      name: 'test'
+    },
     group_collapse: false,
     d_file: '',
     alert_show: false,
