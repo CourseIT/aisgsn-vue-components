@@ -2,8 +2,8 @@
 <div>
   <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
     <div class="mr15">
-      <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="file_svg" v-html="file_svg" />
-      <img v-if="file_svg" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="photo" alt="">
+      <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="file_svg && !preview" v-html="file_svg" />
+      <img v-if="preview" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="preview" alt="">
       <div v-else class="doc__preview" :class="{'doc__preview-1': size === 1, 'doc__preview-2': size === 2}" @drop.prevent="addFile" @dragover.prevent>
         <v-icon font_size="21px" icon="" class="icon_preview" :class="{'icon_preview-1': size === 1, 'icon_preview-2': size === 2}" />
         <p class="text__preview" :class="{'text__preview-1': size === 1, 'text__preview-2': size === 2}">Перетащите файл сюда</p>
@@ -50,6 +50,7 @@ export default {
     visible: {
       default: true
     },
+    preview: {},
     actionDownload: {
       default: function() {
         return () => ({})

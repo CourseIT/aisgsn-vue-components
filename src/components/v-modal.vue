@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="{'read-only': readOnly == true, 'v-modal': style_type != 'style2', 'v-modal-style2': style_type == 'style2'}">
-    <div class="modal" @click="closeModal">
+    <div class="modal">
       <div class="modal__block" @click="noCloseModal">
       <slot>
         Modal
@@ -12,14 +12,14 @@
         <button class="modal-button mr-ml-0" @click="closeModal">
           <v-icon icon="" :hover_color="true" class="icon" />
         </button>
-        <button class="modal-button" v-if="action_apply" @click="action_apply">
+        <button class="modal-button ml-0" v-if="action_apply" @click="action_apply">
           <v-icon icon="" :hover_color="true" class="icon" />
         </button>
       </div>
     </div>
     </div>
     <transition name="modal">
-      <div @click="closeModal"  class="modal__bg"></div>
+      <div  class="modal__bg"></div>
     </transition>
   </div>
 </template>
@@ -97,6 +97,7 @@ export default {
 
 <style scoped>
 .modal-button {
+  outline: none;
   display: flex;
   align-items: center;
   margin: 10px;
@@ -106,7 +107,7 @@ export default {
   outline-width: 0.5px;
 }
 .mr-ml-0{
-  margin-right: 0px;
+  margin-right: 10px;
   margin-left: 0px;
 }
 .fr {
@@ -188,5 +189,8 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
+}
+.ml-0 {
+  margin-left: 0px !important;
 }
 </style>

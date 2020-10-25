@@ -1,10 +1,12 @@
 <template>
   <div class="img-preview df" :class="{'read-only': readOnly == true}">
     <div>
-      <div v-if="file_svg" v-html="file_svg" class="img-preview__img-mini" ref="svgMini"/>
-      <div v-else class="img-preview__no-img"></div>
+      <div v-if="file_svg && !preview" v-html="file_svg" class="img-preview__img-mini" ref="svgMini"/>
+      <img v-if="preview" :src="preview" alt="" class="img-preview__img-mini">
+      <div v-if="!file_svg && !preview" class="img-preview__no-img"></div>
       <div v-if="file_svg" class="img-main_right">
-        <div v-html="file_svg" alt="" class="img-preview__img-main " ref="svgMain" />
+        <div v-if="file_svg && !preview" v-html="file_svg" class="img-preview__img-main " ref="svgMain" />
+        <img v-else :src="preview" alt="" class="img-preview__img-main ">
       </div>
     </div>
     <v-icon :action="downloadFile" font_size="21px" prompt="Выгрузить файл" :hover_color="true" class="btns__icon" icon="" />
@@ -20,6 +22,7 @@ export default {
   },
   props:{
     read_only: {},
+    preview: {},
     file_extension: {
       default: ''
     },

@@ -691,8 +691,12 @@ v-radio-buttons
       <p class="mb300">test</p>
     </v-group-collapse>
 
-    <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" v-model="download_file"/>
-    <v-file-preview :downloadFile="test" :file_extension="ext" class="mt20" />
+    <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" :read_only="false" :actionDownload="test" :preview="require('@/assets/doc2.png')" v-model="download_file"/>
+    <v-file-preview :downloadFile="test" :file_extension="ext" :preview="require('@/assets/doc2.png')" class="mt20" />
+
+    <button @click="ext = 'pdf'">TEST</button>
+
+    <v-loader :loading="loader" />
     
 
   </div>
@@ -758,6 +762,7 @@ const VMessage = () => import('@/components/v-message')
 const VGroupCollapse = () => import('@/components/v-group-collapse')
 const VDownloadFile = () => import('@/components/v-download-file')
 const VFilePreview = () => import('@/components/v-file-preview')
+const VLoader = () => import('@/components/v-loader')
 
 
 
@@ -821,9 +826,11 @@ export default {
     VMessage,
     VGroupCollapse,
     VDownloadFile,
-    VFilePreview
+    VFilePreview,
+    VLoader
   },
   data: () => ({
+    loader: false,
     ext: 'jpg',
     download_file: {
       base64: 'asd',
@@ -1247,6 +1254,15 @@ export default {
     
 
   }),
+  mounted() {
+    setTimeout(()=> {
+      this.loader = true
+    }, 3000)
+
+    setTimeout(()=> {
+      this.loader = false
+    }, 5000)
+  },
   watch: {
     label(val) {
       window.console.log(val)
