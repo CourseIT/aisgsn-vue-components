@@ -1315,6 +1315,24 @@ button {
   background-color: #e7e5dc !important;
 }
 
+
+.icon-select-mini{
+  width: 26px;
+  height: 26px;
+}
+.icon-select-mini .icon{
+  width: 26px !important;
+  height: 26px !important;
+}
+.icon-select-mini .hover_prompt .icon{
+  width: 26px;
+  height: 26px;
+}
+
+.input-block .icons__block .icon-select-mini {
+  margin-top: -5px;
+}
+
 .card__search-style2 .input_icon-block .icon:hover{
   background-color: #e7e5dc !important;
 }

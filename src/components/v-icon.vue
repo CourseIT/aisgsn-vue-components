@@ -8,7 +8,7 @@
         {{icon}}
       </div>
     </div>
-    <div v-if="prompt" style="margin-right: 15px;" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
+    <div v-if="prompt" class="icon__prompt-block" :class="{'dark': prompt_theme === 'dark'}">
       <div class="arrow"></div>
       <div class="icon__prompt">
         <span>{{prompt}}</span>
@@ -76,6 +76,8 @@ export default {
   text-align: center;
   align-items: center;
   font-family: var(--font-awesome-5-pro-light);
+
+  position: relative;
 }
 .hover-color:hover {
   color: var(--bright-orange) !important;
@@ -88,9 +90,9 @@ export default {
 .icon:hover .icon__prompt-block {
   display: flex !important;
   height: 32px;
-  margin-top: -60px;
+  /* margin-top: -60px; */
   justify-content: center;
-  margin-left: 12px;
+  /* margin-left: 12px; */
 }
 .icon__prompt-block {
   display: none;
@@ -99,6 +101,7 @@ export default {
   text-align: center;
   justify-content: center;
   margin-left: 0px;
+  top: -37px;
 }
 .icon__prompt {
   position: absolute;

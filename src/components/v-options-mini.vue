@@ -1,8 +1,8 @@
 <template>
-  <div :class="{'select-btn-style2': style_type == 'style2'}">
+  <div class="select-btn-mini" :class="{'select-btn-style2': style_type == 'style2'}">
     <button v-if="visible" :class="{'read-only': readOnly == true, 'select-btn': style_type != 'style2', 'select-btn-style2': style_type == 'style2'}" @click="action" class="select_shadow">
       <div class="df aic w100 hover-btn jcc">
-        {{max_l_option}}
+        <div v-html="html"></div>
       </div>
     </button>
     <div v-if="arrow" class="options-arrow"></div>
@@ -26,19 +26,10 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    html: {}
   },
   computed: {
-    max_l_option() {
-      if(this.max_length) {
-        var option = this.option.substr(0,this.max_length)
-        if(this.option.length > option.length) {
-          return `${option}...`
-        }
-        return option
-      }
-      return this.option
-    },
     readOnly() {
       if(typeof (this.read_only) == 'function') {
         return this.read_only()
@@ -55,7 +46,7 @@ export default {
 <style scoped>
 .select-btn {
   width: 100%;
-  height: 36px;
+  height: 26px;
   background-color: var(--white);
   display: flex;
   margin-bottom: 6px;

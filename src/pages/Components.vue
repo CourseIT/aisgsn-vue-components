@@ -697,6 +697,17 @@ v-radio-buttons
     <button @click="ext = 'pdf'">TEST</button>
 
     <v-loader :loading="loader" />
+
+
+    <!-------------------------------- input -------------------------------->
+      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает" placeholder="№" label="Какой-то label" :list="list_input">
+        <template #icons>
+          <v-icon-select-mini hint="test" size="mini">
+            <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+          </v-icon-select-mini>
+        </template>
+      </v-input>
+      <!-------------------------------- input -------------------------------->
     
 
   </div>
@@ -763,7 +774,8 @@ const VGroupCollapse = () => import('@/components/v-group-collapse')
 const VDownloadFile = () => import('@/components/v-download-file')
 const VFilePreview = () => import('@/components/v-file-preview')
 const VLoader = () => import('@/components/v-loader')
-
+const VIconSelectMini = () => import('@/components/v-icon-select-mini')
+const VOptionsMini = () => import('@/components/v-options-mini')
 
 
 export default {
@@ -827,7 +839,9 @@ export default {
     VGroupCollapse,
     VDownloadFile,
     VFilePreview,
-    VLoader
+    VLoader,
+    VIconSelectMini,
+    VOptionsMini
   },
   data: () => ({
     loader: false,
