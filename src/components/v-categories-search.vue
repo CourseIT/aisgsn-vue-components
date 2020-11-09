@@ -185,11 +185,13 @@ export default {
   z-index: 9;
 }
 .select-btn:hover .select__icon-colse{
+  background: var(--pale-lilac);
 }
 .select-btn .select__icon-colse {
   padding-top: 0;
 }
 .select-btn:hover {
+  background: var(--pale-lilac);
   color: var(--bright-orange);
 }
 .colse-bg {

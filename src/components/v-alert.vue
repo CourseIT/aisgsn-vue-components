@@ -3,7 +3,7 @@
     <div :class="{'alert': style_type != 'style2', 'alert-style2': style_type == 'style2'}">
       <div class="alert__text">
         <slot>
-          alert
+          {{text}}
         </slot>
       </div>
       <div class="fr">
@@ -33,6 +33,7 @@ export default {
     },
     action_close: {},
     action_apply: {},
+    text: {}
   },
   components: {
     VIcon,

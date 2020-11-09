@@ -56,6 +56,7 @@ p {
 .text {
   color: var(--dark);
   font-weight: 400;
+  width: 100%;
 }
 .card__info:hover .text{
   color: var(--bright-orange);

@@ -50,9 +50,9 @@
       </v-template-block>
     </v-template-block-with-icon>
 <!-------------------------------- template-block-with-icon -------------------------------->
-      <v-card-block class="mb20" width="450px" :action_minus="test" :action_edit="test" >
+      <v-card-block class="mb20" width="33%" :action_minus="test" :action_edit="test" >
         <template #text>
-          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович"/>
+          <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович Сергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей Петрович"/>
           <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448"/>
           <v-card-info-text title="Что-то:" text="458648946684"/>
           <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович"/>
@@ -655,9 +655,7 @@ v-radio-buttons
 
     <v-icon width="20" :action="function() {alert_show = true}" icon="" class="icon-plus"/>
 
-    <v-alert v-if="alert_show" v-model="alert_show" :action_apply="test" :action_close="test2">
-      Подтвердите подпись!
-    </v-alert>
+    <v-alert v-if="alert_show" v-model="alert_show" text="test test test" :action_close="test2" />
 
     <v-link :bold="true" color="var(--dark)" href="https://www.google.com/" target="_blank">Какая-то текстовая ссылка</v-link>
     

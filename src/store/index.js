@@ -5,7 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    menu_visibility: false,
+    menu_visibility: true,
     light_gamma: false,
     layout: 'default-layout',
     text_size: 16
