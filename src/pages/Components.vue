@@ -845,7 +845,7 @@ export default {
     loader: false,
     ext: 'jpg',
     download_file: {
-      base64: 'asd',
+      file: 'asd',
       name: 'test'
     },
     group_collapse: false,

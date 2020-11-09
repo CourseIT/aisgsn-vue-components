@@ -59,7 +59,7 @@ export default {
   },
   data: () => ({
     photo: '',
-    base64: '',
+    file: '',
     name: '',
     doc_img: false,
     size: 1,
@@ -76,7 +76,7 @@ export default {
     },
     removePhoto() {
       this.photo = ''
-      this.base64 = ''
+      this.file = ''
       this.doc_img = false
       this.file_svg = ''
       this.$emit("input", '')
@@ -93,17 +93,26 @@ export default {
 
 
       const file = e.dataTransfer.files[0];
-      const reader = new FileReader();
+      window.console.log(file, 'filefilefilefilefile');
+      this.file = file
 
-      reader.onload = e => {
-        this.base64 = e.target.result
+      this.$emit("input", {
+        file: file,
+        name: this.name
+      })
+
+
+      // const reader = new FileReader();
+
+      // reader.onload = e => {
+      //   this.base64 = e.target.result
         
-        this.$emit("input", {
-          base64: this.base64,
-          name: this.name
-        })
-      }
-      reader.readAsDataURL(file);
+      //   this.$emit("input", {
+      //     file: this.base64,
+      //     name: this.name
+      //   })
+      // }
+      // reader.readAsDataURL(file);
     },
     getPhoto(ev) {
       const selectFile = URL.createObjectURL(this.$refs.inputPhotos.files[0])
@@ -115,17 +124,23 @@ export default {
       this.doc_img = true
 
       const file = ev.target.files[0];
-      const reader = new FileReader();
+      this.file = file
 
-      reader.onload = e => {
-        this.base64 = e.target.result
+      this.$emit("input", {
+        file: file,
+        name: this.name
+      })
+      // const reader = new FileReader();
+
+      // reader.onload = e => {
+      //   this.base64 = e.target.result
         
-        this.$emit("input", {
-          base64: this.base64,
-          name: this.name
-        })
-      }
-      reader.readAsDataURL(file);
+      //   this.$emit("input", {
+      //     base64: this.base64,
+      //     name: this.name
+      //   })
+      // }
+      // reader.readAsDataURL(file);
     },
     setFileExtension(val) {
       switch(val) {
