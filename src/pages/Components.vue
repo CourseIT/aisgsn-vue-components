@@ -636,16 +636,7 @@ v-radio-buttons
     </transition>
 
 
-    v-card-search
-    <v-card-search v-model="card_search" :action="test" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
-      <template #search>
-        <v-search v-model="search" :hint="false" placeholder="Поиск"/>
-      </template>
-      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index}">
-        <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
-        <v-card-info-text title="Должность" text="Инспектор" />
-      </v-card-info>
-    </v-card-search>
+    
 
     <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" :action="test" icon="" label="Срок проведения работ" class="w600"/>
     <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test2" label="Срок проведения работ" class="w600"/>
@@ -707,6 +698,17 @@ v-radio-buttons
       </v-input>
       <!-------------------------------- input -------------------------------->
     
+
+      v-card-search
+    <v-card-search v-model="card_search" :action="test" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+      <template #search>
+        <v-search v-model="search" :hint="false" placeholder="Поиск"/>
+      </template>
+      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index}">
+        <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
+        <v-card-info-text title="Должность" text="Инспектор" />
+      </v-card-info>
+    </v-card-search>
 
   </div>
 </template>
