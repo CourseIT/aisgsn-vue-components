@@ -317,7 +317,7 @@
 
 <!-------------------------------- radio-buttons -------------------------------->
 v-radio-buttons
-    <v-radio-buttons v-model="label" radio_color="green" :action="test" label="Какой-то лейбл" hint="text" class="w600">
+    <v-radio-buttons v-model="label" radio_color="green" column="false" :action="test" label="Какой-то лейбл" hint="text" class="w600">
       <v-radio value="1" label="label1"></v-radio>
       <v-radio value="2" label="label2"></v-radio>
     </v-radio-buttons>
@@ -700,11 +700,11 @@ v-radio-buttons
     
 
       v-card-search
-    <v-card-search v-model="card_search" :action="test" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+    <v-card-search v-model="card_search" :action="test" :inc="card_search_inc" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
       <template #search>
         <v-search v-model="search" :hint="false" placeholder="Поиск"/>
       </template>
-      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index}">
+      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index, v_card_search_show_block = false, card_search_inc++}">
         <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
         <v-card-info-text title="Должность" text="Инспектор" />
       </v-card-info>
@@ -844,6 +844,7 @@ export default {
     VOptionsMini
   },
   data: () => ({
+    card_search_inc: 0,
     loader: false,
     ext: 'jpg',
     download_file: {
@@ -1281,9 +1282,9 @@ export default {
     label(val) {
       window.console.log(val)
     },
-    card_search(val) {
-      window.console.log(val, '----')
-    }
+    // card_search(val) {
+    //   window.console.log(val, '----')
+    // }
   },
   methods: {
     pushCard() {

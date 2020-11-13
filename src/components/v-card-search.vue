@@ -62,6 +62,7 @@ export default {
     obligatory: {
       default: false
     },
+    inc: {},
   },
   components: {
     VInput,
@@ -79,10 +80,15 @@ export default {
     }
   },
   watch: {
+    inc() {
+      this.search_block_show = false
+    },
     input_value(value) {
       this.$emit('input', value)
     },
-    value(value) {
+    value(value,preVal) {
+      this.prevVal = preVal
+      window.console.log(value, ' --- ', preVal);
       this.search_block_show = false
       this.input_value = value
     }
