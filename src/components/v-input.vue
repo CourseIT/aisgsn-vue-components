@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2' }">
+  <div :style="{'width': width}" :class="{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2'}">
     <div class="df" :style="{'width': hint_width}">
       <div class="df test" ref="label">
         <span v-if="obligatory" class="obligatory" style="margin-bottom: -4px;">*</span>
@@ -20,7 +20,7 @@
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
-            <textarea class="textarea" :class="{'error-status' : error}" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
+            <textarea class="textarea" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
             <div v-if="select_block_show" class="select-block select-block_textarea">
               <ul>
                 <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -35,7 +35,19 @@
       </div>
       <div v-else-if="type == 'number'">
         <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error}" type="number" ref="input">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" type="number" ref="input">
+          <div v-if="icon_block" class="input_icon-block">
+            <slot name="icon">
+            </slot>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="type == 'password'">
+        <div class="df">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" :type="password_show ? 'text' : 'password'" ref="input">
+          <div class="password_icon">
+            <v-icon v-if="hint" :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
+          </div>
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
@@ -43,7 +55,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error}" type="text" ref="input">
+        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -93,6 +105,9 @@ export default {
     read_only: {},
     visible: {
       default: true
+    },
+    background: {
+      default: true
     }
   },
   components: {
@@ -106,7 +121,8 @@ export default {
     input_width: '',
     label_width: '',
     timer: '',
-    textarea_hint_width: ''
+    textarea_hint_width: '',
+    password_show: false
   }),
   mounted() {
     const l_w = this.$refs.label.clientWidth
@@ -187,6 +203,9 @@ export default {
     }
   },
   methods: {
+    passwordShow() {
+      this.password_show = !this.password_show
+    },
     setWidth() {
       this.input_width = `${this.$refs.input.clientWidth}px`
       this.hint_width = `${this.$refs.input.clientWidth}px`
@@ -301,6 +320,11 @@ export default {
   -webkit-appearance: none;
   -moz-appearance:textfield;
 }
+.input-background-none {
+  background-color: transparent !important;
+  border-radius: 0px !important;
+  border-bottom: 1px solid #4e4e4e;
+}
 .textarea {
   width: 100%;
   outline: none;
@@ -369,5 +393,18 @@ export default {
 }
 .select-block ul li:hover {
   color: var(--bright-orange);
+}
+
+.password_icon {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  right: 30px;
+}
+.pl35 {
+  padding-left: 35px;
 }
 </style>

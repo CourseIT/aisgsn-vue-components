@@ -688,15 +688,7 @@ v-radio-buttons
     <!-- <v-loader :loading="loader" /> -->
 
 
-    <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает" placeholder="№" label="Какой-то label" :list="list_input">
-        <template #icons>
-          <v-icon-select-mini hint="test" size="mini" icon="">
-            <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
-          </v-icon-select-mini>
-        </template>
-      </v-input>
-      <!-------------------------------- input -------------------------------->
+   
     
 
       v-card-search
@@ -709,6 +701,18 @@ v-radio-buttons
         <v-card-info-text title="Должность" text="Инспектор" />
       </v-card-info>
     </v-card-search>
+
+     <!-------------------------------- input -------------------------------->
+      <v-input :icon_block="false" :background="false" text_align="center" v-model="input" width="200px" type="password" hint="password" placeholder="" label="Password">
+        <template #icons>
+          <v-icon-select-mini hint="test" size="mini" icon="">
+            <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+          </v-icon-select-mini>
+        </template>
+      </v-input>
+      <!-------------------------------- input -------------------------------->
+
+
 
   </div>
 </template>
