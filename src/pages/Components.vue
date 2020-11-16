@@ -703,7 +703,7 @@ v-radio-buttons
     </v-card-search>
 
      <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="false" :background="false" text_align="center" v-model="input" width="200px" type="password" hint="password" placeholder="" label="Password">
+      <v-input :icon_block="false" :background="false" :hover_login="true" text_align="center" v-model="input" width="200px" type="password" hint="password" placeholder="" label="Password">
         <template #icons>
           <v-icon-select-mini hint="test" size="mini" icon="">
             <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />

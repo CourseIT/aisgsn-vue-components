@@ -20,7 +20,7 @@
       <div v-if="type == 'textarea'">
         <div class="df">
           <div class="w100">
-            <textarea class="textarea" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
+            <textarea class="textarea" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login }" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
             <div v-if="select_block_show" class="select-block select-block_textarea">
               <ul>
                 <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -35,7 +35,7 @@
       </div>
       <div v-else-if="type == 'number'">
         <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" type="number" ref="input">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login }" type="number" ref="input">
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
@@ -44,7 +44,7 @@
       </div>
       <div v-else-if="type == 'password'">
         <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" :type="password_show ? 'text' : 'password'" ref="input">
+          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login }" :type="password_show ? 'text' : 'password'" ref="input">
           <div class="password_icon">
             <v-icon v-if="hint" :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
           </div>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center' }" type="text" ref="input">
+        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login }" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -108,6 +108,9 @@ export default {
     },
     background: {
       default: true
+    },
+    hover_login: {
+      default: false
     }
   },
   components: {
@@ -406,5 +409,14 @@ export default {
 }
 .pl35 {
   padding-left: 35px;
+}
+.hover_login {
+  transition: all 0.2s ease;
+}
+.hover_login:hover {
+  border-bottom: 1px solid #ff62004b;
+}
+.hover_login:focus {
+  border-bottom: 1px solid #ff6100;
 }
 </style>
