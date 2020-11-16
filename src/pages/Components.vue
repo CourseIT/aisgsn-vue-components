@@ -702,16 +702,23 @@ v-radio-buttons
       </v-card-info>
     </v-card-search>
 
+
+    <div style="width: 300px">
      <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="false" :background="false" :hover_login="true" text_align="center" v-model="input" width="200px" type="password" hint="password" placeholder="" label="Password">
-        <template #icons>
+      <v-input :icon_block="false" :background="false" :hover_login="true" text_align="center" v-model="input" type="password" placeholder="">
+        <!-- <template #icons>
           <v-icon-select-mini hint="test" size="mini" icon="">
             <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
           </v-icon-select-mini>
-        </template>
+        </template> -->
       </v-input>
       <!-------------------------------- input -------------------------------->
+    </div>
 
+
+    <v-icon-select-mini hint="test" size="mini" icon="">
+            <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
+          </v-icon-select-mini>
 
 
   </div>

@@ -46,7 +46,7 @@
         <div class="df">
           <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login }" :type="password_show ? 'text' : 'password'" ref="input">
           <div class="password_icon">
-            <v-icon v-if="hint" :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
+            <v-icon :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
           </div>
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
@@ -405,7 +405,8 @@ export default {
   align-items: center;
   justify-content: center;
   position: relative;
-  right: 30px;
+  right: 0px;
+  margin-left: -36px;
 }
 .pl35 {
   padding-left: 35px;
