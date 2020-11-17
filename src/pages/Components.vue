@@ -706,19 +706,21 @@ v-radio-buttons
     <div style="width: 300px">
      <!-------------------------------- input -------------------------------->
       <v-input :icon_block="false" :background="false" :hover_login="true" text_align="center" v-model="input" type="password" placeholder="test">
-        <!-- <template #icons>
+        <template #icons>
           <v-icon-select-mini hint="test" size="mini" icon="">
             <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
           </v-icon-select-mini>
-        </template> -->
+        </template>
       </v-input>
       <!-------------------------------- input -------------------------------->
     </div>
 
 
-    <v-icon-select-mini hint="test" size="mini" icon="">
-            <v-options-mini html="<span>test</span>" :action="function(){value1 = option}" v-for="(option, index) in buttons" :key="index" />
-          </v-icon-select-mini>
+    <v-copy-link style="margin-left: 100px" />
+    <v-open-browser-tab style="margin-left: 100px" class="mt20" />
+
+
+
 
 
   </div>
@@ -787,6 +789,8 @@ const VFilePreview = () => import('@/components/v-file-preview')
 // const VLoader = () => import('@/components/v-loader')
 const VIconSelectMini = () => import('@/components/v-icon-select-mini')
 const VOptionsMini = () => import('@/components/v-options-mini')
+const VCopyLink = () => import('@/components/v-copy-link')
+const VOpenBrowserTab = () => import('@/components/v-open-browser-tab')
 
 
 export default {
@@ -852,7 +856,9 @@ export default {
     VFilePreview,
     // VLoader,
     VIconSelectMini,
-    VOptionsMini
+    VOptionsMini,
+    VCopyLink,
+    VOpenBrowserTab
   },
   data: () => ({
     card_search_inc: 0,

@@ -63,6 +63,8 @@ export { default as VCalendarUser } from './components/v-calendar-user'
 export { default as VGroupCollapse } from './components/v-group-collapse'
 export { default as VIconSelectMini } from './components/v-icon-select-mini'
 export { default as VOptionsMini } from './components/v-options-mini'
+export { default as VCopyLink } from './components/v-copy-link'
+export { default as VOpenBrowserTab } from './components/v-open-browser-tab'
 
 export { default as vuetify } from './plugins/vuetify'
 import draggable from 'vuedraggable'
