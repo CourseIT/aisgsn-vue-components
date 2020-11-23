@@ -318,8 +318,8 @@
 <!-------------------------------- radio-buttons -------------------------------->
 v-radio-buttons
     <v-radio-buttons v-model="label" radio_color="green" column="false" :action="test" label="Какой-то лейбл" hint="text" class="w600">
-      <v-radio value="1" label="label1"></v-radio>
-      <v-radio value="2" label="label2"></v-radio>
+      <v-radio value="1" label="label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 "></v-radio>
+      <v-radio value="2" label="label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 "></v-radio>
     </v-radio-buttons>
 
     <v-radio-buttons v-model="label2" :labels="labels2">
@@ -719,6 +719,12 @@ v-radio-buttons
     <v-copy-link style="margin-left: 100px" />
     <v-open-browser-tab style="margin-left: 100px" class="mt20" />
 
+    <div style="width: 400px; margin-top: 50px;">
+            <v-input-date v-model="test_date" :button="true" />
+            <v-input-date-range v-model="test_date" :button="true" />
+
+    </div>
+
 
 
 
@@ -732,6 +738,7 @@ const VActionButton = () => import('@/components/v-action-button')
 const VButton = () => import('@/components/v-button')
 const VCardBlock = () => import('@/components/v-card-block')
 import draggable from 'vuedraggable'
+import VDateInput from '../components/v-date-input.vue'
 const VDateButton = () => import('@/components/v-date-button')
 const VDateRangeButton = () => import('@/components/v-date-range-button')
 const VDocInfo = () => import('@/components/v-doc-info')
@@ -761,7 +768,6 @@ const VMultipleSearch = () => import('@/components/v-multiple-search')
 const VNewsFeed = () => import('@/components/v-news-feed')
 const VNews = () => import('@/components/v-news')
 const VLayout = () => import('@/components/v-layout')
-const VDateInput = () => import('@/components/v-date-input')
 const VColumnList = () => import('@/components/v-column-list')
 const VLegend = () => import('@/components/v-legend')
 const VModalLayout = () => import('@/components/v-modal-layout')
@@ -858,9 +864,10 @@ export default {
     VIconSelectMini,
     VOptionsMini,
     VCopyLink,
-    VOpenBrowserTab
+    VOpenBrowserTab,
   },
   data: () => ({
+    test_date: '2020-10-31T21:00:00.000+0000',
     card_search_inc: 0,
     loader: false,
     ext: 'jpg',

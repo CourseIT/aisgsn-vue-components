@@ -49,7 +49,9 @@ export default {
     placeholder: {},
     style_type: {},
     value: {},
-    icon: {},
+    icon: {
+      default: ''
+    },
     label: {},
     width: {},
     read_only: {},

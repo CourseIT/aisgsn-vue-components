@@ -21,7 +21,7 @@
               <v-link text="test" />
             </v-submenu-link>
           </v-submenu>
-          <v-submenu title="ТКИ" :notifications="notifications2">
+          <v-submenu title="ТКИ" :open="true" :notifications="notifications2">
             <v-submenu-link only_title="true" :notifications="notifications" text="План работ" />
             <v-submenu-link only_title="true" :notifications="notifications"  text="Средства контроля" />
             <v-submenu-link only_title="true" text="Повышение квалификации" />

@@ -42,7 +42,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    open: {}
   },
   components: {
     VIcon
@@ -50,6 +51,11 @@ export default {
   data: () => ({
     open_submenu: false,
   }),
+  mounted() {
+    if(this.open) {
+      this.open_submenu = this.open
+    }
+  },
   computed: {
     readOnly() {
       if(typeof (this.read_only) == 'function') {

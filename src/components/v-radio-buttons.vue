@@ -125,7 +125,6 @@ export default {
   letter-spacing: normal;
   text-align: left;
   color: var(--dark);
-  white-space: nowrap;
 }
 .checkup-card-list__radio .mdi-radiobox-blank::before {
   content: "";
