@@ -16,6 +16,7 @@
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
         <input v-model="date_input" class="input" type="text" ref="input" :class="{'pr25': hint, 'error-status' : error}">
         <v-menu
+          v-if="show_icon"
           ref="menu"
           :nudge-right="56"
           :nudge-top="44"
@@ -44,7 +45,7 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-  name: 'VInputDateWithIcon',
+  name: 'VInputDate',
   props: {
     placeholder: {},
     style_type: {},
@@ -70,6 +71,9 @@ export default {
       default: function() {
         return () => ({})
       }
+    },
+    show_icon: {
+      default: true
     }
   },
   components: {

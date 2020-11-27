@@ -133,7 +133,7 @@ export default {
     padding-left: 0px;
     position: absolute;
     width: inherit;
-    z-index: 103;
+    z-index: 8;
     margin-top: -8px;
   }
   .icon-btn {
@@ -170,4 +170,12 @@ export default {
     border-radius: 4px;
     background-color: var(--pale-lilac);
   }
+  .colse-bg {
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 </style>

@@ -96,9 +96,6 @@ export default {
 .v-input__control {
   height: auto;
 }
-.v-input--radio-group--row .v-input--radio-group__input {
-  flex-wrap: unset !important;
-}
 .checkup-card-list__radio .v-radio:last-child {
   margin-right: 0;
 }

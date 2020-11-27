@@ -207,9 +207,9 @@
       <!-------------------------------- textarea -------------------------------->
 
 
-      <v-input-date hint="test" v-model="input_date" :obligatory="true" :button="true" :no_range="true" icon="" label="Срок проведения работ"/>
+      <v-input-date hint="test" v-model="input_date" :show_icon="false" :obligatory="true" :button="true" :no_range="true" icon="" label="v-input-date"/>
 
-      <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" :no_range="false" icon="" label="Срок проведения работ"/>
+      <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" :no_range="false" icon="" label="v-input-date-range"/>
 
       <!-------------------------------- input-date -------------------------------->
     </div>
@@ -223,7 +223,34 @@
 <!-------------------------------- modal -------------------------------->
     <transition name="modal">
       <v-modal v-if="modal_show" v-model="modal_show" :action_apply="test" :action_delete="test2">
+        <v-radio-buttons v-model="label" radio_color="green" column="false" :action="test" label="Какой-то лейбл" hint="text">
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+          <v-radio value="1" label="label1 label1"></v-radio>
+          <v-radio value="2" label="label2 label2"></v-radio>
+        </v-radio-buttons>
         <form action="">
+          <v-card-search v-model="card_search" :action="test" :inc="card_search_inc" :disabled="true" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+      <template #search>
+        <v-search v-model="search" :hint="false" placeholder="Поиск"/>
+      </template>
+      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index, v_card_search_show_block = false, card_search_inc++}">
+        <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
+        <v-card-info-text title="Должность" text="Инспектор" />
+      </v-card-info>
+    </v-card-search>
         <div class="df">
           <v-input v-model="input" placeholder="" label="п/п" :list="list_input" tabindex="1"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
@@ -238,7 +265,7 @@
           </v-template-block-with-icon>
         </div>
 
-        <div class="df">
+        <!-- <div class="df">
           <v-input v-model="input" placeholder="" label="Наименование работ, подлежащих проверке, определяемых в соответствии с проектом Организации строительства" :list="list_input" tabindex="2"/>
           <v-template-block-with-icon icon="" el_after="true" el_before="true" template_text_top="0px" class="mt19">
             <v-template-block class="mb20" :action_edit="test" :action_plus="test2">
@@ -294,7 +321,7 @@
               </draggable>
             </v-template-block>
           </v-template-block-with-icon>
-        </div>
+        </div> -->
 
         <div class="df">
           <v-input v-model="input" placeholder="" label="Должностные лица или работники застройщика, технического заказчика либо лица, осуществляющего строительство, присутствие которых при проведении проверок,
@@ -318,8 +345,8 @@
 <!-------------------------------- radio-buttons -------------------------------->
 v-radio-buttons
     <v-radio-buttons v-model="label" radio_color="green" column="false" :action="test" label="Какой-то лейбл" hint="text" class="w600">
-      <v-radio value="1" label="label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 label1 "></v-radio>
-      <v-radio value="2" label="label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 label2 "></v-radio>
+      <v-radio value="1" label="label1 label1"></v-radio>
+      <v-radio value="2" label="label2 label2"></v-radio>
     </v-radio-buttons>
 
     <v-radio-buttons v-model="label2" :labels="labels2">
