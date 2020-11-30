@@ -1,5 +1,5 @@
 <template>
-  <div class="v-circles-loader">
+  <div v-if="show" class="v-circles-loader">
     <div class="item-1"></div>
     <div class="item-2"></div>
     <div class="item-3"></div>
@@ -12,7 +12,11 @@
 
 <script>
 export default {
-
+  props: {
+    show: {
+      default: true
+    }
+  }
 }
 </script>
 

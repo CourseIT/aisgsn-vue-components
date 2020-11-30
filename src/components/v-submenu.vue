@@ -74,6 +74,7 @@ export default {
   },
   methods: {
     openSubmenu() {
+      this.action()
       if(!this.only_title) {
         this.open_submenu = !this.open_submenu
       }
