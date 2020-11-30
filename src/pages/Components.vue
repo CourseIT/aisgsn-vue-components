@@ -752,6 +752,8 @@ v-radio-buttons
 
     </div>
 
+    <v-circles-loader />
+
 
 
 
@@ -824,6 +826,7 @@ const VIconSelectMini = () => import('@/components/v-icon-select-mini')
 const VOptionsMini = () => import('@/components/v-options-mini')
 const VCopyLink = () => import('@/components/v-copy-link')
 const VOpenBrowserTab = () => import('@/components/v-open-browser-tab')
+const VCirclesLoader = () => import('@/components/v-circles-loader')
 
 
 export default {
@@ -892,6 +895,7 @@ export default {
     VOptionsMini,
     VCopyLink,
     VOpenBrowserTab,
+    VCirclesLoader,
   },
   data: () => ({
     test_date: '2020-10-31T21:00:00.000+0000',
