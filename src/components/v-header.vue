@@ -47,7 +47,9 @@
           </v-toolbar-items>
           <v-spacer></v-spacer>
           <div class="df aic">
-            <v-icon v-if="notifications.length == 0" class="header-icon mr5" icon=""/>
+            <v-open-browser-tab />
+            <v-copy-link class="ml10" />
+            <v-icon v-if="notifications.length == 0" class="header-icon mr5 ml10" icon=""/>
             <div v-else>
               <v-icon class="header-icon regular mr5" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
@@ -62,6 +64,8 @@
 
 <script>
 const VIcon = () => import('./v-icon')
+const VCopyLink = () => import('./v-copy-link')
+const VOpenBrowserTab = () => import('./v-open-browser-tab')
 
 export default {
   props: {
@@ -79,7 +83,9 @@ export default {
     }
   },
   components: {
-    VIcon
+    VIcon,
+    VCopyLink,
+    VOpenBrowserTab
   },
   data: () => ({
     time: ``,
