@@ -707,7 +707,7 @@ v-radio-buttons
       <p class="mb300">test</p>
     </v-group-collapse>
 
-    <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" :read_only="false" :actionDownload="test" :preview="require('@/assets/doc2.png')" v-model="download_file"/>
+    <v-download-file class="mt20" file_name="test" file_size="20mb" :file_extension="ext" :read_only="false" :actionDownload="test" v-model="download_file"/>
     <v-file-preview :downloadFile="test" :file_extension="ext" :preview="require('@/assets/doc2.png')" class="mt20" />
 
     <button @click="ext = 'pdf'">TEST</button>

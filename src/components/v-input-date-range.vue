@@ -222,6 +222,27 @@ export default {
         let arr_end = arr[1].split('.')
         this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
       }
+      if(value.length == 23){
+        let arr = value.split(' ')
+        let arr_start = arr[0].split('.')
+        let arr_end = arr[2].split('.')
+        this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
+      }
+      if(value.length == 23) {
+        let arr = value.split(' - ')
+        let arr_start = arr[0].split('.')
+        let arr_end = arr[1].split('.')
+        let start_date = arr_start.reverse().join('-')
+        let end_date = arr_end.reverse().join('-')
+        window.console.log(start_date, end_date)
+        window.console.log(new Date(start_date).toISOString())
+        window.console.log(new Date(end_date).toISOString());
+        if(new Date(start_date).toISOString() > new Date(end_date).toISOString()) {
+          this.date_range_input = ''
+          this.date = []
+          this.menu = false
+        }
+      }
       date1 = date2
     }
   },

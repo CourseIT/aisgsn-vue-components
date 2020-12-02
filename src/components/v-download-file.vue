@@ -1,15 +1,17 @@
 <template>
 <div>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
+  
+  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block">
     <div class="mr15">
       <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="file_svg && !preview" v-html="file_svg" />
-      <img v-if="preview" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="preview" alt="">
+      <img v-if="file_svg" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="preview" alt="">
       <div v-else class="doc__preview" :class="{'doc__preview-1': size === 1, 'doc__preview-2': size === 2}" @drop.prevent="addFile" @dragover.prevent>
         <v-icon font_size="21px" icon="" class="icon_preview" :class="{'icon_preview-1': size === 1, 'icon_preview-2': size === 2}" />
         <p class="text__preview" :class="{'text__preview-1': size === 1, 'text__preview-2': size === 2}">Перетащите файл сюда</p>
       </div>
     </div>
     <input @change="getPhoto($event)" ref="inputPhotos" type="file" class="dn" />
+    
     <div class="doc__btns">
       <v-radio-buttons v-model="size" radio_color="green" label="Размер превью" style="margin-left: 7px;">
         <v-radio :value="1" label="1 x"></v-radio>
@@ -490,9 +492,9 @@ export default {
   height: 36px;
 }
 .doc__block {
-  max-width: 232px;
   max-height: 328px;
   margin-bottom: 20px;
+  display: flex;
 }
 .doc_preview-1 {
   width: 116px;

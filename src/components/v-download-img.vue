@@ -147,7 +147,6 @@ export default {
   height: 36px;
 }
 .doc__block {
-  max-width: 232px;
   max-height: 328px;
   margin-bottom: 20px;
 }
