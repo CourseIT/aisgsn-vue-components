@@ -697,11 +697,10 @@ v-radio-buttons
 
     <v-calendar class="mb20" />
 
-    <v-message text="Какой-то текст" status="error"/>
-
-    <v-message status="success">
-      Какой-то текст
-    </v-message>
+    <v-message text="Какой-то текст" :notifications="v_m_notifications" status="error"/>
+    <button @click="changeNotif()">
+      Push Notif
+    </button>
 
     <v-group-collapse v-model="group_collapse" class="mt20" title="Какой-то заголовок">
       <p class="mb300">test</p>
@@ -898,6 +897,7 @@ export default {
     VCirclesLoader,
   },
   data: () => ({
+    v_m_notifications: [{status: 'success', text: 'asdasdasdad'}],
     test_date: '2020-10-31T21:00:00.000+0000',
     card_search_inc: 0,
     loader: false,
@@ -1342,6 +1342,16 @@ export default {
     // }
   },
   methods: {
+    changeNotif() {
+      this.v_m_notifications.push({
+        status: 'info',
+        text: new Date()
+      })
+      // this.v_m_notifications.push({
+      //   status: 'error',
+      //   text: 'test2'
+      // })
+    },
     pushCard() {
       this.list_card.splice(1, 0, { 
         date: '20.08.20 – 28.08.20',

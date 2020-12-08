@@ -8,7 +8,7 @@
       </template>
       <div v-if="!search">
         <v-submenu title="Главная" :notifications="notifications" only_title="true" />
-          <v-submenu title="НАДЗОР" :notifications="notifications2">
+          <v-submenu title="НАДЗОР" :action="rigth" :notifications="notifications2">
             <v-submenu-link :notifications="notifications2" text="Надзорные дела" >
               <v-link text="test" :notifications="notifications" :animation="true" />
               <v-link text="test" :notifications="notifications" :animation="true" />

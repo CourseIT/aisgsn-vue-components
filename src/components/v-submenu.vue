@@ -7,9 +7,9 @@
           {{notificationsLength}}
         </div>
       </transition>
-      <div class="df jcsb cp menu__title" @click="openSubmenu">
-        <h1 :class="{'color-orange': active}" @click="action">{{title}}</h1>
-        <v-icon v-if="!only_title" font_size="21px" class="icon__dots" :icon="!open_submenu ? '' : ''" :class="{'color-orange': open_submenu}" />
+      <div class="df jcsb cp menu__title">
+        <h1 :class="{'color-orange': active}" @click="clickTitle">{{title}}</h1>
+        <v-icon v-if="!only_title" :action="clickIcon" font_size="21px" class="icon__dots" :icon="!open_submenu ? '' : ''" :class="{'color-orange': open_submenu}" />
       </div>
     </div>
     <transition name="submenu">
@@ -45,6 +45,11 @@ export default {
         return () => ({})
       }
     },
+    openSubmenu: {
+      default: function() {
+        return () => ({})
+      }
+    },
     open: {}
   },
   components: {
@@ -73,12 +78,15 @@ export default {
     },
   },
   methods: {
-    openSubmenu() {
+    clickTitle() {
       this.action()
+    },
+    clickIcon() {
       if(!this.only_title) {
         this.open_submenu = !this.open_submenu
+        this.openSubmenu(this.open_submenu)
       }
-    }
+    },
   }
 }
 </script>

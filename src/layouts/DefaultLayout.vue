@@ -8,8 +8,8 @@
         <v-search-menu placeholder="Поиск" />
       </template>
       <v-submenu title="Главная" :action="test" only_title="true" />
-            <v-submenu title="НАДЗОР">
-              <v-submenu-link :action="test" text="Надзорные дела" >
+            <v-submenu :action="action" :openSubmenu="openSubmenu" title="НАДЗОР">
+              <v-submenu-link :action="action" :openSubmenu="openSubmenu" text="Надзорные дела" >
                 <v-link text="text" />
               </v-submenu-link>
               <v-submenu-link text="Программа проверок" />
@@ -43,6 +43,7 @@
         <router-view></router-view>
       </div>
     </main>
+    <v-message :nutifications="nutifications" />
   </div>
 </template>
 
@@ -67,11 +68,18 @@ export default {
     VBreadcrumbs
   },
   data: () => ({
-    
+    nutifications: []
   }),
   methods: {
     test() {
       window.console.log('test')
+    },
+    action() {
+      window.console.log('action')
+    },
+    openSubmenu(val) {
+      this.nutifications.push({status: 'success', text: "меню открылось"})
+      window.console.log(val)
     }
   }
 };
