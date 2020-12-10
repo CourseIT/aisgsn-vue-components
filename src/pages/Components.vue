@@ -727,6 +727,15 @@ v-radio-buttons
         <v-card-info-text title="Должность" text="Инспектор" />
       </v-card-info>
     </v-card-search>
+    <v-card-search v-model="card_search" :action="test" :inc="card_search_inc" :disabled="false" hint="hint" label="Какой-то лейбл" class="w600 mt20">
+      <template #search>
+        <v-search v-model="search" :hint="false" placeholder="Поиск"/>
+      </template>
+      <v-card-info v-for="(index) in array" :key="index" :action="function(){card_search = index, v_card_search_show_block = false, card_search_inc++}">
+        <v-card-info-text title="ФИО" text="Сергеев Сергей Петрович" />
+        <v-card-info-text title="Должность" text="Инспектор" />
+      </v-card-info>
+    </v-card-search>
 
 
     <div style="width: 300px">

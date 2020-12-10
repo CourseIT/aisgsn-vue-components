@@ -55,7 +55,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" :disabled="disabled" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
+        <input v-model="input_value" @focus="on_focus()" :onkeydown="disabledText()" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -86,7 +86,7 @@ export default {
     rows: {
       default: 4
     },
-    disabled: {
+    disabled_text: {
       default: false
     },
     hint: {
@@ -111,6 +111,11 @@ export default {
     },
     hover_login: {
       default: false
+    },
+    on_focus: {
+      default: function() {
+        return () => ({})
+      }
     }
   },
   components: {
@@ -187,9 +192,17 @@ export default {
       }, 2000)
     },
     input_value(value) {
-      this.$emit('input', value)
-      if(value != this.$props.value)
+      if(this.disabled_text && value) {
+        if(value != this.value) {
+          this.input_value = this.value
+          //this.$emit('input', value)
+        }
+      } else {
+        this.$emit('input', value)
+        if(value != this.$props.value)
         this.select_block_show = true
+
+      }
 
       setTimeout(() => {
         if(value === this.input_value) {
@@ -212,6 +225,12 @@ export default {
     setWidth() {
       this.input_width = `${this.$refs.input.clientWidth}px`
       this.hint_width = `${this.$refs.input.clientWidth}px`
+    },
+    disabledText() {
+      // if(this.disabled_text) {
+      //   this.input_value = this.value
+      //   window.console.log('asdasdasdasdasdasd')
+      // }
     }
   }
 }

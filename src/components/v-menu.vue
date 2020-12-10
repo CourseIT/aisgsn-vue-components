@@ -46,7 +46,7 @@ export default {
   }),
   watch: {
     light_gamma(light_gamma) {
-      document.cookie = `light_gamma=${light_gamma}`;
+      //document.cookie = `light_gamma=${light_gamma}`;
       if(light_gamma) {
         this.$store.commit('SET_LIGHT_GAMMA', true)
       } else {
@@ -54,7 +54,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     this.checkVisibilityInCookie()
     this.checkLightGammInCookie()
   },
@@ -73,10 +73,10 @@ export default {
         if (c.indexOf(name_cook) == 0) {
           if (c.substring(name_cook.length, c.length) === 'true') {
             this.light_gamma = true
-            this.$store.commit('SET_MENU_VISIBILITY', true)
+            this.$store.commit('SET_LIGHT_GAMMA', true)
           } else {
             this.light_gamma = false
-            this.$store.commit('SET_MENU_VISIBILITY', false)
+            this.$store.commit('SET_LIGHT_GAMMA', false)
           }
         }
       }
@@ -90,7 +90,7 @@ export default {
           c = c.substring(1, c.length);
         }
         if (c.indexOf(name_cook) == 0) {
-          if (c.substring(name_cook.length, c.length) === 'true') {
+          if (c.substring(name_cook.length, c.length) === 'true' || c.substring(name_cook.length, c.length) !== 'false') {
             this.$store.commit('SET_MENU_VISIBILITY', true)
           } else {
             this.$store.commit('SET_MENU_VISIBILITY', false)
