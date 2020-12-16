@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }">
+  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2', 'mr55': !show_icon }">
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -201,6 +201,9 @@ export default {
 </script>
 
 <style scoped>
+.mr55 {
+  margin-right: 55px;
+}
 .hint_icon {
   margin-left: 10px;
   font-size: 15px;

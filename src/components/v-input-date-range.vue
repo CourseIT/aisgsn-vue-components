@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }">
+  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2', 'mr55': !show_icon }">
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -217,26 +217,17 @@ export default {
       }
 
       if(value.length == 23 && pevValue.length < value.length) {
-        let arr = value.split(' - ')
-        let arr_start = arr[0].split('.')
-        let arr_end = arr[1].split('.')
-        this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
-      }
-      if(value.length == 23){
         let arr = value.split(' ')
         let arr_start = arr[0].split('.')
-        let arr_end = arr[2].split('.')
+        let arr_end = arr[arr.length - 1].split('.')
         this.date = [`${arr_start[2]}-${arr_start[1]}-${arr_start[0]}`, `${arr_end[2]}-${arr_end[1]}-${arr_end[0]}`]
       }
       if(value.length == 23) {
-        let arr = value.split(' - ')
+        let arr = value.split(' ')
         let arr_start = arr[0].split('.')
-        let arr_end = arr[1].split('.')
+        let arr_end = arr[arr.length - 1].split('.')
         let start_date = arr_start.reverse().join('-')
         let end_date = arr_end.reverse().join('-')
-        window.console.log(start_date, end_date)
-        window.console.log(new Date(start_date).toISOString())
-        window.console.log(new Date(end_date).toISOString());
         if(new Date(start_date).toISOString() > new Date(end_date).toISOString()) {
           this.date_range_input = ''
           this.date = []
@@ -271,6 +262,9 @@ export default {
 </script>
 
 <style scoped>
+.mr55 {
+  margin-right: 55px;
+}
 .hint_icon {
   margin-left: 10px;
   font-size: 15px;

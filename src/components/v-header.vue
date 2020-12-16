@@ -48,8 +48,8 @@
           <v-spacer></v-spacer>
           <div class="df aic">
             <v-open-browser-tab />
-            <v-copy-link class="ml10" />
-            <v-icon v-if="notifications.length == 0" class="header-icon mr5 ml10" icon=""/>
+            <v-copy-link class="ml10" :action="copy_action" />
+            <v-icon v-if="notifications.length == 0" class="header-icon mr5 ml10" :action="notification_action" icon=""/>
             <div v-else>
               <v-icon class="header-icon regular mr5" icon=""/>
               <div class="notifications">{{notifications.length}}</div>
@@ -79,6 +79,16 @@ export default {
       type: Array,
       default: ()=>{
         return[]
+      }
+    },
+    notification_action: {
+      default: function() {
+        return () => ({})
+      }
+    },
+    copy_action: {
+      default: function() {
+        return () => ({})
       }
     }
   },

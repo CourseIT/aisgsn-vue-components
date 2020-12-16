@@ -6,6 +6,13 @@
 const VIcon = () => import('./v-icon')
 
 export default {
+  props: {
+    action: {
+      default: function() {
+        return () => ({})
+      }
+    }
+  },
   components: {
     VIcon
   },
@@ -28,6 +35,7 @@ export default {
       tempInput.setSelectionRange(0, 99999);
       document.execCommand('copy');
       tempInput.parentNode.removeChild(tempInput);
+      this.action()
     }
   }
 }
