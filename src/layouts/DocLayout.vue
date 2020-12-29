@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-header user="Петров А.П." :copy_action="rigth" :notification_action="left"/>
+    <v-header user="Петров А.П." :copy_action="rigth" :notification_action="left" path_dark_logo="/logo_aisgsn1.svg" path_light_logo="/logo_aisgsn2.svg"/>
     <v-breadcrumbs class="breadcrumbs-pos" :action_right="rigth" :action_left="left" />
     <v-menu>
       <template #search>

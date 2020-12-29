@@ -14,7 +14,11 @@
           </v-toolbar-items>
           <v-toolbar-title class="nav__logo df aic" >
             <slot>
-              <svg
+              <img v-if="!$store.state.menu_visibility" :src="path_dark_logo" alt="">
+              <img v-if="$store.state.menu_visibility && !$store.state.light_gamma" :src="path_light_logo" alt="">
+              <img v-if="$store.state.menu_visibility && $store.state.light_gamma" :src="path_dark_logo" alt="">
+              <!-- <svg
+              v-else
                 @click="$router.push({name: 'Home'})"
                  xmlns="http://www.w3.org/2000/svg"
                 id="Лого_АИС_ГСН_fin"
@@ -32,7 +36,7 @@
                     <path fill="#fb6229" id="Path_25" d="M391.319 5.2v13.335h-12.94V5.2h-10.692v11.284a19.436 19.436 0 0 0-9.469-2.564 10.3 10.3 0 0 0-7.338 2.722 8.663 8.663 0 0 0-2.88 6.706 8.693 8.693 0 0 0 3 6.825 11.451 11.451 0 0 0 7.654 2.6 16.5 16.5 0 0 0 9.035-2.407v11.367h10.692v-13.3h12.941v13.3h10.692V5.2z" class="cls-2" data-name="Path 25" transform="translate(-317.148 -5.2)"/>
                     <path fill="#fb6229" id="Path_26" d="M294.695 37.967a18.744 18.744 0 0 1-6.312-14.6 18.692 18.692 0 0 1 6.273-14.519A21.355 21.355 0 0 1 300.06 5.3l-12.7.039v8.206H269.8v28.209l30.971.039a21.665 21.665 0 0 1-6.076-3.826z" class="cls-2" data-name="Path 26" transform="translate(-269.8 -5.261)"/>
                 </g>
-              </svg>
+              </svg> -->
             </slot>
           </v-toolbar-title>
           <v-toolbar-items class="nav__time">
@@ -90,7 +94,9 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    path_light_logo: {},
+    path_dark_logo: {},
   },
   components: {
     VIcon,
@@ -390,5 +396,10 @@ nav {
   width: 22px;
   height: 22px;
   color: var(--white);
+}
+
+.nav__logo {
+  max-height: 100px;
+  position: relative;
 }
 </style>

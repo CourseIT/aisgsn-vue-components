@@ -2,9 +2,10 @@
   <div>
     <p>Страницы:</p>
     <div v-for="(item, index) in items" :key="index">
-      <h1 :to="item.path" @click="$router.push({name: `${item.name}`})">
+      <!-- <h1 :to="item.path" @click="$router.push({name: `${item.name}`})">
         {{item.name}}
-      </h1>
+      </h1> -->
+      <a :href="item.path">{{item.name}}</a>
     </div>
   </div>
 </template>
