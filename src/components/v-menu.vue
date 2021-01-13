@@ -44,41 +44,22 @@ export default {
     light_gamma: false,
     text_size: 16
   }),
-  watch: {
-    light_gamma(light_gamma) {
-      //document.cookie = `light_gamma=${light_gamma}`;
-      if(light_gamma) {
-        this.$store.commit('SET_LIGHT_GAMMA', true)
-      } else {
-        this.$store.commit('SET_LIGHT_GAMMA', false)
-      }
-    }
-  },
   mounted() {
     this.checkVisibilityInCookie()
-    this.checkLightGammInCookie()
+    this.checkLightGammInLocalStorage()
+  },
+  watch: {
+    light_gamma(light_gamma) {
+      this.$store.commit('SET_LIGHT_GAMMA', light_gamma)
+    }
   },
   methods: {
-    test() {
-      window.console.log('test')
-    },
-    checkLightGammInCookie() {
-      var name_cook = "light_gamma=";
-      var spl = document.cookie.split(";");
-      for (var i = 0; i < spl.length; i++) {
-        var c = spl[i];
-        while (c.charAt(0) == " ") {
-          c = c.substring(1, c.length);
-        }
-        if (c.indexOf(name_cook) == 0) {
-          if (c.substring(name_cook.length, c.length) === 'true') {
-            this.light_gamma = true
-            this.$store.commit('SET_LIGHT_GAMMA', true)
-          } else {
-            this.light_gamma = false
-            this.$store.commit('SET_LIGHT_GAMMA', false)
-          }
-        }
+    checkLightGammInLocalStorage() {
+      var light_gamma = localStorage.getItem("light_gamma_in_menu");
+      if(light_gamma === 'true') {
+        this.light_gamma = true
+      } else {
+        this.light_gamma = false
       }
     },
     checkVisibilityInCookie() {

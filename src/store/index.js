@@ -17,7 +17,8 @@ export default new Vuex.Store({
     },
     SET_LIGHT_GAMMA(state, light_gamma) {
       state.light_gamma = light_gamma
-      document.cookie = `light_gamma=${light_gamma}`;
+      localStorage.setItem("light_gamma_in_menu", light_gamma);
+      //document.cookie = `light_gamma=${light_gamma}`;
     },
     setLayout(state, payload) {
       state.layout = payload
