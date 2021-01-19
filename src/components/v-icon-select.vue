@@ -2,7 +2,7 @@
   <div :class="{'icon-select': style_type != 'style2', 'icon-select-style2': style_type == 'style2'}">
     <v-icon :icon="icon" :action="showSelects" :hover_color="hover_color" :prompt="hint" :hover_shadow="hover_shadow" :font_size="font_size"  :class="{'icon__active': show_selects}" />
     <div v-if="show_selects" class="select-block">
-      <div @click="showSelects">
+      <div @click="showSelects" class="block-actions">
         <slot>
         </slot>
       </div>
@@ -55,5 +55,22 @@ export default {
   margin-top: 6px;
   position: absolute;
   z-index: 103;
+}
+.block-actions {
+  margin: -10px;
+  margin-top: 0px;
+  padding: 10px;
+  padding-top: 0px;
+  max-height: 420px;
+  overflow-y: scroll;
+}
+.block-actions::-webkit-scrollbar {
+  width: 11px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0);
+}
+.block-actions::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: var(--pale-lilac);
 }
 </style>

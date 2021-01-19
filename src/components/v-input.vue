@@ -55,7 +55,7 @@
         </div>
       </div>
       <div v-else class="df">
-        <input v-model="input_value" @focus="on_focus()" :onkeydown="disabledText()" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
+        <input v-model="input_value" @focus="focusInput()" :onkeydown="disabledText()" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
         <div v-if="select_block_show" class="select-block">
           <ul>
             <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
@@ -116,7 +116,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    focus: {}
   },
   components: {
     VIcon
@@ -216,6 +217,11 @@ export default {
       } else {
         this.input_value = String(value)
       }
+    },
+    focus(val) {
+      if(val) {
+        this.$refs.input.focus()
+      }
     }
   },
   methods: {
@@ -231,6 +237,13 @@ export default {
       //   this.input_value = this.value
       //   window.console.log('asdasdasdasdasdasd')
       // }
+    },
+    focusInput(){
+      if(this.focus){
+        return ()=>{}
+      } else {
+        this.on_focus()
+      }
     }
   }
 }

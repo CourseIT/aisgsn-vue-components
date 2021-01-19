@@ -2,7 +2,7 @@
   <div :class="{'read-only': readOnly == true}">
     <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
-        <v-input v-model="input_value" :on_focus="showBlock" :disabled_text="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
+        <v-input v-model="input_value" :focus="focus" :on_focus="showBlock" :disabled_text="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
           <template #icon>
             <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
           </template>
@@ -73,6 +73,7 @@ export default {
     search_block_show: false,
     input_value: '',
     search: '',
+    focus: false
   }),
   mounted() {
     if(this.value) {
@@ -91,7 +92,7 @@ export default {
       window.console.log(value, ' --- ', preVal);
       this.search_block_show = false
       this.input_value = value
-    }
+    },
   },
   computed: {
     blockWidth() {
@@ -109,7 +110,14 @@ export default {
   },
   methods: {
     showBlock() {
-      this.search_block_show = !this.search_block_show
+      if(this.search_block_show) {
+        this.search_block_show = false
+        this.focus = false
+        
+      } else {
+        this.search_block_show = true
+        this.focus = true
+      }
       this.action_show()
     },
     resetInput() {
@@ -133,7 +141,7 @@ export default {
     padding-left: 0px;
     position: absolute;
     width: inherit;
-    z-index: 8;
+    z-index: 9;
     margin-top: -8px;
   }
   .icon-btn {
@@ -172,7 +180,7 @@ export default {
   }
   .colse-bg {
   position: fixed;
-  z-index: 7;
+  z-index: 8;
   top: 0;
   left: 0;
   width: 100%;
