@@ -9,7 +9,7 @@
         <v-radio :value="6" label="Полгода"></v-radio>
         <v-radio :value="12" label="Год"></v-radio>
       </v-radio-buttons>
-      <img src="../assets/calendar_line.png" alt="">
+      <!-- <img src="../assets/calendar_line.png" alt=""> -->
     </div>
 
     <div v-if="pick_date === 1" class="pl315 df jcsb w91 mb20">
