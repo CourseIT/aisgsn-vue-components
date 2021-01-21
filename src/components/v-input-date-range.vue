@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2', 'mr55': !show_icon }">
+  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2'}">
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -36,6 +36,9 @@
             <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
         </v-menu>
+        <div v-else class="icon__clear">
+          <v-icon unicode="&#xf51a;" :action="clearDate" font_size="21px" prompt="Отчистить" :hover_color="true" />
+        </div>
       </div>
     </div>
   </div>
@@ -234,7 +237,13 @@ export default {
           this.menu = false
         }
       }
+      
+      if(value.length == 0) {
+        this.clearDate()
+      }
+      
       date1 = date2
+
     }
   },
   computed: {
@@ -264,6 +273,13 @@ export default {
 <style scoped>
 .mr55 {
   margin-right: 55px;
+}
+.icon__clear {
+  padding: 0px 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .hint_icon {
   margin-left: 10px;

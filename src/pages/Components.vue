@@ -756,7 +756,8 @@ v-radio-buttons
 
     <div style="width: 400px; margin-top: 50px;">
             <v-input-date v-model="test_date" :show_icon="true" />
-            <v-input-date-range v-model="test_date" :show_icon="false" />
+            <v-input-date-range v-model="test_date2" :show_icon="false" />
+            <v-input-date v-model="test_date" :show_icon="false" />
 
     </div>
 
@@ -907,7 +908,8 @@ export default {
   },
   data: () => ({
     v_m_notifications: [{status: 'success', text: 'asdasdasdad'}],
-    test_date: '2020-10-31T21:00:00.000+0000',
+    test_date: '',
+    test_date2: '',
     card_search_inc: 0,
     loader: false,
     ext: 'jpg',
