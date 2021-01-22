@@ -2,7 +2,7 @@
   <div>
     <v-header user="Петров А.П." path_dark_logo="/logo_aisgsn1.svg" path_light_logo="/logo_aisgsn2.svg">
     </v-header>
-    <v-breadcrumbs />
+    <v-breadcrumbs text="Место работы сотрудника" />
     <v-menu drawer='false'>
       <template #search>
         <v-search-menu placeholder="Поиск" />

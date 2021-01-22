@@ -4,11 +4,12 @@
         <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
         <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
-        <v-breadcrumbs :items="items" :large="large">
+        <p v-if="text" class="breadcrumbs__text">{{text}}</p>
+        <!-- <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
           </template>
-        </v-breadcrumbs>
+        </v-breadcrumbs> -->
       </div>
       <div>
         <slot>
@@ -53,7 +54,8 @@ export default {
           }
         ]
       } 
-    }
+    },
+    text: {}
   },
   data: () => ({
     divider: '>',
@@ -152,5 +154,21 @@ export default {
 }
 .breadcrumbs_icon{
   font-family: var(--font-awesome-5-pro-light);
+}
+.breadcrumbs__text {
+  padding: 0px 10px;
+  color: var(--pale-grey);
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  margin-bottom: 0!important;
+}
+.v-application .breadcrumbs__text {
+  margin-bottom: 0!important;
 }
 </style>
