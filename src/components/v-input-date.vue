@@ -37,7 +37,7 @@
           </v-date-picker>
         </v-menu>
         <div v-else class="icon__clear">
-          <v-icon unicode="&#xf51a;" :action="clearDate" font_size="21px" prompt="Отчистить" :hover_color="true" />
+          <v-icon unicode="&#xf51a;" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
       </div>
     </div>
