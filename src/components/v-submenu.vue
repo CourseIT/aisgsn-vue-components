@@ -8,7 +8,7 @@
         </div>
       </transition>
       <div class="df jcsb cp menu__title">
-        <h1 :class="{'color-orange': active}" @click="clickTitle">{{title}}</h1>
+        <h1 class="menu__title__text" :class="{'color-orange': active}" @click="clickTitle">{{title}}</h1>
         <v-icon v-if="!only_title" :action="clickIcon" font_size="21px" class="icon__dots" :icon="!open_submenu ? '' : ''" :class="{'color-orange': open_submenu}" />
       </div>
     </div>

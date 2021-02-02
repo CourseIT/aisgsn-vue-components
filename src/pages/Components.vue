@@ -50,7 +50,7 @@
       </v-template-block>
     </v-template-block-with-icon>
 <!-------------------------------- template-block-with-icon -------------------------------->
-      <v-card-block class="mb20" width="33%" :action_minus="test" :action_edit="test" >
+      <v-card-block class="mb20" width="33%" style_type="style2" :action_minus="test" :action_edit="test" >
         <template #text>
           <v-card-info-text title="ФИО:" text="Сергеев Сергей Петрович Сергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей ПетровичСергеев Сергей Петрович"/>
           <v-card-info-text title="Номер объекта контроля:" text="54844651548498498448"/>
@@ -665,7 +665,7 @@ v-radio-buttons
 
     
 
-    <v-input-date hint="test" v-model="v_input_date" :button="true" :obligatory="true" :action="test" icon="" label="Срок проведения работ" class="w600"/>
+    <v-input-date hint="test" v-model="v_input_date" style_type="style2" :button="true" :obligatory="true" :action="test" icon="" label="Срок проведения работ" class="w600"/>
     <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" icon="" :action="test2" label="Срок проведения работ" class="w600"/>
 
 

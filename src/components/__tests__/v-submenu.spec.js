@@ -36,18 +36,6 @@ describe('VSubmenu', () => {
     });
     expect(wrapper.contains('.link_notifications')).toBe(true)
   })
-  it('Action', () => {
-    const wrapper = shallowMount(VSubmenu, {
-      store, localVue,
-      propsData: {
-        title: 'title',
-        only_title: ''
-      }
-    });
-    expect(wrapper.vm.open_submenu).toBe(false)
-    wrapper.find('.menu__title').trigger('click')
-    expect(wrapper.vm.open_submenu).toBe(true)
-  })
   it('Only_title', () => {
     const wrapper = shallowMount(VSubmenu, {
       store, localVue,
