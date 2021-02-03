@@ -1,73 +1,76 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2'}">
-    <div class="df" :style="{'width': hint_width}">
-      <div class="df test" ref="label">
-        <span v-if="obligatory" class="obligatory" style="margin-bottom: -4px;">*</span>
-        <p v-if="label" class="label">{{label}}</p>
-        <div class="icons__block df">
-          <slot name="icons">
-          </slot>
+  <div :class="[{'input-block': style_type != 'style2', 'input-block-style2': style_type == 'style2'}, dynamic_class]">
+    <div :style="{'width': width}" >
+      <div class="df" :style="{'width': hint_width}">
+        <div class="df" ref="label">
+          <span v-if="obligatory" class="obligatory" style="margin-bottom: -4px;">*</span>
+          <p v-if="label" class="label">{{label}}</p>
+          <div class="icons__block df">
+            <slot name="icons">
+            </slot>
+          </div>
+        </div>
+        <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
+        <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
+          <div class="icon__prompt" :style="{'min-width': label_width}">
+            <span>{{hint}}</span>
+          </div>
         </div>
       </div>
-      <v-icon v-if="hint" icon="" class="hint_icon" width="15" height="15" />
-      <div v-if="hint" class="icon__prompt-block" :style="{'width': hint_width}">
-        <div class="icon__prompt" :style="{'min-width': label_width}">
-          <span>{{hint}}</span>
-        </div>
-      </div>
-    </div>
-    <div  v-if="visible" :class="{'read-only': readOnly == true}">
-      <div v-if="type == 'textarea'">
-        <div class="df">
-          <div class="w100">
-            <textarea class="textarea" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
-            <div v-if="select_block_show" class="select-block select-block_textarea">
-              <ul>
-                <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-              </ul>
+      <div  v-if="visible" :class="{'read-only': readOnly == true}">
+        <div v-if="type == 'textarea'">
+          <div class="df">
+            <div class="w100">
+              <textarea class="textarea" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" :placeholder="placeholder" :style="{'text-align': text_align}" v-model="input_value" cols="10" :rows="rows" ref="input"></textarea>
+              <div v-if="select_block_show" class="select-block select-block_textarea">
+                <ul>
+                  <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+                </ul>
+              </div>
+            </div>
+            <div v-if="icon_block" class="input_icon-block">
+              <slot name="icon">
+              </slot>
             </div>
           </div>
+        </div>
+        <div v-else-if="type == 'number'">
+          <div class="df">
+            <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="number" ref="input">
+            <div v-if="icon_block" class="input_icon-block">
+              <slot name="icon">
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div v-else-if="type == 'password'">
+          <div class="df">
+            <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" :type="password_show ? 'text' : 'password'" ref="input">
+            <div class="password_icon">
+              <v-icon :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
+            </div>
+            <div v-if="icon_block" class="input_icon-block">
+              <slot name="icon">
+              </slot>
+            </div>
+          </div>
+        </div>
+        <div v-else class="df">
+          <input v-model="input_value" @focus="focusInput()" :onkeydown="disabledText()" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
+          <div v-if="select_block_show" class="select-block">
+            <ul>
+              <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
+            </ul>
+          </div>
           <div v-if="icon_block" class="input_icon-block">
             <slot name="icon">
             </slot>
           </div>
-        </div>
-      </div>
-      <div v-else-if="type == 'number'">
-        <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="number" ref="input">
-          <div v-if="icon_block" class="input_icon-block">
-            <slot name="icon">
-            </slot>
-          </div>
-        </div>
-      </div>
-      <div v-else-if="type == 'password'">
-        <div class="df">
-          <input v-model="number_value" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" :type="password_show ? 'text' : 'password'" ref="input">
-          <div class="password_icon">
-            <v-icon :icon="password_show ? '' : ''" width="15" height="15" :action="passwordShow" />
-          </div>
-          <div v-if="icon_block" class="input_icon-block">
-            <slot name="icon">
-            </slot>
-          </div>
-        </div>
-      </div>
-      <div v-else class="df">
-        <input v-model="input_value" @focus="focusInput()" :onkeydown="disabledText()" :placeholder="placeholder" :style="{'text-align': text_align}" class="input" :class="{'error-status' : error, 'input-background-none': !background, 'pl35': text_align == 'center', 'hover_login': hover_login, 'placeholder-center': text_align == 'center' }" type="text" ref="input">
-        <div v-if="select_block_show" class="select-block">
-          <ul>
-            <li @click="input_value = `${input_value} ${item}`" v-for="(item, index) in list" :key="index">{{item}}</li>
-          </ul>
-        </div>
-        <div v-if="icon_block" class="input_icon-block">
-          <slot name="icon">
-          </slot>
         </div>
       </div>
     </div>
   </div>
+  
 </template>
 <script>
 const VIcon = () => import('./v-icon')
@@ -117,7 +120,8 @@ export default {
         return () => ({})
       }
     },
-    focus: {}
+    focus: {},
+    dynamic_class: {}
   },
   components: {
     VIcon

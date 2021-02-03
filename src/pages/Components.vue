@@ -180,7 +180,8 @@
       </v-input>
       <!-------------------------------- input -------------------------------->
       <!-------------------------------- input -------------------------------->
-      <v-input :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает" placeholder="№" label="Какой-то label" :list="list_input">
+      <button @click="dynamic_class = 'test2'">switch dynamic_class</button>
+      <v-input :dynamic_class="dynamic_class" :icon_block="true" v-model="input" hint="Интерпретация всех изложенных ниже наблюдений предполагает" placeholder="№" label="Какой-то label" :list="list_input">
         <template #icons>
           <v-icon :action="test" prompt="test" icon="" width="15" height="15" hover_color="true" />
         </template>
@@ -907,6 +908,7 @@ export default {
     VCirclesLoader,
   },
   data: () => ({
+    dynamic_class: 'test',
     v_m_notifications: [{status: 'success', text: 'asdasdasdad'}],
     test_date: '',
     test_date2: '',
