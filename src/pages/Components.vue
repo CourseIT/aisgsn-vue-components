@@ -208,9 +208,9 @@
       <!-------------------------------- textarea -------------------------------->
 
 
-      <v-input-date hint="test" v-model="input_date" :show_icon="false" :obligatory="true" :button="true" :no_range="true" icon="" label="v-input-date"/>
+      <v-input-date hint="test" :dynamic_class="dynamic_class" v-model="input_date" :show_icon="false" :obligatory="true" :button="true" :no_range="true" icon="" label="v-input-date"/>
 
-      <v-input-date-range hint="test" v-model="v_input_date_range" :button="true" :obligatory="true" :no_range="false" icon="" label="v-input-date-range"/>
+      <v-input-date-range hint="test" :dynamic_class="dynamic_class" v-model="v_input_date_range" :button="true" :obligatory="true" :no_range="false" icon="" label="v-input-date-range"/>
 
       <!-------------------------------- input-date -------------------------------->
     </div>
