@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="[dynamic_class]">
         <v-icon :action="merge" :hover_color="true" :prompt="prompt" font_size="21px" icon=""/>
     </div>
 </template>
@@ -23,7 +23,8 @@
             },
             prompt: {
                 default: 'Совместить модели'
-            }
+            },
+            dynamic_class: {}
         },
         data: () => ({}),
         methods: {

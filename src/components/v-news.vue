@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" @click="action" class="news">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" @click="action" class="news">
     <div class="text_block">
       <div class="df">
         <div class="type" :style="`background: ${bgColor}`">{{type}}</div>
@@ -30,7 +30,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   
   computed: {

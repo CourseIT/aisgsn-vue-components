@@ -1,9 +1,9 @@
 <template>
-  <div class="calendar__day" :class="{
+  <div class="calendar__day" :class="[{
                                         'day-active': active,
                                         'day-off': day_name == 'СБ' || day_name == 'ВС',
                                         'read-only': readOnly == true
-                                      }">
+                                      }, dynamic_class]">
     <div class="day__name" :class="{'day-active': active}">{{day_name}}</div>
     <div class="day__date">{{day_date}}</div>
     <!-- <div class="day__actions" v-if="actions !== 0">
@@ -18,7 +18,8 @@ export default {
     read_only: {},
     day_name: {},
     day_date: {},
-    active: {}
+    active: {},
+    dynamic_class: {}
   },
   data: () => ({
     actual_date: '',

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="column__item">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="column__item">
     <div v-if="!only_one" @click="action(text)" class="circle__block">
         <div v-if="text == list || list.includes(text)" class="circle"></div>
     </div>
@@ -35,7 +35,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

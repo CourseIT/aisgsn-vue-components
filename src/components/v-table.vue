@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <v-simple-table fixed-header :height="height" class="checkup-card-list__table">
       <template v-slot:default>
         <thead>
@@ -36,7 +36,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
   }),

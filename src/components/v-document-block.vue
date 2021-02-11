@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="doc__block df">
     <div class="mr15">
       <img v-if="src" class="doc__img" :src="src" alt="">
       <div v-else class="doc__img">
@@ -22,7 +22,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
   }),

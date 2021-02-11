@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="field-block">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="field-block">
     <v-search class="search"/>
     <div class="text-block">
       <v-template-text v-for="(text, index) in texts" padding_right="5px" :key="index" />
@@ -21,7 +21,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VTemplateText,

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="[dynamic_class]">
         <v-tool-icons :class="{pl305: $store.state.menu_visibility}" class="transition" left="350px" top="97px">
             <v-icon :action="load" :hover_color="true" font_size="21px" icon="" prompt="Загрузка YAML-файла"/>
             <v-icon :action="upload" :hover_color="true" font_size="21px" icon="" prompt="Выгрузка YAML-файла"/>
@@ -23,7 +23,8 @@
         props: {
             model: {
                 default: {}
-            }
+            },
+            dynamic_class: {}
         },
         data: () => ({}),
         methods: {

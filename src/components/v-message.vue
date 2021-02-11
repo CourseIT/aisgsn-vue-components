@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-message_c" :class="[dynamic_class]">
     <div class="top__block df jcc">
       <div class="reverse w100">
         <transition-group name="v-transition-animate">
@@ -42,7 +42,8 @@ export default {
     value: {},
     timeout: {
       default: 4000
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     messages: [],

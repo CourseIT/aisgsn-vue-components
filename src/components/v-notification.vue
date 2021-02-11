@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="notification">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="notification">
     <div class="df">
       <v-btn class="notification__btn" :style="`background: ${color}`" text icon>
         <v-icon class="icon" :icon="icon" color="var(--white)" />
@@ -19,7 +19,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

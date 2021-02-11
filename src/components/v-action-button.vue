@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div class="w262" :style="{'width': width}">
       <button @click="action" class="action-btn">
         <p class="action-btn__title">{{title}}</p>
@@ -27,7 +27,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

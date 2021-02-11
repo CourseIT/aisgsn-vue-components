@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="news_feed">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="news_feed">
     <div class="news_list" :style='{"width": `${news_width}`, "height": `${news_height}`}'>
       <slot></slot>
     </div>
@@ -19,7 +19,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     search: '',

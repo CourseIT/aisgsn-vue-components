@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block df">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="doc__block df">
     <div class="mr15">
       <v-icon v-if="doc_img" font_size="90px" :hover_color="false" :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" icon=""  />
       <img v-if="photo" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="photo" alt="">
@@ -39,7 +39,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     photo: '',

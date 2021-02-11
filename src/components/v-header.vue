@@ -1,6 +1,6 @@
 <template>
-  <div>
-  <div class="header-bg"></div>
+  <div :class="[dynamic_class]">
+    <div class="header-bg"></div>
     <header class="header">
       <nav class="header__nav">
           <v-toolbar-items >
@@ -97,6 +97,7 @@ export default {
     },
     path_light_logo: {},
     path_dark_logo: {},
+    dynamic_class: {}
   },
   components: {
     VIcon,

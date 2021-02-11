@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="legend">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="legend">
     <v-icon class="icon" icon="" hover_color="true" />
     <div class="legend__block">
       <slot>
@@ -20,7 +20,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

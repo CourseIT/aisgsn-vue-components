@@ -1,7 +1,7 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" :style='{width: `${width}`}'>
     <div class="search">
-      <input type="text" v-model="value" :placeholder="placeholder">
+      <input type="text" v-model="value" ref="input_search" :placeholder="placeholder">
       <div v-if="hint" class="icon__prompt-block">
         <div class="arrow"></div>
         <div class="icon__prompt">
@@ -33,7 +33,9 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    focus: {},
+    dynamic_class: {}
   },
   components: {
     VIcon
@@ -42,6 +44,12 @@ export default {
     value(value) {
       this.$emit('input', value)
       this.action()
+    },
+    focus(val) {
+      window.console.log('focus search')
+      if(val) {
+        this.$refs.input_search.focus()
+      }
     }
   },
   data: () => ({

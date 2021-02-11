@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click')" class="v-calendar-btn" :disabled="disabled" :class="{'btn-disabled': disabled, 'read-only': readOnly == true}">
+  <button @click="$emit('click')" class="v-calendar-btn" :disabled="disabled" :class="[{'btn-disabled': disabled, 'read-only': readOnly == true}, dynamic_class]">
     <slot>
     </slot>
   </button>
@@ -9,7 +9,8 @@
 export default {
   props:{
     read_only: {},
-    disabled:{}
+    disabled:{},
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

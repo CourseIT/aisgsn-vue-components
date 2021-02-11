@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="[dynamic_class]">
         <v-input :icon_block="true" :label="label" :placeholder="placeholder"
                  class="with-footer" ref="input"
                  type="textarea" v-model="input_value"/>
@@ -26,7 +26,8 @@
             },
             value: {
                 default: ''
-            }
+            },
+            dynamic_class: {}
         },
         data: () => ({
             row_count: 0,

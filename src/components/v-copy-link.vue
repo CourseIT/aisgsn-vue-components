@@ -1,5 +1,5 @@
 <template>
-  <v-icon icon="" font_size="21px" prompt="Копировать текущую ссылку" :action="copyLink" />
+  <v-icon icon="" :class="[dynamic_class]" font_size="21px" prompt="Копировать текущую ссылку" :action="copyLink" />
 </template>
 
 <script>
@@ -11,7 +11,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

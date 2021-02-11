@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'templates__block-bg': style_type != 'style2', 'templates__block-bg-style2': style_type == 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'templates__block-bg': style_type != 'style2', 'templates__block-bg-style2': style_type == 'style2'}, dynamic_class]">
     <div class="search-block" :style='{width: `${width}`}'>
       <slot name="search">
         <v-search class="search" width="403px"/>
@@ -45,6 +45,7 @@ export default {
         return () => ({})
       }
     },
+    dynamic_class: {}
   },
   components: {
     VIcon,

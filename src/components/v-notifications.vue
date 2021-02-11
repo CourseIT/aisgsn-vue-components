@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="notifications">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="notifications">
     <v-badge
         color="var(--white)"
         overlap
@@ -22,7 +22,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

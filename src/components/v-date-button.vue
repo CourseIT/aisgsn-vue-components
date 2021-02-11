@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'date-btn__block': style_type != 'style2', 'date-btn__block-style2': style_type == 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'date-btn__block': style_type != 'style2', 'date-btn__block-style2': style_type == 'style2'}, dynamic_class]">
     <div v-if="date_input_show">
       <div class="date-btn-input">
         <form @submit="emitDateInput">
@@ -48,7 +48,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

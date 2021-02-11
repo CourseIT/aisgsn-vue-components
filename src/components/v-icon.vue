@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'icon': prompt}" :style='{width: `${width}px`, height: `${height}px`}'>
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'icon': prompt}, dynamic_class]" :style='{width: `${width}px`, height: `${height}px`}'>
     <div class="hover_prompt" @click="action">
       <div v-if="unicode" class="icon" :class="{'hover-shadow': hover_shadow, 'hover-color': hover_color}" :style='{"background": background, "font-size": `${font_size}`,"padding-left": `${padding_left}`, color: `${color}`, width: `${width}px`, height: `${height}px`}'>
         <i class="fal" v-html="unicode"></i>
@@ -41,6 +41,7 @@ export default {
         return () => ({})
       }
     },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

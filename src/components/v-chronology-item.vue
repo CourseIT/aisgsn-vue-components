@@ -2,13 +2,13 @@
   <div
     @click="action"
      class="chronology__circle"
-    :class="{
+    :class="[{
       'grid-column-1-5-r': (index + 1) % 6 == 3,
       'grid-column-1-5-l': (index + 1) % 6 == 0,
       'grid-column-1-3': (index + 1) % 6 == 5 || (index + 1) % 6 == 1,
       'grid-column-3-5': (index + 1) % 6 == 2 || (index + 1) % 6 == 4,
       'read-only': readOnly == true
-    }"
+    }, dynamic_class]"
   >
      <div class="circle__big-circle"
       :class="{
@@ -38,7 +38,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

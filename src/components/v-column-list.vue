@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div class="column__list">
       <v-icon class="icon" icon="" hover_color="true" :action="function(){show_list = !show_list}" :class="{'index11': show_list, 'icon-active': show_list}" />
       <div v-if="show_list" class="column__block" :class="{'index11': show_list}">
@@ -53,6 +53,7 @@ export default {
         return () => ({})
       }
     },
+    dynamic_class: {}
 	},
 	components: {
 		VIcon,

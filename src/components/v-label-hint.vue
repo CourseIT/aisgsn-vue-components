@@ -1,5 +1,5 @@
 <template>
-  <div class="input-block" :style="{'width': width}" ref="labelHint">
+  <div class="input-block" :class="[dynamic_class]" :style="{'width': width}" ref="labelHint">
     <div class="df" :style="{'width': hint_width}">
       <div class="df test" ref="label">
         <span v-if="obligatory" class="obligatory">*</span>
@@ -43,7 +43,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

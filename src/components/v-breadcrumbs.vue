@@ -1,6 +1,6 @@
 <template>
   <div class="breadc-bg">
-    <div class="breadcrumbs__shadow" :class="{'l345' : $store.state.menu_visibility}">
+    <div class="breadcrumbs__shadow" :class="[{'l345' : $store.state.menu_visibility}, dynamic_class]">
         <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
         <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
@@ -55,7 +55,8 @@ export default {
         ]
       } 
     },
-    text: {}
+    text: {},
+    dynamic_class: {}
   },
   data: () => ({
     divider: '>',

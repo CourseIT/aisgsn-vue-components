@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar" :class="{'read-only': readOnly == true}">
+  <div class="calendar" :class="[{'read-only': readOnly == true}, dynamic_class]">
 
 
     <div class="pl315 df jcsb w91 aic mb20">
@@ -371,6 +371,7 @@ export default {
   },
   props: {
     read_only: {},
+    dynamic_class: {}
   },
   data: () => ({
     calendars_obj: [

@@ -1,5 +1,5 @@
 <template>
-  <p v-if="visible" :class="{'read-only': readOnly == true, 'bold': bold}">{{text}}</p>
+  <p v-if="visible" :class="[{'read-only': readOnly == true, 'bold': bold}, dynamic_class]">{{text}}</p>
 </template>
 
 <script>
@@ -10,7 +10,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

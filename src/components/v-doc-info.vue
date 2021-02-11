@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div class="df">
       <p class="doc__title">Заявитель (уточняется)</p>
       <p class="title-value">{{doc_info.declarant}}</p>
@@ -26,7 +26,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

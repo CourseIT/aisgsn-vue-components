@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'icon-template-style2': style_type == 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'icon-template-style2': style_type == 'style2'}, dynamic_class]">
     <div class="df">
       <div class="icon " :class="{'icon-template-shadow': template_show, 'el-after': template_show && el_after, 'el-before': template_show && el_before}" @click="template_show = !template_show">
         <slot name="icon">
@@ -33,7 +33,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon,

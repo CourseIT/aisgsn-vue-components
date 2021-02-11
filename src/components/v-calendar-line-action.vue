@@ -1,5 +1,5 @@
 <template>
-  <div class="line_action pa" :class="{'read-only': readOnly == true}" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${65 + index * 5}px`}'>
+  <div class="line_action pa" :class="[{'read-only': readOnly == true}, dynamic_class]" :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`, paddingTop: `${65 + index * 5}px`}'>
     <div v-if="date_from" class="hover_action" ref="action">
 			<div class="action__bottom absolute_bottom1" :style='{background: `${color}`, zIndex: `${999 - index}`}'></div>
     </div>
@@ -51,7 +51,8 @@ export default {
     index: {},
     pick_date: {
       default: 0
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     action_width: '',

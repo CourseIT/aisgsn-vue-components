@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <transition name="notifications">
       <div v-if="notifications.length > 0" class="link_notifications">
         <div v-if="notifications.length > 999" class="notifications_plus">+</div>
@@ -41,7 +41,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

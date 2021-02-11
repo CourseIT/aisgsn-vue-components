@@ -1,5 +1,5 @@
 <template>
-  <div class="menu" :class="{openMenu: $store.state.menu_visibility}">
+  <div class="menu" :class="[{openMenu: $store.state.menu_visibility}, dynamic_class]">
     <div class="animate" :class="{'lightGamma': light_gamma && style != 'style2', 'menu-style2': style == 'style2', 'lightGamma2': light_gamma && style == 'style2'}">
       <div class="menu-top-bg"></div>
       <div class="menu__container">
@@ -39,6 +39,7 @@ export default {
     style_type: {
       default: 'style1'
     },
+    dynamic_class: {}
   },
   data: () => ({
     light_gamma: false,

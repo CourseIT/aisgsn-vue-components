@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="dropdown__block arrow-icon">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="dropdown__block arrow-icon">
     <slot>
       <v-user-signature title="Утверждено" name="Сотрудник А. А." />
       <v-user-signature title="Согласовано" name="Сотрудник А. А." />
@@ -18,7 +18,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VUserSignature

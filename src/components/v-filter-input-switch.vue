@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="df fs">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="df fs">
     <div :class="{'filter-input-switch': style_type != 'style2', 'filter-input-switch-style2': style_type == 'style2'}">
       <div v-if="filter_input_show">
         <div class="filter-btn-input">
@@ -47,7 +47,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     value: '',

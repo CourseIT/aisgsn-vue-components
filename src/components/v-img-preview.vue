@@ -1,5 +1,5 @@
 <template>
-  <div class="img-preview" :class="{'read-only': readOnly == true}">
+  <div class="img-preview" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <img v-if="src" :src="src" alt="" class="img-preview__img-mini">
     <div v-else class="img-preview__no-img"></div>
     <div v-if="src" class="img-main_right">
@@ -12,7 +12,8 @@
 export default {
   props:{
     read_only: {},
-    src: {}
+    src: {},
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

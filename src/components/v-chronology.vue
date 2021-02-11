@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="chronology">
+    <div class="chronology" :class="[dynamic_class]">
       <slot>
         <div
           v-for="(item,index) in list" :key="index"
@@ -39,7 +39,8 @@ export default {
       default: function() {
         return []
       }
-    }
+    },
+    dynamic_class: {}
   }
 }
 </script>

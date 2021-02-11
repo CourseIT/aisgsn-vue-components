@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="dropdown__users">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="dropdown__users">
     <div>
       <p class="dropdown__user-title">{{title}}</p>
       <p class="dropdown__user-name">{{name}}</p>
@@ -28,7 +28,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

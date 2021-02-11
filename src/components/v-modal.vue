@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'v-modal': style_type != 'style2', 'v-modal-style2': style_type == 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'v-modal': style_type != 'style2', 'v-modal-style2': style_type == 'style2'}, dynamic_class]">
     <div class="modal">
       <div class="modal__block" @click="noCloseModal">
       <slot>
@@ -36,6 +36,7 @@ export default {
     },
     action_delete: {},
     action_apply: {},
+    dynamic_class: {}
   },
   components: {
     VIcon,

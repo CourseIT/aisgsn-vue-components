@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="textarea-with-icon" :style="{'width': width}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="textarea-with-icon" :style="{'width': width}">
     <div class="input-block">
       <span v-if="obligatory" class="obligatory">*</span>
       <p class="label">{{label}}</p>
@@ -44,7 +44,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon,

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'border-dashed': border}" class="v-layout" :style="{'width': width, 'height': height}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'border-dashed': border}, dynamic_class]" class="v-layout" :style="{'width': width, 'height': height}">
     <slot></slot>
   </div>
 </template>
@@ -13,7 +13,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

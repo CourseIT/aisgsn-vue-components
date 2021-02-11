@@ -1,5 +1,5 @@
 <template>
-  <div class="img-preview df" :class="{'read-only': readOnly == true}">
+  <div class="img-preview df" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div>
       <div v-if="file_svg && !preview" v-html="file_svg" class="img-preview__img-mini" ref="svgMini"/>
       <img v-if="preview" :src="preview" alt="" class="img-preview__img-mini">
@@ -30,7 +30,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     file_svg: 

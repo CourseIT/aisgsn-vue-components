@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'mb30': chips, 'categories-style2': style_type == 'style2', 'categories': style_type != 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'mb30': chips, 'categories-style2': style_type == 'style2', 'categories': style_type != 'style2'}, dynamic_class]">
     <div class="df">
       <div class="select w140" :class="{'pos-r': menu_show, 'index100': menu_show}" :style="{'width': width}">
         <button class="main-btn" :style="{'width': width}">
@@ -75,7 +75,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon,

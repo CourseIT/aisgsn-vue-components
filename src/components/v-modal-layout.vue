@@ -1,6 +1,6 @@
 <template>
   <transition name="modal_layout">
-    <div v-if="visible" :class="{'read-only': readOnly == true}">
+    <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]">
       <div class="modal_layout">
         <slot>
         </slot>
@@ -20,7 +20,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: { VIcon },
   mounted() {

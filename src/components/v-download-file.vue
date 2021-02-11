@@ -1,7 +1,7 @@
 <template>
 <div>
   
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="doc__block">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="doc__block">
     <div class="mr15">
       <div :class="{'doc_preview-1': size === 1, 'doc_preview-2': size === 2}" v-if="file_svg && !preview" v-html="file_svg" />
       <img v-if="file_svg" class="doc__img" :class="{'doc__img-1': size === 1, 'doc__img-2': size === 2}" :src="preview" alt="">
@@ -57,7 +57,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     photo: '',

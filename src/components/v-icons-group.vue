@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'icons-block': style_type != 'style2', 'icons-block-style2': style_type == 'style2' }" class="">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'icons-block': style_type != 'style2', 'icons-block-style2': style_type == 'style2' }, dynamic_class]" class="">
     <div class="icon1" :class="{'active_icon1': hover}">
       <slot name="main-icon">
         <v-icon class="icon" :hover_shadow="true" :hover_color="true" icon=""  />
@@ -25,7 +25,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

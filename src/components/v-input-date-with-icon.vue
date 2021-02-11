@@ -1,5 +1,5 @@
 <template>
-  <div :style="{'width': width}" :class="{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }">
+  <div :style="{'width': width}" :class="[{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }, dynamic_class]">
     <div class="input-block">
       <div class="df">
         <span v-if="obligatory" class="obligatory mb-4px">*</span>
@@ -72,7 +72,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

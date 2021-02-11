@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true, 'filter-btn-style2': style_type == 'style2'}">
+  <div v-if="visible" :class="[{'read-only': readOnly == true, 'filter-btn-style2': style_type == 'style2'}, dynamic_class]">
     <div class="filter-btn__block">
       <button @click="filters__show = !filters__show" class="filter__btn">
         <p>Фильтры</p>
@@ -58,6 +58,7 @@ export default {
         return () => ({})
       }
     },
+    dynamic_class: {}
   },
   components: { 
     VIcon,

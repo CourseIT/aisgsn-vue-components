@@ -1,5 +1,5 @@
 <template>
-  <div class="v-open-browser-tab">
+  <div class="v-open-browser-tab" :class="[dynamic_class]">
     <a :href="browserUrl" target="_blank">
       <v-icon icon="" font_size="21px" prompt="Открыть текущую страницу в новой вкладке" />
     </a>
@@ -10,8 +10,11 @@
 const VIcon = () => import('./v-icon')
 
 export default {
-   components: {
+  components: {
     VIcon
+  },
+  props: {
+    dynamic_class: {}
   },
   computed: {
     browserUrl() {

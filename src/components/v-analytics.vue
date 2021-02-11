@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="analytics-block">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="analytics-block">
     <div class="df">
       <div class="df mr50">
         <div class="block1-title">
@@ -65,7 +65,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     

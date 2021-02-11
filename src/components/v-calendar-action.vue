@@ -1,5 +1,5 @@
 <template>
-  <div :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`}' class="pa" :class="{'read-only': readOnly == true}">
+  <div :style='{width: `${(days * width) - action_margin}%`, left: `${(days_ago * width)}%`}' class="pa" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div v-if="date_from" class="calendar__action hover_action" ref="action">
       <div class="action__top absolute__top" ref="date">
         <div v-if="show_icon" class="action__icon" :style='{background: `${color}`}'>
@@ -85,6 +85,7 @@ export default {
     },
     month: {},
     index: {},
+    dynamic_class: {},
     // action_date: {},
     // action_name: {
     //   default: 'ВНИИЭФ'

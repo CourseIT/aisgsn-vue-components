@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show" class="v-circles-loader">
+  <div v-if="show" class="v-circles-loader" :class="[dynamic_class]">
     <div class="item-1"></div>
     <div class="item-2"></div>
     <div class="item-3"></div>
@@ -15,7 +15,8 @@ export default {
   props: {
     show: {
       default: true
-    }
+    },
+    dynamic_class: {}
   }
 }
 </script>

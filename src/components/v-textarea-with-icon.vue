@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="textarea-with-icon">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="textarea-with-icon">
     <div class="input-block">
       <p class="label">{{label}}</p>
       <div class="df">
@@ -34,7 +34,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon,

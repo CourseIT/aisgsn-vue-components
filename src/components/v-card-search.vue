@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'read-only': readOnly == true}">
+  <div :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
         <v-input v-model="input_value" :focus="focus" :on_focus="showBlock" :disabled_text="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
@@ -63,6 +63,7 @@ export default {
       default: false
     },
     inc: {},
+    dynamic_class: {}
   },
   components: {
     VInput,

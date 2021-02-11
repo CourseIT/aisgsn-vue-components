@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'card__info': style_type != 'style2', 'card__info-style2': style_type == 'style2', 'read-only': readOnly == true}" @click="action">
+  <div :class="[{'card__info': style_type != 'style2', 'card__info-style2': style_type == 'style2', 'read-only': readOnly == true}, dynamic_class]" @click="action">
     <slot>
     </slot>
   </div>
@@ -14,7 +14,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

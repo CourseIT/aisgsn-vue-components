@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar__user" :class="{'read-only': readOnly == true}">
+  <div class="calendar__user" :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div class="user__left-border"></div>
     <div class="user__info">
       <div class="info__avatar">
@@ -34,7 +34,8 @@ export default {
     },
     action_delete: {
       default: false
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

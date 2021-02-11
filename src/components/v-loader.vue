@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loading" class="v-loader">
+  <div v-if="loading" class="v-loader" :class="[dynamic_class]">
     <div class="loader-background"></div>
     <div class="loader-line-1"></div>
     <div class="loader-line-block">
@@ -13,7 +13,8 @@ export default {
   props: {
     loading: {
       default: false
-    }
+    },
+    dynamic_class: {}
   }
 }
 </script>

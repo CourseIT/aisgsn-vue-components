@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="mb20">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="mb20">
     <div class="df">
       <transition name="notifications">
         <div v-if="notifications.length > 0 && !open_submenu" class="link_notifications">
@@ -50,7 +50,8 @@ export default {
         return () => ({})
       }
     },
-    open: {}
+    open: {},
+    dynamic_class: {}
   },
   components: {
     VIcon

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" :style='{width: `${width}`}'>
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" :style='{width: `${width}`}'>
     <div class="search">
       <input type="text" v-model="value" :placeholder="placeholder">
       <div v-if="value != ''" class="icon-btn" @click="value = ''">
@@ -19,7 +19,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   components: {
     VIcon

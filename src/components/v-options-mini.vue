@@ -1,5 +1,5 @@
 <template>
-  <div class="select-btn-mini" :class="{'select-btn-style2': style_type == 'style2'}">
+  <div class="select-btn-mini" :class="[{'select-btn-style2': style_type == 'style2'}, dynamic_class]">
     <button v-if="visible" :class="{'read-only': readOnly == true, 'select-btn': style_type != 'style2', 'select-btn-style2': style_type == 'style2'}" @click="action" class="select_shadow">
       <div class="df aic w100 hover-btn jcc">
         <div v-html="html"></div>
@@ -27,7 +27,8 @@ export default {
         return () => ({})
       }
     },
-    html: {}
+    html: {},
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

@@ -1,5 +1,5 @@
 <template>
-  <button class="calendar__month-btn" :class="{'no-active': !active, 'read-only': readOnly == true}" :style='{width: `${width}`}'>
+  <button class="calendar__month-btn" :class="[{'no-active': !active, 'read-only': readOnly == true}, dynamic_class]" :style='{width: `${width}`}'>
     <slot>Test</slot>
   </button>
 </template>
@@ -10,7 +10,8 @@ export default {
     read_only: {},
     width: {},
     text: {},
-    month: {}
+    month: {},
+    dynamic_class: {}
   },
   data: () => ({
     active: false,

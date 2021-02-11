@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar__clear-acion" :class="{'w1': pick_date == 3, 'read-only': readOnly == true}"></div>
+  <div class="calendar__clear-acion" :class="[{'w1': pick_date == 3, 'read-only': readOnly == true}, dynamic_class]"></div>
 </template>
 
 <script>
@@ -8,7 +8,8 @@ export default {
     read_only: {},
     pick_date: {
       default: 0
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

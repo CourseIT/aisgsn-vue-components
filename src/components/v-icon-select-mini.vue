@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-select-mini" :class="{'icon-select': style_type != 'style2', 'icon-select-style2': style_type == 'style2'}">
+  <div class="icon-select-mini" :class="[{'icon-select': style_type != 'style2', 'icon-select-style2': style_type == 'style2'}, dynamic_class]">
     <v-icon :icon="icon" :action="showSelects" :hover_color="hover_color" :prompt="hint" :hover_shadow="hover_shadow" :font_size="font_size"  :class="{'icon__active': show_selects}" />
     <div v-if="show_selects" class="select-block">
       <div @click="showSelects">
@@ -33,7 +33,8 @@ export default {
       default: '15px'
     },
     options: {},
-    dark_bg:{}
+    dark_bg:{},
+    dynamic_class: {}
   },
   components: {
     VIcon

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="v-alert">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="v-alert">
     <div :class="{'alert': style_type != 'style2', 'alert-style2': style_type == 'style2'}">
       <div class="alert__text">
         <slot>
@@ -33,7 +33,8 @@ export default {
     },
     action_close: {},
     action_apply: {},
-    text: {}
+    text: {},
+    dynamic_class: {}
   },
   components: {
     VIcon,

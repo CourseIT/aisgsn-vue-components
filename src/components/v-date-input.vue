@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" :class="{'read-only': readOnly == true}" class="date-input">
+  <div v-if="visible" :class="[{'read-only': readOnly == true}, dynamic_class]" class="date-input">
     <div class="df">
       <span v-if="obligatory" class="obligatory">*</span>
       <p v-if="label" class="label">{{label}}</p>
@@ -18,7 +18,8 @@ export default {
     read_only: {},
     visible: {
       default: true
-    }
+    },
+    dynamic_class: {}
   },
   data: () => ({
     date: '',

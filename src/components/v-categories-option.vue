@@ -1,5 +1,5 @@
 <template>
-  <button v-if="visible" :class="{'read-only': readOnly == true, 'categories-btn': style_type != 'style2', 'categories-btn-style2': style_type == 'style2'}" @click="$emit('input', option)">
+  <button v-if="visible" :class="[{'read-only': readOnly == true, 'categories-btn': style_type != 'style2', 'categories-btn-style2': style_type == 'style2'}, dynamic_class]" @click="$emit('input', option)">
     <div class="circle-block">
       <div v-if="value == option || list.includes(option)" class="circle"></div>
     </div>
@@ -28,7 +28,8 @@ export default {
       default: function() {
         return () => ({})
       }
-    }
+    },
+    dynamic_class: {}
   },
   computed: {
     readOnly() {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="visible" ref="radio" class="checkup-card-list__radio" :class="{'read-only': readOnly == true, 'green-radio': radio_color == 'green', 'checkup-card-list__radio-error': error}">
+  <div v-if="visible" ref="radio" class="checkup-card-list__radio" :class="[{'read-only': readOnly == true, 'green-radio': radio_color == 'green', 'checkup-card-list__radio-error': error}, dynamic_class]">
     <div class="df">
       <span v-if="obligatory" class="obligatory">*</span>
       <div v-if="label" class="df" ref="label">
@@ -42,6 +42,7 @@ export default {
     obligatory: {
       default: false
     },
+    dynamic_class: {}
   },
   components: {
     VIcon
