@@ -2,7 +2,7 @@
   <div :class="[{'read-only': readOnly == true}, dynamic_class]">
     <div :class="{'card__search': style_type != 'style2', 'card__search-style2': style_type == 'style2'}">
       <div class="df">
-        <v-input v-model="input_value" :focus="focus" :on_focus="showBlock" :disabled_text="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
+        <v-input class="input__caret-none" v-model="input_value" :focus="focus" @click="focus = true" :on_focus="showBlock" :disabled_text="disabled" :icon_block="true" :hint="hint" :obligatory="obligatory" :error="error" :placeholder="placeholder" :label="label" ref="input">
           <template #icon>
             <v-icon icon="" font_size="21px" :action="showBlock" :hover_shadow="true" :hover_color="true" :class="{'icon__active': search_block_show}"/>
           </template>
@@ -12,7 +12,7 @@
         </div>
       </div>
       
-      <div v-if="search_block_show" class="search__block" :style="{'width': blockWidth}">
+      <div v-if="search_block_show" ref="searchBlock" class="search__block" :style="{'width': blockWidth}">
         <slot name="search">
           <v-search v-model="search" :hint="false" placeholder="Поиск" />
         </slot>
@@ -90,7 +90,6 @@ export default {
     },
     value(value,preVal) {
       this.prevVal = preVal
-      window.console.log(value, ' --- ', preVal);
       this.search_block_show = false
       this.input_value = value
     },
@@ -116,8 +115,14 @@ export default {
         this.focus = false
         
       } else {
+        setTimeout(()=>{
+          let searchEl = this.$refs.searchBlock.getElementsByClassName('search')[0]
+          let inputEl = searchEl.getElementsByTagName('input')[0]
+          window.console.log(inputEl)
+          inputEl.focus()
+        },0)
         this.search_block_show = true
-        this.focus = true
+        //this.focus = true
       }
       this.action_show()
     },
@@ -186,5 +191,8 @@ export default {
   left: 0;
   width: 100%;
   height: 100vh;
-}
+  }
+  .input__caret-none {
+    caret-color: transparent !important;
+  }
 </style>
