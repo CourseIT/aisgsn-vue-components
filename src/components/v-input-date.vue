@@ -1,5 +1,7 @@
 <template>
   <div :style="{'width': width}" :class="[{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2' }, dynamic_class]">
+    
+    <date-picker class="input-date__hide-data-picker" value-type="format" format="YYYY-MM-DD" v-model="date" :open.sync="open" ></date-picker>
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -37,7 +39,7 @@
           </v-date-picker>
         </v-menu>
         <div v-else class="icon__clear">
-          <v-icon unicode="&#xf51a;" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
+          <v-icon :icon="icon" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
       </div>
     </div>
@@ -45,7 +47,12 @@
 </template>
 
 <script>
+import DatePicker from 'vue2-datepicker';
+import 'vue2-datepicker/index.css';
+import 'vue2-datepicker/locale/ru';
+
 const VIcon = () => import('./v-icon')
+
 
 export default {
   name: 'VInputDate',
@@ -81,9 +88,11 @@ export default {
     dynamic_class: {}
   },
   components: {
-    VIcon
+    VIcon,
+    DatePicker
   },
   data: () => ({
+    open: false,
     label_width: '',
     date: '',
     date_input: '',
@@ -117,6 +126,7 @@ export default {
     } else {
       this.date = null
     }
+    window.console.log(this.$refs.newDatePicker)
   },
   watch: {
     value(value) {
@@ -197,11 +207,12 @@ export default {
   },
   methods: {
     clearDate() {
-      this.date = null
-      this.date_input = ''
-      setTimeout(()=>{
-        this.action()
-      }, 0)
+      this.open = true
+      // this.date = null
+      // this.date_input = ''
+      // setTimeout(()=>{
+      //   this.action()
+      // }, 0)
     }
   }
 }
@@ -394,5 +405,10 @@ export default {
 }
 .clear_btn:hover {
   color: var(--bright-orange);
+}
+.input-date__hide-data-picker {
+  visibility: hidden;
+  height: 46px;
+  position: absolute;
 }
 </style>
