@@ -17,7 +17,7 @@
       </div>
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="df h55" >
         <input v-model="date_range_input" class="input" type="text" ref="input" :class="{'pr25': hint, 'error-status' : error}">
-        <v-menu
+        <!-- <v-menu
           v-if="show_icon"
           ref="menu"
           :nudge-right="56"
@@ -37,7 +37,8 @@
           <v-date-picker v-model="date" no-title :first-day-of-week="1" show-current color="#8d43ff" range>
             <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
-        </v-menu>
+        </v-menu> -->
+        <div v-if="show_icon"></div>
         <div v-else class="icon__clear">
           <v-icon :icon="icon" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
