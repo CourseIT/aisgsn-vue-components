@@ -43,7 +43,8 @@ export default {
   },
   data: () => ({
     light_gamma: false,
-    text_size: 16
+    text_size: 16,
+    checkbox: false
   }),
   mounted() {
     this.checkVisibilityInCookie()
@@ -235,5 +236,11 @@ export default {
 }
 .menu .theme--light.v-input:not(.v-input--is-disabled) input, .theme--light.v-input:not(.v-input--is-disabled) textarea {
   margin-top: 10px !important;
+}
+.menu__checkbox {
+
+}
+.menu__checkbox .v-messages {
+  display: none !important;
 }
 </style>

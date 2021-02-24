@@ -1,7 +1,7 @@
 <template>
   <div :style="{'width': width}" :class="[{'input-date': style_type != 'style2', 'input-date-style2': style_type == 'style2'}, dynamic_class]">
 
-    <date-picker class="input-date__hide-data-picker" value-type="format" format="YYYY-MM-DD" v-model="date" range :open.sync="open" ></date-picker>
+    <div class="df">
     <div class="input-block">
       <div class="df">
         <div class="df" ref="label">
@@ -43,6 +43,8 @@
           <v-icon :icon="icon" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
       </div>
+    </div>
+    <date-picker class="input-date__hide-data-picker" :append-to-body="true" value-type="format" format="YYYY-MM-DD" v-model="date" range :open.sync="open" ></date-picker>
     </div>
   </div>
 </template>
@@ -413,6 +415,7 @@ export default {
   margin-bottom: 5px;
 }
 .input-date .input-block {
+  width: 100%;
   cursor: pointer;
 }
 .input-date .icon-date {
@@ -471,8 +474,13 @@ export default {
   color: var(--bright-orange);
 }
 .input-date__hide-data-picker {
+  width: 45px;
   visibility: hidden;
+  margin-left: -45px;
+  position: relative;
+  left: 0px;
+  /* visibility: hidden;
   height: 46px;
-  position: absolute;
+  position: absolute; */
 }
 </style>

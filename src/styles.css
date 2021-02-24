@@ -1392,6 +1392,87 @@ button {
 }
 /* style2 */
 
+
+
+
+
+.mx-datepicker-main .mx-datepicker-popup {
+  padding: 9px !important;
+  padding-top: 0 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 7px 10px 0 rgb(34 34 34 / 22%) !important;
+  background-color: var(--white) !important;
+}
+.mx-datepicker-main .mx-calendar {
+  padding: 9px !important;
+  padding-top: 5px !important;
+}
+.mx-datepicker-main .mx-table thead {
+  padding: 12px 21px 12px 19px;
+  background-color: var(--pale-lilac);
+}
+.mx-datepicker-main .mx-table thead::before {
+  content: '';
+  height: 32px;
+  width: 10px;
+  background-color: var(--pale-lilac);
+  position: absolute;
+  left: -9px;
+}
+.mx-datepicker-main .mx-table thead::after {
+  content: '';
+  height: 32px;
+  width: 10px;
+  background-color: var(--pale-lilac);
+  position: absolute;
+  right: -10px;
+  top: 0px;
+}
+.mx-datepicker-main .mx-btn {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--dark);
+}
+.mx-datepicker-main .mx-calendar-header .mx-btn:hover {
+  color: #8d43ff;
+}
+.mx-datepicker-main .mx-calendar-header {
+  margin-bottom: 5px;
+}
+
+.mx-datepicker-main .mx-calendar-header-label .mx-btn:hover {
+  box-shadow: none !important;
+  background-color: none !important;
+  color: #8d43ff !important;
+}
+.mx-datepicker-main .today {
+  color: #8d43ff !important;
+}
+
+.mx-datepicker-main .mx-range-wrapper .active:nth-child(2n){
+  border-radius: 4px 0px 0px 4px !important;
+  background-color: var(--purpley) !important;
+  color: #fff !important;
+}
+.mx-datepicker-main .mx-range-wrapper .active:nth-child(2n+1){
+  border-radius: 0px 4px 4px 0px !important;
+  background-color: var(--purpley) !important;
+  color: #fff !important;
+}
+.mx-datepicker-main  .active:nth-child(2n+1){
+  border-radius: 4px !important;
+  background-color: var(--purpley) !important;
+  color: #fff !important;
+}
+.mx-datepicker-main .in-range {
+  color: #fff !important;
+  background-color: #8e43ff85 !important;
+}
 .media-min-1500 {
   display: none;
 }
