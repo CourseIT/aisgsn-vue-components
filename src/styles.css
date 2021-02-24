@@ -1464,7 +1464,7 @@ button {
   background-color: var(--purpley) !important;
   color: #fff !important;
 }
-.mx-datepicker-main  .active:nth-child(2n+1){
+.mx-datepicker-main .active{
   border-radius: 4px !important;
   background-color: var(--purpley) !important;
   color: #fff !important;
