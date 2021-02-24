@@ -38,9 +38,9 @@
             <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
         </v-menu> -->
-        <div v-if="!show_icon"></div>
+        <div v-if="!show_icon" class="mr56"></div>
         <div v-else class="icon__clear">
-          <v-icon :icon="icon" :action="openDatepicker" font_size="21px" prompt="Очистить" :hover_color="true" />
+          <v-icon :icon="icon" :action="openDatepicker" font_size="21px" prompt="Выбрать дату" :hover_color="true" />
         </div>
       </div>
     </div>
@@ -425,7 +425,6 @@ export default {
 }
 .input-date .input-block {
   width: 100%;
-  cursor: pointer;
 }
 .input-date .icon-date {
   cursor: pointer;
