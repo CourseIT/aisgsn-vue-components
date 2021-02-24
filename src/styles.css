@@ -1453,19 +1453,7 @@ button {
 .mx-datepicker-main .today {
   color: #8d43ff !important;
 }
-
-.mx-datepicker-main .mx-range-wrapper .active:nth-child(2n){
-  border-radius: 4px 0px 0px 4px !important;
-  background-color: var(--purpley) !important;
-  color: #fff !important;
-}
-.mx-datepicker-main .mx-range-wrapper .active:nth-child(2n+1){
-  border-radius: 0px 4px 4px 0px !important;
-  background-color: var(--purpley) !important;
-  color: #fff !important;
-}
 .mx-datepicker-main .active{
-  border-radius: 4px !important;
   background-color: var(--purpley) !important;
   color: #fff !important;
 }
