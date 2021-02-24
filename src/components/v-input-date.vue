@@ -38,13 +38,19 @@
             <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
         </v-menu> -->
-        <div v-if="show_icon"></div>
+        <div v-if="!show_icon"></div>
         <div v-else class="icon__clear">
-          <v-icon :icon="icon" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
+          <v-icon :icon="icon" :action="openDatepicker" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
       </div>
     </div>
-    <date-picker class="input-date__hide-data-picker" value-type="format" format="YYYY-MM-DD" v-model="date" :open.sync="open" ></date-picker>
+    <date-picker class="input-date__hide-data-picker" value-type="format" format="YYYY-MM-DD" v-model="date" :open.sync="open" >
+      <template v-slot:footer>
+          <button class="mx-btn mx-btn-text" @click="clearDate">
+            Сбросить
+          </button>
+        </template>
+    </date-picker>
   </div>
   </div>
 </template>
@@ -210,12 +216,15 @@ export default {
   },
   methods: {
     clearDate() {
+      //this.open = true
+      this.date = null
+      this.date_input = ''
+      setTimeout(()=>{
+        this.action()
+      }, 0)
+    },
+    openDatepicker() {
       this.open = true
-      // this.date = null
-      // this.date_input = ''
-      // setTimeout(()=>{
-      //   this.action()
-      // }, 0)
     }
   }
 }

@@ -38,13 +38,19 @@
             <button v-if="button" class="clear_btn" @click="clearDate">Сбросить</button>
           </v-date-picker>
         </v-menu> -->
-        <div v-if="show_icon"></div>
+        <div v-if="!show_icon"></div>
         <div v-else class="icon__clear">
-          <v-icon :icon="icon" :action="clearDate" font_size="21px" prompt="Очистить" :hover_color="true" />
+          <v-icon :icon="icon" :action="openDatepicker" font_size="21px" prompt="Очистить" :hover_color="true" />
         </div>
       </div>
     </div>
-    <date-picker class="input-date__hide-data-picker" :append-to-body="true" value-type="format" format="YYYY-MM-DD" v-model="date" range :open.sync="open" ></date-picker>
+    <date-picker class="input-date__hide-data-picker" :append-to-body="true" value-type="format" format="YYYY-MM-DD" v-model="date" range :open.sync="open" >
+      <template v-slot:footer>
+          <button class="mx-btn mx-btn-text" @click="clearDate">
+            Сбросить
+          </button>
+        </template>
+    </date-picker>
     </div>
   </div>
 </template>
@@ -271,13 +277,16 @@ export default {
   },
   methods: {
     clearDate() {
+      //this.open = true
+      this.date_range_input = ''
+      this.date = []
+      this.menu = false
+      setTimeout(()=>{
+        this.action()
+      }, 0)
+    },
+    openDatepicker() {
       this.open = true
-      // this.date_range_input = ''
-      // this.date = []
-      // this.menu = false
-      // setTimeout(()=>{
-      //   this.action()
-      // }, 0)
     }
   }
 }
@@ -479,8 +488,5 @@ export default {
   margin-left: -45px;
   position: relative;
   left: 0px;
-  /* visibility: hidden;
-  height: 46px;
-  position: absolute; */
 }
 </style>

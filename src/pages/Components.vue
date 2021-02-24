@@ -756,9 +756,9 @@ v-radio-buttons
     <v-open-browser-tab style="margin-left: 100px" class="mt20" />
 
     <div style="width: 70%; margin-top: 50px; margin-bottom: 100px;">
-            <v-input-date v-model="test_date" :show_icon="true" />
-            <v-input-date-range v-model="test_date2" :show_icon="false" />
             <v-input-date v-model="test_date" :show_icon="false" />
+            <v-input-date-range v-model="test_date2" />
+            <v-input-date v-model="test_date" />
 
     </div>
 

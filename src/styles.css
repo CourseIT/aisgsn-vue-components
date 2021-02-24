@@ -1461,6 +1461,9 @@ button {
   color: #fff !important;
   background-color: #8e43ff85 !important;
 }
+.mx-datepicker-main .mx-datepicker-footer .mx-btn:hover {
+  color: #8d43ff !important;
+}
 .media-min-1500 {
   display: none;
 }
