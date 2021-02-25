@@ -763,8 +763,6 @@ v-radio-buttons
     </div>
 
     <v-circles-loader style="margin-bottom: 100px" />
-
-    <v-checkbox />
     
 
 
@@ -840,7 +838,6 @@ const VOptionsMini = () => import('@/components/v-options-mini')
 const VCopyLink = () => import('@/components/v-copy-link')
 const VOpenBrowserTab = () => import('@/components/v-open-browser-tab')
 const VCirclesLoader = () => import('@/components/v-circles-loader')
-const VCheckbox = () => import('@/components/v-checkbox')
 
 
 export default {
@@ -910,7 +907,6 @@ export default {
     VCopyLink,
     VOpenBrowserTab,
     VCirclesLoader,
-    VCheckbox,
   },
   data: () => ({
     dynamic_class: 'test',

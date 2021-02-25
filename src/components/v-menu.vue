@@ -23,10 +23,6 @@
           </div>
           <div class="pt5">
             <slot name="checkbox">
-              <v-checkbox
-                v-model="checkbox"
-                label="En"
-              ></v-checkbox>
             </slot>
           </div>
         </div>

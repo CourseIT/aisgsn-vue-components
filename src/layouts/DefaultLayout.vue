@@ -4,6 +4,12 @@
     </v-header>
     <v-breadcrumbs text="Место работы сотрудника" />
     <v-menu drawer='false'>
+      <template #checkbox>
+        <v-checkbox
+          v-model="checkbox"
+          label="En"
+        ></v-checkbox>
+      </template>
       <template #search>
         <v-search-menu placeholder="Поиск" />
       </template>
