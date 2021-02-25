@@ -21,6 +21,14 @@
               A
             </div>
           </div>
+          <div class="pt5">
+            <slot name="checkbox">
+              <v-checkbox
+                v-model="checkbox"
+                label="En"
+              ></v-checkbox>
+            </slot>
+          </div>
         </div>
         <div class="df">
           <p class="settings__text">Темная гамма</p>
@@ -43,8 +51,7 @@ export default {
   },
   data: () => ({
     light_gamma: false,
-    text_size: 16,
-    checkbox: false
+    text_size: 16
   }),
   mounted() {
     this.checkVisibilityInCookie()

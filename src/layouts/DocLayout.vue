@@ -3,6 +3,12 @@
     <v-header user="Петров А.П." :copy_action="rigth" :notification_action="left" path_dark_logo="/logo_aisgsn1.svg" path_light_logo="/logo_aisgsn2.svg"/>
     <v-breadcrumbs class="breadcrumbs-pos" text="Место работы сотрудника" :action_right="rigth" :action_left="left" />
     <v-menu>
+      <template #checkbox>
+        <v-checkbox
+          v-model="checkbox"
+          label="En"
+        ></v-checkbox>
+      </template>
       <template #search>
         <v-search-menu v-model="search" placeholder="Поиск" />
       </template>

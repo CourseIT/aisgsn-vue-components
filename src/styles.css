@@ -1464,6 +1464,43 @@ button {
 .mx-datepicker-main .mx-datepicker-footer .mx-btn:hover {
   color: #8d43ff !important;
 }
+
+
+.v-application--is-ltr .v-messages {
+  display: none !important;
+}
+.v-input--checkbox .v-input__slot {
+  margin-bottom: 0px !important;
+}
+.v-input--checkbox {
+  max-height: 30px;
+  margin-top: 0 !important;
+}
+.v-input--checkbox .v-input--selection-controls__input + .v-label {
+  color: #fff !important;
+  font-size: 12px !important;
+  padding-top: 5px;
+  font-family: 'Roboto';
+}
+.mdi-checkbox-blank-outline::before {
+  content: "";
+  background: var(--white);
+  width: 22px;
+  border-radius: 5px;
+  height: 22px;
+  margin-top: 5px;
+}
+.menu .v-input--checkbox .mdi-checkbox-marked::before {
+  content: "\25CF";
+  font-size: 20px;
+  margin-top: 5px;
+  padding-left: 6px !important;
+  color: var(--weird-green);
+  width: 22px;
+  height: 22px !important;
+  background: var(--white);
+  border-radius: 5px;
+}
 .media-min-1500 {
   display: none;
 }
