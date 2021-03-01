@@ -12,16 +12,19 @@
       </div>
       <div class="menu__settings">
         <div class="df jcsb">
-          <p class="settings__text">Размер шрифта</p>
           <div class="df">
-            <div @click="textSizeMinus" class="text-minus" :class="{'icon-btn__disable': text_size === 14, 'color-black': light_gamma}">
-              A
-            </div>
-            <div @click="textSizePlus" class="text-plus" :class="{'icon-btn__disable': text_size === 18, 'color-black': light_gamma}">
-              A
+            <p class="settings__text">Размер шрифта</p>
+            <div class="df">
+              <div @click="textSizeMinus" class="text-minus" :class="{'icon-btn__disable': text_size === 14, 'color-black': light_gamma}">
+                A
+              </div>
+              <div @click="textSizePlus" class="text-plus" :class="{'icon-btn__disable': text_size === 18, 'color-black': light_gamma}">
+                A
+              </div>
             </div>
           </div>
-          <div class="pt5">
+          
+          <div class="pt6 pr5">
             <slot name="checkbox">
             </slot>
           </div>
@@ -114,7 +117,8 @@ export default {
   text-align: left;
   color: var(--pre-light);
   margin-top: 8px;
-  margin-right: 25px;
+  margin-right: 18px;
+  margin-left: 16px;
 }
 .text-plus{
   cursor: pointer;

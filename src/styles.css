@@ -129,6 +129,15 @@ input {
 .pr56 {
   padding-right: 56px;
 }
+.pr5 {
+  padding-right: 5px;
+}
+.pt5{
+  padding-top: 5px;
+}
+.pt6{
+  padding-top: 5px;
+}
 .ml312 {
   margin-left: 312px;
 }
