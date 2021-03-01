@@ -15,10 +15,10 @@
           <div class="df">
             <p class="settings__text">Размер шрифта</p>
             <div class="df">
-              <div @click="textSizeMinus" class="text-minus" :class="{'icon-btn__disable': text_size === 14, 'color-black': light_gamma}">
+              <div @click="textSizeMinus" class="text-minus pt3" :class="{'icon-btn__disable': text_size === 14, 'color-black': light_gamma}">
                 A
               </div>
-              <div @click="textSizePlus" class="text-plus" :class="{'icon-btn__disable': text_size === 18, 'color-black': light_gamma}">
+              <div @click="textSizePlus" class="text-plus pt5" :class="{'icon-btn__disable': text_size === 18, 'color-black': light_gamma}">
                 A
               </div>
             </div>
