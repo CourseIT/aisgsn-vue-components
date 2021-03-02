@@ -1,6 +1,6 @@
 {
   "name": "axeta-vue-elements",
-  "version": "2.2.19",
+  "version": "2.2.20",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
