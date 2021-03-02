@@ -147,7 +147,7 @@ export default {
     padding-left: 0px;
     position: absolute;
     width: inherit;
-    z-index: 9;
+    z-index: 10;
     margin-top: -8px;
   }
   .icon-btn {
