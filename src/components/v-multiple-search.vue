@@ -89,6 +89,7 @@ export default {
   }),
   watch:{
     search(search) {
+      this.search = search.replace(/"([^"]+)"/g, '«$1»')
       this.$emit('input', {
         search: search,
         search_list: this.search_list

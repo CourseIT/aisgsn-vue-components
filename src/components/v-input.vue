@@ -197,6 +197,7 @@ export default {
       }, 2000)
     },
     input_value(value) {
+      this.value = value.replace(/"([^"]+)"/g, '«$1»')
       if(this.disabled_text && value) {
         if(value != this.value) {
           this.input_value = this.value
@@ -216,6 +217,7 @@ export default {
       }, 2000)
     },
     value(value) {
+      this.value = value.replace(/"([^"]+)"/g, '«$1»')
       if(this.type == 'number') {
         this.number_value = Number(value)
       } else {

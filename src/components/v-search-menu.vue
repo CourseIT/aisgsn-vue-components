@@ -27,6 +27,7 @@ export default {
   },
   watch:{
     value(value) {
+      this.value = value.replace(/"([^"]+)"/g, '«$1»')
       this.$emit('input', value)
     }
   },
