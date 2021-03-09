@@ -4,12 +4,12 @@
         <v-icon :action="action_left" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow1" />
         <v-icon :action="action_right" icon="" font_size="21px" :hover_color="true" color="var(--pale-grey)" class="breadcrumbs__arrow2" />
       <div v-if="visible" :class="{'read-only': readOnly == true}" class="breadcrumbs">
-        <p v-if="text" class="breadcrumbs__text">{{text}}</p>
-        <!-- <v-breadcrumbs :items="items" :large="large">
+        <!-- <p v-if="text" class="breadcrumbs__text">{{text}}</p> -->
+        <v-breadcrumbs :items="items" :large="large">
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
           </template>
-        </v-breadcrumbs> -->
+        </v-breadcrumbs>
       </div>
       <div>
         <slot>
@@ -49,8 +49,12 @@ export default {
         return [
           {
             text: 'Главная',
-            disabled: false,
+            disabled: true,
             href: '/',
+          },
+          {
+            text: 'Место работы сотрудника',
+            disabled: true,
           }
         ]
       } 
