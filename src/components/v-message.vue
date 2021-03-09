@@ -61,7 +61,6 @@ export default {
       let vm = this;
         if (this.notifications.length) {
           setTimeout(function () {
-            window.console.log('remove');
             vm.notifications.splice(0, 1)
           }, vm.timeout)
         }

@@ -9,6 +9,15 @@
           <template v-if="customDiv" v-slot:divider>
             <span class="breadcrumbs_icon"></span>
           </template>
+          <template v-slot:item="{ item }">
+            <v-breadcrumbs-item
+              :href="item.href"
+              :disabled="item.disabled"
+              @click="item.action()"
+            >
+              {{ item.text }}
+            </v-breadcrumbs-item>
+          </template>
         </v-breadcrumbs>
       </div>
       <div>
@@ -50,11 +59,11 @@ export default {
           {
             text: 'Главная',
             disabled: true,
-            href: '/',
           },
           {
             text: 'Место работы сотрудника',
-            disabled: true,
+            disabled: false,
+            action: function() {window.console.log('v-b', this.text)}
           }
         ]
       } 
